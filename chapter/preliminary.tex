@@ -1,0 +1,35 @@
+\chapter{Preliminaries}
+\section{Spacetimes}
+
+\section{Klein-Gordon-Field}
+(Quelle: Birell)
+Consider a massless complex Klein-Gordon-field in a curved spacetime with metric \(g_{\mu\nu}\) given by the lagrangian:
+\begin{align*}
+\mathcal{L} &= \sqrt{|g|} g^{\mu\nu} \partial_\mu \phi^*\,\partial_\nu \phi 
+\end{align*}
+
+The equation of motion is given by the Euler-Lagrange-equation:
+\begin{align*}
+\sqrt{|g|}\nabla_\mu\nabla^\mu \phi = \partial_\mu \left(\sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\right) = 0
+\end{align*}
+
+For solutions we also require to drop to zero at the boundary. Define a scalar product of two such solutions $\phi, \psi$ over a Cauchysurface \(\Sigma\) via:
+\begin{align*}
+(\phi,\psi) &:= i \int_{\Sigma} \mathrm{d}S^\mu\, \phi^*\nabla_\mu \psi - \psi\nabla_\mu \phi^*\\
+	&\overset{\mathrm{pi}}{=}  2i\int_{\Sigma}\mathrm{d}S^\mu\, \phi^*\nabla_\mu \psi
+\end{align*}
+
+(Quelle: Townsend)The scalar product is independent of the choice of \(\Sigma\): Assume two Cauchysurfaces \(\Sigma\), \(\Sigma'\) and denote the 'sandwiched' region between them by \(A\). Then by Gauss' law
+\begin{align*}
+(\phi,\psi) - (\phi,\psi)' &= i\int_{\Sigma}\mathrm{d}S^\mu\, \phi^*\nabla_\mu \psi - \psi\nabla_\mu \phi^* - \int_{\Sigma'}\mathrm{d}S^\mu\, \phi^*\nabla_\mu \psi - \psi\nabla_\mu \phi^*\\
+	&= i\int_{A} \sqrt{|g|} \mathrm{d^4}x\,\nabla^\mu \left(\phi^*\nabla_\mu \psi - \psi\nabla_\mu \phi^*\right)\\
+	&= i\int_{A} \sqrt{|g|} \mathrm{d^4}x\,\phi^*\nabla^\mu\nabla_\mu \psi - \psi \nabla^\mu\nabla_\mu\phi^* = 0.
+\end{align*}
+
+Note that \((\phi^*,\psi^*) = -(\phi,\psi)^*\)
+
+Now choose a complete set of solutions $\{u_i\}$, such that
+\begin{align*}
+(u_i, u_j) = \delta_{ij},\,(u_i^*, u_j^*) = -\delta_{ij}\,\text{and}\,(u_i^*, u_j) = 0
+\end{align*}
+

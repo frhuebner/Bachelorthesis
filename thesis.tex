@@ -42,7 +42,7 @@
 %------------------------------------------------------------------------------
 % When writing your thesis it is often helpful to have the date and
 % time in the output file. Comment this out for the final version.
-\ifoot[\today{} \thistime]{\today{} \thistime}
+%\ifoot[\today{} \thistime]{\today{} \thistime}
 
 % In order to check if your labels are referenced try the refcheck package
 % \usepackage{refcheck}
@@ -63,14 +63,14 @@
 % The following definitions are used to produce the title pages
 % needed at various stages
 \newcommand{\thesistitle}{Title of the Thesis}
-\newcommand*{\thesisauthor}{Author's name}
-\newcommand*{\thesistown}{Place of birth}
+\newcommand*{\thesisauthor}{Friedrich Hübner}
+\newcommand*{\thesistown}{Jena}
 \renewcommand*{\InstituteName}{\PI}
 \renewcommand*{\inInstitute}{\inPI}
 \renewcommand*{\InstituteAddress}{\PIaddress}
 % Adjust \thesisreferee...text depending on male/female referee
 \newcommand*{\thesisrefereeonetext}{1.\ Gutachter}
-\newcommand*{\thesisrefereeone}{Prof.\ Dr.\ John Smith}
+\newcommand*{\thesisrefereeone}{Dr. Stefan Förste}
 \newcommand*{\thesisrefereetwotext}{2.\ Gutachterin}
 \newcommand*{\thesisrefereetwo}{Prof.\ Dr.\ Anne Jones}
 % Date when thesis was submitted (Master/Diplom)
@@ -188,9 +188,11 @@
   }
 }{}
 
+\input{chapter/preliminary.tex}
+
 %------------------------------------------------------------------------------
 % Add your chapters here - don't forget to also add them to \includeonly above
-\include{thesis_intro}
+%\include{thesis_intro}
 % Uncomment the following command to get references per chapter.
 % Put it inside the file or change \include to \input if you do not want the references
 % on a separate page
