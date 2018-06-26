@@ -5,7 +5,7 @@
 (Quelle: Birell)
 Consider a massless complex Klein-Gordon-field in a curved spacetime with metric \(g_{\mu\nu}\) given by the lagrangian:
 \begin{align*}
-\mathcal{L} &= \sqrt{|g|} g^{\mu\nu} \partial_\mu \phi^*\,\partial_\nu \phi 
+\mathcal{L} &= \sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\,\partial_\nu \phi 
 \end{align*}
 
 The equation of motion is given by the Euler-Lagrange-equation:
@@ -15,21 +15,37 @@ The equation of motion is given by the Euler-Lagrange-equation:
 
 For solutions we also require to drop to zero at the boundary. Define a scalar product of two such solutions $\phi, \psi$ over a Cauchysurface \(\Sigma\) via:
 \begin{align*}
-(\phi,\psi) &:= i \int_{\Sigma} \mathrm{d}S^\mu\, \phi^*\nabla_\mu \psi - \psi\nabla_\mu \phi^*\\
-	&\overset{\mathrm{pi}}{=}  2i\int_{\Sigma}\mathrm{d}S^\mu\, \phi^*\nabla_\mu \psi
+(\phi|\psi) &:= i \int_{\Sigma} \mathrm{d}S^\mu\, \phi^*\nabla_\mu \psi - \psi\nabla_\mu \phi^* = i \int_{\Sigma} \mathrm{d}S^\mu\, \phi^*\overset{\leftrightarrow}{\nabla}_\mu \psi
 \end{align*}
 
 (Quelle: Townsend)The scalar product is independent of the choice of \(\Sigma\): Assume two Cauchysurfaces \(\Sigma\), \(\Sigma'\) and denote the 'sandwiched' region between them by \(A\). Then by Gauss' law
 \begin{align*}
-(\phi,\psi) - (\phi,\psi)' &= i\int_{\Sigma}\mathrm{d}S^\mu\, \phi^*\nabla_\mu \psi - \psi\nabla_\mu \phi^* - \int_{\Sigma'}\mathrm{d}S^\mu\, \phi^*\nabla_\mu \psi - \psi\nabla_\mu \phi^*\\
+(\phi|\psi) - (\phi|\psi)' &= i\int_{\Sigma}\mathrm{d}S^\mu\, \phi^*\nabla_\mu \psi - \psi\nabla_\mu \phi^* - \int_{\Sigma'}\mathrm{d}S^\mu\, \phi^*\nabla_\mu \psi - \psi\nabla_\mu \phi^*\\
 	&= i\int_{A} \sqrt{|g|} \mathrm{d^4}x\,\nabla^\mu \left(\phi^*\nabla_\mu \psi - \psi\nabla_\mu \phi^*\right)\\
 	&= i\int_{A} \sqrt{|g|} \mathrm{d^4}x\,\phi^*\nabla^\mu\nabla_\mu \psi - \psi \nabla^\mu\nabla_\mu\phi^* = 0.
 \end{align*}
 
-Note that \((\phi^*,\psi^*) = -(\phi,\psi)^*\)
+Note that \((\phi^*|\psi^*) = -(\phi|\psi)^*\) and \((\phi|\psi)^* = (\psi|\phi)\).\\
 
 Now choose a complete set of solutions $\{u_i\}$, such that
 \begin{align*}
-(u_i, u_j) = \delta_{ij},\,(u_i^*, u_j^*) = -\delta_{ij}\,\text{and}\,(u_i^*, u_j) = 0
+(u_i| u_j) = \delta_{ij},\,(u_i^*| u_j^*) = -\delta_{ij}\,\text{and}\,(u_i^*| u_j) = 0
 \end{align*}
+
+Using a Bra-Ket-like notation the completeness can be written by \(\mathbb{I} = \sum_i |u_i)(u_i| - |u_i^*)(u_i^*|\)
+
+\section{Quantisation and Bogolubov Transformations}
+
+(Quelle: arXiv1011.5875 )We can quantize the field by introducing the canonical commutation relations CCR on a cauchysurface \(\Sigma\) with (future directed) normal vector $S^\mu$:
+
+\begin{align*}
+[\phi(x),\phi(x')]_\Sigma &= 0\\
+[\phi(x),\nabla_S \phi(x')]_\Sigma &= i\delta(x-x')\\
+[\nabla_S \phi(x),\nabla_S \phi(x')]_\Sigma &= 0\\
+\end{align*}
+
+One can show that if they hold on one cauchysurface they hold on every cauchysurface.\\
+Given a complete set of modes this leads to \(\phi = \sum_i u_i a_i + u_i^* a_i^\dagger\), with \([a_i,a_j^\dagger] = \delta_{ij}\).\\
+
+Of course there are many different complete sets. One could also expand it in a different set \(\{v_j\}\): \(\phi = \sum_j v_j b_j + v_j^* b_j^\dagger\). The b's are given by \(b_j = \sum_i (v_j|u_i) a_i - (v_j^*|u_i) a_i^\dagger\) 
 
