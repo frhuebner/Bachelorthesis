@@ -1,36 +1,39 @@
 \chapter{Preliminaries}
 \section{Spacetimes}
 
+\subsection{Schwarzschild solution}
+In this thesis we will only use the Schwarzschild-metric for describing stars and black holes.
+
 \section{Klein-Gordon-Field}
 (Quelle: Birell)
 Consider a massless complex Klein-Gordon-field in a curved spacetime with metric \(g_{\mu\nu}\) given by the lagrangian:
-\begin{align*}
+\begin{align}
 \mathcal{L} &= \sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\,\partial_\nu \phi 
-\end{align*}
+\end{align}
 
 The equation of motion is given by the Euler-Lagrange-equation:
-\begin{align*}
+\begin{align}
 \sqrt{|g|}\nabla_\mu\nabla^\mu \phi = \partial_\mu \left(\sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\right) = 0
-\end{align*}
+\end{align}
 
 For solutions we also require to drop to zero at the boundary. Define a scalar product of two such solutions $\phi, \psi$ over a Cauchysurface \(\Sigma\) via:
-\begin{align*}
+\begin{align}
 (\phi|\psi) &:= i \int_{\Sigma} \mathrm{d}S^\mu\, \phi^*\nabla_\mu \psi - \psi\nabla_\mu \phi^* = i \int_{\Sigma} \mathrm{d}S^\mu\, \phi^*\overset{\leftrightarrow}{\nabla}_\mu \psi
-\end{align*}
+\end{align}
 
 (Quelle: Townsend)The scalar product is independent of the choice of \(\Sigma\): Assume two Cauchysurfaces \(\Sigma\), \(\Sigma'\) and denote the 'sandwiched' region between them by \(A\). Then by Gauss' law
-\begin{align*}
+\begin{align}
 (\phi|\psi) - (\phi|\psi)' &= i\int_{\Sigma}\mathrm{d}S^\mu\, \phi^*\nabla_\mu \psi - \psi\nabla_\mu \phi^* - \int_{\Sigma'}\mathrm{d}S^\mu\, \phi^*\nabla_\mu \psi - \psi\nabla_\mu \phi^*\\
 	&= i\int_{A} \sqrt{|g|} \mathrm{d^4}x\,\nabla^\mu \left(\phi^*\nabla_\mu \psi - \psi\nabla_\mu \phi^*\right)\\
 	&= i\int_{A} \sqrt{|g|} \mathrm{d^4}x\,\phi^*\nabla^\mu\nabla_\mu \psi - \psi \nabla^\mu\nabla_\mu\phi^* = 0.
-\end{align*}
+\end{align}
 
 Note that \((\phi^*|\psi^*) = -(\phi|\psi)^*\) and \((\phi|\psi)^* = (\psi|\phi)\).\\
 
 Now choose a complete set of solutions $\{u_i\}$, such that
-\begin{align*}
+\begin{align}
 (u_i| u_j) = \delta_{ij},\,(u_i^*| u_j^*) = -\delta_{ij}\,\text{and}\,(u_i^*| u_j) = 0
-\end{align*}
+\end{align}
 
 Using a Bra-Ket-like notation the completeness can be written by \(\mathbb{I} = \sum_i |u_i)(u_i| - |u_i^*)(u_i^*|\).\\
 
@@ -40,11 +43,11 @@ We will later often choose a basis of positiv frequency solutions. A solution $u
 
 (Quelle: arXiv1011.5875 )We can quantize the field by introducing the canonical commutation relations CCR on a cauchysurface \(\Sigma\) with (future directed) normal vector $S^\mu$:
 
-\begin{align*}
+\begin{align}
 [\phi(x),\phi(x')]_\Sigma &= 0\\
 [\phi(x),\nabla_S \phi(x')]_\Sigma &= i\delta(x-x')\\
 [\nabla_S \phi(x),\nabla_S \phi(x')]_\Sigma &= 0\\
-\end{align*}
+\end{align}
 
 One can show that if they hold on one cauchysurface they hold on every cauchysurface.\\
 Given a complete set of modes this leads to \(\phi = \sum_i u_i a_i + u_i^* a_i^\dagger\), with \(a\) a bosonic annihilation operator satisfying \([a_i,a_j^\dagger] = \delta_{ij}\).\\
@@ -76,9 +79,9 @@ Later we will also need thermal greens function. These are given by replacing th
 
 First observe that since \(i D(x,x') = [\phi(x),\phi(x')]\) is a c-number \(D(x,x')\) it has the same value as in the vacuum case.\\
 Using \(\phi(t,\vec{x}) = e^{i H t}\phi(0)e^{-i H t}\) we obtain:
-\begin{align*}
+\begin{align}
 D^+_\beta = \frac{1}{Z} \mathrm{Tr} e^{-\beta H} \phi(x)\phi(x')
-\end{align*}
+\end{align}
 
 TODO: thermal greens function
 
@@ -89,48 +92,49 @@ Therefore we can calculate \(D^{(1)}_\beta(t,\vec{x};t',\vec{x}') = \sum_k D^(1)
 \section{Particle Detectors}
 The treatment of a particle detector follows (Quelle: Birell Davies) and goes back to Unruh. One describes a detector by a operator \(m(\tau)\) which couples to the field via a interaction term \(c\cdot m(\tau) \phi(x(\tau))\), where \(c\) is small and \(x(\tau)\) is the trajectory of the detector. For \(\tau \to -\infty\) the detector is in the groundstate \(\ket{E_0}\) and the field is in the vacuum state \(\ket{0}\). The detector develops with time according to \(m(\tau) = e^{i H_0 \tau} m(0) e^{-i H_0 \tau}\) with \(H_0 \ket{E} = E\ket{E}\).\\
 We would like to calculate the probability that the detector detects a particle with energy \(E\). Since \(c\) is small one can use first order perturbation theory where the transition amplitude to another state \(\ket{E,\psi}\) at time \(\tau\) is given by
-\begin{align*}
+\begin{align}
 A_{\ket{E_0,0}\to\ket{E,\psi}}(\tau) &= i c \bra{E,\psi} \int_{-\infty}^\tau m(\tau') \phi(x(\tau'))\mathrm{d}\tau'\ket{E_0,0}\\
 	&= i c \bra{E,\psi} \int_{-\infty}^\tau e^{i H_0 \tau'} m(0) e^{-i H_0 \tau'} \phi(x(\tau'))\mathrm{d}\tau'\ket{E_0,0}\\
 	&= i c \bra{\psi} \int_{-\infty}^\tau e^{i E \tau'} \bra{E}m(0)\ket{E_0}  e^{-i E_0 \tau'} \phi(x(\tau'))\mathrm{d}\tau'\ket{0}\\
 	&= i c \bra{E}m(0)\ket{E_0} \int_{-\infty}^\tau e^{i (E-E_0) \tau'} \bra{\psi}\phi(x(\tau'))\ket{0}\mathrm{d}\tau'\\
-\end{align*}
+\end{align}
 
 The transition probability is \(P_{\ket{E_0,0}\to\ket{E,\psi}}(\tau) = |A_{\ket{E_0,0}\to\ket{E,\psi}}(\tau)|^2\). But since we are only interested in the state of the detector we sum over all field configurations:
-\begin{align*}
+\begin{align}
 P_E(\tau) &:= \sum_{i} P_{\ket{E_0,0}\to\ket{E,\psi_i}}(\tau) = \sum_{i}  |A_{\ket{E_0,0}\to\ket{E,\psi}}(\tau)|^2\\
 		  &= c^2 |\bra{E}m(0)\ket{E_0}|^2 F_{E-E_0}(\tau)\\
 \text{with}\,F_E(\tau) &= \sum_{i}\left|\int_{-\infty}^\tau e^{i (E-E_0) \tau} \bra{\psi_i}\phi(x(\tau'))\ket{0}\mathrm{d}\tau'\right|^2\\
 	&= \sum_{i} \int_{-\infty}^\tau e^{-i E \tau''} \bra{0}\phi(x(\tau''))\mathrm{d}\tau''\ket{\psi_i}\bra{\psi_i}\int_{-\infty}^\tau e^{i E \tau'} \phi(x(\tau'))\ket{0}\mathrm{d}\tau'\\
 	&= \int_{-\infty}^\tau\mathrm{d}\tau' \int_{-\infty}^\tau \mathrm{d}\tau'' e^{-i E (\tau''-\tau')} \bra{0}\phi(x(\tau'')) \phi(x(\tau'))\ket{0} := \int_{-\infty}^\tau\mathrm{d}\tau' \int_{-\infty}^\tau \mathrm{d}\tau'' e^{-i E (\tau''-\tau')} D^+(x(\tau''), x(\tau'))
-\end{align*}
+\end{align}
 
 There we introduced the Wightman function \(D^+(x,x') = \bra{0}\phi(x) \phi(x')\ket{0}\). The probability splits in a product of two parts. The first one only depends on the model of the detector while the second part only depends on the trajectory. We will therefore interpret the function \(F_E(\tau)\) as the distribution of energy excitations as been 'seen' by an observer on the trajectory \(x(\tau)\).\\
 The transition rate is then given by:
-\begin{align*}
+\begin{align}
 \cfrac{\mathrm{d}F_E(\tau)}{\mathrm{d}\tau} &= \int_{-\infty}^\tau \mathrm{d}\tau'' e^{-i E (\tau''-\tau)} D^+(x(\tau''), x(\tau)) \phi(x(\tau))\ket{0} + \int_{-\infty}^\tau \mathrm{d}\tau' e^{-i E (\tau-\tau')} D^+(x(\tau), x(\tau'))\\
 &= \int_{-\infty}^\tau \mathrm{d}\tau' e^{-i E (\tau'-\tau)} D^+(x(\tau'), x(\tau)) + e^{-i E (\tau-\tau')} D^+(x(\tau), x(\tau'))\\
 &\overset{\tilde{\tau} = \tau'-\tau}{=} \int_{-\infty}^0 \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau)) + e^{i E \tilde{\tau}} D^+(x(\tau), x(\tilde{\tau} + \tau))\\
 &= 2 \mathrm{Re} \int_{-\infty}^0 \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau))
-\end{align*}
+\end{align}
 
-since \(D^+(x,x')* = D^+(x',x)\). For the special case that the Wightman function does not depend on \(\tau\), i.e. \(D^+(x(\tau_1 + \tau'),x(\tau_2 + \tau')) = D^+(x(\tau_1),x(\tau_2))\) one can simplify this further.
+since \(D^+(x,x')^* = D^+(x',x)\). For the special case that the Wightman function does only depend on the difference of the \(\tau\text{'s}\), i.e. \(D^+(x(\tau_1 + \tau'),x(\tau_2 + \tau')) = D^+(x(\tau_1),x(\tau_2))\) one can simplify this further:
 
-\begin{align*}
+\begin{align}
 \cfrac{\mathrm{d}F_E(\tau)}{\mathrm{d}\tau} &=  \int_{-\infty}^0 \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau)) + \int_{0}^\infty \mathrm{d}\tilde{\tau} e^{- i E \tilde{\tau}} D^+(x(\tau), x(\tau - \tilde{\tau}))\\
 &= \int_{-\infty}^0 \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau)) + \int_{0}^\infty \mathrm{d}\tilde{\tau} e^{- i E \tilde{\tau}} D^+(x(\tau  + \tilde{\tau}), x(\tau))\\
 &= \int_{-\infty}^\infty \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau)) = \int_{-\infty}^\infty \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau}), x(0))
-\end{align*}
+\label{equ:detector_final}
+\end{align}
 
 The rate is the fouriertransform of the Wightman function and is independent of \(\tau\).\\
 
 \section{Unruheffect}
-In order to get a feeling for the calculations in the last section it is useful to consider a simple example in minkowskispace. An observer with constant proper acceleration observes a heat bath when moving through minkowski vacuum.\\
+In order to get a feeling for the calculations in the last section it is useful to consider a simple example in minkowskispace, the Unruheffect: An observer with constant proper acceleration observes a heat bath when moving through minkowski vacuum.\\
 
 Since we are in Minkowskispace, \(\partial_t\) is a futuredirected timelike killing vector field. Therefore we can find a orthonormal set of positiv frequency solutions, which are just plane waves: \[u_{\vec{k}}(x) = \frac{1}{\sqrt{2 |k|}} \frac{e^{i k x}}{\sqrt{2\pi}^3}, \text{with} k^0 = |k|\] The prefactor \(\frac{1}{\sqrt{2 |k|}}\) is required for normalisation \((u_{\vec{k}}|u_{\vec{k}'}) = \delta^3(\vec{k}-\vec{k}')\). It is natural to define the vacuum in minkowskispace by \(a_{\vec{k}}\ket{0_M} = 0\).\\
 
 By expanding \(\phi(x) = \int \mathrm{d}^3 k\, u_{\vec{k}}(x) a_{\vec{k}} + u_{\vec{k}}^*(x) a_{\vec{k}}^\dagger\) we can calculate the Wightman function:
-\begin{align*}
+\begin{align}
 D^+(x,x') &= \int \mathrm{d}^3 k\, \mathrm{d}^3 k'\, \bra{0_M} \left(u_{\vec{k}}(x) a_{\vec{k}} + u_{\vec{k}}^*(x) a_{\vec{k}}^\dagger\right)\left(u_{\vec{k}'}(x') a_{\vec{k}'} + u_{\vec{k}'}^*(x') a_{\vec{k}'}^\dagger\right) \ket{0_M} \\
 	&= \int \mathrm{d}^3 k\,\mathrm{d}^3 k'\, u_{\vec{k}}(x) u_{\vec{k}'}^*(x') \bra{0_M} a_{\vec{k}} a_{\vec{k}'}^\dagger \ket{0_M}\\
 	&= \int \mathrm{d}^3 k\,\mathrm{d}^3 k'\, u_{\vec{k}}(x) u_{\vec{k}'}^*(x') \delta^3(\vec{k}-\vec{k}')\\
@@ -138,15 +142,64 @@ D^+(x,x') &= \int \mathrm{d}^3 k\, \mathrm{d}^3 k'\, \bra{0_M} \left(u_{\vec{k}}
 	&= \int \frac{\mathrm{d}^3 k}{(2\pi)^3}\, \frac{1}{2|k|} e^{- i |k| (t-t') + i \vec{k} (\vec{x}-\vec{x}')}\\
 	&\overset{\omega = |k|}{=} \int_0^\infty \int_{-1}^1 \frac{\omega^2 \mathrm{d} \omega\,\mathrm{d} \cos{\theta}}{(2\pi)^2}\, \cfrac{1}{2\omega} e^{- i \omega (t-t') + i \omega |\vec{x}-\vec{x}'| \cos{\theta}}\\
 	&= \cfrac{1}{2 i |\vec{x}-\vec{x}'|}\int_0^\infty \frac{\mathrm{d} \omega}{(2\pi)^2}\, e^{- i \omega (t-t')} \left(e^{i\omega |\vec{x}-\vec{x}'|} - e^{-i\omega |\vec{x}-\vec{x}'|}\right)\\
-\end{align*}
+\end{align}
 
 This oscillating integral does not converge. Therefore we will first calculate \(D^+(x,x')\) for complex times by setting \(t \to t - i\varepsilon, \varepsilon > 0\) and then treating \(D^+(x,x')\) as a distribution when setting \(\varepsilon \to 0\).
 
-\begin{align*}
+\begin{align}
 D^+(x,x') &= \cfrac{1}{2 i |\vec{x}-\vec{x}'|}\int_0^\infty \frac{\mathrm{d} \omega}{(2\pi)^2}\, e^{- i \omega (t-t' - i\varepsilon - |\vec{x}-\vec{x}'|)} - e^{- i \omega (t-t' - i\varepsilon + |\vec{x}-\vec{x}'|)}\\
 	&= -\cfrac{1}{2 i |\vec{x}-\vec{x}'|}\frac{1}{(2\pi)^2}\left(\frac{i}{t-t' - i\varepsilon - |\vec{x}-\vec{x}'|} - \frac{i}{t-t' - i\varepsilon + |\vec{x}-\vec{x}'|}\right)\\
 	&= -\cfrac{1}{2 |\vec{x}-\vec{x}'|}\frac{1}{(2\pi)^2} \frac{(t-t' - i\varepsilon + |\vec{x}-\vec{x}'|) - (t-t'-i\varepsilon - |\vec{x}-\vec{x}'|)}{(t-t'-i\varepsilon)^2 - |\vec{x}-\vec{x}'|^2}\\
 	&= -\frac{1}{4\pi^2} \frac{1}{(t-t'-i\varepsilon)^2 - |\vec{x}-\vec{x}'|^2}
-\end{align*}
+\end{align}
 
-Up to the small imaginary number \(i\varepsilon\) this is a real function. This means that the imaginary part (or equivalently \(D(x,x')\)) can only be non-vanishing if the denominator goes to \(0\) for \(\varepsilon \to 0\). This is only the case for lightlike seperated \(x\) and \(x'\) or if \(x\) is on the lightcone of \(x'\). 
+Up to the small imaginary number \(i\varepsilon\) this is a real function. This means that the imaginary part (or \(D(x,x')\)) can only be non-vanishing if the denominator goes to \(0\) for \(\varepsilon \to 0\). This is only the case for lightlike seperated \(x\) and \(x'\) or equivalently if \(x\) is on the lightcone of \(x'\). This means when computing \(D^+(x(\tau),x(0))\) on a trajectory (like for a detector in eq. \ref{equ:detector_final}) the imaginary part will always vanish, since our detector stays strictly inside the lightcone\footnote{Of course there's also the case \(x = x'\) which we have to treat seperatly. But from the CCR we can conclude \(2i\,\mathrm{Im}\,D^+(x,x) = iD(x,x) = [\phi(x),\phi(x)] = 0\).}.\\
+
+We can now calculate the excitation rate for observers in minkowskispace. Let's start with an steady observer \(t(\tau) = \tau, \vec{x}(\tau) = 0\):
+\begin{align}
+D^+(x(\tau),x(\tau')) = -\frac{1}{4\pi^2}\frac{1}{(\tau-\tau'-i\varepsilon)^2}. 
+\end{align}
+
+Clearly \(D^+(x(\tau),x(\tau'))\) only depends on \(\Delta\tau = \tau-\tau'\). So we can use eq. \ref{equ:detector_final} to obtain:
+\begin{align}
+\cfrac{\mathrm{d}F_E(\tau)}{\mathrm{d}\tau} &= \int_{-\infty}^\infty \mathrm{d}\tau e^{-i E \tau} D^+(x(\tau), x(0))\\
+	&= -\frac{1}{4\pi^2} \int_{-\infty}^\infty \mathrm{d}\tau e^{-i E \tau} \frac{1}{(\tau-i\varepsilon)^2} = 0\\
+\end{align} 
+
+For the last step use contour integration and close the contour in the lower half plane. Since \(e^{-i E \tau}\) drops to \(0\) for large \(\tau\) with negative imaginary part the integral is given by the sum over all residuals in the lower half plane. Because the \(\varepsilon\) moves the pole at \(\tau = 0\) into the upper half plane there are no poles in the lower half plane and therefore the integral vanishes. So there are no particle excitations for an observer on a inertial worldline\footnote{Note that by poincare invariance of \(D^+(x,x')\) one can always choose a frame in which an inertial observer does not move.} which simply means that he treats the minkowski vacuum as a state with no particles.\\
+
+Another interesting observer is an observer which is accelerating with an constant proper acceleration \(\alpha > 0\), i.e. \(t(\tau) = \alpha \sinh \tau/\alpha,\,x(\tau) = \alpha \cosh \tau/\alpha,\, y(\tau) = z(\tau) = 0\). Define \(\lambda = \tau/\alpha\). First calculate \(D^+\) for \(\varepsilon = 0\)\\
+
+\begin{align}
+-\frac{4\pi^2}{D^+(x(\alpha\lambda), x(\alpha\lambda'))} &= (\alpha \sinh \lambda - \alpha \sinh \lambda')^2 - \alpha^2 (\cosh \lambda - \cosh \lambda')\\
+	&= \alpha^2 \left(-2 - 2\sinh\lambda \sinh\lambda' + 2 \cosh\lambda \cosh\lambda'\right)\\
+	&= - 2 \alpha^2 \left(1 - \cosh(\lambda-\lambda')\right)\\
+	&= 4 \alpha^2 \sinh^2\frac{\lambda-\lambda'}{2}\\
+D^+(x(\tau), x(\tau')) &= -\frac{1}{16\pi^2\alpha^2} \frac{1}{\sinh^2\frac{\tau-tau'}{2\alpha}}
+\end{align}
+
+So again \(D^+\) only depends on \(\Delta\tau = \tau-\tau'\). So we will fouriertransform \(D^+\) according to eq. \ref{equ:detector_final}. Again we will close the contour in the lower half plane. Therefore we only need the residues in the lower half. But the hyperbolic sine has a root at \(0\) and therefore \(D^+\) will have a pole at \(\tau = \tau'\) on the real axis. This is the only point where the \(\varepsilon\) is important because it will move the pole away from the real axis. So in order to take the \(\varepsilon\) into account one only need to classify the behaviour of the pole at \(\tau = \tau'\).\\
+So set \(\lambda' = 0\) and define \(\lambda_\varepsilon\) as the position of the pole for a specific \(\varepsilon\), which means it satisfies \((\sinh\lambda_\varepsilon - \frac{i}{\alpha}\varepsilon)^2 - (\cosh\lambda_\varepsilon - 1)^2 = 0\). Differentiating this twice with respect to \(\varepsilon\) and setting \(\varepsilon \to 0\) leads to (note that \(\lambda_0 = 0\)): \[\left(\frac{\mathrm{d}\lambda_\varepsilon}{\mathrm{d}\varepsilon}|_{\varepsilon = 0} - \frac{i}{\alpha}\right)^2 = 0\] Therefore is \(\frac{\mathrm{d}\lambda_\varepsilon}{\mathrm{d}\varepsilon}|_{\varepsilon = 0} = \frac{i}{\alpha}\) and for small \(\varepsilon\) the pole will move to upper half plane\footnote{Alternatively one can absorb positive functions into \(\varepsilon\) to get \(D^+(x(\tau), x(0)) \sim \frac{1}{\sinh^2\left(\frac{\tau}{2\alpha} - i \varepsilon\right)}\)}.\\
+
+So we can ignore the pole at \(0)\) for the contourintegration. It is useful to use the expansion \(\frac{1}{\sin^2 \pi x} = \pi^{-2} \sum_k (x-k)^{-2}\) to obtain 
+\begin{align}
+D^+(x(\tau), x(0)) = -\frac{1}{4\beta^2\pi^2}\sum_k (\frac{\tau}{\beta} - ik)^{-2} = -\frac{1}{4\pi^2}\sum_k (\tau + ik\beta)^{-2}
+\label{equ:unruh_sin_expansion}
+\end{align} where \(\beta = 2\pi\alpha\):
+\begin{align}
+\cfrac{\mathrm{d}F_E(\tau)}{\mathrm{d}\tau} &= \int_{-\infty}^\infty \mathrm{d}\tau e^{-i E \tau} D^+(x(\tau), x(0))\\
+	&= -\frac{1}{4\pi^2} \sum_{k>0}  \int_{-\infty}^\infty \mathrm{d}\tau e^{-i E \tau} \frac{1}{(\tau + ik\beta)^2}\\
+	&= \frac{2\pi i}{4\pi^2} \sum_{k>0} \mathrm{Res}\left(e^{-i E \tau} \frac{1}{(\tau + ik\beta)^2}, \tau = -ik\beta\right)\\
+	&= \frac{2\pi E}{4\pi^2} \sum_{k>0} e^{-\beta k E}\\
+	&= \frac{1}{2\pi E} \left(\frac{1}{1-e^{-\beta E}} - 1\right)\\
+	&= \frac{1}{2\pi} \left(\frac{E}{e^{\beta E}-1}\right)
+\end{align} 
+
+So the detector detects particles. Actually the energy distribution is the same as an inertial observer would observe in a heat bath with temperature \(T = \frac{1}{k\ind{B}\beta} = \frac{1}{2\pi k\ind{B}\alpha}\). This can be seen by computing the thermal greens function in minkowskispace (note that inside the lightcone \(D^+_\beta = D^{(1)}_\beta\)):
+
+\begin{align}
+D^+_\beta(x,x') = D^{(1)}_\beta(x,x') &= \sum_k D^{(1)}(t-i\beta k,\vec{x};t',\vec{x}')\\
+	&= -\frac{1}{4\pi^2}\sum_k \frac{1}{(t-t' - i\beta k - i\varepsilon)^2 - |\vec{x}-\vec{x}'|^2} 
+\end{align} 
+
+Evaluating this on a inertial trajectory, i.e. \(t = \tau, \vec{x} = \vec{x}' = t' = 0\) leads to the same formula as in equ. \ref{equ:unruh_sin_expansion}.   
