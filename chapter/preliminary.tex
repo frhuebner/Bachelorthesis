@@ -32,7 +32,9 @@ Now choose a complete set of solutions $\{u_i\}$, such that
 (u_i| u_j) = \delta_{ij},\,(u_i^*| u_j^*) = -\delta_{ij}\,\text{and}\,(u_i^*| u_j) = 0
 \end{align*}
 
-Using a Bra-Ket-like notation the completeness can be written by \(\mathbb{I} = \sum_i |u_i)(u_i| - |u_i^*)(u_i^*|\)
+Using a Bra-Ket-like notation the completeness can be written by \(\mathbb{I} = \sum_i |u_i)(u_i| - |u_i^*)(u_i^*|\).\\
+
+We will later often choose a basis of positiv frequency solutions. A solution $u$ has positiv frequency w.r.t a futuredirected timelike vectorfield \(k\) if  \(i\nabla_k u = \omega u, \omega > 0\). This means, that \(u(t, y^i) = e^{-i\omega t} A(y^i)\) where \(t\) is the corresponding coordinate to \(k\). It's not possible to find positiv frequency solutions for any timelike vectorfield, since they also need to satisfy \(\nabla^\mu\nabla_\mu u = 0\). In case of \(k\) killing however this is always possible (see Townsend).
 
 \section{Quantisation, Bogolubov Transformations and Vacua}
 
@@ -47,9 +49,42 @@ Using a Bra-Ket-like notation the completeness can be written by \(\mathbb{I} = 
 One can show that if they hold on one cauchysurface they hold on every cauchysurface.\\
 Given a complete set of modes this leads to \(\phi = \sum_i u_i a_i + u_i^* a_i^\dagger\), with \(a\) a bosonic annihilation operator satisfying \([a_i,a_j^\dagger] = \delta_{ij}\).\\
 
-Of course there are many different complete sets. One could also expand it in a different set \(\{v_j\}\): \(\phi = \sum_j v_j b_j + v_j^* b_j^\dagger\). The b's are then given by \(b_j = \sum_i (v_j|u_i) a_i - (v_j|u_i*) a_i^\dagger\). This is called a Bogolubov transformation. 
+Of course there are many different complete sets. One could also expand it in a different set \(\{v_j\}\): \(\phi = \sum_j v_j b_j + v_j^* b_j^\dagger\). The b's are then given by \(b_j = \sum_i (v_j|u_i) a_i - (v_j|u_i*) a_i^\dagger\). This is called a Bogolubov transformation.\\
 
 TODO: Vacua
+
+\section{Greens functions}
+(Quelle: Birell Davies)
+\subsection{Vacuum Greens function}
+After defining the Groundstate of the QFT on can define several Greens functions (there are many more, but we will only need those):
+\begin{itemize}
+	\item The Wightman function \(D^+(x,x') := \bra{0}\phi(x)\phi(x')\ket{0}\)
+ 	\item Expectationvalue of the commutator: \(i D(x,x') := [\phi(x),\phi(x')] = 2i\,\mathrm{Im}\,D^+(x,x')\)
+	\item Expectationvalue of the anticommutator \(D^{(1)}(x,x') := \bra{0}\{\phi(x),\phi(x')\}\ket{0}= 2\,\mathrm{Re}\,D^+(x,x')\)
+\end{itemize}
+
+One does not need to take the expectationvalue of the commutator since (using the commutation relations) it is a c-number.
+\begin{align}
+i D(x,x') &= \sum_{i,j} [u_i(x) a_i + u_i^*(x) a_i^\dagger, u_j(x') a_j + u_j^*(x') a_j^\dagger] \\
+	&= \sum_{i} u_i(x) u_i^*(x') - u_i^*(x) u_i(x')  
+\end{align}
+
+Since \(\nabla^\mu\nabla_mu\phi(x) = 0\) this also holds for all Greensfunctions, i.e \(\nabla^\mu\nabla_mu D^+(x,x') = 0\).\\
+
+\subsection{Thermal Greens function}
+Later we will also need thermal greens function. These are given by replacing the vacuum expectation value \(\bra{0} \cdots \ket{0}\) by the thermal expectation value \(\frac{1}{Z} \mathrm{Tr} e^{-\beta H} \cdots \) with \(\beta = \frac{1}{k_B T}\),  the hamiltonian \(H\) and \(Z = Tr e^{-\beta H}\).\\
+
+First observe that since \(i D(x,x') = [\phi(x),\phi(x')]\) is a c-number \(D(x,x')\) it has the same value as in the vacuum case.\\
+Using \(\phi(t,\vec{x}) = e^{i H t}\phi(0)e^{-i H t}\) we obtain:
+\begin{align*}
+D^+_\beta = \frac{1}{Z} \mathrm{Tr} e^{-\beta H} \phi(x)\phi(x')
+\end{align*}
+
+TODO: thermal greens function
+
+Therefore we can calculate \(D^{(1)}_\beta(t,\vec{x};t',\vec{x}') = \sum_k D^(1)(t+i\beta k, \vec{x};t',\vec{x}')\).
+
+
 
 \section{Particle Detectors}
 The treatment of a particle detector follows (Quelle: Birell Davies) and goes back to Unruh. One describes a detector by a operator \(m(\tau)\) which couples to the field via a interaction term \(c\cdot m(\tau) \phi(x(\tau))\), where \(c\) is small and \(x(\tau)\) is the trajectory of the detector. For \(\tau \to -\infty\) the detector is in the groundstate \(\ket{E_0}\) and the field is in the vacuum state \(\ket{0}\). The detector develops with time according to \(m(\tau) = e^{i H_0 \tau} m(0) e^{-i H_0 \tau}\) with \(H_0 \ket{E} = E\ket{E}\).\\
@@ -87,4 +122,31 @@ since \(D^+(x,x')* = D^+(x',x)\). For the special case that the Wightman functio
 &= \int_{-\infty}^\infty \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau)) = \int_{-\infty}^\infty \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau}), x(0))
 \end{align*}
 
-The rate is the fouriertransform of the Wightman function and is independent of \(\tau\).
+The rate is the fouriertransform of the Wightman function and is independent of \(\tau\).\\
+
+\section{Unruheffect}
+In order to get a feeling for the calculations in the last section it is useful to consider a simple example in minkowskispace. An observer with constant proper acceleration observes a heat bath when moving through minkowski vacuum.\\
+
+Since we are in Minkowskispace, \(\partial_t\) is a futuredirected timelike killing vector field. Therefore we can find a orthonormal set of positiv frequency solutions, which are just plane waves: \[u_{\vec{k}}(x) = \frac{1}{\sqrt{2 |k|}} \frac{e^{i k x}}{\sqrt{2\pi}^3}, \text{with} k^0 = |k|\] The prefactor \(\frac{1}{\sqrt{2 |k|}}\) is required for normalisation \((u_{\vec{k}}|u_{\vec{k}'}) = \delta^3(\vec{k}-\vec{k}')\). It is natural to define the vacuum in minkowskispace by \(a_{\vec{k}}\ket{0_M} = 0\).\\
+
+By expanding \(\phi(x) = \int \mathrm{d}^3 k\, u_{\vec{k}}(x) a_{\vec{k}} + u_{\vec{k}}^*(x) a_{\vec{k}}^\dagger\) we can calculate the Wightman function:
+\begin{align*}
+D^+(x,x') &= \int \mathrm{d}^3 k\, \mathrm{d}^3 k'\, \bra{0_M} \left(u_{\vec{k}}(x) a_{\vec{k}} + u_{\vec{k}}^*(x) a_{\vec{k}}^\dagger\right)\left(u_{\vec{k}'}(x') a_{\vec{k}'} + u_{\vec{k}'}^*(x') a_{\vec{k}'}^\dagger\right) \ket{0_M} \\
+	&= \int \mathrm{d}^3 k\,\mathrm{d}^3 k'\, u_{\vec{k}}(x) u_{\vec{k}'}^*(x') \bra{0_M} a_{\vec{k}} a_{\vec{k}'}^\dagger \ket{0_M}\\
+	&= \int \mathrm{d}^3 k\,\mathrm{d}^3 k'\, u_{\vec{k}}(x) u_{\vec{k}'}^*(x') \delta^3(\vec{k}-\vec{k}')\\
+	&= \int \mathrm{d}^3 k\, u_{\vec{k}}(x) u_{\vec{k}}^*(x')\\
+	&= \int \frac{\mathrm{d}^3 k}{(2\pi)^3}\, \frac{1}{2|k|} e^{- i |k| (t-t') + i \vec{k} (\vec{x}-\vec{x}')}\\
+	&\overset{\omega = |k|}{=} \int_0^\infty \int_{-1}^1 \frac{\omega^2 \mathrm{d} \omega\,\mathrm{d} \cos{\theta}}{(2\pi)^2}\, \cfrac{1}{2\omega} e^{- i \omega (t-t') + i \omega |\vec{x}-\vec{x}'| \cos{\theta}}\\
+	&= \cfrac{1}{2 i |\vec{x}-\vec{x}'|}\int_0^\infty \frac{\mathrm{d} \omega}{(2\pi)^2}\, e^{- i \omega (t-t')} \left(e^{i\omega |\vec{x}-\vec{x}'|} - e^{-i\omega |\vec{x}-\vec{x}'|}\right)\\
+\end{align*}
+
+This oscillating integral does not converge. Therefore we will first calculate \(D^+(x,x')\) for complex times by setting \(t \to t - i\varepsilon, \varepsilon > 0\) and then treating \(D^+(x,x')\) as a distribution when setting \(\varepsilon \to 0\).
+
+\begin{align*}
+D^+(x,x') &= \cfrac{1}{2 i |\vec{x}-\vec{x}'|}\int_0^\infty \frac{\mathrm{d} \omega}{(2\pi)^2}\, e^{- i \omega (t-t' - i\varepsilon - |\vec{x}-\vec{x}'|)} - e^{- i \omega (t-t' - i\varepsilon + |\vec{x}-\vec{x}'|)}\\
+	&= -\cfrac{1}{2 i |\vec{x}-\vec{x}'|}\frac{1}{(2\pi)^2}\left(\frac{i}{t-t' - i\varepsilon - |\vec{x}-\vec{x}'|} - \frac{i}{t-t' - i\varepsilon + |\vec{x}-\vec{x}'|}\right)\\
+	&= -\cfrac{1}{2 |\vec{x}-\vec{x}'|}\frac{1}{(2\pi)^2} \frac{(t-t' - i\varepsilon + |\vec{x}-\vec{x}'|) - (t-t'-i\varepsilon - |\vec{x}-\vec{x}'|)}{(t-t'-i\varepsilon)^2 - |\vec{x}-\vec{x}'|^2}\\
+	&= -\frac{1}{4\pi^2} \frac{1}{(t-t'-i\varepsilon)^2 - |\vec{x}-\vec{x}'|^2}
+\end{align*}
+
+Up to the small imaginary number \(i\varepsilon\) this is a real function. This means that the imaginary part (or equivalently \(D(x,x')\)) can only be non-vanishing if the denominator goes to \(0\) for \(\varepsilon \to 0\). This is only the case for lightlike seperated \(x\) and \(x'\) or if \(x\) is on the lightcone of \(x'\). 
