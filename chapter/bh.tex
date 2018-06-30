@@ -1,7 +1,21 @@
-\chapter{Quantum field theory in spacetimes}
-\section{Schwarzschild solution}
-In this thesis we will only use the Schwarzschild-metric to describe stars and black holes (which means that they have no charge and no angular momentum). The metric is given by
+\chapter{The Schwarzschild solution}
+\section{The metric}
+In this thesis we will only use the Schwarzschild-metric to describe stars and black holes (which means that they have no charge and no angular momentum). The metric for an spherical symmetric object with mass \(M\) is given by
 \begin{align}
-\rmd s^2 &= -f(r)\rmd t^2 + \frac{1}{f(r)}\rmd r^2 + r^2 \rmd\Omega &\rmd\Omega = \rmd\theta^2 + \sin^2\theta \rmd\phi^2 
+\dd s^2 &= -f(r)\dd{t^2} + \frac{1}{f(r)}\dd{r^2} + r^2 \dd{\Omega} &\dd{\Omega} = \dd{\theta^2} + \sin[2](\theta) \dd{\phi^2} 
 \end{align}
-where \(f(r) = 1-\frac{2M}{r}\). The metric is only valid outside the boundary of the star or for \(r > 2M\). The two vector fields \(\partial_t\) and \(\partial_\phi\) are killing. 
+where \(f(r) = 1-\frac{2M}{r}\). The metric is only valid outside the boundary of the star or for \(r > 2M\). The two vector fields \(\partial_t\) and \(\partial_\phi\) are killing.\\
+
+\section{Lightlike radial geodesics}
+We will later need lightlike radial geodesics in the Schwarzschild metric. These are defined by \(\dot{x}^2 = 0\), \(\dot{\theta} = \dot{\phi} = 0\), where the dot means derivative w.r.t the affine parameter \(\lambda\). Because \(\partial_t\) is killing we know that \(E := f(r)\dot{t}\) is constant along the geodesic. This yields to 
+\begin{align}
+0 &= -f(r)\dot{t}^2 + \frac{1}{f(r)}\dot{r}^2\\
+  &= -\frac{1}{f(r)} (E^2 - \dot{r}^2)
+\end{align}
+Since \(f(r) \neq 0\) we conclude: \(\dot{r} = \pm E\). Inserting this into the definition of \(E\) yields to
+\begin{align}
+\dot{r} &= \pm f(r) \dot{t}\\
+0 &= \dot{t}\mp\frac{\dot{r}}{f(r)} = \dv{\lambda}(t \mp r_*)
+\end{align}
+
+where the tortoise coordinate \(r_* = r + 2M\ln(\frac{r}{2M} - 1)\) has the property \(\dv{r_*}{r} = \frac{1}{f(r)}\). So either \(u := t - r_*\) (outgoing geodesic) or \(v := t + r_*\) (ingoing geodesic) is constant. 
