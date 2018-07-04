@@ -4,7 +4,7 @@ In this thesis we will only use the Schwarzschild-metric to describe stars and b
 \begin{align}
 \dd s^2 &= -f(r)\dd{t^2} + \frac{1}{f(r)}\dd{r^2} + r^2 \dd{\Omega} &\dd{\Omega} = \dd{\theta^2} + \sin[2](\theta) \dd{\phi^2} 
 \end{align}
-where \(f(r) = 1-\frac{2M}{r}\). The metric is only valid outside the boundary of the star or for \(r > 2M\). The two vector fields \(\partial_t\) and \(\partial_\phi\) are killing.\\
+where \(f(r) = 1-\frac{2M}{r}\). The metric is only valid outside the boundary of the star or for \(r > 2M\). The two vector fields \(\partial_t\) and \(\partial_\phi\) are killing.
 
 \section{Lightlike radial geodesics}
 We will later need lightlike radial geodesics in the Schwarzschild metric. These are defined by \(\dot{x}^2 = 0\), \(\dot{\theta} = \dot{\phi} = 0\), where the dot means derivative w.r.t the affine parameter \(\lambda\). Because \(\partial_t\) is killing we know that \(E := f(r)\dot{t}\) is constant along the geodesic. This yields to 
@@ -18,4 +18,89 @@ Since \(f(r) \neq 0\) we conclude: \(\dot{r} = \pm E\). Inserting this into the 
 0 &= \dot{t}\mp\frac{\dot{r}}{f(r)} = \dv{\lambda}(t \mp r_*)
 \end{align}
 
-where the tortoise coordinate \(r_* = r + 2M\ln(\frac{r}{2M} - 1)\) has the property \(\dv{r_*}{r} = \frac{1}{f(r)}\). So either \(u := t - r_*\) (outgoing geodesic) or \(v := t + r_*\) (ingoing geodesic) is constant. 
+where the tortoise coordinate \(r_* = r + 2M\ln(\frac{r}{2M} - 1)\) has the property \(\dv{r_*}{r} = \frac{1}{f(r)}\). So either \(u := t - r_*\) (outgoing geodesic) or \(v := t + r_*\) (ingoing geodesic) is constant.
+
+Consider an ingoing null geodesic \(v = \mathrm{const}, r = -E\lambda + r_0\) (from \(\dot{r} = -E\)) and compute
+
+\begin{align}
+\dv{u}{\lambda} &=  \dv{2 t - v} = 2\dot{t} = 2\frac{E}{f(r)}\\
+	&= 2\frac{Er}{r-2M} = 2E\frac{r-2M + 2M}{r-2M} = 2E\qty(1 + \frac{2M}{r-2M})\\
+	&= 2E\qty(1 + \frac{2M}{r_0-2M - E\lambda})\\
+u(\lambda) &= 2E\lambda - 4M\ln(r_0-2M-E\lambda) + 4M\ln(r_0-2M) + u_0\\
+	&= 2E\lambda - 4M\ln(1 - \frac{E\lambda}{r_0-2M}) + u_0
+\end{align}
+
+where \(u_0 = u(0)\). For an outgoing geodesic one finds analogously:
+\begin{align}
+v(\lambda) &= 2E\lambda + 4M\ln(1 + \frac{E\lambda}{r_0 - 2M}) + v_0
+\end{align}
+
+We will later need the affine separation between null geodesics, i.e. the value \(\lambda\) on a lightlike geodesic running from one geodesic to the other. For two ingoing geodesics (characterised by \(v, v'\)) far away from the black hole (i.e. \(E\lambda \ll r_0 - 2M\)) one can neglect the logarithm and the distance from \(v\) to \(v'\) is given by:
+\begin{align}
+\lambda = \frac{v' - v}{2E} 
+\end{align}
+
+The other case which will be important is the distance of to outgoing geodesics \(u, u'\) near the event horizon \(r_0 \gtrsim 2M\). Now one can neglect the linear term and the distance from \(u\) to \(u'\) is given by:
+\begin{align}
+u' &= - 4M\ln(1 - \frac{E\lambda}{r_0-2M}) + u\\
+\lambda &= \frac{r_0-2M}{E}\qty(1 - e^{-\frac{u' - u}{4M}}) 
+\end{align} 
+
+\section{The Klein-Gordon-Equation in the Schwarzschild metric}
+
+Consider a static spherical star where the outer metric is the Schwarzschild metric (i.e. non rotating and uncharged). It's important that we are considering a star because a black hole does not provide a global timelike killing vector field (analytic extension of \(\partial_t\) leads to a spacelike vectorfield inside the black hole). From now on we will only consider the outer region. To achieve a global solution one need to match inner with outer solutions.
+
+The Klein-Gordon-Equation \(\nabla_\mu\nabla^\mu \phi = 0\) can be written as:
+\begin{align}
+-\frac{r^2}{f(r)}\partial_t^2 \phi + \qty(\partial_r r^2 f(r) \partial_r) \phi - L^2 \phi = 0
+\end{align}
+
+where \(L^2\) is the usual angular momentum operator.
+
+\subsection{Spherical Modes}
+
+Since the spacetime is spherical symmetric and has the killing vector field \(\partial_t\) we can do the following ansatz for the modes
+\begin{align}
+u_{\omega l m} = A e^{-i\omega t} \frac{R_{\omega l}}{r}Y_l^m (\theta, \phi)
+\end{align}
+
+Plugging this into the Klein-Gordon-Equation \(\nabla_\mu\nabla^\mu u_{\omega l m} = 0\) yields to the following equation for \(R_{\omega l}\) (see for example (Birell Davies)):
+\begin{align}
+\dv[2]{R_{\omega l}}{r_*} + \omega^2 R_{\omega l} -\qty(\frac{l(l+1)}{r^2} + \frac{f'(r)}{r})f(r) R_{\omega l} &= 0\\
+\dv[2]{R_{\omega l}}{r_*} + \omega^2 R_{\omega l} - \order{r^{-2}} R_{\omega l} &= 0
+\end{align}
+
+So for \(\omega r \gg l\) one can neglect the \(r\) dependent part. In this case we find the asymptotic solutions
+\begin{align}
+R_{\omega l} &= e^{\pm i \omega r_*}\\
+u_{\omega l m} &=  \frac{A_{\omega l m}}{r} e^{-i\omega t + i\omega r_*} Y_l^m (\theta, \phi) + \frac{B_{\omega l m}}{r} e^{-i\omega t - i\omega r_*} Y_l^m (\theta, \phi)\\
+	&= \frac{A_{\omega l m}}{r} e^{-i\omega u} Y_l^m (\theta, \phi) + \frac{B_{\omega l m}}{r} e^{-i\omega v} Y_l^m (\theta, \phi)
+\end{align}
+
+Unfortunately we either cannot determine the (quite important) phase between \(A_{\omega l m}\) and \(B_{\omega l m}\) nor can we normalise the modes by integrating over all space. Instead I will impose that very far away from the star (where \(r_* \approx r\)) the field behaves as in Minkowskispace (which means that e.g. all experiments give the same results). This implies that \(D^+(\vb{x},\vb{x}')\) is the same as in Minkowskispace. Comparing with the asymptotic spherical modes in Minkowskispace (see eq. \ref{equ:bessel_asympt}) yields to:
+\begin{align}
+u_{\omega l m} &=  \frac{1}{\sqrt{\pi\omega}} e^{-i\omega t} \frac{\sin(\omega r_* - l\frac{\pi}{2})}{r} Y_l^m (\theta, \phi)  = \frac{r_*}{r} u_{\omega l m}\upd{M}(r_*,\theta,\phi)\\
+&= \frac{i^{-l}}{2i\sqrt{\pi\omega}r} e^{-i\omega u} Y_l^m (\theta, \phi) - \frac{i^{l}}{2i\sqrt{\pi\omega}r} e^{-i\omega v} Y_l^m (\theta, \phi)
+\end{align}
+
+\subsection{The Wightman Function}
+The next step would be to calculate the Wightman function \(D^+(\vb{x}, \vb{x}')\). Note that since \(\partial_t\) is a timelike killing vector we define the ground state \(\ket{0}\) by \(a_{\omega l m} \ket{0} = 0\) and use eq. \ref{equ:wightman_modes}.
+\begin{align}
+D^+(\vb{x}, \vb{x}') = \int_0^\infty \frac{\dd{\omega}}{\pi\omega} \sum_{l,m} e^{-i\omega(t-t')} \frac{\sin(\omega r_* - l\frac{\pi}{2})}{r} \frac{\sin(\omega r_*' - l\frac{\pi}{2})}{r'} Y_l^m(\theta,\phi) Y_l^{m*}(\theta',\phi')
+\end{align}
+
+Since this integral is nearly the same as in Minkowskispace (see eq. \ref{equ:wightman_minkoski_spherical}) we also encounter the same problems, namely the IR divergence and the fact that it is non-zero only in two directions. This is due to the fact that the approximation \(\omega r \gg l\) breaks down for small \(\omega\) and for large \(l\). Recall that the problems in the non approximate calculation in Minkowskispace didn't occur because the \(j_l(\omega r)\) remain finite at \(\omega \to 0\). In other words the essential feature of the \(j_l(\omega r)\) is that they let all the \(\cos(\omega ...)\) terms in the integral drop to zero for \(\omega \to 0\) instead of \(\cos{0} = 1\) in the approximate case. Therefore we can assume that the same happens for exact solutions around the star.
+
+Unfortunately the exact behaviour for small \(\omega\) is the same as for small \(r\) which will depend on the specific geometry of the star. But the metric of a star is almost flat (since the radius of a star \(R_0\) is much bigger than its Schwarzschildradius \(R_S\)). Therefore we will approximate the global mode by replacing the sine with the spherical bessel function:
+\begin{align}
+u_{\omega l m} &= \frac{\sqrt{\omega}}{\sqrt{\pi}} e^{-i\omega t} \frac{r_*}{r} j_l(\omega r_*) Y_l^m (\theta, \phi) = \frac{r_*}{r} u_{\omega l m}\upd{M}(r_*,\theta,\phi)
+\end{align}
+
+Because the modes now are the same (up to a prefactor and replacing \(r \to r_*\)) as in Minkowskispace we can find the Wightman function by adjusting the Wightman function of Minkowskispace:
+\begin{align}
+D^+(\vb{x}, \vb{x}') &= -\frac{1}{4\pi}\frac{r_* r_*'}{r r'} \frac{1}{(t-t'-i\varepsilon)^2 - |\va{x}_*-\va{x}_*'|^2}\\
+	&=  -\frac{1}{4\pi}\frac{r_* r_*'}{r r'} \frac{1}{(t-t'-i\varepsilon)^2 - r_*^2 - r_*'^2 + 2r_*r_*' \cos{\alpha}}
+\end{align}
+
+where \(\va{x}_*\) is obtained by replacing \(r \to r_*\) in \(\va{x}\) and \(\alpha\) is the angle between the two vectors.
+    

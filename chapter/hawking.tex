@@ -1,0 +1,46 @@
+\chapter{Collapsing Black Holes}
+\section{The Hawking Effect}
+
+\subsection{Geometric Optics Approximation}
+We need to solve the Klein-Gordon-Equation in this time dependent metric. Hawking realised that modes after leaving the star shortly before it forms a horizon will become highly redshifted. This means their frequency was much larger inside the star so one can apply a geometric optics approximation. The derivation here is similar to a analogously derivation for light in (Stephani). The ansatz for the wavefunction is \(\phi = A(\vb{x}) e^{-i\omega S(\vb{x})}\) where \(\omega\) is large. Plugging this into the Klein-Gordon-Equation gives
+\begin{align}
+0 &= \nabla_\mu\nabla^\mu \qty(A e^{-i\omega S})\\ 
+ &= \nabla_\mu \qty(\partial^\mu A e^{-i\omega S} - i \omega \partial^\mu S A e^{-i\omega S})\\
+&= \nabla_\mu \partial^\mu A e^{-i\omega S} - 2 i \omega \partial^\mu S \partial_\mu A e^{-i\omega S} - i \omega \nabla_\mu\partial^\mu S A e^{-i\omega S} - \omega^2 A \partial_\mu S \partial^\mu S e^{-i\omega S}
+\end{align}
+
+For \(\omega\) quite large we can treat every order of \(\omega\) separately and then neglect the low order terms. The quadratic term in \(\omega\) is given by \(\partial_\mu S \partial^\mu S = 0\) which means that \(\partial^\mu S\) is a null vector. By differentiating this we find that \(\partial_\mu S\) actually solves the geodesic equation: 
+\begin{align}
+0 &= \nabla_\nu \qty(\partial_\mu S \partial^\mu S)\\
+	&= 2 \partial^\mu S \nabla_\nu \partial_\mu S\\
+	&= 2 \partial^\mu S \nabla_\mu \partial_\nu S\\
+	&= 2 \nabla_{\nabla S} \partial_\nu S 
+\end{align}
+
+Therefore \(\partial^\mu S\) is the tangent vector to a null geodesic. Since we know that for early times \(S\) only depends on \(t\) and \(r\) \(\partial^\mu S\) actually describes radial null geodesics.
+
+In order to determine also the amplitude \(A\) we need to take into account the linear order of \(\omega\).
+\begin{align}
+0 &= 2 \partial^\mu S \partial_\mu A + \nabla_\mu\partial^\mu S A &| \cdot A
+0 &= 2 A \partial_\mu A \partial^\mu S + A^2 \nabla_\mu\partial^\mu S\\
+	&= \nabla_\mu\qty(A^2 \partial^\mu S)
+\end{align}
+
+Expanding this again and note that \(\partial^\mu S \partial_\mu = \dv{\lambda}\) yields to the following useful formular:
+\begin{align}
+0 &= \partial_\mu \qty(A^2) \partial^\mu S + A^2 \nabla_\mu\partial^\mu S\\
+\dv{A^2}{\lambda} &= -A^2 \nabla_\mu\partial^\mu S
+\end{align}
+
+We could now solve this equation in general for \(A^2(\lambda)\). However we would then have to replace \(\lambda\) by some \(t,r\). Since we will later be given a relation \(\lambda(r)\) we can solve for \(A^2(r)\) instead:
+\begin{align}
+\dv{A^2}{r} &= -A^2 \dv{\lambda}{r} \nabla_\mu\partial^\mu S\\
+A^2 &= A_0^2 e^{-\int\dd{r} \dv{\lambda}{r} \nabla_\mu\partial^\mu S}
+\end{align}
+
+\(A_0\) can be found by comparing the result to the modes in early times.
+
+\subsection{Solving the geodesic equation}
+First we need to solve the geodesic equation for \(\vb{t} = \nabla S\) namely \(\nabla_{\vb{t}} \vb{t} = 0\) and \(\vb{t}^2 = 0\). Since the spacetime is spherical symmetric for all times the angular coordinates will stay constant and the resulting geodesics are the same as in the corresponding two dimensional spacetime (e.g. with outer metric \(\dd{s^2} = -f(r)\dd{t^2} + \frac{1}{f(r)}\dd{r^2}\). For this section we will only consider the two dimensional spacetime which is much easier to handle. 
+
+Let us first assume we already solved the geodesic equation over the whole spacetime. Then we can construct lightcone coordinates: Fix a point \(\vb{x}_0\) in the early spacetime\footnote{Actually one can take any point on the spacetime}. In this point there exist two linear independent null vector namely \(\vb{t}\) and another one defined by \(\vb{n}^2 = 0\) and \(\vb{t}\cdot\vb{n} = -1\). Note that since we are in a two dimensional spacetime \(\vb{n}\) is uniquely defined. Then solve for the geodesic starting at \(\vb{x}_0\) with tangent vector \(\vb{n}\). Associate a point on the geodesic with the corresponding value of the affine parameter \(\lambda\). Then starting at such a point solve the geodesic with tangent vector \(\vb{t}\) and associate every point on this geodesic with the value of the affine parameter \(\tau\). By this we can find a map \(\vb{x}(\tau,\lambda)\). We can use this map for a coordinate transformation which yields to the coordinate system \(\partial_\tau = \vb{t}\) and \(\partial_\lambda = \vb{n}\).    
