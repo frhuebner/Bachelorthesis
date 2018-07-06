@@ -3,11 +3,9 @@
 \label{sec:app}
 %------------------------------------------------------------------------------
 
-\section{Solving the geodesic equation for a family of geodesics}
-
-First we need to solve the geodesic equation for \(\vb{t} = \nabla S\) namely \(\nabla_{\vb{t}} \vb{t} = 0\) and \(\vb{t}^2 = 0\). Since the spacetime is spherical symmetric for all times the angular coordinates will stay constant and the resulting geodesics are the same as in the corresponding two dimensional spacetime (e.g. with outer metric \(\dd{s^2} = -f(r)\dd{t^2} + \frac{1}{f(r)}\dd{r^2}\). For this section we will only consider the two dimensional spacetime which is much easier to handle. 
-
-Let us first assume we already solved the geodesic equation over the whole spacetime (call it \(\mathcal{M}\)). Then we can construct lightcone coordinates: Fix a point \(\vb{x}_0\) in the earlier spacetime\footnote{Actually one can do this contruction with any point on the spacetime}. In this point there exist two linear independent null vector namely \(\vb{t}\) and another one defined by \(\vb{n}^2 = 0\) and \(\vb{t}\cdot\vb{n} = -1\). Note that since we are in a two dimensional spacetime \(\vb{n}\) is uniquely defined. Then solve for the geodesic starting at \(\vb{x}_0\) with tangent vector \(\vb{n}\). Associate a point on the geodesic with the corresponding value of the affine parameter \(\lambda\). Then starting at such a point solve the geodesic (call it \(\Sigma\)) with tangent vector \(\vb{t}\) and associate every point on this geodesic with the value of the affine parameter \(\tau\). By this we can find a map \(\vb{x}(\tau,\lambda)\). We can use this map for a coordinate transformation which yields to the coordinate system \(\partial_\tau = \vb{t}\) and \(\partial_\lambda = \vb{n}\).
+\section{Solving the geodesic equation in a two dimensional metric}
+\label{sec:app_congruence}
+Let us first assume we already solved the geodesic equation over the whole two dimensional spacetime (call it \(\mathcal{M}\)). Then we can construct lightcone coordinates: Fix a point \(\vb{x}_0\) in the spacetime. In this point there exist two linear independent null vector namely \(\vb{t}\) and another one defined by \(\vb{n}^2 = 0\) and \(\vb{t}\cdot\vb{n} = -1\). Note that since we are in a two dimensional spacetime \(\vb{n}\) is uniquely defined. Then solve for the geodesic starting at \(\vb{x}_0\) with tangent vector \(\vb{n}\). Associate a point on the geodesic with the corresponding value of the affine parameter \(\lambda\). Then starting at such a point solve the geodesic (call it \(\Sigma\)) with tangent vector \(\vb{t}\) and associate every point on this geodesic with the value of the affine parameter \(\tau\). By this we can find a map \(\vb{x}(\tau,\lambda)\). We can use this map for a coordinate transformation which yields to the coordinate system \(\partial_\tau = \vb{t}\) and \(\partial_\lambda = \vb{n}\).
 
 For the boundary condition take \(\vb{t}\vb{n} = -1\) on \(\Sigma\). Before we start let us summarize the known properties of \(\vb{t}\) and \(\vb{n}\): Clearly on the whole spacetime \(\nabla_{\vb{t}}\vb{t} = 0\) and \(\vb{t}^2 = 0\). Also since they are a coordinate system \([\vb{t},\vb{n}] = 0\) which means \(\covd{t}\vb{n} = \nabla_{\vb{n}}\vb{t}\). On \(\Sigma\) we also know that \(\vb{t}\vb{n} = -1\) and \(\vb{n}^2 = 0\).
 
@@ -31,7 +29,7 @@ Note that on \(\Sigma\): \(\covd{n}\vb{n} = 0\) which means \(\vb{n}\covd{n}\vb{
 \begin{align}
 \covd{t}\covd{t}\vb{n}^2 &= 2\covd{t}(\vb{n}\covd{t}\vb{n}) = 2(\covd{t}\vb{n})^2 + 2 \vb{n}\covd{t}\covd{t}\vb{n}\\
 	&\overset{\covd{t}\vb{n} \sim \vb{t}}{=} 2 \vb{n}\covd{t}\covd{n}\vb{t} = 2\vb{n} R(\vb{t},\vb{n})\vb{t} + 2 \vb{n}\covd{n}\covd{t}\vb{t}\\
-	&\overset{\covd{t}\vb{t} = 0}{=} \vb{n} 2\mathrm{R}(\vb{t},\vb{n})\vb{t}
+	&\overset{\covd{t}\vb{t} = 0}{=} 2 \vb{n}\mathrm{R}(\vb{t},\vb{n})\vb{t}
 \end{align}
 
 where \(\mathrm{R}(\vb{a},\vb{b}) = \covd{a}\covd{b}-\covd{b}\covd{a} - \nabla_{[\vb{a},\vb{b}]}\) is the curvature tensor. If it vanishes \(\dv[2]{\vb{n}^2}{\tau} = 0\) and so \(\vb{n}^2 = a\tau + b\). But from the boundary condition on \(\Sigma\) follows that \(a = b = 0\) and so \(\vb{n}^2 = 0\). However when there is curvature (as in our case) \(\vb{n}^2\) will differ from \(0\). Since the behaviour of \(\vb{n}^2\) fully determines \(\covd{n}\vb{n}\)

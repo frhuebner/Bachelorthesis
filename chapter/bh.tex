@@ -12,7 +12,13 @@ We will later need lightlike radial geodesics in the Schwarzschild metric. These
 0 &= -f(r)\dot{t}^2 + \frac{1}{f(r)}\dot{r}^2\\
   &= -\frac{1}{f(r)} (E^2 - \dot{r}^2)
 \end{align}
-Since \(f(r) \neq 0\) we conclude: \(\dot{r} = \pm E\). Inserting this into the definition of \(E\) yields to
+Since \(f(r) \neq 0\) we conclude: 
+\begin{align}
+\dot{r} &= \pm E\\
+r &= \pm E \lambda + r_0
+\label{bh_geo_r_E}
+\end{align}
+Inserting this into the definition of \(E\) yields to
 \begin{align}
 \dot{r} &= \pm f(r) \dot{t}\\
 0 &= \dot{t}\mp\frac{\dot{r}}{f(r)} = \dv{\lambda}(t \mp r_*)
@@ -28,22 +34,31 @@ Consider an ingoing null geodesic \(v = \mathrm{const}, r = -E\lambda + r_0\) (f
 	&= 2E\qty(1 + \frac{2M}{r_0-2M - E\lambda})\\
 u(\lambda) &= 2E\lambda - 4M\ln(r_0-2M-E\lambda) + 4M\ln(r_0-2M) + u_0\\
 	&= 2E\lambda - 4M\ln(1 - \frac{E\lambda}{r_0-2M}) + u_0
+\label{equ:bh_geo_in}
 \end{align}
 
 where \(u_0 = u(0)\). For an outgoing geodesic one finds analogously:
 \begin{align}
 v(\lambda) &= 2E\lambda + 4M\ln(1 + \frac{E\lambda}{r_0 - 2M}) + v_0
+\label{equ:bh_geo_out}
 \end{align}
 
-We will later need the affine separation between null geodesics, i.e. the value \(\lambda\) on a lightlike geodesic running from one geodesic to the other. For two ingoing geodesics (characterised by \(v, v'\)) far away from the black hole (i.e. \(E\lambda \ll r_0 - 2M\)) one can neglect the logarithm and the distance from \(v\) to \(v'\) is given by:
+We will later need the affine separation between null geodesics, i.e. the value \(\lambda\) on a lightlike geodesic running from one geodesic to the other. For two ingoing geodesics (characterised by \(v, v'\)) far away from the black hole (i.e. \(E\lambda \ll r_0 - 2M\)) one can neglect the logarithm and the distance from \(v_0\) to \(v\) is given by:
 \begin{align}
-\lambda = \frac{v' - v}{2E} 
+\lambda = \frac{v - v_0}{2E} 
+\label{equ:bh_in_simplified}
 \end{align}
 
-The other case which will be important is the distance of to outgoing geodesics \(u, u'\) near the event horizon \(r_0 \gtrsim 2M\). Now one can neglect the linear term and the distance from \(u\) to \(u'\) is given by:
+The other case which will be important is the distance of two outgoing geodesics \(u_0, u\) where \(u_0 = \infty\) is the event horizon \(r_0 \to 2M\). Now one can neglect the linear term and the distance (note that \(\lambda <0\)) is given by:
 \begin{align}
-u' &= - 4M\ln(1 - \frac{E\lambda}{r_0-2M}) + u\\
-\lambda &= \frac{r_0-2M}{E}\qty(1 - e^{-\frac{u' - u}{4M}}) 
+u &= - 4M\ln(1 - \frac{E\lambda}{r_0-2M}) + u_0\\
+	&= - 4M\ln(1 - \frac{E\lambda}{r_0-2M}) + v_0 - 2r_{0*}\\
+	&= - 4M\ln(1 - \frac{E\lambda}{r_0-2M}) + v_0 - 2r_0 - 4M\ln(\frac{r_0-2M}{2M})\\
+	&= - 4M\ln(\qty(1 - \frac{E\lambda}{r_0-2M})\frac{r_0-2M}{2M}) + v_0 - 2r_0\\
+	&= - 4M\ln(\frac{r_0 - 2M - E\lambda}{2M}) + v_0 - 2r_0\\
+	&= - 4M\ln(-\frac{E\lambda}{2M}) + v_0 - 4M\\
+-\lambda &= \frac{2M}{E}e^{1+\frac{v_0}{4M}} e^{-\frac{u}{4M}}
+\label{equ:bh_out_simplified}
 \end{align} 
 
 \section{The Klein-Gordon-Equation in the Schwarzschild metric}
@@ -81,6 +96,7 @@ Unfortunately we either cannot determine the (quite important) phase between \(A
 \begin{align}
 u_{\omega l m} &=  \frac{1}{\sqrt{\pi\omega}} e^{-i\omega t} \frac{\sin(\omega r_* - l\frac{\pi}{2})}{r} Y_l^m (\theta, \phi)  = \frac{r_*}{r} u_{\omega l m}\upd{M}(r_*,\theta,\phi)\\
 &= \frac{i^{-l}}{2i\sqrt{\pi\omega}r} e^{-i\omega u} Y_l^m (\theta, \phi) - \frac{i^{l}}{2i\sqrt{\pi\omega}r} e^{-i\omega v} Y_l^m (\theta, \phi)
+\label{equ:bh_modes}
 \end{align}
 
 \subsection{The Wightman Function}
