@@ -38,4 +38,82 @@ where \(\mathrm{R}(\vb{a},\vb{b}) = \covd{a}\covd{b}-\covd{b}\covd{a} - \nabla_{
 \vb{n}\covd{n}\vb{n} &= \frac{1}{2} \covd{n}\vb{n}^2
 \end{align}  
 
-this also means that \(\covd{n}\vb{n} \neq 0\). However is the curvature is small one can neglect this change and so \(\vb{n}^2 \approx 0\) and \(\covd{n}\vb{n} \approx 0\). One may then keep track of two neighbouring geodesics by computing the null geodesic between them and evaluating it at the corresponding \(\lambda\) value. Frankly speaking this means that the (null geodesic) distance \(\lambda\) between null geodesics will remain constant. 
+this also means that \(\covd{n}\vb{n} \neq 0\). However is the curvature is small one can neglect this change and so \(\vb{n}^2 \approx 0\) and \(\covd{n}\vb{n} \approx 0\). One may then keep track of two neighbouring geodesics by computing the null geodesic between them and evaluating it at the corresponding \(\lambda\) value. Frankly speaking this means that the (null geodesic) distance \(\lambda\) between null geodesics will remain constant.
+
+\section{Calculating the scalarproduct between early and later modes}
+\label{sec:app_scalarproduct}
+We would like to calculate the scalarproduct between the following modes in the later spacetime:
+
+\begin{align}
+u_{\omega l m} &= \frac{i^{-l}}{2i\sqrt{\pi\omega}r} e^{-i\omega u} Y_l^m (\theta, \phi) - \frac{i^{l}}{2i\sqrt{\pi\omega}r} e^{-i\omega v} Y_l^m (\theta, \phi)\\
+\psi_{\omega l m} &= \frac{i^{-l}}{2i\sqrt{\pi\omega}r} e^{i\omega B e^{-\frac{u}{4M}}} Y_l^m (\theta, \phi) - \frac{i^{l}}{2i\sqrt{\pi\omega}r} e^{-i\omega v} Y_l^m (\theta, \phi)
+\end{align}
+
+To do so we choose as hypersurface a lightlike surface with \(v = \mathrm{const}.\) together with some spacelike surface that captures the complete interior region (we need both surfaces since \(\Im^+\) is only a partial Cauchysurface \footnote{Note that \(v = \mathrm{const}.\) is a lightlike surface but partial Cauchysurfaces need to be spacelike. So it is not a partial Cauchysurface. However as eq. \ref{equ:qft_scalarproduct_invariant} is also true for lightlike surfaces the value of the scalarproduct will not change.}). However the the \(u\) modes are \(0\) inside the black hole and therefore the integral over the interior will vanish.
+
+So we will only integrate over the lightlike surface. The normal vector of the surface is given by \(S = \frac{r^2 \sin\theta}{f(r)} \partial_u\). We will neglect the factor \(f(r) \approx 1\) since the bigger part of the hypersurface will be far away from the black hole and we assume that the non approximate wave functions will drop to zero at the event horizon\footnote{Actually Hawking and all other authors I encountered so far didn't mentioned this factor.}.
+
+Before evaluating the integral let us rewrite the modes. First define the prefactor as \(A = \frac{i^{-l}}{2i\sqrt{\pi\omega}}\) and then  
+\begin{align}
+u_{\omega l m} &= \frac{\tilde{u}_\omega}{r} Y_l^m (\theta, \phi)\\
+\psi_{\omega l m} &= \frac{\tilde{\psi}_\omega}{r} Y_l^m (\theta, \phi)\\
+\tilde{u}_{\omega} &= A e^{-i\omega u} + A^* e^{-i\omega v}\\
+\tilde{\psi}_{\omega} &= A e^{i\omega B e^{-\frac{u}{4M}}} + A^* e^{-i\omega v}
+\end{align}
+
+Using this we can simplify the scalarproduct (we will drop the indices \(l, m\) because the angular integral will just give \(\delta_{ll'}\delta_{mm'}\)):
+\begin{align}
+(u_{\omega'}|\psi_\omega) &= i\int_{-\infty}^\infty r^2 \dd{u} \frac{\tilde{u}_{\omega'}^*}{r} \partial_u \frac{\tilde{\psi}_\omega}{r} - \frac{\tilde{\psi}_\omega}{r} \partial_u \frac{\tilde{u}_{\omega'}^*}{r}\\
+	&= i\int_{-\infty}^\infty r^2 \dd{u} \frac{\tilde{u}_{\omega'}^*}{r} \frac{\partial_u \tilde{\psi}_\omega}{r} - \frac{\tilde{\psi}_\omega}{r} \frac{\partial_u \tilde{u}_{\omega'}^*}{r} - \frac{\tilde{u}_{\omega'}^*}{r} \frac{\tilde{\psi}_\omega}{r^2} \partial_u r + \frac{\tilde{\psi}_\omega}{r} \frac{\tilde{u}_{\omega'}^*}{r^2} \partial_u r\\
+	&= i\int_{-\infty}^\infty \dd{u} \tilde{u}_{\omega'}^* \partial_u \tilde{\psi}_\omega - \tilde{\psi}_\omega \partial_u \tilde{u}_{\omega'}^*\\
+	&= -2i\int_{-\infty}^\infty \dd{u} \tilde{\psi}_\omega \partial_u \tilde{u}_{\omega'}^*
+\end{align}
+
+In the last step we integrated by parts and assume that the boundary terms vanish (We know that the later modes drop to zero at the horizon \(u = \infty\). For \(u = -\infty\) we have a rapidly oscillating function which is zero at average).
+
+\begin{align}
+(u_{\omega'}|\psi_\omega) &= -2i\int_{-\infty}^\infty \dd{u} \tilde{\psi}_\omega \partial_u \tilde{u}_{\omega'}^*\\
+	&= 2\omega' \int_{-\infty}^\infty \dd{u} \qty(A e^{i\omega B e^{-\frac{u}{4M}}} + A^* e^{-i\omega v}) A'^* e^{i\omega' u}\\
+	&= 2\omega' AA'^* \int_{-\infty}^\infty \dd{u} e^{i\omega B e^{-\frac{u}{4M}}} e^{i\omega' u} + 2\omega' A^*A'^* e^{-i\omega v} \delta(\omega')\\
+	&= 2\omega' AA'^* \int_{-\infty}^\infty \dd{u} e^{i\omega B e^{-\frac{u}{4M}}} e^{i\omega' u}
+\end{align}
+
+Next substitute \(x = e^{-\frac{u}{4M}}\) and then use contour integration to integrate over the positive imaginary axis (\(x = i y\)):
+\begin{align}
+(u_{\omega'}|\psi_\omega) &= 8M \omega' A^*A'^* \int_{0}^\infty \frac{\dd{x}}{x} e^{i\omega B x} e^{-4M i \omega' \ln x}\\
+&= 8M \omega' AA'^* \int_{0}^\infty \dd{x} e^{i\omega B x} x^{-4M i \omega' - 1}\\
+&= i 8M \omega' AA'^* \int_{0}^\infty \dd{y} e^{-\omega B y} (iy)^{-4M i \omega' - 1}\\
+&= i^{-4M i \omega'} 8M \omega' AA'^* \int_{0}^\infty \dd{y} e^{-\omega B y} y^{-4M i \omega' - 1}\\
+&\overset{z = \omega B y}{=} i^{-4M i \omega'} 8M \omega' AA'^* \int_{0}^\infty \frac{\dd{z}}{B\omega} e^{-z} z^{-4M i \omega' - 1} (\omega B)^{4M i \omega' + 1}\\
+&= i^{-4M i \omega'} (\omega B)^{4M i \omega'} 8M \omega' AA'^* \Gamma(-4M i \omega')
+\label{equ:app_scalarproduct}
+\end{align}
+
+To calculate \((u_{\omega'}|\psi_\omega*)\) one can redo the same calculation but choose a contour over the negative imaginary axis (\(x = - iy\))
+
+\begin{align}
+(u_{\omega'}|\psi_\omega^*) &= -2i\int_{-\infty}^\infty \dd{u} \tilde{\psi}_\omega^* \partial_u \tilde{u}_{\omega'}^*\\
+	&= 2\omega' A^*A'^* \int_{-\infty}^\infty \dd{u} e^{-i\omega B e^{-\frac{u}{4M}}} e^{i\omega' u}\\
+	&= 8M \omega'A^*A'^* \int_{0}^\infty \dd{x} e^{-i\omega B x} x^{-4M i \omega' - 1}\\
+	&= -i 8M \omega' A^*A'^* \int_{0}^\infty \dd{y} e^{-\omega B y} (-iy)^{-4M i \omega' - 1}\\
+	&= i^{4M i \omega'} 8M \omega' A^*A'^* \int_{0}^\infty \dd{y} e^{-\omega B y} y^{-4M i \omega' - 1}\\
+	&\overset{z = \omega B y}{=} i^{4M i \omega'} 8M \omega' A^*A'^* \int_{0}^\infty \frac{\dd{z}}{\omega B} e^{-z} z^{-4M i \omega' - 1} (\omega B)^{4M i \omega' + 1}\\
+	&= i^{4M i \omega'} (\omega B)^{4M i \omega'}  8M \omega' A^*A'^* \Gamma(-4M i \omega')\\
+	&= (-1)^{l+1} i^{8M i \omega'} (u_{\omega'}|\psi_\omega) = (-1)^{l+1} e^{-4\pi M \omega'} (u_{\omega'}|\psi_\omega) 
+\end{align}
+
+So both scalar products lead (up to a prefactor) to the same result.
+
+In eq. \ref{equ:hawking_bb} it was shown that \(\bra*{0}b_{\tilde{\omega}} b_{\omega'}\ket*{0}\) vanishes for \(\tilde{\omega} \neq \omega'\). For \(\tilde{\omega} = \omega'\) we still need to evaluate the integral directly:
+
+\begin{align}
+\bra*{0}b_{\tilde{\omega}} b_{\omega'}\ket*{0} &= (-1)^{l+1} e^{-4 M\pi \omega'} \int_0^\infty \dd{\omega} (u_{\omega'}|\psi_\omega) (u_{\omega'}|\psi_\omega)\\
+&= (-1)^{l+1} e^{-4 M\pi \omega'} \int_0^\infty \dd{\omega} i^{-8M i \omega'} (\omega B)^{8M i \omega'} (8M)^2 \omega'^2 A^2A'^{2*} \Gamma(-4M i \omega')^2\\
+	&= B^{8M i \omega'} (8M)^2 \omega'^2 \frac{1}{4\pi} A'^{2*} \Gamma(-4M i \omega')^2 \int_0^\infty \dd{\omega}\omega^{8M i \omega'} \frac{1}{\omega}\\
+	&= (8M)^2 B^{8M i \omega'} \omega'^2 \frac{1}{4\pi} A'^{2*} \Gamma(-4M i \omega')^2 \int_0^\infty \dd{\omega}e^{(8M i \omega' - 1)\ln \omega}\\
+	&\overset{x = \ln\omega}{=} B^{8M i \omega'} (8M)^2 \omega'^2 \frac{1}{4\pi} A'^{2*} \Gamma(-4M i \omega')^2 \int_{-\infty}^\infty \dd{x} e^x e^{(8M i \omega' - 1)x}\\
+	&= B^{8M i \omega'} (8M)^2 \omega'^2 \frac{1}{4\pi} A'^{2*} \Gamma(-4M i \omega')^2 \delta(8M\omega')\\
+	&= B^{8M i \omega'} 8M \omega'^2 \frac{1}{4\pi} A'^{2*} \Gamma(-4M i \omega')^2 \delta(\omega')
+\end{align}
+
+There is only a contribution for \(\omega' = 0\) which we excluded from our analysis.

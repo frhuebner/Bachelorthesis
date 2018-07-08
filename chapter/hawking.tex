@@ -1,4 +1,7 @@
 \chapter{Collapsing Black Holes -- The Hawking Effect}
+\missingfigure{}
+
+In this chapter we will calculate the transition rate for an detector moving in the spacetime after a star collapsed into a black hole. We will first follow the treatment of Hawking (Quelle: Hawking) to show that the quantum field after the collapse is equivalent to a thermal state in the former spacetime. Using this we then calculate the transition rate on various trajectories. 
 
 \section{Geometric Optics Approximation}
 We need to solve the Klein-Gordon-Equation in this time dependent metric. Hawking realised that modes after leaving the star shortly before it forms a horizon will become highly redshifted. This means their frequency was much larger inside the star so one can apply a geometric optics approximation. The derivation here is similar to a analogously derivation for light in (Stephani). The ansatz for the wavefunction is \(\phi = A(\vb{x}) e^{-i\omega S(\vb{x})}\) where \(\omega\) is large. Plugging this into the Klein-Gordon-Equation gives
@@ -113,3 +116,71 @@ We conclude with stating the form of the modes before and after the collapse. We
 u_{\omega l m} &= \frac{i^{-l}}{2i\sqrt{\pi\omega}r} e^{-i\omega u} Y_l^m (\theta, \phi) - \frac{i^{l}}{2i\sqrt{\pi\omega}r} e^{-i\omega v} Y_l^m (\theta, \phi)\\
 \psi_{\omega l m} &= \frac{i^{-l}}{2i\sqrt{\pi\omega}r} e^{i\omega B e^{-\frac{u}{4M}}} Y_l^m (\theta, \phi) - \frac{i^{l}}{2i\sqrt{\pi\omega}r} e^{-i\omega v} Y_l^m (\theta, \phi)
 \end{align}
+
+\section{The Wigthman function of the Field}
+
+After the collapse the field is given by (\(i\) stands for \((\omega l m)\))
+\begin{align}
+\phi(\vb{x}) = \sum_i \psi_i(\vb{x}) a_i + \psi_i(\vb{x})^* a_i^\dagger
+\end{align}
+
+One could now calculate \(D^+\) directly from our new functions. However it gives more insight to do a Bogoliubov transformation and express \(\phi(\vb{x})\) in terms of the old modes \(u_i\) but with different annihilation operator \(b_i\):
+\begin{align}
+\phi(\vb{x}) = \sum_j u_j(\vb{x}) b_j + u_j(\vb{x})^* b_j^\dagger
+\end{align}
+
+By formula \ref{equ:qft_bogolyubov} the \(b_i\) are given through
+\begin{align}
+b_j = \sum_i (u_j|\psi_i) a_i + (u_j|\psi_i^*) a_i^\dagger
+\end{align}
+
+In the Appendix \ref{sec:app_scalarproduct} it is shown that
+\begin{align}
+(u_{\omega' l' m'}|\psi_{\omega l m}^*) = (-1)^{l+1} e^{-4 M\pi \omega'} (u_{\omega' l' m'}|\psi_{\omega l m}) \sim \delta_{ll'}\delta_{mm'}
+\end{align}
+
+For simplicity I will drop the angular momentum indices \(l, m\) since they will be equal for all modes. Since \(\{\psi\}\) is a complete set of modes for the whole spacetime we can write\footnote{Actually the sum over \(\omega\) is an integral.}
+\begin{align}
+\delta_{\tilde{\omega}\omega'} = (u_{\tilde{\omega}}|u_{\omega'}) &= \sum_{\omega} (u_{\tilde{\omega}}|\psi_\omega)(\psi_\omega|u_{\omega'}) - (u_{\tilde{\omega}}|\psi_\omega^*)(\psi_\omega^*|u_{\omega'})\\
+	&= \sum_{\omega} (u_{\tilde{\omega}}|\psi_\omega)(\psi_\omega|u_{\omega'}) - e^{- 4 M \pi (\tilde{\omega} + \omega')} (u_{\tilde{\omega}}|\psi_\omega)(\psi_\omega|u_{\omega'})\\
+	&= \qty(1 - e^{- 4 M \pi (\tilde{\omega} + \omega')}) \sum_{\omega} (u_{\tilde{\omega}}|\psi_\omega)(\psi_\omega|u_{\omega'})\\
+\sum_{\omega} (u_{\tilde{\omega}}|\psi_\omega)(\psi_\omega|u_{\omega'}) &= \frac{\delta_{\tilde{\omega}\omega'}}{1 - e^{- 4 M \pi (\tilde{\omega} + \omega')}}\\
+\sum_{\omega} (u_{\tilde{\omega}}|\psi_\omega^*)(\psi_\omega^*|u_{\omega'}) &= \frac{e^{- 4 M \pi (\tilde{\omega} + \omega')}}{1 - e^{- 4 M \pi (\tilde{\omega} + \omega')}} \delta_{\tilde{\omega}\omega'} = \frac{1}{e^{8 M \pi \omega'} - 1} \delta_{\tilde{\omega}\omega'}
+\end{align}
+
+To calculate \(D^+\) now we need the vacuum expectation values like \(\bra*{0}b_{\tilde{\omega}} b_{\omega'}\ket*{0}\) and \(\bra*{0}b_{\tilde{\omega}}^\dagger b_{\omega'}\ket*{0}\).
+
+\begin{align}
+\bra*{0}b_{\tilde{\omega}}^\dagger b_{\omega'}\ket*{0} &= \sum_{\omega} (u_{\tilde{\omega}}|\psi_\omega^*)^* (u_{\omega'}|\psi_\omega^*)\\
+	&= \sum_{\omega} (\psi_\omega^*|u_{\tilde{\omega}}) (u_{\omega'}|\psi_\omega^*)\\
+	&= \frac{1}{e^{8 M \pi \omega'} - 1} \delta_{\tilde{\omega}\omega'}
+\end{align}
+
+To calculate \(\bra*{0}b_{\tilde{\omega}} b_{\omega'}\ket*{0}\) make use of \([b_{\tilde{\omega}}, b_{\omega'}] = 0\)
+
+\begin{align}
+\bra*{0}b_{\tilde{\omega}} b_{\omega'}\ket*{0} &= \bra*{0} b_{\omega'} b_{\tilde{\omega}} \ket*{0}\\
+\sum_{\omega} (u_{\tilde{\omega}}|\psi_\omega) (u_{\omega'}|\psi_\omega^*) &= \sum_{\omega} (u_{\omega'}|\psi_\omega) (u_{\tilde{\omega}}|\psi_\omega^*)\\
+(-1)^{l+1} e^{-4 M\pi \omega'} \sum_{\omega} (u_{\tilde{\omega}}|\psi_\omega) (u_{\omega'}|\psi_\omega)	&= (-1)^{l+1} e^{-4 M\pi \tilde{\omega}} \sum_{\omega} (u_{\omega'}|\psi_\omega) (u_{\tilde{\omega}}|\psi_\omega)
+\label{equ:hawking_bb}
+\end{align}
+
+So unless \(\tilde{\omega} = \omega'\) the expectation value has to vanish. To show that is also vanishes for \(\tilde{\omega} = \omega'\) one has to calculate this directly (see appendix \ref{equ:app_scalarproduct}). The other expectation values \(\bra*{0}b_{\tilde{\omega}} b_{\omega'}^\dagger\ket*{0}\) and \(\bra*{0}b_{\tilde{\omega}}^\dagger b_{\omega'}^\dagger\ket*{0}\) can easily be achieved by complex conjugating the other other two results. 
+
+The expectation values in the later spacetime coincide with the expectation values for a thermal state with \(\beta = 8 M \pi\) in the early spacetime, i.e.
+
+\begin{align}
+\bra*{0}b_{\tilde{\omega}}^\dagger b_{\omega'}\ket*{0} &= \frac{1}{e^{8 M \pi \omega'} - 1} \delta_{\tilde{\omega}\omega'} &= \langle a_{\tilde{\omega}}^\dagger a_{\omega'}\rangle_\beta\\
+\bra*{0}b_{\tilde{\omega}} b_{\omega'}\ket*{0} &= 0 &= \langle a_{\tilde{\omega}} a_{\omega'}\rangle_\beta
+\end{align}
+
+It can easily be shown by expanding the definition that this also happens for \(D^+\):
+\begin{align}
+D^+(\vb{x},\vb{x}') &= \bra*{0}\phi(\vb{x})\phi(\vb{x}')\ket*{0}\\
+	&= \sum_{ij} \bra*{0}\qty(u_i(\vb{x})b_i + u_i(\vb{x})^*b_i^\dagger)\qty(u_j(\vb{x})b_j + u_j(\vb{x})^*b_j^\dagger)\ket*{0}\\
+	&= \sum_{ij} \langle\qty(u_i(\vb{x})b_i + u_i(\vb{x})^*b_i^\dagger)\qty(u_j(\vb{x})b_j + u_j(\vb{x})^*b_j^\dagger)\rangle_\beta\\
+	&= \langle\phi(\vb{x})\phi(\vb{x}')\rangle_\beta
+\end{align}
+
+So as long as we are only interested in two point correlations in the later spacetime we can ignore the gravitational collapse  by putting the quantum system not in the ground state but in a thermal state with temperature \(T = \frac{k\ind{B} \beta} = \frac{8\pi k\ind{B} M}\).
+  
