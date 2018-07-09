@@ -1,0 +1,49 @@
+\chapter{Unruh-Detector in Curved Spacetimes}
+
+\section{Properties of the Wightman function in static spacetimes}
+
+\missingfigure{}
+
+TODO: explanation
+
+Static spacetimes have a metric that looks like
+\begin{align}
+\dd{s^2} = -\beta(\va{x}) \dd{t^2} + g_{ij}(\va{x}) \dd{x^i} \dd{x^j} 
+\end{align}
+
+The metric only depends on the spatial coordinates and therefore \(\partial_t\) is killing. 
+
+\subsection{Wightman function in normal coordinates}
+We can choose any coordinate system we like for \(g_{ij}(\va{x})\). Analysis near a point \(\va{x}' = 0\) simplifies if one takes riemanian normal coordinates. The metric then looks like (Quelle: lcb96-01.pdf):
+\begin{align}
+g_{ij} &= \delta_{ij} - \frac{1}{3} R_{iajb} x^a x^b + \order{x^3}\\
+\end{align}
+
+Since the metric is given to the second order we will also expand other quantities\footnote{Note that one can raise and lower indices with \(\delta_{ij}\) if one is neglecting \(\order{x^2}\).}
+
+\begin{align}
+g^{ij} &= \delta^{ij} + \frac{1}{3} R^{i\;j}_{\;a\;b} x^a x^b + \order{x^3}\\
+\partial_i g^{ij} &= -\frac{1}{3} R^j_{\;i} x^i + \order{x^2} = -\frac{1}{3} R_{ji} x^i + \order{x^2}\\
+g = \det g_{ij} &= 1 - \frac{1}{3} R_{ij} x^i x^j + \order{x^3}\\  
+\frac{1}{g}\partial_i g &= -\frac{2}{3} R_{ij} x^j + \order{x^2}\\
+\beta &= a + b_i x^i + \frac{1}{2} c_{ij} x^i x^j + \order{x^3}
+\end{align}
+
+
+The Klein-Gordon-equation is given by
+\begin{align}
+0 &= \nabla_\mu\nabla^\mu\phi = -\frac{1}{\sqrt{\beta g}} \partial_t \qty(\sqrt{\beta g} \frac{1}{\beta} \partial_t \phi) + \frac{1}{\sqrt{\beta g}} \partial_i \qty(\sqrt{\beta g} g^{ij} \partial_j \phi)\\
+&= -\frac{1}{\beta} \partial_t^2 \phi + \frac{1}{\sqrt{\beta g}} \partial_i \qty(\sqrt{\beta g})  g^{ij} \partial_j \phi +  \qty(\partial_i g^{ij}) \partial_j \phi + g^{ij} \partial_i \partial_j \phi\\
+&= -\frac{1}{\beta} \partial_t^2 \phi + \frac{1}{2\beta g} \partial_i \qty(\beta g) g^{ij} \partial_j \phi +  \qty(\partial_i g^{ij}) \partial_j \phi + g^{ij} \partial_i \partial_j \phi\\
+\partial_t^2 \phi &= \frac{\partial_i\beta}{2} g^{ij} \partial_j \phi + \frac{\beta \partial_i g}{2g} g^{ij} \partial_j \phi + \beta \qty(\partial_i g^{ij}) \partial_j \phi + \beta g^{ij} \partial_i \partial_j \phi\\
+&= \frac{1}{2} \qty(b_i + c_{ik} x^k) \partial_i \phi - \frac{a}{3} R_{ik} x^k \partial_i \phi - \frac{a}{3} R_{ik} x^k \partial_ i\phi + \qty(a + b_k x^k) \partial_i \partial_i \phi + \order{x^2}\\
+&= \frac{1}{2} \qty(b_i + c_{ik} x^k) \partial_i \phi - \frac{2a}{3} R_{ik} x^k \partial_i \phi + \qty(a + b_k x^k) \partial_i \partial_i \phi + \order{x^2}
+\end{align}
+
+To solve these equations make the ansatz \(\phi(\vb{x}) = \exp(-i\omega t + i k_i x^i + i \frac{1}{2} k_a B^{a}_{ij}\qty(\va{k}) x^i x^j + i\order{x^3})\):
+
+\begin{align}
+-\omega^2 &= \frac{1}{2} \qty(b_i + c_{ik} x^k) i \qty(k_i + k_a B^a_{ik} x^k) - \frac{2a}{3} R_{ik} x^k i k_i + \qty(a + b_k x^k) \qty(i k_a B^a_{ii} - \qty(k_i + k_a B^a_{ik} x^k)\qty(k_i + k_b B^b_{il} x^l)) + \order{x^2}\\
+-\omega^2 &= \frac{1}{2}i b_i k_i + a i k_a B^a_{ii} - a k_ik_i\\
+0 &= ik_a\qty(\frac{1}{2} b_i B^a_{ik} + \frac{1}{2} c_{ak} - \frac{2a}{3} R_{ak} + b_k B^a_{ii}) - 2 a k_i k_a B^a_{ik} - b_k k_i k_i 
+\end{align}
