@@ -179,8 +179,42 @@ It can easily be shown by expanding the definition that this also happens for \(
 D^+(\vb{x},\vb{x}') &= \bra*{0}\phi(\vb{x})\phi(\vb{x}')\ket*{0}\\
 	&= \sum_{ij} \bra*{0}\qty(u_i(\vb{x})b_i + u_i(\vb{x})^*b_i^\dagger)\qty(u_j(\vb{x})b_j + u_j(\vb{x})^*b_j^\dagger)\ket*{0}\\
 	&= \sum_{ij} \langle\qty(u_i(\vb{x})b_i + u_i(\vb{x})^*b_i^\dagger)\qty(u_j(\vb{x})b_j + u_j(\vb{x})^*b_j^\dagger)\rangle_\beta\\
-	&= \langle\phi(\vb{x})\phi(\vb{x}')\rangle_\beta
+	&= \langle\phi(\vb{x})\phi(\vb{x}')\rangle_\beta 
 \end{align}
 
 So as long as we are only interested in two point correlations in the later spacetime we can ignore the gravitational collapse  by putting the quantum system not in the ground state but in a thermal state with temperature \(T = \frac{1}{k\ind{B} \beta} = \frac{1}{8\pi k\ind{B} M}\).
-  
+
+\section{Hawking radiation seen by observers}
+
+In section \todo{link} we found that the thermal Wightmanfunction \(D^+_\beta\) is given by\footnote{Actually this is only true for the real part but we know that the imaginary part vanishes on a trajectory.}\todo{really?}:
+\begin{align}
+D^+_\beta(t,\vec{x};t',\vec{x}') = \sum_k D^+(t+i\beta k, \vec{x};t',\vec{x}')
+\end{align}
+
+To distinguish both Wightman functions we will call it \(D^+\) before the collapse and \(D^+_\beta\) after the collapse.
+
+\subsection{Static observer}
+For a static observer the Wightman function is given by\todo{link}:
+\begin{align}
+D^+(\vb{x}(\tau), \vb{x}(\tau')) =  -\frac{1}{4\pi^2}\frac{r_*^2}{r^2} \frac{f(r)}{(\tau-\tau'-i\varepsilon)^2}
+\end{align}
+
+This is up to a prefactor the same as for a static observer in Minkowskispace so the result will be analogously
+\begin{align}
+\frac{1}{2\pi} \frac{r_*^2 f(r)}{r^2} \frac{E}{e^{\beta E}-1}
+\end{align}
+
+The prefactor \(\frac{r_*^2 f(r)}{r^2}\) is one at infinity and then only slightly decreases for decreasing \(r\)\todo{plot?}. Using this we conclude that for an observer far away the distribution will look as a thermal distribution in Minkowskispace. 
+
+\subsection{Circular orbiting observer}
+An observer on a circular orbit has the following Wightman function\todo{link}:
+\begin{align}
+D^+(\vb{x}(\tau), \vb{x}(\tau')) &= -\frac{1}{4\pi^2}\frac{r_*^2}{r^2} \frac{1}{(A(\tau-\tau')-i\varepsilon)^2 - 2r_*^2 (1 - \cos{B(\tau-\tau')})}
+\end{align}
+
+Again we will replace \(x = B\tau\) and \(\xi = \frac{A}{Br_*}\) to achieve:
+\begin{align}
+D^+(\vb{x}(x/B), 0) &= -\frac{1}{4\pi^2}\frac{1}{r^2} \frac{1}{\xi^2x^2 - 2 (1 - \cos{x})}
+\end{align}
+
+This function has poles at \(\pm i x_0\).

@@ -112,15 +112,62 @@ Unfortunately the exact behaviour for small \(\omega\) is the same as for small 
 u_{\omega l m} &= \frac{\sqrt{\omega}}{\sqrt{\pi}} e^{-i\omega t} \frac{r_*}{r} j_l(\omega r_*) Y_l^m (\theta, \phi) = \frac{r_*}{r} u_{\omega l m}\upd{M}(r_*,\theta,\phi)
 \end{align}
 
-Because the modes now are the same (up to a prefactor and replacing \(r \to r_*\)) as in Minkowskispace we can find the Wightman function by adjusting the Wightman function of Minkowskispace:
+Because the modes now are the same (up to a prefactor and replacing \(r \to r_*\)) as in Minkowskispace we can find the Wightman function by adjusting the Wightman function of Minkowskispace\todo{link}:
 \begin{align}
-D^+(\vb{x}, \vb{x}') &= -\frac{1}{4\pi}\frac{r_* r_*'}{r r'} \frac{1}{(t-t'-i\varepsilon)^2 - |\va{x}_*-\va{x}_*'|^2}\\
-	&=  -\frac{1}{4\pi}\frac{r_* r_*'}{r r'} \frac{1}{(t-t'-i\varepsilon)^2 - r_*^2 - r_*'^2 + 2r_*r_*' \cos{\alpha}}
+D^+(\vb{x}, \vb{x}') &= -\frac{1}{4\pi^2}\frac{r_* r_*'}{r r'} \frac{1}{(t-t'-i\varepsilon)^2 - |\va{x}_*-\va{x}_*'|^2}\\
+	&=  -\frac{1}{4\pi^2}\frac{r_* r_*'}{r r'} \frac{1}{(t-t'-i\varepsilon)^2 - r_*^2 - r_*'^2 + 2r_*r_*' \cos{\alpha}}
 \end{align}
 
-where \(\va{x}_*\) is obtained by replacing \(r \to r_*\) in \(\va{x}\) and \(\alpha\) is the angle between the two vectors. So the Wightmanfunction on a trajectory outside the star can be approximated  by the Wightmanfunction in Minkowskispace on a slightly different trajectory. 
+where \(\va{x}_*\) is obtained by replacing \(r \to r_*\) in \(\va{x}\) and \(\alpha\) is the angle between the two vectors. So the Wightmanfunction on a trajectory outside the star can be approximated by the Wightmanfunction in Minkowskispace on a slightly different trajectory.
+
+\section{Observers in the Schwarzschildmetric}
+
+\section{Static observer}
+We already know by lemma \ref{lemma:static_spacetime} that a static observer will not see any excitations. However we can proof this explicitly in the Schwarzschildmetric. A static observer is given by \(t = \frac{\tau}{\sqrt{f(r)}}\) and all other coordinates constant. Inserting this into the Wightmanfunction yields
+\begin{align}
+D^+(\vb{x}(\tau), \vb{x}(\tau')) =  -\frac{1}{4\pi^2}\frac{r_*^2}{r^2} \frac{f(r)}{(\tau-\tau'-i\varepsilon)^2}
+\end{align} 
+
+Up to a prefactor this is exactly the same as in Minkowskispace \todo{link}. So a static observer indeed does not recognize any particles.
  
-\section{Circular Observers in the Schwarzschild background}
-By Lemma \ref{lemma:static_spacetime} we know that a static observer (but nevertheless proper accelerating) won't see any excitations. But we also would like to know if a freely falling observer (unlike in Minkowskispace) will recognize particles.   
+\section{Circular observer}
+By Lemma \ref{lemma:static_spacetime} we know that a static observer (but nevertheless proper accelerating) won't see any excitations. But we also would like to know if a freely falling observer (unlike in Minkowskispace) will recognize particles.
+
+A circular observer is given by \(t = a\tau\), \(\phi = B\tau\), \(r = \mathrm{const.}\), \(\theta = \frac{\pi}{2}\)\footnote{Since the spacetime is spherically symmetric we can choose a coordinate system such that \(\theta = \frac{\pi}{2}\) and \(B>0\)}. The geodesic equation and \(\dot{\vb{x}}^2 = 0\) give constrains on the constants
+\begin{align}
+A^2 &= \frac{r}{r-3M}\\
+B^2 &= \frac{1}{r^2}\frac{M}{r-3M}
+\end{align}
+
+The Wightman function evaluated on the curve is 
+\begin{align}
+D^+(\vb{x}(\tau), \vb{x}(\tau')) &= -\frac{1}{4\pi^2}\frac{r_*^2}{r^2} \frac{1}{(A(\tau-\tau')-i\varepsilon)^2 - 2r_*^2 (1 - \cos{B(\tau-\tau')})}
+\end{align}
+
+We see that \(D^+\) only depends on \(\tau - \tau'\). So we can use the simplified formular \eqref{equ:detector_final}. For this we need to find the poles in the lower half of \(D^+(\vb{x})(\tau),0\) which means finding the roots of 
+
+\begin{align}
+0 &= A^2\tau^2 - 2r_*^2 (1 - \cos{B\tau})\\
+0 &= \xi^2 x^2 - 2(1 - \cos{x})
+\end{align}
+
+where \(x = B\tau\) and \(\xi = \frac{A}{Br_*}\)\footnote{We exclude the case that \(r_* = 0\) since this corresponds to \(r\approx 1.4 \cdot 2M\) which is not far away from the horizon}. 
+Clearly \(\tau = 0\) is a root. But we know that due to the \(\varepsilon\) (\todo{link}) this root will always lie in the upper half. Apart from that we have to differentiate between two cases\todo{more information}:
+\begin{itemize}
+\item \(\xi < 1\): In this case there are another two roots on the real axis. The reason is that for \(\xi < 1\) (which is a very fast circular motion) the trajectory hits the Minkowski-lightcone. But we know that this is not possible in the Schwarzschild-spacetime \todo{really?,link}. So we assume that this behaviour is due to our approximation and therefore exclude this case.
+\item \(\xi > 1\): This case represents slower motions. There are two more (first order) poles at \(\pm i x_0\) of whom one is in the lower half. 
+\end{itemize}
+
+The rate is given by eq. \ref{equ:detector_final}
+\begin{align}
+\dv{F_E}{\tau} &= \int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} D^+(\vb{x}(\tau), \vb{x}(0))\\
+	&= -\frac{1}{4\pi^2}\frac{r_*^2}{r^2} \int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} \frac{1}{A^2\tau^2 - 2r_*^2 (1 - \cos{B(\tau)})}\\
+	&= -\frac{1}{4\pi^2}\frac{1}{r r' B} \int_{-\infty}^\infty \dd{x} e^{-i E x} \frac{1}{\xi^2 x^2 - 2 (1 - \cos{x})}\\
+	&= \frac{i}{2\pi}\frac{1}{r r' B} \mathrm{Res}\qty(e^{-i E x} \frac{1}{\xi^2 x^2 - 2 (1 - \cos{x})}, -ix_0)\\
+	&= \frac{i}{2\pi}\frac{1}{r r' B} e^{-E x_0} \lim_{x\to -i x_0} \frac{x + ix_0}{\xi^2 x^2 - 2 (1 - \cos{x})}\\
+	&= \frac{1}{2\pi}\frac{1}{r r' B} e^{-E x_0} \frac{1}{-2\xi^2 x_0 + 2 \sinh{x_0}}
+\end{align}
+
+So basically a circular observer sees a exponentially falling energy distribution.  
 
     
