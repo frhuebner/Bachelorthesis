@@ -28,6 +28,34 @@ u_{i}(t, \va{x}) &= \frac{1}{\sqrt{2\omega_i}}e^{-i\omega_i t} A_i(\va{x})\\
 \sum_k A_k(\va{x}) A_k^*(\va{x}') &= \frac{\sqrt{\beta}}{\sqrt{g}}\delta^3(\va{x}-\va{x}')
 \end{align}
 
+\section{Groundstate of the field}
+As discussed in \todo{link} it is suitable to define the groundstate as the state of lowest energy on a surface \(t = \mathrm{const.}\).
+
+The momentum and the hamiltonian density are given by
+\begin{align}
+\pi &= \pdv{\mathcal{L}}{\partial_t \phi} = \sqrt{g\beta} \beta^{-1} \partial_t \phi = \frac{\sqrt{g}}{\sqrt{\beta}} \partial_t \phi \\
+\mathcal{H} &= \pi\partial_t \phi - \mathcal{L} = \frac{\sqrt{g}}{\sqrt{\beta}} \partial_t \phi \partial_t \phi - \frac{1}{2} \frac{\sqrt{g}}{\sqrt{\beta}} \partial_t \phi \partial_t \phi + \frac{1}{2}\sqrt{g\beta} g^{ij} \partial_i \phi \partial_j \phi\\
+&= \frac{1}{2}\frac{\sqrt{g}}{\sqrt{\beta}} \partial_t \phi \partial_t \phi + \frac{1}{2}\sqrt{g\beta} g^{ij} \partial_i \phi \partial_j \phi  
+\end{align}
+
+To get the Hamiltonian we need to integrate this over the whole space. Then we can perform a integration by parts and insert the Klein-Gordon-equation:
+\begin{align}
+H &= \int \dd[3]{x} \mathcal{H} = \int \dd[3]{x} \frac{1}{2}\frac{\sqrt{g}}{\sqrt{\beta}} \partial_t \phi \partial_t \phi + \frac{1}{2}\sqrt{g\beta} g^{ij} \partial_i \phi \partial_j \phi\\
+&\overset{\mathrm{PI}}{=} \int \dd[3]{x} \frac{1}{2}\frac{\sqrt{g}}{\sqrt{\beta}} \partial_t \phi \partial_t \phi - \frac{1}{2}\phi \partial_i \sqrt{g\beta} g^{ij} \partial_j \phi\\
+&= \int \dd[3]{x} \frac{1}{2}\frac{\sqrt{g}}{\sqrt{\beta}} \partial_t \phi \partial_t \phi + \frac{1}{2}\phi \partial_t \sqrt{g\beta} g^{tt} \partial_t \phi\\
+&= \int \dd[3]{x} \frac{1}{2}\frac{\sqrt{g}}{\sqrt{\beta}} \partial_t \phi \partial_t \phi - \frac{1}{2} \frac{\sqrt{g}}{\beta} \phi \partial_t \partial_t \phi\\
+&= \frac{1}{2} i (\phi|\partial_t\phi) = \frac{1}{2}(\phi|i\partial_t\phi) 
+\end{align}
+
+Here we used the definition of the scalarproduct \todo{link}. Inserting the definition of \(\phi\) and using the orthogonality of the modes yields
+\begin{align}
+H &= \frac{1}{2}(\phi|i\partial_t\phi) = \frac{1}{2} \sum_{ij} (u_i a_i + u_i^* a_i^\dagger|\omega_j u_j a_j -\omega_j u_j^* a_j^\dagger)\\
+	&= \frac{1}{2} \sum_{i} \omega_i a_i^\dagger a_i + \omega_i a_i a_i^\dagger\\
+:H:	&= \sum_{i} \omega_i a_i^\dagger a_i
+\end{align}
+
+The normal ordering is as always applied to get rid of an infinite offset energy. Written in this way it is clear that the vacuum state corresponding to our modes, i.e. \(a_i\ket*{0} = 0\) is the state with the lowest energy and therefore the groundstate. 
+
 \section{Properties of the Wightman function}
 
 The Wightman function is given by

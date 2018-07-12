@@ -182,39 +182,49 @@ D^+(\vb{x},\vb{x}') &= \bra*{0}\phi(\vb{x})\phi(\vb{x}')\ket*{0}\\
 	&= \langle\phi(\vb{x})\phi(\vb{x}')\rangle_\beta 
 \end{align}
 
-So as long as we are only interested in two point correlations in the later spacetime we can ignore the gravitational collapse  by putting the quantum system not in the ground state but in a thermal state with temperature \(T = \frac{1}{k\ind{B} \beta} = \frac{1}{8\pi k\ind{B} M}\).
+So as long as we are only interested in two point correlations in the later spacetime we can ignore the gravitational collapse  by putting the quantum system not in the ground state but in a thermal state with temperature \(T\ind{H} = \frac{1}{k\ind{B} \beta} = \frac{1}{8\pi k\ind{B} M}\).
 
 \section{Hawking radiation seen by observers}
 
-In section \todo{link} we found that the thermal Wightmanfunction \(D^+_\beta\) is given by\footnote{Actually this is only true for the real part but we know that the imaginary part vanishes on a trajectory.}\todo{really?}:
+In section \todo{link} we found the thermal Wightmanfunction \(D^+_\beta\) for the Minkowskispace. Again we can find the Wightmanfunction for the black hole by replacing \(r \to r_*\):
 \begin{align}
-D^+_\beta(t,\vec{x};t',\vec{x}') = \sum_k D^+(t+i\beta k, \vec{x};t',\vec{x}')
+D^+_\beta(\vb{x},\vb{x}') &= -\frac{1}{4\beta^2} \frac{r_*r_*'}{r r'} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{(t-t')^2 - |\va{x}_*-\va{x}_*'|^2})}
 \end{align}
-
-To distinguish both Wightman functions we will call it \(D^+\) before the collapse and \(D^+_\beta\) after the collapse.
 
 \subsection{Static observer}
-For a static observer the Wightman function is given by\todo{link}:
+For a static observer the Wightman function is given by\todo{link}\todo{redo with thermal greens function}:
 \begin{align}
-D^+(\vb{x}(\tau), \vb{x}(\tau')) =  -\frac{1}{4\pi^2}\frac{r_*^2}{r^2} \frac{f(r)}{(\tau-\tau'-i\varepsilon)^2}
+D^+(\vb{x}(\tau), \vb{x}(\tau')) =  -\frac{1}{4\pi^2}\frac{r_*^2}{r^2} \frac{1}{\qty(\frac{\tau-\tau'}{\sqrt{f(r)}}-i\varepsilon)^2}
 \end{align}
 
-This is up to a prefactor the same as for a static observer in Minkowskispace so the result will be analogously
+We then need to replace \(t = \frac{\tau}{\sqrt{f(r)}} \to t - i\beta n = \frac{\tau}{\sqrt{f(r)}} - i\beta n\):
 \begin{align}
-\frac{1}{2\pi} \frac{r_*^2 f(r)}{r^2} \frac{E}{e^{\beta E}-1}
+-\frac{1}{4\pi^2}\frac{r_*^2}{r^2} \frac{f(r)}{\qty(\tau - i\beta\sqrt{f(r)} n - i\varepsilon)^2}
 \end{align}
 
-The prefactor \(\frac{r_*^2 f(r)}{r^2}\) is one at infinity and then only slightly decreases for decreasing \(r\)\todo{plot?}. Using this we conclude that for an observer far away the distribution will look as a thermal distribution in Minkowskispace. 
+This is up to a prefactor the same as for a static observer in Minkowskispace \todo{link} so the result will be analogously
+\begin{align}
+\frac{1}{2\pi} \frac{r_*^2 f(r)}{r^2} \frac{E}{e^{\beta\sqrt{f(r)} E}-1}
+\end{align}
+
+The most important difference to Minkowskispace is that the measured temperature changed according to \(T = f(r)^{-1/2} T\ind{H}\) due to the fact that the proper time differs from the coordinate time. This happens in general in a heat bath on a spacetime and is called the Tolman effect\todo{Quelle}.  
 
 \subsection{Circular orbiting observer}
-An observer on a circular orbit has the following Wightman function\todo{link}:
+An observer on a circular orbit \(t = A \tau\) and \(\phi = B\tau\) has the following thermal Wightman function:
 \begin{align}
-D^+(\vb{x}(\tau), \vb{x}(\tau')) &= -\frac{1}{4\pi^2}\frac{r_*^2}{r^2} \frac{1}{(A(\tau-\tau')-i\varepsilon)^2 - 2r_*^2 (1 - \cos{B(\tau-\tau')})}
+D^+_\beta(\vb{x}(\tau),\vb{x}(0)) &= -\frac{1}{4\beta^2} \frac{r_*^2}{r^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{A^2\tau^2 - 2 r_*^2 (1-\cos{B\tau})})}\\
+&= -\frac{1}{4\beta^2} \frac{r_*^2}{r^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}r_*\sqrt{\xi^2 x^2 - 2 (1-\cos{x})})}\\
+&= -\frac{1}{4\beta^2} \frac{r_*^2}{r^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}r_*\xi\sqrt{x^2 - \frac{2}{\xi^2} (1-\cos{x})})}
 \end{align}
 
-Again we will replace \(x = B\tau\) and \(\xi = \frac{A}{Br_*}\) to achieve:
+where we replaced \(x = B\tau\) and \(\xi = \frac{A}{Br_*}\) as in \todo{link}. If one inserts the values for geodesics \todo{link} into \(\xi\) one finds
 \begin{align}
-D^+(\vb{x}(x/B), 0) &= -\frac{1}{4\pi^2}\frac{1}{r^2} \frac{1}{\xi^2x^2 - 2 (1 - \cos{x})}
+\xi^2 = \frac{r^2}{r_*^2} \frac{r}{M} \approx  \frac{r}{M}
 \end{align}
+The last approximation is the result in newtons theory\footnote{In the newtonian limit \(\frac{1}{\xi}\) is the velocity of the observer which is usually very small compared to the velocity of light.}. So when we are some distance away from the black hole (like \(r \geq 100 M\)) we can assume that \(\frac{1}{\xi^2}\) is quite small. Therefore we will do a perturbative expansion in this parameter before the cosine term\todo{check}.   
 
-This function has poles at \(\pm i x_0\).
+\begin{align}
+D^+_\beta(\vb{x}(\tau),\vb{x}(0)) &= -\frac{1}{4\beta^2} \frac{r_*^2}{r^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}r_*\xi\sqrt{x^2 - \frac{2}{\xi^2} (1-\cos{x})})}\\
+&= -\frac{1}{4\beta^2} \frac{r_*^2}{r^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}r_*\xi x)} - \frac{1}{4\beta^2}\frac{r_*^2}{r^2} \frac{2\cosh(\frac{\pi}{\beta}r_*\xi x)}{\sinh[3](\frac{\pi}{\beta}r_*\xi x)} \frac{\pi r_* \xi}{\beta x} (1- \cos{x}) \cdot \frac{1}{\xi^2}\\
+&= -\frac{1}{4\beta^2} \frac{r_*^2}{r^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}r_*\xi x)} - \frac{1}{4\beta^2\xi}\frac{r_*^2}{r^2} \frac{2\cosh(\frac{\pi}{\beta}r_*\xi x)}{\sinh[3](\frac{\pi}{\beta}r_*\xi x)} \frac{\pi r_*}{\beta x} (1- \cos{x})
+\end{align}

@@ -2,15 +2,15 @@
 \section{Spacetimes}
 
 \section{Klein-Gordon-Field}
-(Quelle: Birell)
+(Quelle: Birell)\todo{Quelle}
 Consider a massless complex Klein-Gordon-field in a curved spacetime with metric \(g_{\mu\nu}\) given by the lagrangian:
 \begin{align}
-\mathcal{L} &= -\sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\,\partial_\nu \phi 
+\mathcal{L} &= -\frac{1}{2}\sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\,\partial_\nu \phi 
 \end{align}
 
-The equation of motion is given by the Klein-Gordon-Equation:
+The equation of motion is given by the Klein-Gordon-equation:
 \begin{align}
-\sqrt{|g|}\nabla_\mu\nabla^\mu \phi = \partial_\mu \left(\sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\right) = 0
+\sqrt{|g|}\nabla_\mu\nabla^\mu \phi = \partial_\mu \left(\sqrt{|g|} g^{\mu\nu} \partial_\nu \phi\right) = 0
 \end{align}
 
 For solutions we also require to drop to zero at the boundary. Define a scalar product of two such solutions $\phi, \psi$ over a Cauchysurface \(\Sigma\) via:
@@ -47,7 +47,7 @@ The completeness of the modes implies that \((\phi|\psi) = \sum_i (\phi|u_i)(u_i
 [\nabla_S \phi(x),\nabla_S \phi(x')]_\Sigma &= 0\\
 \end{align}
 
-One can show that if they hold on one cauchysurface they hold on every cauchysurface.\\
+One can show that if they hold on one cauchysurface they hold on every cauchysurface\todo{Quelle}.\\
 Given a complete set of modes this leads to \(\phi = \sum_i u_i a_i + u_i^* a_i^\dagger\), with \(a\) a bosonic annihilation operator satisfying \([a_i,a_j^\dagger] = \delta_{ij}\).\\
 
 Of course there are many different complete sets. One could also expand it in a different set \(\{v_j\}\): \(\phi = \sum_j v_j b_j + v_j^* b_j^\dagger\). The b's are then given by 
@@ -57,8 +57,29 @@ b_j = \sum_i (v_j|u_i) a_i + (v_j|u_i*) a_i^\dagger
 \end{align}
 This is called a Bogolyubov transformation.\\
 
-\missingfigure{}
-TODO: Vacua
+So far everything was in complete analogy to quantisation in Minkowskispace. However problems arise when one tries to define the ground state of the system which is defined as the state with the lowest energy. To see this choose a co-moving frame w.r.t \(\hat{S}\) and calculate the hamiltonian \todo{wrong}
+\begin{align}
+H_\Sigma &= \int_\Sigma \dd[3]{x} \pi \partial_0 \phi - \frac{1}{2} \sqrt{|g|} \partial_0 \phi \partial_0 \phi + \frac{1}{2} \sqrt{|g|} g^{ij} \partial_i \phi \partial_j \phi\\
+	&= \int_\Sigma \dd[3]{x} \frac{1}{2} \sqrt{|g|} \partial_0 \phi \partial_0 \phi - \frac{1}{2} \phi \partial_i\qty(\sqrt{|g|} g^{ij}  \partial_j \phi)\\
+%	&= \int \dd[3]{x} \frac{1}{2} \sqrt{|g|} \partial_0 \phi \partial_0 \phi - \frac{1}{2} \phi \partial_0 \qty(\sqrt{|g|}\partial_0 \phi)\\
+	&= \int_\Sigma \dd[3]{x} \frac{1}{2} \sqrt{|g|} \partial_0 \phi \partial_0 \phi - \frac{1}{2} \phi \sqrt{|g|} \partial_0^2 \phi + \frac{1}{2} \phi \partial_0\qty(\sqrt{|g|} g^{00}) \partial_0 \phi  
+\end{align}
+
+where we used \(g_{00} = g^{00} = -1\) and the Klein-Gordon-equation. Now we would like to define the groundstate as the state with the lowest energy. To check whether this is a suitable definition choose two cauchysurfaces  \(\Sigma, \Sigma'\) and determine the difference between their hamiltonians. To do this choose for \(\partial_0\) a vectorfield that matches with \(\\hat{S}\) on both surfaces:
+\begin{align}
+H_\Sigma - H_\Sigma' &= \frac{1}{2}\int_A  \sqrt{|g|} \dd[4]{x} \nabla_\mu \qty(\nabla^\mu \phi \partial_0 \phi - \phi \nabla^\mu\partial_0 \phi) + \nabla_\mu \qty(\frac{1}{\sqrt{|g|}}\phi \partial_0 \qty(\sqrt{|g|} g^{\mu\nu}) \partial_\nu \phi)\\
+	&= \frac{1}{2}\int_A  \sqrt{|g|} \dd[4]{x} \nabla^\mu \phi \nabla_\mu \partial_0 \phi - \nabla_\mu \phi \nabla^\mu\partial_0 \phi - \phi \nabla_\mu\nabla^\mu \partial_0 \phi + \frac{1}{\sqrt{|g|}} \partial_\mu \qty(\phi \partial_0 \qty(\sqrt{|g|} g^{\mu\nu}) \partial_\nu \phi)\\
+	&= \frac{1}{2}\int_A  \dd[4]{x} - \phi \partial_\mu\qty(\sqrt{|g|} g^{\mu\nu}\partial_\nu \partial_0 \phi) + \partial_\mu \qty(\phi \partial_0 \qty(\sqrt{|g|} g^{\mu\nu}) \partial_\nu \phi)\\
+	&= \frac{1}{2}\int_A  \dd[4]{x} \phi \partial_\mu\qty(\partial_0 \qty(\sqrt{|g|} g^{\mu\nu})\partial_\nu\phi) + \partial_\mu \qty(\phi \partial_0 \qty(\sqrt{|g|} g^{\mu\nu}) \partial_\nu \phi)
+\end{align} 
+
+This remaining term will not drop in general\footnote{For example take a diagonal metric which depends on time.}. This means that different cauchysurfaces will assign different energies to the same state\footnote{This is not so surprising because in general the field couples to the spacetime and therefore exchanges energy with it.}. This means we can't define a groundstate on a spacetime trivially. However in Minkowskispace the remaining terms are 0 (since the metric is constant). So in flat space there exists a well defined (the vacuumstate) on which all possible global co-moving frames (not only inertial ones) agree to be the groundstate of the system. 
+
+In a static spacetime it is natural to consider cauchysurfaces \(t = \mathrm{const.}\). Since then \(\hat{S} \sim \partial_t\) the difference of \(H\) on two such surfaces will vanish (Recall that the metric of a static spacetime does not depend on \(t\) which implies \(\partial_0\qty(\sqrt{|g|} g^{\mu\nu}) = 0\) ). So for all times we have a natural candidate for the groundstate by choosing the lowest state of this hamiltonian.
+
+For other spacetimes it is convenient to choose the groundstate on a cauchysurface which lies far in the past (as in a scattering problem). For example when treating a collapsing star we will choose the groundstate of the (static) spacetime before the collapse (which will then eventually convert into an excited state).    
+
+Because in our examples the vacuum state will coincide with the groundstate at least in the beginning we will denote them by \(\ket*{0}\).
 
 \section{Greens functions}
 (Quelle: Birell Davies)
@@ -170,23 +191,11 @@ u_{\omega,l,m}\upd{M} \approx \frac{1}{\sqrt{\pi\omega}} e^{- i \omega t} \frac{
 
 It is important to note that for this approximation it is necessary to have \(r \gg 1/\omega\). So if one fixes \(r\) than the approximation will break down for small \(\omega\).
 
-\subsection{The Wigthman function}
+\subsection{The Wigthmanfunction}
 
-Using eq. \ref{equ:wightman_modes} we can calculate the Wightman function:
+The Wightmanfunction is calculated in the appendix \todo{link}:
 \begin{align}
-D^+(x,x') &= \int \mathrm{d}^3 k\, u_{\vec{k}}(x) u_{\vec{k}}^*(x')\\
-	&= \int \frac{\mathrm{d}^3 k}{(2\pi)^3}\, \frac{1}{2|k|} e^{- i |k| (t-t') + i \vec{k} (\vec{x}-\vec{x}')}\\
-	&\overset{\omega = |k|}{=} \int_0^\infty \int_{-1}^1 \frac{\omega^2 \mathrm{d} \omega\,\mathrm{d} \cos{\theta}}{(2\pi)^2}\, \cfrac{1}{2\omega} e^{- i \omega (t-t') + i \omega |\vec{x}-\vec{x}'| \cos{\theta}}\\
-	&= \cfrac{1}{2 i |\vec{x}-\vec{x}'|}\int_0^\infty \frac{\mathrm{d} \omega}{(2\pi)^2}\, e^{- i \omega (t-t')} \left(e^{i\omega |\vec{x}-\vec{x}'|} - e^{-i\omega |\vec{x}-\vec{x}'|}\right)\\
-\end{align}
-
-This oscillating integral does not converge. Therefore we will first calculate \(D^+(x,x')\) for complex times by setting \(t \to t - i\varepsilon, \varepsilon > 0\) and then treating \(D^+(x,x')\) as a distribution when setting \(\varepsilon \to 0\).
-
-\begin{align}
-D^+(x,x') &= \cfrac{1}{2 i |\vec{x}-\vec{x}'|}\int_0^\infty \frac{\mathrm{d} \omega}{(2\pi)^2}\, e^{- i \omega (t-t' - i\varepsilon - |\vec{x}-\vec{x}'|)} - e^{- i \omega (t-t' - i\varepsilon + |\vec{x}-\vec{x}'|)}\\
-	&= -\cfrac{1}{2 i |\vec{x}-\vec{x}'|}\frac{1}{(2\pi)^2}\left(\frac{i}{t-t' - i\varepsilon - |\vec{x}-\vec{x}'|} - \frac{i}{t-t' - i\varepsilon + |\vec{x}-\vec{x}'|}\right)\\
-	&= -\cfrac{1}{2 |\vec{x}-\vec{x}'|}\frac{1}{(2\pi)^2} \frac{(t-t' - i\varepsilon + |\vec{x}-\vec{x}'|) - (t-t'-i\varepsilon - |\vec{x}-\vec{x}'|)}{(t-t'-i\varepsilon)^2 - |\vec{x}-\vec{x}'|^2}\\
-	&= -\frac{1}{4\pi^2} \frac{1}{(t-t'-i\varepsilon)^2 - |\vec{x}-\vec{x}'|^2}
+D^+(x,x') &= -\frac{1}{4\pi^2} \frac{1}{(t-t'-i\varepsilon)^2 - |\vec{x}-\vec{x}'|^2}
 \end{align}
 
 Up to the small imaginary number \(i\varepsilon\) this is a real function. This means that the imaginary part (or \(D(x,x')\)) can only be non-vanishing if the denominator goes to \(0\) for \(\varepsilon \to 0\). This is only the case for lightlike seperated \(x\) and \(x'\) or equivalently if \(x\) is on the lightcone of \(x'\). This means when computing \(D^+(x(\tau),x(0))\) on a trajectory (like for a detector in eq. \ref{equ:detector_final}) the imaginary part will always vanish, since our detector stays strictly inside the lightcone\footnote{Of course there's also the case \(x = x'\) which we have to treat seperatly. But from the CCR we can conclude \(2i\,\mathrm{Im}\,D^+(x,x) = iD(x,x) = [\phi(x),\phi(x)] = 0\).}.
@@ -255,14 +264,13 @@ D^+(x(\tau), x(0)) = -\frac{1}{4\beta^2\pi^2}\sum_k (\frac{\tau}{\beta} - ik)^{-
 	&= \frac{1}{2\pi} \left(\frac{E}{e^{\beta E}-1}\right)
 \end{align} 
 
-So the detector detects particles. The distribution contains the typical Planck factor\(\frac{1}{e^{\beta E}- 1}\). Actually  is the same distribution as an inertial observer would observe in a heat bath with temperature \(T = \frac{1}{k\ind{B}\beta} = \frac{1}{2\pi k\ind{B}\alpha}\). This can be seen by computing the thermal greens function in minkowskispace (note that inside the lightcone \(D^+_\beta = D^{(1)}_\beta\)):
+So the detector detects particles. The distribution contains the typical Planck factor\(\frac{1}{e^{\beta E}- 1}\). Actually  is the same distribution as an inertial observer would observe in a heat bath with temperature \(T = \frac{1}{k\ind{B}\beta} = \frac{1}{2\pi k\ind{B}\alpha}\). This can be seen by computing the thermal greens function in minkowskispace:
 
 \begin{align}
-D^+_\beta(x,x') = D^{(1)}_\beta(x,x') &= \sum_k D^{(1)}(t-i\beta k,\vec{x};t',\vec{x}')\\
-	&= -\frac{1}{4\pi^2}\sum_k \frac{1}{(t-t' - i\beta k - i\varepsilon)^2 - |\vec{x}-\vec{x}'|^2} 
+D^+_\beta(x,x') &= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{(t-t')^2 - |\va{x}-\va{x}'|^2})}
 \end{align} 
 
-Evaluating this on a inertial trajectory, i.e. \(t = \tau, \vec{x} = \vec{x}' = t' = 0\) leads to the same formula as in equ. \ref{equ:unruh_sin_expansion}. So an accelerating observer sees the Minkowski vacuum as a heat bath.\\
+Evaluating this on a inertial trajectory, i.e. \(t = \tau, \vec{x} = \vec{x}' = t' = 0\) leads to the same formula as in equ. \todo{link}. So an accelerating observer sees the Minkowski vacuum as a heat bath.\\
 
 \subsection{Equivalence Principle?}
 
@@ -291,4 +299,4 @@ One can see that \(D^+\) only depends on the difference \(\tau-\tau'\). Therefor
 The deltafunction is always zero because \(E \leq 0\), \(\omega > 0\), and \(\alpha > 0\)\footnote{Here one can see why it is sensible to exclude \(\omega = 0\) because it would lead to an infinite transition rate to the groundstate \(E = 0\) which is clearly not physical}. So the observer does not detect any particles. qed.
 
 This result might be surprising as in many spacetimes a static observer needs to accelerate in order to stay at his position (take the schwarzschild metric for example). On the other hand we will later show that observers on a circular orbit in the schwarzschild metric actually see particles. It seems that this contradicts the equivalence principle. However the equivalence principle only states that it is impossible to distinguish between flat space and curved space using only local measurements. The calculations above required integration over the whole worldline of the particle. Therefore this is a non local effect.\\
-This can be also seen in Minkowski space. If the accelerating observer would stop accelerating (e.g at \(t = 0\)) he would still detect some particles for the rest of his live. Even an inertial observer will detect particles if he switches the detector on at \(t = 0\) (and not at \(\tau = -\infty\)).
+This can be also seen in Minkowski space. If the accelerating observer would stop accelerating (e.g at \(t = 0\)) he would still detect some particles for the rest of his live. Even an inertial observer will detect particles if he switches the detector on at \(t = 0\) (and not at \(\tau = -\infty\)) \todo{really?}.
