@@ -72,75 +72,12 @@ i\partial_t \eval{D^+(\vb{x},0)}_{t = 0} &= \frac{1}{2}\sum_i A_i(\va{x}) A_i(\v
 \end{align}
 
 \subsection{Wightman function in normal coordinates}
-We can choose any coordinate system we like for \(g_{ij}(\va{x})\). In Minkowskispace \(D^+\) has a pole at \(\vb{x} = \vb{x}'\) which will also appear in general. Because integrating over poles on the real axis needs extra patients we will analyse the behaviour of \(D^+\) near the origin. We will do this in riemanian coordinates and fix \(\vb{x}' = 0\). The metric then looks like (Quelle: lcb96-01.pdf):
+We can choose any coordinate system we like for \(g_{ij}(\va{x})\). It will be useful to have the Wightmanfunction in normal coordinates around a point \(\vb{x}' = 0\)\todo{link}:
 \begin{align}
-g_{ij} &= \delta_{ij} - \frac{1}{3} R_{iajb} x^a x^b + \order{x^3}\\
+D^+(\vb{x},0) = -\frac{1}{4\pi^2} \frac{1}{a(t-i\varepsilon)^2 - |\va{x}|^2} + \order{x^2}
 \end{align}
 
-Since the metric is given to the second order we will also expand other quantities\footnote{Note that one can raise and lower indices with \(\delta_{ij}\) if one is neglecting \(\order{x^2}\).}
-
-\begin{align}
-g^{ij} &= \delta^{ij} + \frac{1}{3} R^{i\;j}_{\;a\;b} x^a x^b + \order{x^3}\\
-\partial_i g^{ij} &= -\frac{1}{3} R^j_{\;i} x^i + \order{x^2} = -\frac{1}{3} R_{ji} x^i + \order{x^2}\\
-g = \det g_{ij} &= 1 - \frac{1}{3} R_{ij} x^i x^j + \order{x^3}\\  
-\frac{1}{g}\partial_i g &= -\frac{2}{3} R_{ij} x^j + \order{x^2}\\
-\beta &= a + b_i x^i + \frac{1}{2} c_{ij} x^i x^j + \order{x^3}
-\end{align}
-
-\subsubsection{Solutions of the Klein-Gordon-equation}
-
-The Klein-Gordon-equation is given by
-\begin{align}
-0 &= \nabla_\mu\nabla^\mu\phi = -\frac{1}{\sqrt{\beta g}} \partial_t \qty(\sqrt{\beta g} \frac{1}{\beta} \partial_t \phi) + \frac{1}{\sqrt{\beta g}} \partial_i \qty(\sqrt{\beta g} g^{ij} \partial_j \phi)\\
-&= -\frac{1}{\beta} \partial_t^2 \phi + \frac{1}{\sqrt{\beta g}} \partial_i \qty(\sqrt{\beta g})  g^{ij} \partial_j \phi +  \qty(\partial_i g^{ij}) \partial_j \phi + g^{ij} \partial_i \partial_j \phi\\
-&= -\frac{1}{\beta} \partial_t^2 \phi + \frac{1}{2\beta g} \partial_i \qty(\beta g) g^{ij} \partial_j \phi +  \qty(\partial_i g^{ij}) \partial_j \phi + g^{ij} \partial_i \partial_j \phi\\
-\partial_t^2 \phi &= \frac{\partial_i\beta}{2} g^{ij} \partial_j \phi + \frac{\beta \partial_i g}{2g} g^{ij} \partial_j \phi + \beta \qty(\partial_i g^{ij}) \partial_j \phi + \beta g^{ij} \partial_i \partial_j \phi\\
-&= \frac{1}{2} \qty(b_i + c_{ik} x^k) \partial_i \phi - \frac{a}{3} R_{ik} x^k \partial_i \phi - \frac{a}{3} R_{ik} x^k \partial_ i\phi + \qty(a + b_k x^k) \partial_i \partial_i \phi + \order{x^2}\\
-&= \frac{1}{2} \qty(b_i + c_{ik} x^k) \partial_i \phi - \frac{2a}{3} R_{ik} x^k \partial_i \phi + \qty(a + b_k x^k) \partial_i \partial_i \phi + \order{x^2}
-\end{align}
-
-To solve these equations make the ansatz \(\tilde{u}_{\va{k}}(\vb{x}) = \exp(-i\omega t + i k_i x^i + i \frac{1}{2} k_a B^{a}_{ij}\qty(\va{k}) x^i x^j + i\order{x^3})\) and separate the different orders:
-
-\begin{align}
--\omega^2 &= \frac{1}{2} \qty(b_i + c_{ik} x^k) i \qty(k_i + k_a B^a_{ik} x^k) - \frac{2a}{3} R_{ik} x^k i k_i + \qty(a + b_k x^k) \qty(i k_a B^a_{ii} - \qty(k_i + k_a B^a_{ik} x^k)\qty(k_i + k_b B^b_{il} x^l)) + \order{x^2}\\
--\omega^2 &= \frac{1}{2}i b_i k_i + a i k_a B^a_{ii} - a k_ik_i\\
-0 &= ik_a\qty(\frac{1}{2} b_i B^a_{ik} + \frac{1}{2} c_{ak} - \frac{2a}{3} R_{ak} + b_k B^a_{ii}) - 2 a k_i k_a B^a_{ik} - b_k k_i k_i 
-\end{align}
-
-If we demand that all parameters should be real then we have 8 equations for 18 free parameters of \(B^a_{ij}\)\footnote{Note that \(B^a_{ij}\) is symmetric in \(i, j\).}. We could now fix some more properties of \(B\) but it is not necessary for our argumentation. Note that the dispersion relation now reads \(\omega = \sqrt{a} \qty|\va{k}|\).
-
-\subsubsection{Normalising the modes}
-Next we need to find the right normalisation of the modes. Since we can't integrate our modes over the whole spacetime we will use the CCR to find the right normalisation\footnote{This works because the CCR are only valid in the right normalisation}. So expand \(\phi(\vb{x}) = \int \frac{\dd[3]{k}}{\sqrt{2\pi}^3} \frac{1}{\sqrt{2\omega N_{\va{k}}}}\tilde{u}_{\va{k}}(\vb{x}) a_{\va{k}} + \frac{1}{\sqrt{2\omega N_{\va{k}}}} \tilde{u}_{\va{k}}(\vb{x})^* a_{\va{k}}^\dagger\) and calculate the CCR for a surface \(t = \mathrm{const.}\):
-
-\begin{align}
-[\phi(\vb{x}), \phi(0)] &= \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2\omega N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x}) \tilde{u}_{\va{k}}(0)^*  - \frac{1}{2\omega N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x})^* \tilde{u}_{\va{k}}(0)\\
-	&= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2\omega N_{\va{k}}} e^{i \va{k}\va{x} + \order*{x^2}} - \frac{1}{2\omega N_{\va{k}}}e^{-i \va{k}\va{x} + \order*{x^2}} \overset{!}{=} 0\\
-%
-[\phi(\vb{x}), \sqrt{g} \partial_0 \phi(0)] &= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x}) \tilde{u}_{\va{k}}(0)^* + \frac{1}{2N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x})^* \tilde{u}_{\va{k}}(0) + \order{x^2}\\
-   &= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2N_{\va{k}}} e^{i \va{k}\va{x} + \order*{x^2}} + \frac{1}{2N_{\va{k}}}e^{-i \va{k}\va{x} + \order*{x^2}} + \order{x^2}\\
-   &\overset{!}{=} i \delta^3(\va{x}) = i \int \frac{\dd[3]{k}}{(2\pi)^3} e^{i \va{k}\va{x}}\\
-%   
-[\sqrt{g} \partial_0 \phi(\vb{x}), \sqrt{g} \partial_0 \phi(0)] &= \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{\omega}{2 N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x}) \tilde{u}_{\va{k}}(0)^* - \frac{\omega}{2 N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x})^* \tilde{u}_{\va{k}}(0)  + \order{x^2}\\
-	&= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{\omega}{2 N_{\va{k}}} e^{i \va{k}\va{x} + \order*{x^2}} - \frac{\omega}{2 N_{\va{k}}}e^{-i \va{k}\va{x} + \order*{x^2}} + \order{x^2} \overset{!}{=} 0\\
-\end{align}
-
-Since \(e^{i \va{k}\va{x}}\) is a basis we find:
-\begin{align}
-\frac{1}{2\omega N_{\va{k}}} - \frac{1}{2\omega N_{-\va{k}}} &= 0\\
-\frac{1}{2N_{\va{k}}} + \frac{1}{2N_{-\va{k}}} &= 1\\
-\frac{\omega}{2N_{\va{k}}} - \frac{\omega}{2 N_{-\va{k}}} &= 0
-\end{align}
-
-This system of equations is only solved for \(N_{\va{k}} = 1\) and so the normalised modes are
-\begin{align}
-u_{\va{k}} &= \frac{1}{\sqrt{2\pi}^3 \sqrt{2\omega}} e^{-i\omega t + i\va{k}\va{x} + \order*{x^2}}\\
-	&= \frac{1}{\sqrt{2\pi}^3 \sqrt{2\omega}} e^{-i\omega t + i\va{k}\va{x}} \qty(1 + \order{x^2})
-\end{align}
-
-So up to linear order we achieve the plane wave modes as in Minkowskispace. Therefore the Wightman function is also the equivalent and given by
-\begin{align}
-D^+(\vb{x},0) = - \frac{1}{4\pi^2} \frac{1}{a(t-i\varepsilon)^2 - |\va{x}|^2} + \order{x^2}
-\end{align}
+which is basically the same as in Minkowskispace up to a prefactor \(a = \beta(0)\).
 
 \subsection{The pole at the origin}
 When calculating the excitation rate we will first evaluate \(D^+\) on a timelike trajectory \(\vb{x}(\tau)\) with \(\vb{x}(0) = 0\) and \(\dot{\vb{x}}^2 = - \beta \dot{t}^2 + g_{ij} \dot{x}^i \dot{x}^j = -1\) and then integrate over \(\tau\). Thereby we encounter a pole on the real axis at \(\tau = 0\). Due to the \(\varepsilon\) this (second order) pole will move either in upper or in the lower half or could even split into two poles. To examine the behaviour of this pole define \(\tau_\varepsilon\) as the position of the pole at \(\tau = 0\) for a non vanishing \(\varepsilon\), i.e. \(\tau_\varepsilon\) satisfies
@@ -161,7 +98,6 @@ where we defined \(\delta\tau = \eval{\dv{\tau_\varepsilon}{\varepsilon}}_{\vare
 \(\delta\tau\) has two solutions and therefore the pole will split into two poles. But we know that \(a\dot{t}(0) > 0\) and so will both values of \(\delta\tau\) have positive imaginary part. Recall that \(\delta\tau = \eval{\dv{\tau_\varepsilon}{\varepsilon}}_{\varepsilon = 0}\) and so \(\tau_\varepsilon = \delta\tau \varepsilon + \order{\varepsilon^2}\) which means that for a sufficient small value of \(\varepsilon\) both poles will lie in the upper half of the complex plane.
 
 \subsection{The pole structure of the Wightman function}
-
 We know that the Wightman function solves the Klein-Gordon-Equation, i.e.
 \begin{align}
 \nabla_\mu\nabla^\mu D^+(\vb{x},\vb{x}') = 0
@@ -188,9 +124,7 @@ Let's now use the the information we gathered about the field in a static spacet
 \begin{lemma}
 In a static spacetime a static observer does not observe any particles.
 \label{lemma:static_spacetime}  
-\end{lemma}
-
-We could proof this using the approximate form of the Wightmanfunction \todo{link}. However it is also possible to proof this without any approximations.  
+\end{lemma} 
 
 Proof: Recall that the modes in a static spacetime can be written as \(u_i = \frac{1}{\sqrt{2\omega_i}}e^{-i\omega_i t} A_i(\va{x})\) (see eq. \ref{equ:solutions_static}).
 Since the observer moves only along \(\partial_t\) he will have four-velocity \(\dot{\vb{x}} = \frac{1}{\sqrt{\beta(\va{x})}} \partial_t\). Note that \(\beta(\va{x})\) is independent of \(\tau\) because the spatial coordinates stay constant \(\va{x}(\tau) = \va{x}_0\). Integrating yields \(t(\tau) = \frac{1}{\sqrt{\beta(\va{x})}} \tau + t_0\).
