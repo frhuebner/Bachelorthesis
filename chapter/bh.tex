@@ -1,65 +1,11 @@
-\chapter{The Schwarzschild solution}
+\chapter{Hawking radiation as seen by Observers}
+
 \section{The metric}
 In this thesis we will only use the Schwarzschild-metric to describe stars and black holes (which means that they have no charge and no angular momentum). The metric for an spherical symmetric object with mass \(M\) is given by
 \begin{align}
 \dd s^2 &= -f(r)\dd{t^2} + \frac{1}{f(r)}\dd{r^2} + r^2 \dd{\Omega} &\dd{\Omega} = \dd{\theta^2} + \sin[2](\theta) \dd{\phi^2} 
 \end{align}
 where \(f(r) = 1-\frac{2M}{r}\). The metric is only valid outside the boundary of the star or for \(r > 2M\). The two vector fields \(\partial_t\) and \(\partial_\phi\) are killing.
-
-\section{Lightlike radial geodesics}
-We will later need lightlike radial geodesics in the Schwarzschild metric. These are defined by \(\dot{x}^2 = 0\), \(\dot{\theta} = \dot{\phi} = 0\), where the dot means derivative w.r.t the affine parameter \(\lambda\). Because \(\partial_t\) is killing we know that \(E := f(r)\dot{t}\) is constant along the geodesic. This yields to 
-\begin{align}
-0 &= -f(r)\dot{t}^2 + \frac{1}{f(r)}\dot{r}^2\\
-  &= -\frac{1}{f(r)} (E^2 - \dot{r}^2)
-\end{align}
-Since \(f(r) \neq 0\) we conclude: 
-\begin{align}
-\dot{r} &= \pm E\\
-r &= \pm E \lambda + r_0
-\label{bh_geo_r_E}
-\end{align}
-Inserting this into the definition of \(E\) yields to
-\begin{align}
-\dot{r} &= \pm f(r) \dot{t}\\
-0 &= \dot{t}\mp\frac{\dot{r}}{f(r)} = \dv{\lambda}(t \mp r_*)
-\end{align}
-
-where the tortoise coordinate \(r_* = r + 2M\ln(\frac{r}{2M} - 1)\) has the property \(\dv{r_*}{r} = \frac{1}{f(r)}\). So either \(u := t - r_*\) (outgoing geodesic) or \(v := t + r_*\) (ingoing geodesic) is constant.
-
-Consider an ingoing null geodesic \(v = \mathrm{const}, r = -E\lambda + r_0\) (from \(\dot{r} = -E\)) and compute
-
-\begin{align}
-\dv{u}{\lambda} &=  \dv{2 t - v} = 2\dot{t} = 2\frac{E}{f(r)}\\
-	&= 2\frac{Er}{r-2M} = 2E\frac{r-2M + 2M}{r-2M} = 2E\qty(1 + \frac{2M}{r-2M})\\
-	&= 2E\qty(1 + \frac{2M}{r_0-2M - E\lambda})\\
-u(\lambda) &= 2E\lambda - 4M\ln(r_0-2M-E\lambda) + 4M\ln(r_0-2M) + u_0\\
-	&= 2E\lambda - 4M\ln(1 - \frac{E\lambda}{r_0-2M}) + u_0
-\label{equ:bh_geo_in}
-\end{align}
-
-where \(u_0 = u(0)\). For an outgoing geodesic one finds analogously:
-\begin{align}
-v(\lambda) &= 2E\lambda + 4M\ln(1 + \frac{E\lambda}{r_0 - 2M}) + v_0
-\label{equ:bh_geo_out}
-\end{align}
-
-We will later need the affine separation between null geodesics, i.e. the value \(\lambda\) on a lightlike geodesic running from one geodesic to the other. For two ingoing geodesics (characterised by \(v, v'\)) far away from the black hole (i.e. \(E\lambda \ll r_0 - 2M\)) one can neglect the logarithm and the distance from \(v_0\) to \(v\) is given by:
-\begin{align}
-\lambda = \frac{v - v_0}{2E} 
-\label{equ:bh_in_simplified}
-\end{align}
-
-The other case which will be important is the distance of two outgoing geodesics \(u_0, u\) where \(u_0 = \infty\) is the event horizon \(r_0 \to 2M\). Now one can neglect the linear term and the distance (note that \(\lambda <0\)) is given by:
-\begin{align}
-u &= - 4M\ln(1 - \frac{E\lambda}{r_0-2M}) + u_0\\
-	&= - 4M\ln(1 - \frac{E\lambda}{r_0-2M}) + v_0 - 2r_{0*}\\
-	&= - 4M\ln(1 - \frac{E\lambda}{r_0-2M}) + v_0 - 2r_0 - 4M\ln(\frac{r_0-2M}{2M})\\
-	&= - 4M\ln(\qty(1 - \frac{E\lambda}{r_0-2M})\frac{r_0-2M}{2M}) + v_0 - 2r_0\\
-	&= - 4M\ln(\frac{r_0 - 2M - E\lambda}{2M}) + v_0 - 2r_0\\
-	&= - 4M\ln(-\frac{E\lambda}{2M}) + v_0 - 4M\\
--\lambda &= \frac{2M}{E}e^{1+\frac{v_0}{4M}} e^{-\frac{u}{4M}}
-\label{equ:bh_out_simplified}
-\end{align} 
 
 \section{The Klein-Gordon-Equation in the Schwarzschild metric}
 
@@ -120,17 +66,33 @@ D^+(\vb{x}, \vb{x}') &= -\frac{1}{4\pi^2}\frac{r_* r_*'}{r r'} \frac{1}{(t-t'-i\
 
 where \(\va{x}_*\) is obtained by replacing \(r \to r_*\) in \(\va{x}\) and \(\alpha\) is the angle between the two vectors. So the Wightmanfunction on a trajectory outside the star can be approximated by the Wightmanfunction in Minkowskispace on a slightly different trajectory.
 
+\subsection{The Wightmanfunction after the collapse}
+To calculate the Wightmanfunction after the collapse we will follow the treatment of Hawking (see Appendix \todo{link}) to find that the expectation value of two operators thereafter is given by the thermal expectation value in the spacetime before the collapse.
+
+Therefore the (vacuum) Wightmanfunction at late times is given by the thermal Wightmanfunction at early (it can be computed analogously to the one in Minkowskispace)
+\begin{align}
+D^+_\beta(\vb{x},\vb{x}') &= -\frac{1}{4\beta^2} \frac{r_*r_*'}{r r'} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{(t-t')^2 - |\va{x}_*-\va{x}_*'|^2})}
+\end{align} 
+
 \section{Observers in the Schwarzschildmetric}
 
-\section{Static observer}
+\subsection{Static observer}
+\subsubsection{Before the collapse}
 We already know by lemma \ref{lemma:static_spacetime} that a static observer will not see any excitations. However we can proof this explicitly in the Schwarzschildmetric. A static observer is given by \(t = \frac{\tau}{\sqrt{f(r)}}\) and all other coordinates constant. Inserting this into the Wightmanfunction yields
 \begin{align}
 D^+(\vb{x}(\tau), \vb{x}(\tau')) =  -\frac{1}{4\pi^2}\frac{r_*^2}{r^2} \frac{f(r)}{(\tau-\tau'-i\varepsilon)^2}
 \end{align} 
 
 Up to a prefactor this is exactly the same as in Minkowskispace \todo{link}. So a static observer indeed does not recognize any particles.
+
+\subsubsection{After the collapse}
+
+\todo{Amplitude}
+
+The most important difference to Minkowskispace is that the measured temperature changed according to \(T = f(r)^{-1/2} T\ind{H}\) due to the fact that the proper time differs from the coordinate time. This happens in general in a heat bath on a spacetime and is called the Tolman effect\todo{Quelle}.  
  
-\section{Circular observer}
+\subsection{Circular observer}
+\subsubsection{Before the collapse}
 By Lemma \ref{lemma:static_spacetime} we know that a static observer (but nevertheless proper accelerating) won't see any excitations. But we also would like to know if a freely falling observer (unlike in Minkowskispace) will recognize particles.
 
 A circular observer is given by \(t = a\tau\), \(\phi = B\tau\), \(r = \mathrm{const.}\), \(\theta = \frac{\pi}{2}\)\footnote{Since the spacetime is spherically symmetric we can choose a coordinate system such that \(\theta = \frac{\pi}{2}\) and \(B>0\)}. The geodesic equation and \(\dot{\vb{x}}^2 = 0\) give constrains on the constants
@@ -170,4 +132,50 @@ The rate is given by eq. \ref{equ:detector_final}
 
 So basically a circular observer sees a exponentially falling energy distribution.  
 
+
+
+\subsubsection{After the collapse}
+An observer on a circular orbit \(t = A \tau\) and \(\phi = B\tau\) has the following thermal Wightman function:
+\begin{align}
+D^+_\beta(\vb{x}(\tau),\vb{x}(0)) &= -\frac{1}{4\beta^2} \frac{r_*^2}{r^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{A^2\tau^2 - 2 r_*^2 (1-\cos{B\tau})})}\\
+&= -\frac{1}{4\beta^2} \frac{r_*^2}{r^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}r_*\sqrt{\xi^2 x^2 - 2 (1-\cos{x})})}
+\end{align}
+
+where we replaced \(x = B\tau\) and \(\xi = \frac{A}{Br_*}\) as in \todo{link}.
+
+Because of the square root the function is not analytical and we can't use the residue theorem as before. We need to integrate the function by hand. Before that we need to get rid of the singularity at \(x = 0\). This is a second order pole so the series expansion will look like \(\frac{a_{-2}}{x^2} + \order*{x^0}\). \(a_{-2}\) can be computed by taking the limit
+\begin{align}
+a_{-2} &= \lim_{x\to 0}\frac{x^2}{\sinh[2](\frac{\pi}{\beta}r_*\sqrt{\xi^2 x^2 - 2 (1-\cos{x})})}\\
+	&= \lim_{x\to 0}\frac{x^2}{\qty(\frac{\pi}{\beta}r_*\sqrt{\xi^2 x^2 - 2 (1-\cos{x})})^2}\\
+	&= \qty(\frac{\beta}{\pi r_*})^2 \lim_{x\to 0}\frac{x^2}{\xi^2 x^2 - x^2 + \order*{x^4}}\\
+	&= \qty(\frac{\beta}{\pi r_*})^2 \frac{1}{\xi^2 -1}
+\end{align} 
+
+The same value of \(a_{-2}\) is achieved when using \(\frac{1}{\sinh[2](\frac{\pi}{\beta}r_* \sqrt{\xi^2-1} x)}\). So we can write
+\begin{align}
+\frac{1}{\sinh[2](\frac{\pi}{\beta}r_*\sqrt{\xi^2 x^2 - 2 (1-\cos{x})})} &= \frac{1}{\sinh[2](\frac{\pi}{\beta}r_* \sqrt{\xi^2-1} x)} + g(x)
+\end{align}
+where 
+\begin{align}
+g(x) &= \frac{1}{\sinh[2](\frac{\pi}{\beta}r_*\sqrt{\xi^2 x^2 - 2 (1-\cos{x})})} - \frac{1}{\sinh[2](\frac{\pi}{\beta}r_* \sqrt{\xi^2-1} x)}
+\end{align}
+
+will remain finite at \(x = 0\) and will give some energy distribution on the detector. The other term however has the same form as before, so it will lead to a thermal excitation rate
+\begin{align}
+\frac{1}{2\pi} \frac{r_*^2}{r^2} \qty(A^2-B^2 r_*^2) \frac{E}{e^{\beta\sqrt{A^2-B^2 r_*^2} E}-1}
+\end{align} 
+
+Again the amplitude and the observed temperature changed \(T = \sqrt{A^2-B^2 r_*^2}^{-1} T_H\). 
+
+.If one inserts the values for geodesics \todo{link} into \(\xi\) one finds
+\begin{align}
+\xi^2 = \frac{r^2}{r_*^2} \frac{r}{M} \approx  \frac{r}{M}
+\end{align}
+The last approximation is the result in newtons theory\footnote{In the newtonian limit \(\frac{1}{\xi}\) is the velocity of the observer which is usually very small compared to the velocity of light.}. So when we are some distance away from the black hole (like \(r \geq 100 M\)) we can assume that \(\frac{1}{\xi^2}\) is quite small. Therefore we will do a perturbative expansion in this parameter before the cosine term\todo{check}.   
+
+\begin{align}
+D^+_\beta(\vb{x}(\tau),\vb{x}(0)) &= -\frac{1}{4\beta^2} \frac{r_*^2}{r^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}r_*\xi\sqrt{x^2 - \frac{2}{\xi^2} (1-\cos{x})})}\\
+&= -\frac{1}{4\beta^2} \frac{r_*^2}{r^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}r_*\xi x)} - \frac{1}{4\beta^2}\frac{r_*^2}{r^2} \frac{2\cosh(\frac{\pi}{\beta}r_*\xi x)}{\sinh[3](\frac{\pi}{\beta}r_*\xi x)} \frac{\pi r_* \xi}{\beta x} (1- \cos{x}) \cdot \frac{1}{\xi^2}\\
+&= -\frac{1}{4\beta^2} \frac{r_*^2}{r^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}r_*\xi x)} - \frac{1}{4\beta^2\xi}\frac{r_*^2}{r^2} \frac{2\cosh(\frac{\pi}{\beta}r_*\xi x)}{\sinh[3](\frac{\pi}{\beta}r_*\xi x)} \frac{\pi r_*}{\beta x} (1- \cos{x})
+\end{align}
     
