@@ -1,6 +1,4 @@
 \chapter{Quantum field theory in spacetimes}
-\section{Spacetimes}
-
 \section{Klein-Gordon-Field}
 (Quelle: Birell)\todo{Quelle}
 Consider a massless complex Klein-Gordon-field in a curved spacetime with metric \(g_{\mu\nu}\) given by the lagrangian:
@@ -35,8 +33,6 @@ Now choose a complete set of solutions $\{u_i\}$, such that
 
 The completeness of the modes implies that \((\phi|\psi) = \sum_i (\phi|u_i)(u_i|\psi) - (\phi|u_i^*)(u_i^*|\psi)\).
 
-
-
 \section{Quantisation, Bogolyubov Transformations and Vacua}
 
 (Quelle: arXiv1011.5875 )We can quantize the field by introducing the canonical commutation relations CCR on a cauchysurface \(\Sigma\) with (future directed) normal vector $S^\mu$:
@@ -44,47 +40,31 @@ The completeness of the modes implies that \((\phi|\psi) = \sum_i (\phi|u_i)(u_i
 \begin{align}
 [\phi(x),\phi(x')]_\Sigma &= 0\\
 [\phi(x),\nabla_S \phi(x')]_\Sigma &= i\delta(x-x')\\
-[\nabla_S \phi(x),\nabla_S \phi(x')]_\Sigma &= 0\\
+[\nabla_S \phi(x),\nabla_S \phi(x')]_\Sigma &= 0
 \end{align}
 
-One can show that if they hold on one cauchysurface they hold on every cauchysurface\todo{Quelle}.\\
-Given a complete set of modes this leads to \(\phi = \sum_i u_i a_i + u_i^* a_i^\dagger\), with \(a\) a bosonic annihilation operator satisfying \([a_i,a_j^\dagger] = \delta_{ij}\).\\
+One can show that if they hold on one cauchysurface they hold on every cauchysurface\todo{Quelle}.
+Given a complete set of modes this leads to \(\phi = \sum_i u_i a_i + u_i^* a_i^\dagger\), with \(a\) a bosonic annihilation operator satisfying \([a_i,a_j^\dagger] = \delta_{ij}\).
 
 Of course there are many different complete sets. One could also expand it in a different set \(\{v_j\}\): \(\phi = \sum_j v_j b_j + v_j^* b_j^\dagger\). The b's are then given by 
 \begin{align}
 b_j = \sum_i (v_j|u_i) a_i + (v_j|u_i*) a_i^\dagger
 \label{equ:qft_bogolyubov}
 \end{align}
-This is called a Bogolyubov transformation.\\
+This is called a Bogolyubov transformation.
+\todo{remove?}
+So far everything was in complete analogy to quantisation in Minkowskispace. However problems arise when one tries to define the ground state of the system which is defined as the state with the lowest energy. The notion of energy (and thus the hamiltonian) depends on the notion of time. Therefore different coordinate systems will have different hamiltonians and thus different ground states. Since on a manifold there is no preferred coordinate system as in flat space we will have to guess the state of the field. This state may appear as the vacuum to some observers but will appear as an excited state to others (this is for example the reason why an eternal black hole seems to be thermal for an observer outside\todo{quelle}.).\\
 
-So far everything was in complete analogy to quantisation in Minkowskispace. However problems arise when one tries to define the ground state of the system which is defined as the state with the lowest energy. To see this choose a co-moving frame w.r.t \(\hat{S}\) and calculate the hamiltonian \todo{wrong}
-\begin{align}
-H_\Sigma &= \int_\Sigma \dd[3]{x} \pi \partial_0 \phi - \frac{1}{2} \sqrt{|g|} \partial_0 \phi \partial_0 \phi + \frac{1}{2} \sqrt{|g|} g^{ij} \partial_i \phi \partial_j \phi\\
-	&= \int_\Sigma \dd[3]{x} \frac{1}{2} \sqrt{|g|} \partial_0 \phi \partial_0 \phi - \frac{1}{2} \phi \partial_i\qty(\sqrt{|g|} g^{ij}  \partial_j \phi)\\
-%	&= \int \dd[3]{x} \frac{1}{2} \sqrt{|g|} \partial_0 \phi \partial_0 \phi - \frac{1}{2} \phi \partial_0 \qty(\sqrt{|g|}\partial_0 \phi)\\
-	&= \int_\Sigma \dd[3]{x} \frac{1}{2} \sqrt{|g|} \partial_0 \phi \partial_0 \phi - \frac{1}{2} \phi \sqrt{|g|} \partial_0^2 \phi + \frac{1}{2} \phi \partial_0\qty(\sqrt{|g|} g^{00}) \partial_0 \phi  
-\end{align}
+In a static spacetime one usually considers the hamiltonian corresponding to the timelike killing vector and chooses the groundstate of it as state of the field.
 
-where we used \(g_{00} = g^{00} = -1\) and the Klein-Gordon-equation. Now we would like to define the groundstate as the state with the lowest energy. To check whether this is a suitable definition choose two cauchysurfaces  \(\Sigma, \Sigma'\) and determine the difference between their hamiltonians. To do this choose for \(\partial_0\) a vectorfield that matches with \(\\hat{S}\) on both surfaces:
-\begin{align}
-H_\Sigma - H_\Sigma' &= \frac{1}{2}\int_A  \sqrt{|g|} \dd[4]{x} \nabla_\mu \qty(\nabla^\mu \phi \partial_0 \phi - \phi \nabla^\mu\partial_0 \phi) + \nabla_\mu \qty(\frac{1}{\sqrt{|g|}}\phi \partial_0 \qty(\sqrt{|g|} g^{\mu\nu}) \partial_\nu \phi)\\
-	&= \frac{1}{2}\int_A  \sqrt{|g|} \dd[4]{x} \nabla^\mu \phi \nabla_\mu \partial_0 \phi - \nabla_\mu \phi \nabla^\mu\partial_0 \phi - \phi \nabla_\mu\nabla^\mu \partial_0 \phi + \frac{1}{\sqrt{|g|}} \partial_\mu \qty(\phi \partial_0 \qty(\sqrt{|g|} g^{\mu\nu}) \partial_\nu \phi)\\
-	&= \frac{1}{2}\int_A  \dd[4]{x} - \phi \partial_\mu\qty(\sqrt{|g|} g^{\mu\nu}\partial_\nu \partial_0 \phi) + \partial_\mu \qty(\phi \partial_0 \qty(\sqrt{|g|} g^{\mu\nu}) \partial_\nu \phi)\\
-	&= \frac{1}{2}\int_A  \dd[4]{x} \phi \partial_\mu\qty(\partial_0 \qty(\sqrt{|g|} g^{\mu\nu})\partial_\nu\phi) + \partial_\mu \qty(\phi \partial_0 \qty(\sqrt{|g|} g^{\mu\nu}) \partial_\nu \phi)
-\end{align} 
+For other spacetimes it is convenient to take a suitable state in the far past (as in a scattering problem). For example when treating a collapsing star we will choose the groundstate of the (static) spacetime before the collapse (which will then eventually convert into an excited state).
 
-This remaining term will not drop in general\footnote{For example take a diagonal metric which depends on time.}. This means that different cauchysurfaces will assign different energies to the same state\footnote{This is not so surprising because in general the field couples to the spacetime and therefore exchanges energy with it.}. This means we can't define a groundstate on a spacetime trivially. However in Minkowskispace the remaining terms are 0 (since the metric is constant). So in flat space there exists a well defined (the vacuumstate) on which all possible global co-moving frames (not only inertial ones) agree to be the groundstate of the system. 
-
-In a static spacetime it is natural to consider cauchysurfaces \(t = \mathrm{const.}\). Since then \(\hat{S} \sim \partial_t\) the difference of \(H\) on two such surfaces will vanish (Recall that the metric of a static spacetime does not depend on \(t\) which implies \(\partial_0\qty(\sqrt{|g|} g^{\mu\nu}) = 0\) ). So for all times we have a natural candidate for the groundstate by choosing the lowest state of this hamiltonian.
-
-For other spacetimes it is convenient to choose the groundstate on a cauchysurface which lies far in the past (as in a scattering problem). For example when treating a collapsing star we will choose the groundstate of the (static) spacetime before the collapse (which will then eventually convert into an excited state).    
-
-Because in our examples the vacuum state will coincide with the groundstate at least in the beginning we will denote them by \(\ket*{0}\).
+Because in our examples the vacuum state and groundstate will coincide (at least in the beginning) we will denote them by \(\ket*{0}\).
 
 \section{Greens functions}
 (Quelle: Birell Davies)
 \subsection{Vacuum Greens function}
-After defining the Groundstate of the QFT on can define several Greens functions (there are many more, but we will only need those):
+After defining the groundstate of the QFT on can define several Greens functions (there are many more, but we will only need those):
 \begin{itemize}
 	\item The Wightman function \(D^+(x,x') := \bra{0}\phi(x)\phi(x')\ket{0}\)
  	\item Expectationvalue of the commutator: \(i D(x,x') := [\phi(x),\phi(x')] = 2i\,\mathrm{Im}\,D^+(x,x')\)
@@ -97,9 +77,9 @@ i D(x,x') &= \sum_{i,j} [u_i(x) a_i + u_i^*(x) a_i^\dagger, u_j(x') a_j + u_j^*(
 	&= \sum_{i} u_i(x) u_i^*(x') - u_i^*(x) u_i(x')  
 \end{align}
 
-Since \(\nabla^\mu\nabla_mu\phi(x) = 0\) this also holds for all Greensfunctions, i.e \(\nabla^\mu\nabla_\mu D^+(x,x') = 0\).
+Since \(\nabla^\mu\nabla_\mu\phi(x) = 0\) this also holds for all Greensfunctions, i.e \(\nabla^\mu\nabla_\mu D^+(x,x') = 0\).
 
-If the ground state is defined as \(a_i\ket{0} = 0\) for a complete set of modes \(u_i\) (as for example for positiv frequency modes in a static spacetime) we can calculate \(D^+(\vb{x},\vb{x}')\) by summing over all modes:\\
+If the ground state is defined as \(a_i\ket{0} = 0\) for a complete set of modes \(u_i\) (as for example for positiv frequency modes in a static spacetime) we can calculate \(D^+(\vb{x},\vb{x}')\) by summing over all modes:
 
 \begin{align}
 D^+(\vb{x},\vb{x}') &= \bra{0}\phi(\vb{x})\phi(\vb{x}')\ket{0}\\
@@ -111,61 +91,32 @@ D^+(\vb{x},\vb{x}') &= \bra{0}\phi(\vb{x})\phi(\vb{x}')\ket{0}\\
 \end{align}
 
 \subsection{Thermal Greens function}
-Later we will also need thermal greens function. These are given by replacing the vacuum expectation value \(\bra{0} \dots \ket{0}\) by the thermal expectation value \(\langle\dots\rangle_\beta = \frac{1}{Z} \mathrm{Tr} e^{-\beta H} \dots \) with \(\beta = \frac{1}{k_B T}\),  the hamiltonian \(H\) and \(Z = Tr e^{-\beta H}\).\\
+Later we will also need thermal greens function. These are given by replacing the vacuum expectation value \(\bra{0} \dots \ket{0}\) by the thermal expectation value \(\langle\dots\rangle_\beta = \frac{1}{Z} \mathrm{Tr} e^{-\beta H} \dots \) with \(\beta = \frac{1}{k_B T}\), the hamiltonian \(H\) and \(Z = Tr e^{-\beta H}\).
 
-First observe that since \(i D(x,x') = [\phi(x),\phi(x')]\) is a c-number \(D(x,x')\) it has the same value as in the vacuum case.\\
-Using \(\phi(t,\vec{x}) = e^{i H t}\phi(0)e^{-i H t}\) we obtain:
+It can be shown \todo{Quelle Birell Davies} that \(D^{(1)}_\beta\) is given by shifting the time by \(i \beta n\) and then summing over \(n\)
 \begin{align}
-D^+_\beta = \frac{1}{Z} \mathrm{Tr} e^{-\beta H} \phi(x)\phi(x')
+D^{(1)}_\beta(t,\vec{x};t',\vec{x}') = \sum_n D^{(1)}(t-i\beta n, \vec{x};t',\vec{x}')
 \end{align}
-\missingfigure{}
-TODO: thermal greens function
 
-Therefore we can calculate \(D^{(1)}_\beta(t,\vec{x};t',\vec{x}') = \sum_k D^{(1)}(t+i\beta k, \vec{x};t',\vec{x}')\).
-
-
+To find \(D^+_\beta\) we can use that \(D\) (which is the imaginary part of \(D^+\) and \(D^+_\beta\)) is just a c-number and therefore independent of the state of the field. If one is only interested in points where \(D^+\) is real (as we will) one can replace \(D^{(1)}\) by \(D^+\) in the above formula since both greens functions are then proportional. 
 
 \section{Particle Detectors}
-The treatment of a particle detector follows (Quelle: Birell Davies) and goes back to Unruh. One describes a detector by a operator \(m(\tau)\) which couples to the field via a interaction term \(c\cdot m(\tau) \phi(x(\tau))\), where \(c\) is small and \(x(\tau)\) is the trajectory of the detector. For \(\tau \to -\infty\) the detector is in the groundstate \(\ket{E_0}\) and the field is in the vacuum state \(\ket{0}\). The detector develops with time according to \(m(\tau) = e^{i H_0 \tau} m(0) e^{-i H_0 \tau}\) with \(H_0 \ket{E} = E\ket{E}\).\\
-We would like to calculate the probability that the detector detects a particle with energy \(E\). Since \(c\) is small one can use first order perturbation theory where the transition amplitude to another state \(\ket{E,\psi}\) at time \(\tau\) is given by
+We have already seen that there is no suitable definition of vacuum in a spacetime. This implies that in the rest frame of an observer the vacuum state could differ from the vacuum state we defined. Therefore also the notion of what a particle will be different for different observers. To analyse what particles a specific observer sees, Unruh and DeWitt invented a model for a particle detector which measures the energy excitations (particles) of the field along a specific trajectory. 
+
+The calculations are done in the appendix\todo{link}. The important result is that one can split the result in a contribution from the detector and a contribution from the field given by a excitation rate at energy \(E\):
 \begin{align}
-A_{\ket{E_0,0}\to\ket{E,\psi}}(\tau) &= i c \bra{E,\psi} \int_{-\infty}^\tau m(\tau') \phi(x(\tau'))\mathrm{d}\tau'\ket{E_0,0}\\
-	&= i c \bra{E,\psi} \int_{-\infty}^\tau e^{i H_0 \tau'} m(0) e^{-i H_0 \tau'} \phi(x(\tau'))\mathrm{d}\tau'\ket{E_0,0}\\
-	&= i c \bra{\psi} \int_{-\infty}^\tau e^{i E \tau'} \bra{E}m(0)\ket{E_0}  e^{-i E_0 \tau'} \phi(x(\tau'))\mathrm{d}\tau'\ket{0}\\
-	&= i c \bra{E}m(0)\ket{E_0} \int_{-\infty}^\tau e^{i (E-E_0) \tau'} \bra{\psi}\phi(x(\tau'))\ket{0}\mathrm{d}\tau'\\
-\end{align}
+\dv{F_E}{\tau} &= 2 \mathrm{Re} \int_{-\infty}^0 \dd{\tau'} e^{-i E \tau'} D^+(x(\tau + \tau'), x(\tau))
+\end{align} 
 
-The transition probability is \(P_{\ket{E_0,0}\to\ket{E,\psi}}(\tau) = |A_{\ket{E_0,0}\to\ket{E,\psi}}(\tau)|^2\). But since we are only interested in the state of the detector we sum over all field configurations:
+This excitation rate will be considered as energy distribution of particles an observer \(E\) measures or sees. In case the Wightmanfunction only depends on the difference \(\tau - \tau'\) one can simplify this further to achieve:
 \begin{align}
-P_E(\tau) &:= \sum_{i} P_{\ket{E_0,0}\to\ket{E,\psi_i}}(\tau) = \sum_{i}  |A_{\ket{E_0,0}\to\ket{E,\psi}}(\tau)|^2\\
-		  &= c^2 |\bra{E}m(0)\ket{E_0}|^2 F_{E-E_0}(\tau)\\
-\text{with}\,F_E(\tau) &= \sum_{i}\left|\int_{-\infty}^\tau e^{i (E-E_0) \tau} \bra{\psi_i}\phi(x(\tau'))\ket{0}\mathrm{d}\tau'\right|^2\\
-	&= \sum_{i} \int_{-\infty}^\tau e^{-i E \tau''} \bra{0}\phi(x(\tau''))\mathrm{d}\tau''\ket{\psi_i}\bra{\psi_i}\int_{-\infty}^\tau e^{i E \tau'} \phi(x(\tau'))\ket{0}\mathrm{d}\tau'\\
-	&= \int_{-\infty}^\tau\mathrm{d}\tau' \int_{-\infty}^\tau \mathrm{d}\tau'' e^{-i E (\tau''-\tau')} \bra{0}\phi(x(\tau'')) \phi(x(\tau'))\ket{0} := \int_{-\infty}^\tau\mathrm{d}\tau' \int_{-\infty}^\tau \mathrm{d}\tau'' e^{-i E (\tau''-\tau')} D^+(x(\tau''), x(\tau'))
-\end{align}
+\dv{F_E}{\tau} &= \int_{-\infty}^\infty \dd{\tau'} e^{-i E \tau'} D^+(x(\tau'), x(0))
+\end{align} 
 
-There we introduced the Wightman function \(D^+(x,x') = \bra{0}\phi(x) \phi(x')\ket{0}\). The probability splits in a product of two parts. The first one only depends on the model of the detector while the second part only depends on the trajectory. We will therefore interpret the function \(F_E(\tau)\) as the distribution of energy excitations as been 'seen' by an observer on the trajectory \(x(\tau)\).\\
-The transition rate is then given by:
-\begin{align}
-\cfrac{\mathrm{d}F_E(\tau)}{\mathrm{d}\tau} &= \int_{-\infty}^\tau \mathrm{d}\tau'' e^{-i E (\tau''-\tau)} D^+(x(\tau''), x(\tau)) \phi(x(\tau))\ket{0} + \int_{-\infty}^\tau \mathrm{d}\tau' e^{-i E (\tau-\tau')} D^+(x(\tau), x(\tau'))\\
-&= \int_{-\infty}^\tau \mathrm{d}\tau' e^{-i E (\tau'-\tau)} D^+(x(\tau'), x(\tau)) + e^{-i E (\tau-\tau')} D^+(x(\tau), x(\tau'))\\
-&\overset{\tilde{\tau} = \tau'-\tau}{=} \int_{-\infty}^0 \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau)) + e^{i E \tilde{\tau}} D^+(x(\tau), x(\tilde{\tau} + \tau))\\
-&= 2 \mathrm{Re} \int_{-\infty}^0 \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau))
-\end{align}
-
-since \(D^+(x,x')^* = D^+(x',x)\). For the special case that the Wightman function does only depend on the difference of the \(\tau\text{'s}\), i.e. \(D^+(x(\tau_1 + \tau'),x(\tau_2 + \tau')) = D^+(x(\tau_1),x(\tau_2))\) one can simplify this further:
-
-\begin{align}
-\cfrac{\mathrm{d}F_E(\tau)}{\mathrm{d}\tau} &=  \int_{-\infty}^0 \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau)) + \int_{0}^\infty \mathrm{d}\tilde{\tau} e^{- i E \tilde{\tau}} D^+(x(\tau), x(\tau - \tilde{\tau}))\\
-&= \int_{-\infty}^0 \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau)) + \int_{0}^\infty \mathrm{d}\tilde{\tau} e^{- i E \tilde{\tau}} D^+(x(\tau  + \tilde{\tau}), x(\tau))\\
-&= \int_{-\infty}^\infty \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau)) = \int_{-\infty}^\infty \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau}), x(0))
-\label{equ:detector_final}
-\end{align}
-
-The rate is the fouriertransform of the Wightman function and is independent of \(\tau\).\\
+The excitation rate is constant and given by the fouriertransform of the Wightmanfunction evaluated along the curve.
 
 \section{QFT in Minkowskispace and the Unruh effect}
-In order to get a feeling for the calculations in the last section it is useful to consider a simple example in minkowskispace, the Unruh effect: An observer with constant proper acceleration observes a heat bath when moving through minkowski vacuum.\\
+In order to get a feeling for the calculations in the last section it is useful to consider a simple example in minkowskispace, the Unruh effect: An observer with constant proper acceleration observes a heat bath when moving through minkowski vacuum.
 
 \subsection{Solutions of the Klein-Gordon-Equation}
 
@@ -230,31 +181,27 @@ D^+(x(\tau),x(\tau')) = -\frac{1}{4\pi^2}\frac{1}{(\tau-\tau'-i\varepsilon)^2}.
 Clearly \(D^+(x(\tau),x(\tau'))\) only depends on \(\Delta\tau = \tau-\tau'\). So we can use eq. \ref{equ:detector_final} to obtain:
 \begin{align}
 \cfrac{\mathrm{d}F_E(\tau)}{\mathrm{d}\tau} &= \int_{-\infty}^\infty \mathrm{d}\tau e^{-i E \tau} D^+(x(\tau), x(0))\\
-	&= -\frac{1}{4\pi^2} \int_{-\infty}^\infty \mathrm{d}\tau e^{-i E \tau} \frac{1}{(\tau-i\varepsilon)^2} = 0\\
+	&= -\frac{1}{4\pi^2} \int_{-\infty}^\infty \mathrm{d}\tau e^{-i E \tau} \frac{1}{(\tau-i\varepsilon)^2} = 0
 \end{align} 
 
-For the last step use contour integration and close the contour in the lower half plane. Since \(e^{-i E \tau}\) drops to \(0\) for large \(\tau\) with negative imaginary part the integral is given by the sum over all residuals in the lower half plane. Because the \(\varepsilon\) moves the pole at \(\tau = 0\) into the upper half plane there are no poles in the lower half plane and therefore the integral vanishes. So there are no particle excitations for an observer on a inertial worldline\footnote{Note that by poincare invariance of \(D^+(x,x')\) one can always choose a frame in which an inertial observer does not move.} which simply means that he treats the minkowski vacuum as a state with no particles.\\
+For the last step use contour integration and close the contour in the lower half plane. Since \(e^{-i E \tau}\) drops to \(0\) for large \(\tau\) with negative imaginary part the integral is given by the sum over all residuals in the lower half plane. Because the \(\varepsilon\) moves the pole at \(\tau = 0\) into the upper half plane there are no poles in the lower half plane and therefore the integral vanishes. So there are no particle excitations for an observer on a inertial worldline\footnote{Note that by poincare invariance of \(D^+(x,x')\) one can always choose a frame in which an inertial observer does not move.} which simply means that he treats the Minkowski vacuum as a state with no particles.
 
 \subsection{The Unruh Effect}
-
-Another interesting observer is an observer which is accelerating with an constant proper acceleration \(\alpha > 0\), i.e. \(t(\tau) = \alpha \sinh \tau/\alpha,\,x(\tau) = \alpha \cosh \tau/\alpha,\, y(\tau) = z(\tau) = 0\). Define \(\lambda = \tau/\alpha\). First calculate \(D^+\) for \(\varepsilon = 0\)\\
+Another interesting observer is an observer which is accelerating with an constant proper acceleration \(\alpha > 0\), i.e. \(t(\tau) = 1/\alpha \sinh \alpha\tau,\,x(\tau) = 1/\alpha \cosh \alpha\tau,\, y(\tau) = z(\tau) = 0\). Define \(\lambda = \alpha\tau\). First calculate \(D^+\) for \(\varepsilon = 0\)
 
 \begin{align}
--\frac{4\pi^2}{D^+(x(\alpha\lambda), x(\alpha\lambda'))} &= (\alpha \sinh \lambda - \alpha \sinh \lambda')^2 - \alpha^2 (\cosh \lambda - \cosh \lambda')\\
-	&= \alpha^2 \left(-2 - 2\sinh\lambda \sinh\lambda' + 2 \cosh\lambda \cosh\lambda'\right)\\
-	&= - 2 \alpha^2 \left(1 - \cosh(\lambda-\lambda')\right)\\
-	&= 4 \alpha^2 \sinh^2\frac{\lambda-\lambda'}{2}\\
-D^+(x(\tau), x(\tau')) &= -\frac{1}{16\pi^2\alpha^2} \frac{1}{\sinh^2\frac{\tau-tau'}{2\alpha}}
+-\frac{\alpha^2}{4\pi^2 D^+(x(\lambda/\alpha), x(\lambda'/\alpha))} &= (\sinh \lambda - \sinh \lambda')^2 - (\cosh \lambda - \cosh \lambda')^2\\
+	&= -2 - 2\sinh\lambda \sinh\lambda' + 2 \cosh\lambda \cosh\lambda'\\
+	&= - 2 \qty(1 - \cosh(\lambda-\lambda'))\\
+	&= 4 \sinh^2\frac{\lambda-\lambda'}{2}\\
+D^+(x(\tau), x(\tau')) &= -\frac{\alpha^2}{16\pi^2} \frac{1}{\sinh^2\frac{\alpha(\tau-\tau')}{2}}
 \end{align}
 
-So again \(D^+\) only depends on \(\Delta\tau = \tau-\tau'\). So we will fouriertransform \(D^+\) according to eq. \ref{equ:detector_final}. Again we will close the contour in the lower half plane. Therefore we only need the residues in the lower half. But the hyperbolic sine has a root at \(0\) and therefore \(D^+\) will have a pole at \(\tau = \tau'\) on the real axis. This is the only point where the \(\varepsilon\) is important because it will move the pole away from the real axis. So in order to take the \(\varepsilon\) into account one only need to classify the behaviour of the pole at \(\tau = \tau'\).\\
-So set \(\lambda' = 0\) and define \(\lambda_\varepsilon\) as the position of the pole for a specific \(\varepsilon\), which means it satisfies \((\sinh\lambda_\varepsilon - \frac{i}{\alpha}\varepsilon)^2 - (\cosh\lambda_\varepsilon - 1)^2 = 0\). Differentiating this twice with respect to \(\varepsilon\) and setting \(\varepsilon \to 0\) leads to (note that \(\lambda_0 = 0\)): \[\left(\frac{\mathrm{d}\lambda_\varepsilon}{\mathrm{d}\varepsilon}|_{\varepsilon = 0} - \frac{i}{\alpha}\right)^2 = 0\] Therefore is \(\frac{\mathrm{d}\lambda_\varepsilon}{\mathrm{d}\varepsilon}|_{\varepsilon = 0} = \frac{i}{\alpha}\) and for small \(\varepsilon\) the pole will move to upper half plane\footnote{Alternatively one can absorb positive functions into \(\varepsilon\) to get \(D^+(x(\tau), x(0)) \sim \frac{1}{\sinh^2\left(\frac{\tau}{2\alpha} - i \varepsilon\right)}\)}.\\
-
-So we can ignore the pole at \(0)\) for the contourintegration. It is useful to use the expansion \(\frac{1}{\sin^2 \pi x} = \pi^{-2} \sum_k (x-k)^{-2}\) to obtain 
+So again \(D^+\) only depends on \(\Delta\tau = \tau-\tau'\). So we will fouriertransform \(D^+\) according to eq. \ref{equ:detector_final}. Again we will close the contour in the lower half plane. Therefore we only need the residues in the lower half. We will later \todo{link} find that in general the pole at \(\tau = \tau'\) will be moved to the upper half\footnote{Alternatively one can explicitly calculate this by absorbing positive functions into \(\varepsilon\) and achieves \(D^+(x(\tau), x(0)) \sim \frac{1}{\sinh^2\left(\frac{\tau\alpha}{2} - i \varepsilon\right)}\). So indeed the pole is shifted to the upper half}. So we can ignore the pole at \(0\) for the contourintegration. It is useful to use the expansion \(\frac{1}{\sin^2 \pi x} = \pi^{-2} \sum_k (x-k)^{-2}\) to obtain 
 \begin{align}
 D^+(x(\tau), x(0)) = -\frac{1}{4\beta^2\pi^2}\sum_k (\frac{\tau}{\beta} - ik)^{-2} = -\frac{1}{4\pi^2}\sum_k (\tau + ik\beta)^{-2}
 \label{equ:unruh_sin_expansion}
-\end{align} where \(\beta = 2\pi\alpha\):
+\end{align} where \(\beta = \frac{2\pi}{\alpha}\):
 \begin{align}
 \cfrac{\mathrm{d}F_E(\tau)}{\mathrm{d}\tau} &= \int_{-\infty}^\infty \mathrm{d}\tau e^{-i E \tau} D^+(x(\tau), x(0))\\
 	&= -\frac{1}{4\pi^2} \sum_{k>0}  \int_{-\infty}^\infty \mathrm{d}\tau e^{-i E \tau} \frac{1}{(\tau + ik\beta)^2}\\
@@ -264,39 +211,14 @@ D^+(x(\tau), x(0)) = -\frac{1}{4\beta^2\pi^2}\sum_k (\frac{\tau}{\beta} - ik)^{-
 	&= \frac{1}{2\pi} \left(\frac{E}{e^{\beta E}-1}\right)
 \end{align} 
 
-So the detector detects particles. The distribution contains the typical Planck factor\(\frac{1}{e^{\beta E}- 1}\). Actually  is the same distribution as an inertial observer would observe in a heat bath with temperature \(T = \frac{1}{k\ind{B}\beta} = \frac{1}{2\pi k\ind{B}\alpha}\). This can be seen by computing the thermal greens function in minkowskispace:
+So the detector detects particles. The distribution contains the typical Bose-Einstein factor\(\frac{1}{e^{\beta E}- 1}\). Actually this is the same distribution as an inertial observer would observe in a heat bath with temperature \(T = \frac{1}{k\ind{B}\beta} = \frac{\alpha}{2\pi k\ind{B}}\). This can be seen by computing the thermal greens function in minkowskispace\todo{link}:
 
 \begin{align}
 D^+_\beta(x,x') &= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{(t-t')^2 - |\va{x}-\va{x}'|^2})}
 \end{align} 
 
-Evaluating this on a inertial trajectory, i.e. \(t = \tau, \vec{x} = \vec{x}' = t' = 0\) leads to the same formula as in equ. \todo{link}. So an accelerating observer sees the Minkowski vacuum as a heat bath.\\
-
-\subsection{Equivalence Principle?}
-
-One could now think that by equivalence principle a freely falling observer in a spacetime won't see any particle while an accelerating observer sees a heat bath according to his current acceleration. This is not even true in static spacetimes as the following lemma states:
-\begin{lemma}
-In a static spacetime with timelike killing vectorfield \(\vb{k}\) a static observer (moving only along \(\vb{k}\)) does not observe any particles.
-\label{lemma:static_spacetime}  
-\end{lemma}
-
-Proof: Choose the coordinate system \((t,\va{y})\) with \(\partial_t = \vb{k}\) in which the metric looks like \(\dd s^2 =g_{tt} \dd{t^2} + g_{ij}\dd{y^i}\dd{y^j}\). In this frame the solutions of the klein gordon equations are given as in eq. \ref{equ:solutions_static} as \(u_{\omega, i} = u_{\omega, i} = \frac{1}{\sqrt{2\omega}}e^{-i\omega t} A_i\).
-Since the observer moves only in \(\vb{k}\) direction he will have four-velocity \(\dot{\vb{x}} = \alpha \partial_t = \frac{1}{\sqrt{\qty|g_{00}|}} \partial_t\). \(\alpha\) is independent of \(\tau\) because the spatial coordinates of the observer are constant \(\va{y}(\tau) = \va{y}_0\). Integrating yields \(t(\tau) = \alpha \tau + t_0\).
-Now we can evaluate \(D^+(\vb{x}(\tau), \vb{x}(\tau'))\). Recall that the vacuum state is given by \(a_{\omega,i}\ket*{0} = 0\):
+Evaluating this on a inertial trajectory, i.e. \(t = \tau, \vec{x} = \vec{x}' = t' = 0\) leads to the same formula as in equ. \todo{link}
 \begin{align}
-D^+(\vb{x}(\tau), \vb{x}(\tau')) &= \bra*{0}\phi(\vb{x}(\tau))\phi(\vb{x}(\tau'))\ket*{0} = \int \dd{\omega} \sum_i u_{\omega, i}(\vb{x}(\tau)) u_{\omega, i}^*(\vb{x}(\tau'))\\
-	&= \int \dd{\omega} \sum_i \frac{1}{2\omega} e^{-i\omega (t(\tau)-t(\tau')} A_i(\va{y}_0)A_i^*(\va{y}_0)\\
-	&= \int \dd{\omega} \sum_i \frac{1}{2\omega} e^{-i\omega \alpha (\tau - \tau')} A_i(\va{y}_0)A_i^*(\va{y}_0)
-\end{align} 
-
-One can see that \(D^+\) only depends on the difference \(\tau-\tau'\). Therefore we can apply eq. \ref{equ:detector_final}:
-\begin{align}
-\dv{F_E}{\tau} &= \int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} D^+(\vb{x}(\tau), \vb{x}(0))\\
-	&= \int \dd{\omega} \sum_i \frac{1}{2\omega} A_i(\va{y}_0)A_i^*(\va{y}_0) \qty(\int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} e^{-i\omega \alpha \tau})\\
-	&= \int \dd{\omega} \sum_i \frac{1}{2\omega} A_i(\va{y}_0)A_i^*(\va{y}_0) \delta(E + \omega \alpha) = 0
+D^+_\beta(\vb{x}(\tau),0) &= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta} \tau)}
 \end{align}
-
-The deltafunction is always zero because \(E \leq 0\), \(\omega > 0\), and \(\alpha > 0\)\footnote{Here one can see why it is sensible to exclude \(\omega = 0\) because it would lead to an infinite transition rate to the groundstate \(E = 0\) which is clearly not physical}. So the observer does not detect any particles. qed.
-
-This result might be surprising as in many spacetimes a static observer needs to accelerate in order to stay at his position (take the schwarzschild metric for example). On the other hand we will later show that observers on a circular orbit in the schwarzschild metric actually see particles. It seems that this contradicts the equivalence principle. However the equivalence principle only states that it is impossible to distinguish between flat space and curved space using only local measurements. The calculations above required integration over the whole worldline of the particle. Therefore this is a non local effect.\\
-This can be also seen in Minkowski space. If the accelerating observer would stop accelerating (e.g at \(t = 0\)) he would still detect some particles for the rest of his live. Even an inertial observer will detect particles if he switches the detector on at \(t = 0\) (and not at \(\tau = -\infty\)) \todo{really?}.
+So an accelerating observer actually sees the Minkowski vacuum as a heat bath. So indeed the notion of a particle is observer dependent.

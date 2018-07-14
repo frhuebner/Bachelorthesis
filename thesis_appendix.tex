@@ -24,7 +24,7 @@ D^+(x,x') &= \cfrac{1}{2 i |\vec{x}-\vec{x}'|}\int_0^\infty \frac{\mathrm{d} \om
 
 Alternatively one can achieve the form by first choosing a coordinate system such that \(\vb{x} = \tilde{t} \partial_0\) (as we will do for the thermal case) and then transforming it back (one has to be very careful with the \(\varepsilon\) here).  
 
-\section{Thermal Withmanfunction in Minkowskispace}
+\section{Thermal Wigthmanfunction in Minkowskispace}
 To calculate the thermal Wightmanfunction we will restrict to the interior of the lightcone (we will only need that). At a specific point choose the following coordinate system: First we will set \(\vb{x}' = 0\) and then choose a coordinate system such that \(\vb{x} = \tilde{t} \partial_0\). Here \(\tilde{t} = \pm \sqrt{-\vb{x}^2}\) with the upper sign for \(t > 0\) and the lower for \(t < 0\). In this coordinate system we can redo the calculation of the Wightmanfunction and achieve
 \begin{align}
 D^+(\vb{x},0) = -\frac{1}{4\pi^2} \frac{1}{(\tilde{t} - i\varepsilon)^2}
@@ -45,6 +45,47 @@ D^+_\beta(\vb{x},\vb{x}') &= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\b
 \end{align}
 
 In the last step we set \(\varepsilon \to 0\) to get a closed form. One needs to be careful because the \(\varepsilon\) will move poles in different directions for \(t > 0\) and \(t < 0\). However normally we only have to worry about the pole at zero which will as in the vacuum case will be moved to the upper half\footnote{To show this recall that the pole at zero is due to the pole of the vacuum Wightmanfunction which contributes to sum as \(n = 0\)}. 
+
+\section{The Unruh-Detector}
+\todo{shorten?}
+Our treatment of such a detector will follow (Quelle: Birell Davies).
+One describes a detector by a operator \(m(\tau)\) which couples to the field via a interaction term \(c\cdot m(\tau) \phi(x(\tau))\), where \(c\) is small and \(x(\tau)\) is the trajectory of the detector. For \(\tau \to -\infty\) the detector is in the groundstate \(\ket{E_0}\) and the field is in the vacuum state \(\ket{0}\). The detector develops with time according to \(m(\tau) = e^{i H_0 \tau} m(0) e^{-i H_0 \tau}\) with \(H_0 \ket{E} = E\ket{E}\).\\
+We would like to calculate the probability that the detector detects a particle with energy \(E\). Since \(c\) is small one can use first order perturbation theory where the transition amplitude to another state \(\ket{E,\psi}\) at time \(\tau\) is given by
+\begin{align}
+A_{\ket{E_0,0}\to\ket{E,\psi}}(\tau) &= i c \bra{E,\psi} \int_{-\infty}^\tau m(\tau') \phi(x(\tau'))\mathrm{d}\tau'\ket{E_0,0}\\
+	&= i c \bra{E,\psi} \int_{-\infty}^\tau e^{i H_0 \tau'} m(0) e^{-i H_0 \tau'} \phi(x(\tau'))\mathrm{d}\tau'\ket{E_0,0}\\
+	&= i c \bra{\psi} \int_{-\infty}^\tau e^{i E \tau'} \bra{E}m(0)\ket{E_0}  e^{-i E_0 \tau'} \phi(x(\tau'))\mathrm{d}\tau'\ket{0}\\
+	&= i c \bra{E}m(0)\ket{E_0} \int_{-\infty}^\tau e^{i (E-E_0) \tau'} \bra{\psi}\phi(x(\tau'))\ket{0}\mathrm{d}\tau'\\
+\end{align}
+
+The transition probability is \(P_{\ket{E_0,0}\to\ket{E,\psi}}(\tau) = |A_{\ket{E_0,0}\to\ket{E,\psi}}(\tau)|^2\). But since we are only interested in the state of the detector we sum over all field configurations:
+\begin{align}
+P_E(\tau) &:= \sum_{i} P_{\ket{E_0,0}\to\ket{E,\psi_i}}(\tau) = \sum_{i}  |A_{\ket{E_0,0}\to\ket{E,\psi}}(\tau)|^2\\
+		  &= c^2 |\bra{E}m(0)\ket{E_0}|^2 F_{E-E_0}(\tau)\\
+\text{with}\,F_E(\tau) &= \sum_{i}\left|\int_{-\infty}^\tau e^{i (E-E_0) \tau} \bra{\psi_i}\phi(x(\tau'))\ket{0}\mathrm{d}\tau'\right|^2\\
+	&= \sum_{i} \int_{-\infty}^\tau e^{-i E \tau''} \bra{0}\phi(x(\tau''))\mathrm{d}\tau''\ket{\psi_i}\bra{\psi_i}\int_{-\infty}^\tau e^{i E \tau'} \phi(x(\tau'))\ket{0}\mathrm{d}\tau'\\
+	&= \int_{-\infty}^\tau\mathrm{d}\tau' \int_{-\infty}^\tau \mathrm{d}\tau'' e^{-i E (\tau''-\tau')} \bra{0}\phi(x(\tau'')) \phi(x(\tau'))\ket{0} := \int_{-\infty}^\tau\mathrm{d}\tau' \int_{-\infty}^\tau \mathrm{d}\tau'' e^{-i E (\tau''-\tau')} D^+(x(\tau''), x(\tau'))
+\end{align}
+
+There we introduced the Wightman function \(D^+(x,x') = \bra{0}\phi(x) \phi(x')\ket{0}\). The probability splits in a product of two parts. The first one only depends on the model of the detector while the second part only depends on the trajectory. We will therefore interpret the (so called detector response) function \(F_E(\tau)\) as the distribution of energy excitations as been 'seen' by an observer on the trajectory \(x(\tau)\).
+
+The transition rate is then given by:
+\begin{align}
+\cfrac{\mathrm{d}F_E(\tau)}{\mathrm{d}\tau} &= \int_{-\infty}^\tau \mathrm{d}\tau'' e^{-i E (\tau''-\tau)} D^+(x(\tau''), x(\tau)) \phi(x(\tau))\ket{0} + \int_{-\infty}^\tau \mathrm{d}\tau' e^{-i E (\tau-\tau')} D^+(x(\tau), x(\tau'))\\
+&= \int_{-\infty}^\tau \mathrm{d}\tau' e^{-i E (\tau'-\tau)} D^+(x(\tau'), x(\tau)) + e^{-i E (\tau-\tau')} D^+(x(\tau), x(\tau'))\\
+&\overset{\tilde{\tau} = \tau'-\tau}{=} \int_{-\infty}^0 \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau)) + e^{i E \tilde{\tau}} D^+(x(\tau), x(\tilde{\tau} + \tau))\\
+&= 2 \mathrm{Re} \int_{-\infty}^0 \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau))
+\end{align}
+
+since \(D^+(x,x')^* = D^+(x',x)\). For the special case that the Wightman function does only depend on the difference of the \(\tau\text{'s}\), i.e. \(D^+(x(\tau_1 + \tau'),x(\tau_2 + \tau')) = D^+(x(\tau_1),x(\tau_2))\) one can simplify this further:
+
+\begin{align}
+\cfrac{\mathrm{d}F_E(\tau)}{\mathrm{d}\tau} &=  \int_{-\infty}^0 \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau)) + \int_{0}^\infty \mathrm{d}\tilde{\tau} e^{- i E \tilde{\tau}} D^+(x(\tau), x(\tau - \tilde{\tau}))\\
+&= \int_{-\infty}^0 \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau)) + \int_{0}^\infty \mathrm{d}\tilde{\tau} e^{- i E \tilde{\tau}} D^+(x(\tau  + \tilde{\tau}), x(\tau))\\
+&= \int_{-\infty}^\infty \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau)) = \int_{-\infty}^\infty \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau}), x(0))
+\end{align}
+
+The rate is the fouriertransform of the Wightman function and is independent of \(\tau\).
 
 \section{Solving the geodesic equation in a two dimensional metric}
 \label{sec:app_congruence}

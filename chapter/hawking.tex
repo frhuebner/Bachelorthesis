@@ -207,17 +207,44 @@ This is up to a prefactor the same as for a static observer in Minkowskispace \t
 \frac{1}{2\pi} \frac{r_*^2 f(r)}{r^2} \frac{E}{e^{\beta\sqrt{f(r)} E}-1}
 \end{align}
 
+\todo{Amplitude}
+
 The most important difference to Minkowskispace is that the measured temperature changed according to \(T = f(r)^{-1/2} T\ind{H}\) due to the fact that the proper time differs from the coordinate time. This happens in general in a heat bath on a spacetime and is called the Tolman effect\todo{Quelle}.  
 
 \subsection{Circular orbiting observer}
 An observer on a circular orbit \(t = A \tau\) and \(\phi = B\tau\) has the following thermal Wightman function:
 \begin{align}
 D^+_\beta(\vb{x}(\tau),\vb{x}(0)) &= -\frac{1}{4\beta^2} \frac{r_*^2}{r^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{A^2\tau^2 - 2 r_*^2 (1-\cos{B\tau})})}\\
-&= -\frac{1}{4\beta^2} \frac{r_*^2}{r^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}r_*\sqrt{\xi^2 x^2 - 2 (1-\cos{x})})}\\
-&= -\frac{1}{4\beta^2} \frac{r_*^2}{r^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}r_*\xi\sqrt{x^2 - \frac{2}{\xi^2} (1-\cos{x})})}
+&= -\frac{1}{4\beta^2} \frac{r_*^2}{r^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}r_*\sqrt{\xi^2 x^2 - 2 (1-\cos{x})})}
 \end{align}
 
-where we replaced \(x = B\tau\) and \(\xi = \frac{A}{Br_*}\) as in \todo{link}. If one inserts the values for geodesics \todo{link} into \(\xi\) one finds
+where we replaced \(x = B\tau\) and \(\xi = \frac{A}{Br_*}\) as in \todo{link}.
+
+Because of the square root the function is not analytical and we can't use the residue theorem as before. We need to integrate the function by hand. Before that we need to get rid of the singularity at \(x = 0\). This is a second order pole so the series expansion will look like \(\frac{a_{-2}}{x^2} + \order*{x^0}\). \(a_{-2}\) can be computed by taking the limit
+\begin{align}
+a_{-2} &= \lim_{x\to 0}\frac{x^2}{\sinh[2](\frac{\pi}{\beta}r_*\sqrt{\xi^2 x^2 - 2 (1-\cos{x})})}\\
+	&= \lim_{x\to 0}\frac{x^2}{\qty(\frac{\pi}{\beta}r_*\sqrt{\xi^2 x^2 - 2 (1-\cos{x})})^2}\\
+	&= \qty(\frac{\beta}{\pi r_*})^2 \lim_{x\to 0}\frac{x^2}{\xi^2 x^2 - x^2 + \order*{x^4}}\\
+	&= \qty(\frac{\beta}{\pi r_*})^2 \frac{1}{\xi^2 -1}
+\end{align} 
+
+The same value of \(a_{-2}\) is achieved when using \(\frac{1}{\sinh[2](\frac{\pi}{\beta}r_* \sqrt{\xi^2-1} x)}\). So we can write
+\begin{align}
+\frac{1}{\sinh[2](\frac{\pi}{\beta}r_*\sqrt{\xi^2 x^2 - 2 (1-\cos{x})})} &= \frac{1}{\sinh[2](\frac{\pi}{\beta}r_* \sqrt{\xi^2-1} x)} + g(x)
+\end{align}
+where 
+\begin{align}
+g(x) &= \frac{1}{\sinh[2](\frac{\pi}{\beta}r_*\sqrt{\xi^2 x^2 - 2 (1-\cos{x})})} - \frac{1}{\sinh[2](\frac{\pi}{\beta}r_* \sqrt{\xi^2-1} x)}
+\end{align}
+
+will remain finite at \(x = 0\) and will give some energy distribution on the detector. The other term however has the same form as before, so it will lead to a thermal excitation rate
+\begin{align}
+\frac{1}{2\pi} \frac{r_*^2}{r^2} \qty(A^2-B^2 r_*^2) \frac{E}{e^{\beta\sqrt{A^2-B^2 r_*^2} E}-1}
+\end{align} 
+
+Again the amplitude and the observed temperature changed \(T = \sqrt{A^2-B^2 r_*^2}^{-1} T_H\). 
+
+.If one inserts the values for geodesics \todo{link} into \(\xi\) one finds
 \begin{align}
 \xi^2 = \frac{r^2}{r_*^2} \frac{r}{M} \approx  \frac{r}{M}
 \end{align}
