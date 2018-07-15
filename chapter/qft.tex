@@ -55,11 +55,9 @@ This is called a Bogolyubov transformation.
 \todo{remove?}
 So far everything was in complete analogy to quantisation in Minkowskispace. However problems arise when one tries to define the ground state of the system which is defined as the state with the lowest energy. The notion of energy (and thus the hamiltonian) depends on the notion of time. Therefore different coordinate systems will have different hamiltonians and thus different ground states. Since on a manifold there is no preferred coordinate system as in flat space we will have to guess the state of the field. This state may appear as the vacuum to some observers but will appear as an excited state to others (this is for example the reason why an eternal black hole seems to be thermal for an observer outside\todo{quelle}.).\\
 
-In a static spacetime one usually considers the hamiltonian corresponding to the timelike killing vector and chooses the groundstate of it as state of the field.
+In a static spacetime one usually chooses the state given by \(a_i \ket*{0} = 0\), where \(a_i\) are annihilation operators for positive frequency modes. 
 
-For other spacetimes it is convenient to take a suitable state in the far past (as in a scattering problem). For example when treating a collapsing star we will choose the groundstate of the (static) spacetime before the collapse (which will then eventually convert into an excited state).
-
-Because in our examples the vacuum state and groundstate will coincide (at least in the beginning) we will denote them by \(\ket*{0}\).
+For the collapsing star we will choose the groundstate of the (static) spacetime before the collapse (which will then eventually convert into an excited state).
 
 \section{Greens functions}
 (Quelle: Birell Davies)
@@ -82,11 +80,11 @@ Since \(\nabla^\mu\nabla_\mu\phi(x) = 0\) this also holds for all Greensfunction
 If the ground state is defined as \(a_i\ket{0} = 0\) for a complete set of modes \(u_i\) (as for example for positiv frequency modes in a static spacetime) we can calculate \(D^+(\vb{x},\vb{x}')\) by summing over all modes:
 
 \begin{align}
-D^+(\vb{x},\vb{x}') &= \bra{0}\phi(\vb{x})\phi(\vb{x}')\ket{0}\\
-	&= \sum_{ij} \bra{0} \qty(u_i(\vb{x}) a_i + u_i^*(\vb{x}) a_i^\dagger)\qty(u_j(\vb{x}') a_j + u_j^*(\vb{x}') a_j^\dagger) \ket{0} \\
-	&= \sum_{ij} u_i(\vb{x}) u_j^*(\vb{x}') \bra{0} a_i a_j^\dagger \ket{0} \\
-	&= \sum_{ij} u_i(\vb{x}) u_j^*(\vb{x}') \delta_{ij} \\
-	&= \sum_{i} u_i(\vb{x}) u_i^*(\vb{x}')
+D^+(\vb{x},\vb{x}') &= \bra{0}\phi(\vb{x})\phi(\vb{x}')\ket{0} = \sum_{i} u_i(\vb{x}) u_i^*(\vb{x}')
+%	&= \sum_{ij} \bra{0} \qty(u_i(\vb{x}) a_i + u_i^*(\vb{x}) a_i^\dagger)\qty(u_j(\vb{x}') a_j + u_j^*(\vb{x}') a_j^\dagger) \ket{0} \\
+%	&= \sum_{ij} u_i(\vb{x}) u_j^*(\vb{x}') \bra{0} a_i a_j^\dagger \ket{0} \\
+%	&= \sum_{ij} u_i(\vb{x}) u_j^*(\vb{x}') \delta_{ij} \\
+%	&= \sum_{i} u_i(\vb{x}) u_i^*(\vb{x}')
 \label{equ:wightman_modes}
 \end{align}
 
@@ -125,7 +123,7 @@ The Klein-Gordon-Equation in Minkowskispace is the normal wave equation:
 \partial_\mu\partial^\mu \phi = 0.
 \end{align}
 
-Since we are in Minkowskispace, \(\partial_t\) is a futuredirected timelike killing vector field. Therefore we can find a orthonormal set of positiv frequency solutions, which are just plane waves:
+The solutions are given by plane waves:
 \begin{align}
 u_{\vec{k}}(x) = \frac{1}{\sqrt{2 |k|}} \frac{e^{i k x}}{\sqrt{2\pi}^3},\,\text{with} k^0 = |k|
 \end{align}

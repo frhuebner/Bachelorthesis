@@ -97,6 +97,15 @@ where we defined \(\delta\tau = \eval{\dv{\tau_\varepsilon}{\varepsilon}}_{\vare
 
 \(\delta\tau\) has two solutions and therefore the pole will split into two poles. But we know that \(a\dot{t}(0) > 0\) and so will both values of \(\delta\tau\) have positive imaginary part. Recall that \(\delta\tau = \eval{\dv{\tau_\varepsilon}{\varepsilon}}_{\varepsilon = 0}\) and so \(\tau_\varepsilon = \delta\tau \varepsilon + \order{\varepsilon^2}\) which means that for a sufficient small value of \(\varepsilon\) both poles will lie in the upper half of the complex plane.
 
+%\subsection{The influence of the \(\varepsilon\)}
+
+%Please note that the next part will just be a motivation (rather than a proof) that we can assume the Wightmanfunction to behave like a smooth function on our trajectory. Especially we will assume that there is no isolated behaviour (e.g. isolated jumps) since this is unlikely to solve the Klein-Gordon-equation. 
+%\(D^+\) is defined as a distribution in the sense that we replaced the time \(t \to t - i\varepsilon\). This can lead to complicated behaviour of the Wightmanfunction, in fact it can lead to (finite and infinite) jumps of the function. So it is interesting to classify where we can treat \(D^+\) as a smooth function and where we need to consider the \(\varepsilon\) explicitly. We are excluding isolated behaviour so consider a surface where such a jump occurs. However these are unlikely to solve the Klein-Gordon-Equation since then the gradient on the surface will pick up a \(\delta\) (and therefore the Laplacian a \(\delta'\)) which will not add to zero if it is surrounded just by a smooth function. This argument does not apply if the surface is a null surface because the gradient will point into the direction of the surface and therefore will not pick up a \(\delta\).
+
+%Since \(t = t'\) is a cauchysurface this null surface will cross it somewhere\footnote{We will exclude closed timelike curves}. Therefore if the Wightmanfunction does not jump on \(t = t'\) we can assume that there are no such null surfaces at all and we can be describe the Wightmanfunction by a smooth function. However the imaginary part of the Wightmanfunction \(\sim [\phi(\vb{x}),\phi(\vb{x}')]\) jumps near \(\vb{x} = \vb{x}'\) (it is infinite on the lightcone and \(0\) anywhere else). This implies that the jump will continue on the lightcone (one can easily check this in Minkowskispace). 
+
+%Apart from that the function will not So we conclude that the \(\varepsilon\) will only have an effect on lightlike surfaces. Apart from that we will assume the function to be smooth.
+
 \subsection{The pole structure of the Wightman function}
 We know that the Wightman function solves the Klein-Gordon-Equation, i.e.
 \begin{align}
@@ -113,14 +122,16 @@ Now again fix \(\vb{x}'\) and define \(A(\vb{x}) = \frac{1}{D^+(\vb{x},\vb{x}')}
 \nabla_\mu A \nabla^\mu A &=\frac{A}{2} \nabla_\mu \nabla^\mu A 
 \end{align}
 
-This must be also the case for points where the Wightman function has a pole, i.e. \(A = 0\). In this case we conclude that at such a point \(\nabla_\mu A \nabla^\mu A = 0\) which means that \(\nabla A\) is a lightlike vector.
+This must be also the case for points where the Wightman function has a pole, i.e. \(A = 0\). In this case we conclude that at such a point \(\nabla_\mu A \nabla^\mu A = 0\) which means that \(\nabla A\) is a lightlike vector. Poles can now have two different behaviours: either they are an isolated singularity or they are part of a hypersurface on which \(D^+ = \infty\). We will exclude the first type by the following handwaving argument: since \(D^+\) solves the Klein-Gordon-equation with well we don't expect such solutions to create isolated poles. The second type appears for example in Minkowskispace on the light cone. We know that such a hypersurface is given by \(A = 0\) and since \(\nabla A\) is a lightlike vector it is a null hypersurface. Since the \(t = t'\) plane is cauchy this hypersurfaces will it\footnote{We will exclude spacetimes with closed null curves}. So if \(D^+\) stays finite on \(t = t'\) except for \(\vb{x} = \vb{x}'\) (which will be the case for our examples) we can conclude that there will be no singular behaviour of \(D^+\) apart from the lightcone of \(\vb{x}'\). Since observers stay always inside the lightcone this implies that it will not encounter any pole on its trajectory except for \(\vb{x}'\).
 
-\missingfigure{Movement along killing vectors}
+Note that we can repeat the same argumentation for \(D = 2\mathrm{Im} D^+\). Around the origin \(D\) vanishes except for being  singular on the lightcone. It will therefore remain singular there. Apart from that we know that by causality outside the lightcone, \(iD = [\phi(\vb{x}),\phi(\vb{x'})] = 0\) which implies that there are no more hypersurfaces with \(D = \infty\). So inside the lightcone \(D\) is nonsingular. If we assume that \(D\) is analytically in a region without singularities we can conclude \(D = 0\) inside the lightcone (since this is true in a small region around the origin). So \(D^+\) is a real function inside the lightcone.
+
+With this argumentation (although it is not a proof) we will assume from now on that \(D^+\) is real and finite on all trajectories (except for \(\vb{x} = \vb{x}'\)).    
 
 \section{Observers on Trajectories}
 
 \subsection{Static observers}
-Let's now use the the information we gathered about the field in a static spacetime to show the following important lemma:
+We will start by showing the following important lemma:
 \begin{lemma}
 In a static spacetime a static observer does not observe any particles.
 \label{lemma:static_spacetime}  
@@ -144,14 +155,14 @@ So \(D^+\) only depends on the difference \(\tau-\tau'\). Therefore we can apply
 
 The deltafunction is always zero because \(E \leq 0\), \(\omega > 0\), and \(\beta(\va{x}_0) > 0\)\footnote{Here one can see why it is sensible to exclude \(\omega = 0\) because it would lead to an infinite transition rate to the groundstate \(E = 0\) which is clearly not physical}. So the observer does not detect any particles. QED.
 
-This result might be surprising as in many spacetimes a static observer needs to accelerate in order to stay at his position (take the schwarzschild metric for example). On the other hand we will later show that observers on a circular orbit in the schwarzschild metric actually see some particles. It seems that this contradicts the equivalence principle. However the equivalence principle only states that it is impossible to distinguish between flat space and curved space using only local measurements. The calculations above required integration over the whole worldline of the particle. Therefore this is a non local effect.
+This exact result will be later used to show whether the approximate form of the Wightmanfunction in the Schwarzschild metric is applicable.
 
 \subsection{Detector on general Trajectories}
 
 In this section we will use the information we gathered about the Wightman function to tackle the problem how to calculate the detector response function on a general trajectory. In particular we have the problem that in general we cannot integrate from \(-\infty\) to \(\infty\) and use the residue theorem but we would rather have to integrate from \(-\infty\) to \(0\). Since there's a singularity at \(0\) we will have in all cases a diverging integral.
 
-\subsection{Vacuum case}
-The last sentence is not really true. There is the small \(\varepsilon\) which removes the singularity from the real axis. One only needs to make sure that it will remain finite for \(\varepsilon \to 0\). Since we are not able to include the \(\varepsilon\) in our calculations we will assume that the limit \(\varepsilon \to 0\) is well defined\footnote{One can for example proof this by an explicit calculation for an inertial trajectory.}. Apart from keeping this in mind we will drop the \(\varepsilon\) during this section.
+\subsubsection{Vacuum case}
+The last sentence is not really true. There is the small \(\varepsilon\) which removes the singularity from the real axis. We will assume that the integral over the trajectory will remain finite for \(\varepsilon \to 0\)\footnote{One can for example proof this by an explicit calculation for an inertial trajectory.}. Apart from keeping this in mind we will drop the \(\varepsilon\) during this section.
 
 Recall that by \todo{link} the excitation rate is given by
 \begin{align}
@@ -175,7 +186,7 @@ Where we have used \(t(0) = \va{x}(0) = 0\) and \(a \dot{t}^2 - \dot{\va{x}}^2 =
 
 This means that instead of integrating over \(D^+(x(\tau'), 0)\) we can equivalently integrate over \(W(\tau') = D^+(x(\tau'), 0) + \frac{1}{4\pi^2 \tau'^2}\) which is well defined.
 
-\subsection{Thermal case}
+\subsubsection{Thermal case}
 
 In a thermal field we can also extract the contribution from an inertial observer to be left with a non singular function. To do this plug the expansion of \(D^+(x(\tau'), 0) = -\frac{1}{4\pi^2 \tau'^2} + W(\tau')\) into the formula for \(D_\beta^+\) \todo{link}
 \begin{align}
@@ -184,53 +195,90 @@ D_\beta^+(t(\tau),x(\tau);0) &= \sum_{n=-\infty}^\infty D^+(t(\tau) - i \beta n,
 &= -\frac{1}{4\beta^2 a} \frac{1}{\sinh[2](\frac{\pi}{\beta \sqrt{a}} \tau)} + W_\beta(\tau)
 \end{align}
 
-So the spectrum of the detector will be given by a thermal spectrum of temperature \(T\ind{static} = \frac{T}{\sqrt{a}}\) plus some corrections coming from \(W_\beta(\tau)\). These corrections will be small as long as the detector moves only slowly and might become the dominating spectrum for fast observers.
+So the observer will see a thermal spectrum of temperature \(T\ind{static} = \frac{T}{\sqrt{a}}\) (compare with \todo{link}) plus some corrections coming from \(W_\beta(\tau)\). These corrections will vanish for a static observer, be small for slow observers and might become the dominating spectrum for fast observers. The relation \(T\ind{static} = \frac{T}{\sqrt{a}}\) is also known from other analysis of thermal systems in general relativity and is called Tolman relation \todo{Quelle}. The origin of this effect is the observer dependent time dilation in the spacetime.
+%For this we need the form of the thermal Wightmanfunction near the origin which can be found by adjusting the calculation in Minkowskispace \todo{link}:
+%\begin{align}
+%D_\beta^+(\vb{x},0) = -\frac{1}{4\beta^2a} \frac{1}{\sinh[2](\frac{\pi}{\beta\sqrt{a}}\sqrt{a t^2 - |\va{x}|^2})}  + \order*{x^2}
+%\end{align}
+
+%Again we will split the \(D^+\) into the singular and the non singular part. Calculating the coefficient \(a_{-2}\) as before yields to the same result
+%\begin{align}
+%a_{-2} = -\frac{1}{4\pi^2}
+%\end{align}
+
+%Here it is now applicable to remove this singularity by subtracting the Wightmanfunction of a static observer i.e. a thermal %one with inverse temperature \(\sqrt{a}\beta\) since for slow .    
+
+%So we could now remove this singularity by calculating it for an inertial observer in (vacuum) Minkowskispace. However %intuition tells us that an slow observer in a thermal field should see nearly the thermal excitations as a static observer. %For such an observer the Wightmanfunction is given by:
+%\begin{align}
+%D_\beta^+(\vb{x},0) = -\frac{1}{4\beta^2 a} \frac{1}{\sinh[2](\frac{\pi}{\beta \sqrt{a}} \tau)}
+%\end{align}
+
+%This is the same as replacing \(\beta \to \beta \sqrt{a}\) in \todo{link} 
+%\begin{align}
+%D_\beta^+(\vb{x},0) = \frac{1}{2\pi} \left(\frac{E}{e^{\beta \sqrt{a} E}-1}\right)
+%\end{align}
+
+%A static observer recognizes the field at a different temperature \(T\ind{static} = \frac{T}{\sqrt{a}}\). This is simply due to time dilation and is known as Tolman relation \todo{Quelle}.
 
 
-For this we need the form of the thermal Wightmanfunction near the origin which can be found by adjusting the calculation in Minkowskispace \todo{link}:
+%We could also do some more. The general expansion of \(a t^2-\va{x}^2\) and \(D^+\) is given by
+%\begin{align}
+%a t^2-\va{x}^2 &= \tau'^2 + \qty(\frac{a\ddot{t}^2-\ddot{\va{x}}^2}{4} + \frac{a\dot{t}\dddot{t}-\dot{\va{x}}\dddot{\va{x}}}{3}) \tau'^4 + \order*{\tau'^5}\\
+%D^+(\vb{x}(\tau'),0) &= -\frac{1}{4\pi^2 \tau'^2} + \frac{a\ddot{t}^2-\ddot{\va{x}}^2}{16\pi^2} + \frac{a\dot{t}\dddot{t}-\dot{\va{x}}\dddot{\va{x}}}{12\pi^2} + \order*{\tau'^2}
+%\end{align}
+
+%Compare this to the expansion of the thermal Wightmanfunction
+%\begin{align}
+%-\frac{1}{4\beta'^2} \frac{1}{\sinh[2](\frac{\pi}{\beta'}\tau')} &=  -\frac{1}{4\pi^2 \tau'^2} + \frac{1}{12\beta'^2} + \order*{\tau^2}
+%\end{align}
+
+%and observe that we can also remove the zero'th order term by setting \(\frac{1}{\beta'^2} = \frac{1}{4\pi^2} \qty(3 (a\ddot{t}^2-\ddot{\va{x}}^2) +  4 (a\dot{t}\dddot{t}-\dot{\va{x}}\dddot{\va{x}}))\). So if we subtract a thermal Wightmanfunciton instead of an inertial one we are left with something only depending on \(\tau^2\). This does not mean that this observer sees a thermal bath at this temperature. We only fixed one order of an infinite series which later will be fouriertransformed. Fouriertransformation does only work globally so we don't have won any information yet \footnote{unless many more orders would coincide like in the unruheffect.}. However the small order behaviour of a function determines the behaviour of the fouriertransform for very small energies. So if we are measuring only small energy excitation and would fit a thermal spectrum to the data we would find a temperature similar to \(\beta'\). Apart from that the excitation rate can (and will for example for an observer on a circular orbit\todo{link}) differ significant from a thermal rate. This is simply due to the fact that this is a global effect. Therefore it is not suitable to treat the Unruh-detector in a local manner like thinking an observer would always see a thermal spectrum according to his current acceleration.
+
+\subsection{Equivalence principle?}
+
+The statement of lemma \todo{link} that a static observer does not recognize particles might seem surprising as in many spacetimes a static observer needs to accelerate in order to stay at his position (take the schwarzschild metric for example). As a first guess on could think that by equivalence principle an proper accelerating observer would see a heat bath as given by the unruh effect. This would also imply that a freely falling observer does not detect any particles. In order to show that this assumption is misleading we will first analyse the properties of trajectories on which no particles will be detected in general. To conclude the discussion we will show that on circular geodesics in the Schwarzschildmetric one actually detects something. 
+
+Recall that transition probability (not the rate) for a detector proportional to the square of the following state\todo{link}
 \begin{align}
-D_\beta^+(\vb{x},0) = -\frac{1}{4\beta^2a} \frac{1}{\sinh[2](\frac{\pi}{\beta\sqrt{a}}\sqrt{a t^2 - |\va{x}|^2})}  + \order*{x^2}
+\ket*{\psi} &= \int_{-\infty}^\tau \dd{\tau'} e^{i E \tau'} \phi(\vb{x}(\tau'))\ket*{0}\\
+	&= \sum_i \frac{1}{\sqrt{2\omega_i}}\int_{-\infty}^\tau \dd{\tau'} e^{i E \tau'} e^{+i\omega_i t(\tau')} A_i(\va{x}(\tau'))^* \ket*{\vb{1}_i}
 \end{align}
 
-Again we will split the \(D^+\) into the singular and the non singular part. Calculating the coefficient \(a_{-2}\) as before yields to the same result
+Since we would like to have no transitions at all the transition probability has to be zero and (note that the scalarproduct of states is positive definite) therefore the state \(\ket*{\psi} = 0\). But this implies since the one particle states \(\ket*{\vb{1}_i}\) are linear independent that all
 \begin{align}
-a_{-2} = -\frac{1}{4\pi^2}
+A_i := \int_{-\infty}^\tau \dd{\tau'} e^{i E \tau'} e^{+i\omega_i t(\tau')} A_i(\va{x}(\tau'))^* \overset{!}{=} 0
+\end{align} 
+have to vanish. If we were not dealing with distributions but rather with functions this would imply (since we need this for all \(\tau\)):
+
+\begin{align}
+\forall \tau&: e^{i E \tau} e^{+i\omega_i t(\tau)} A_i(\va{x}(\tau))^* \overset{!}{=} 0\\
+	\Rightarrow & A_i(\va{x}(\tau)) \overset{!}{=} 0
 \end{align}
 
-Here it is now applicable to remove this singularity by subtracting the Wightmanfunction of a static observer i.e. a thermal one with inverse temperature \(\sqrt{a}\beta\) since for slow .    
+However this is impossible since the \(A_i\) are supposed to form a complete basis over the full space.
 
-So we could now remove this singularity by calculating it for an inertial observer in (vacuum) Minkowskispace. However intuition tells us that an slow observer in a thermal field should see nearly the thermal excitations as a static observer. For such an observer the Wightmanfunction is given by:
+We cannot apply this argument directly since \(D^+\) is a distribution. But apart from the \(-\frac{1}{4\pi^2\tau^2}\) term the Wightmanfunction behaves like a function and therefore the \(W(\tau)\) has to vanish in order to see no excitations. Therefore \(D^+\) evaluated on the trajectory can only be given by \(-\frac{1}{4\pi^2\tau^2}\)\footnote{This is for example the case for inertial trajectories in Minkowskispace}. It is clear that it will be quite hard to figure out a trajectory that satisfies that apart from static trajectories. This argument shows that it is very unlikely that all free falling observers will not recognize any particles.\\
+
+We will conclude the argumentation with giving an explicit geodesic on which the detector response function is non zero. To do this we will need the following lemma for observers moving along killing vectors:
+
+\begin{lemma}
+In a static spacetime an observer moving with constant velocity \(\dot{\vb{x}} = A\partial_t + B\vb{k}\) along a spatial killingvector \(\vb{k}\) will see excitations if there exists at least one eigenfunction \(u\)\footnote{Of course it is implied that \(u\) is a solution to the Klein-Gordon-equation with \(\omega = \omega_m\)} to \(\vb{k}\) with eigenvalue '\(i m\)' such that \(\frac{A}{B} < \frac{m}{\omega_m}\). 
+\label{lemma:killing}  
+\end{lemma} 
+
+Proof: Choose a coordinate system for the spatial metric such that it has a coordinate \(\phi\) with \(\partial_\phi = \vb{k}\). Since \(\partial_\phi\) is killing the metric will not depend on \(\phi\) which implies that an eigenfunction of \(\partial_\phi\) is also an eigenfunction to \(\nabla_\mu\nabla^\mu\) i.e. we can find a complete set of solutions such that
 \begin{align}
-D_\beta^+(\vb{x},0) = -\frac{1}{4\beta^2 a} \frac{1}{\sinh[2](\frac{\pi}{\beta \sqrt{a}} \tau)}
+u_{m, i} \sim e^{-i\omega_m t} \cdot e^{i m \phi}
 \end{align}
 
-This is the same as replacing \(\beta \to \beta \sqrt{a}\) in \todo{link} 
+In order to show that an observer will see excitations it is enough to show that he won't see nothing, i.e. we will show that \todo{link} does not vanish for \(\tau \to \infty\):
 \begin{align}
-D_\beta^+(\vb{x},0) = \frac{1}{2\pi} \left(\frac{E}{e^{\beta \sqrt{a} E}-1}\right)
+A_m &\sim \int_{-\infty}^\infty \dd{\tau'} e^{i E \tau'} e^{+i\omega_m t(\tau')} e^{-i m \phi(\tau')} = \int_{-\infty}^\infty \dd{\tau'} e^{i E \tau'} e^{+i\omega_m A\tau'} e^{-i m B \tau'}\\
+	&= \delta(E + \omega_m A - m B)
 \end{align}
 
-A static observer recognizes the field at a different temperature \(T\ind{static} = \frac{T}{\sqrt{a}}\). This is simply due to time dilation and is known as Tolman relation \todo{Quelle}.
+This will be non zero at least for one energy if \(\omega_m A - m B < 0\) or \(\frac{A}{B} < \frac{m}{\omega_m}\)\footnote{If either \(m < 0\) or \(B < 0\) just switch the sign of \(B\) and redo the proof.}. Using the assumption completes the proof. QED.
 
+We can now apply this to a circular geodesic in the Schwarzschild metric. Since the metric is spherically symmetric the trajectory is along a killing vector. Also the values of \(\omega\) are continuous from \(0\) to \(\infty\) and are especially independent of \(m\) (this will be derived in the next chapter). This means no matter how big \(\frac{A}{B}\) is we will always find a combination of \(m\) and \(\omega\) that fulfils the second condition. So we have found one explicit example for a geodesic on which particle excitations occur.  
 
-
-
-
-
-
-
-
-
-
-
-We could also do some more. The general expansion of \(a t^2-\va{x}^2\) and \(D^+\) is given by
-\begin{align}
-a t^2-\va{x}^2 &= \tau'^2 + \qty(\frac{a\ddot{t}^2-\ddot{\va{x}}^2}{4} + \frac{a\dot{t}\dddot{t}-\dot{\va{x}}\dddot{\va{x}}}{3}) \tau'^4 + \order*{\tau'^5}\\
-D^+(\vb{x}(\tau'),0) &= -\frac{1}{4\pi^2 \tau'^2} + \frac{a\ddot{t}^2-\ddot{\va{x}}^2}{16\pi^2} + \frac{a\dot{t}\dddot{t}-\dot{\va{x}}\dddot{\va{x}}}{12\pi^2} + \order*{\tau'^2}
-\end{align}
-
-Compare this to the expansion of the thermal Wightmanfunction
-\begin{align}
--\frac{1}{4\beta'^2} \frac{1}{\sinh[2](\frac{\pi}{\beta'}\tau')} &=  -\frac{1}{4\pi^2 \tau'^2} + \frac{1}{12\beta'^2} + \order*{\tau^2}
-\end{align}
-
-and observe that we can also remove the zero'th order term by setting \(\frac{1}{\beta'^2} = \frac{1}{4\pi^2} \qty(3 (a\ddot{t}^2-\ddot{\va{x}}^2) +  4 (a\dot{t}\dddot{t}-\dot{\va{x}}\dddot{\va{x}}))\). So if we subtract a thermal Wightmanfunciton instead of an inertial one we are left with something only depending on \(\tau^2\). This does not mean that this observer sees a thermal bath at this temperature. We only fixed one order of an infinite series which later will be fouriertransformed. Fouriertransformation does only work globally so we don't have won any information yet \footnote{unless many more orders would coincide like in the unruheffect.}. However the small order behaviour of a function determines the behaviour of the fouriertransform for very small energies. So if we are measuring only small energy excitation and would fit a thermal spectrum to the data we would find a temperature similar to \(\beta'\). Apart from that the excitation rate can (and will for example for an observer on a circular orbit\todo{link}) differ significant from a thermal rate. This is simply due to the fact that this is a global effect. Therefore it is not suitable to treat the Unruh-detector in a local manner like thinking an observer would always see a thermal spectrum according to his current acceleration.
+But how does this work with the equivalence principle. This simply resolved by recalling that the equivalence principle only states that it is impossible to distinguish between flat space and curved space using only local measurements. But the calculations above required integration over the whole worldline of the particle. Therefore this is a non local effect and we cannot apply the equivalence principle here. 

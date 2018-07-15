@@ -55,45 +55,52 @@ Since this integral is nearly the same as in Minkowskispace (see eq. \ref{equ:wi
 
 Unfortunately the exact behaviour for small \(\omega\) is the same as for small \(r\) which will depend on the specific geometry of the star. But the metric of a star is almost flat (since the radius of a star \(R_0\) is much bigger than its Schwarzschildradius \(R_S\)). Therefore we will approximate the global mode by replacing the sine with the spherical bessel function:
 \begin{align}
-u_{\omega l m} &= \frac{\sqrt{\omega}}{\sqrt{\pi}} e^{-i\omega t} \frac{r_*}{r} j_l(\omega r_*) Y_l^m (\theta, \phi) = \frac{r_*}{r} u_{\omega l m}\upd{M}(r_*,\theta,\phi)
+u_{\omega l m} &= \frac{\sqrt{\omega}}{\sqrt{\pi}} e^{-i\omega t} \frac{r_*}{r} F(r) j_l(\omega r_*) Y_l^m (\theta, \phi) = \frac{r_*}{r} F(r) u_{\omega l m}\upd{M}(r_*,\theta,\phi)
 \end{align}
 
-Because the modes now are the same (up to a prefactor and replacing \(r \to r_*\)) as in Minkowskispace we can find the Wightman function by adjusting the Wightman function of Minkowskispace\todo{link}:
+We introduced an extra factor \(F(r)\) to correct the \(r\) dependence again. This factor must approach \(1\) at infinity. Because the modes now are the same (up to a prefactor and replacing \(r \to r_*\)) as in Minkowskispace we can find the Wightman function by adjusting the Wightman function of Minkowskispace\todo{link}:
 \begin{align}
-D^+(\vb{x}, \vb{x}') &= -\frac{1}{4\pi^2}\frac{r_* r_*'}{r r'} \frac{1}{(t-t'-i\varepsilon)^2 - |\va{x}_*-\va{x}_*'|^2}\\
-	&=  -\frac{1}{4\pi^2}\frac{r_* r_*'}{r r'} \frac{1}{(t-t'-i\varepsilon)^2 - r_*^2 - r_*'^2 + 2r_*r_*' \cos{\alpha}}
+D^+(\vb{x}, \vb{x}') &= -\frac{1}{4\pi^2}\frac{r_* r_*' F(r) F(r')}{r r'} \frac{1}{(t-t'-i\varepsilon)^2 - |\va{x}_*-\va{x}_*'|^2}\\
+	&=  -\frac{1}{4\pi^2}\frac{r_* r_*' F(r) F(r')}{r r'} \frac{1}{(t-t'-i\varepsilon)^2 - r_*^2 - r_*'^2 + 2r_*r_*' \cos{\alpha}}
 \end{align}
 
-where \(\va{x}_*\) is obtained by replacing \(r \to r_*\) in \(\va{x}\) and \(\alpha\) is the angle between the two vectors. So the Wightmanfunction on a trajectory outside the star can be approximated by the Wightmanfunction in Minkowskispace on a slightly different trajectory.
+where \(\va{x}_*\) is obtained by replacing \(r \to r_*\) in \(\va{x}\) and \(\alpha\) is the angle between the two vectors. We still have the factor \(F(r)\). This can be fixed because we know the behaviour around \(\vb{x} \approx \vb{x}'\) by \todo{link}. First we know exact that for \(\va{x} = \va{x}'\) it should look like \(-\frac{1}{4\pi^2}\frac{1}{f(r) (t-t')^2}\). This implies \(F(r) = \frac{r}{r_* \sqrt{f(r)}}\). Second for \(t = t'\) the denominator is given by the spatial distance \(|\va{x} - \va{x}'|^2\). The distance between two infinitesimal separated \(r\) and \(r + \dd{r}\) is given by \(|\va{x}(r+\dd{r}) - \va{x}(r)| = \sqrt{g_{rr}} \dd{r} = \frac{\dd{r}}{\sqrt{f(r)}}\). But \(|r_*(r+\dd{r}) - r_*(r)| = \dv{r_*}{r} \dd{r}= \frac{\dd{r}}{f(r)}\). Again we can correct this by setting \(F(r) = \frac{r}{r_* \sqrt{f(r)}}\). Since both independent arguments lead to the same result we conclude that the asymptotic form of the Wightmanfunction is given by:
+\begin{align}
+D^+(\vb{x}, \vb{x}') &= -\frac{1}{4\pi^2 \sqrt{f(r)f(r')}} \frac{1}{(t-t'-i\varepsilon)^2 - |\va{x}_*-\va{x}_*'|^2}\\
+	&=  -\frac{1}{4\pi^2 \sqrt{f(r)f(r')}} \frac{1}{(t-t'-i\varepsilon)^2 - r_*^2 - r_*'^2 + 2r_*r_*' \cos{\alpha}}
+\end{align}
 
 \subsection{The Wightmanfunction after the collapse}
-To calculate the Wightmanfunction after the collapse we will follow the treatment of Hawking (see Appendix \todo{link}) to find that the expectation value of two operators thereafter is given by the thermal expectation value in the spacetime before the collapse.
+To calculate the Wightmanfunction after the collapse we will follow the treatment of Hawking (see Appendix \todo{link}) to find that the expectation value of two operators thereafter is given by the thermal expectation value with \(\beta = 8\pi M\) in the spacetime before the collapse. The corresponding temperature \(T_H = \frac{1}{8\pi M k\ind{B}}\) is called Hawking temperature.
 
 Therefore the (vacuum) Wightmanfunction at late times is given by the thermal Wightmanfunction at early (it can be computed analogously to the one in Minkowskispace)
 \begin{align}
-D^+_\beta(\vb{x},\vb{x}') &= -\frac{1}{4\beta^2} \frac{r_*r_*'}{r r'} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{(t-t')^2 - |\va{x}_*-\va{x}_*'|^2})}
+D^+_\beta(\vb{x},\vb{x}') &= -\frac{1}{4\beta^2\sqrt{f(r)f(r')}} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{(t-t')^2 - |\va{x}_*-\va{x}_*'|^2})}
 \end{align} 
 
 \section{Observers in the Schwarzschildmetric}
 
 \subsection{Static observer}
 \subsubsection{Before the collapse}
-We already know by lemma \ref{lemma:static_spacetime} that a static observer will not see any excitations. However we can proof this explicitly in the Schwarzschildmetric. A static observer is given by \(t = \frac{\tau}{\sqrt{f(r)}}\) and all other coordinates constant. Inserting this into the Wightmanfunction yields
+We already know by lemma \ref{lemma:static_spacetime} that a static observer will not see any excitations. We will now show that this is also true when using our approximate form of \(D^+\). A static observer is given by \(t = \frac{\tau}{\sqrt{f(r)}}\) and all other coordinates constant. Inserting this into the Wightmanfunction yields
 \begin{align}
-D^+(\vb{x}(\tau), \vb{x}(\tau')) =  -\frac{1}{4\pi^2}\frac{r_*^2}{r^2} \frac{f(r)}{(\tau-\tau'-i\varepsilon)^2}
+D^+(\vb{x}(\tau), \vb{x}(\tau')) =  -\frac{1}{4\pi^2} \frac{1}{(\tau-\tau'-i\varepsilon)^2}
 \end{align} 
 
-Up to a prefactor this is exactly the same as in Minkowskispace \todo{link}. So a static observer indeed does not recognize any particles.
+Up to a prefactor this is the same as for an inertial observer in Minkowskispace \todo{link}. So a static observer indeed does not recognize any particles.
 
 \subsubsection{After the collapse}
 
-\todo{Amplitude}
+The thermal Wightmanfunction is given by
+\begin{align}
+D^+_\beta(\vb{x}(\tau),0) &= -\frac{1}{4\beta^2f(r)} \frac{1}{\sinh[2](\frac{\pi}{\beta\sqrt{f(r)}} \tau)}
+\end{align}
 
-The most important difference to Minkowskispace is that the measured temperature changed according to \(T = f(r)^{-1/2} T\ind{H}\) due to the fact that the proper time differs from the coordinate time. This happens in general in a heat bath on a spacetime and is called the Tolman effect\todo{Quelle}.  
+which results in an observed temperature of \(T = f(r)^{-1/2} T\ind{H}\) which agrees with \todo{link}. So a static observer will see a slightly higher temperature than the Hawking temperature.
  
 \subsection{Circular observer}
 \subsubsection{Before the collapse}
-By Lemma \ref{lemma:static_spacetime} we know that a static observer (but nevertheless proper accelerating) won't see any excitations. But we also would like to know if a freely falling observer (unlike in Minkowskispace) will recognize particles.
+By Lemma \ref{lemma:static_spacetime} we know that a circular observer should see some excitations. Using our approximate form we can now calculate what he will actually measures:
 
 A circular observer is given by \(t = a\tau\), \(\phi = B\tau\), \(r = \mathrm{const.}\), \(\theta = \frac{\pi}{2}\)\footnote{Since the spacetime is spherically symmetric we can choose a coordinate system such that \(\theta = \frac{\pi}{2}\) and \(B>0\)}. The geodesic equation and \(\dot{\vb{x}}^2 = 0\) give constrains on the constants
 \begin{align}
@@ -103,7 +110,7 @@ B^2 &= \frac{1}{r^2}\frac{M}{r-3M}
 
 The Wightman function evaluated on the curve is 
 \begin{align}
-D^+(\vb{x}(\tau), \vb{x}(\tau')) &= -\frac{1}{4\pi^2}\frac{r_*^2}{r^2} \frac{1}{(A(\tau-\tau')-i\varepsilon)^2 - 2r_*^2 (1 - \cos{B(\tau-\tau')})}
+D^+(\vb{x}(\tau), \vb{x}(\tau')) &= -\frac{1}{4\pi^2f(r)} \frac{1}{(A(\tau-\tau')-i\varepsilon)^2 - 2r_*^2 (1 - \cos{B(\tau-\tau')})}
 \end{align}
 
 We see that \(D^+\) only depends on \(\tau - \tau'\). So we can use the simplified formular \eqref{equ:detector_final}. For this we need to find the poles in the lower half of \(D^+(\vb{x})(\tau),0\) which means finding the roots of 
@@ -114,36 +121,35 @@ We see that \(D^+\) only depends on \(\tau - \tau'\). So we can use the simplifi
 \end{align}
 
 where \(x = B\tau\) and \(\xi = \frac{A}{Br_*}\)\footnote{We exclude the case that \(r_* = 0\) since this corresponds to \(r\approx 1.4 \cdot 2M\) which is not far away from the horizon}. 
-Clearly \(\tau = 0\) is a root. But we know that due to the \(\varepsilon\) (\todo{link}) this root will always lie in the upper half. Apart from that we have to differentiate between two cases\todo{more information}:
+Clearly \(\tau = 0\) is a root (which will lie in the upper half by \todo{link}). Apart from that we have to differentiate between two cases\todo{more information}:
 \begin{itemize}
-\item \(\xi < 1\): In this case there are another two roots on the real axis. The reason is that for \(\xi < 1\) (which is a very fast circular motion) the trajectory hits the Minkowski-lightcone. But we know that this is not possible in the Schwarzschild-spacetime \todo{really?,link}. So we assume that this behaviour is due to our approximation and therefore exclude this case.
+\item \(\xi < 1\): In this case there are another two roots on the real axis. The reason is that for \(\xi < 1\) (which is a very fast circular motion) the trajectory hits the Minkowski-lightcone. But we know that this is not possible in the Schwarzschild-spacetime by the argumentation of \todo{link}. So we assume that this behaviour is due to our approximation and therefore exclude this case\footnote{Note that \(\xi < 1\) for a geodesic can only happen for \(r \lesssim 1.1 R\ind{S}\) which is definitely not far away from the black hole}.
 \item \(\xi > 1\): This case represents slower motions. There are two more (first order) poles at \(\pm i x_0\) of whom one is in the lower half. 
 \end{itemize}
 
 The rate is given by eq. \ref{equ:detector_final}
 \begin{align}
 \dv{F_E}{\tau} &= \int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} D^+(\vb{x}(\tau), \vb{x}(0))\\
-	&= -\frac{1}{4\pi^2}\frac{r_*^2}{r^2} \int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} \frac{1}{A^2\tau^2 - 2r_*^2 (1 - \cos{B(\tau)})}\\
-	&= -\frac{1}{4\pi^2}\frac{1}{r r' B} \int_{-\infty}^\infty \dd{x} e^{-i E x} \frac{1}{\xi^2 x^2 - 2 (1 - \cos{x})}\\
-	&= \frac{i}{2\pi}\frac{1}{r r' B} \mathrm{Res}\qty(e^{-i E x} \frac{1}{\xi^2 x^2 - 2 (1 - \cos{x})}, -ix_0)\\
-	&= \frac{i}{2\pi}\frac{1}{r r' B} e^{-E x_0} \lim_{x\to -i x_0} \frac{x + ix_0}{\xi^2 x^2 - 2 (1 - \cos{x})}\\
-	&= \frac{1}{2\pi}\frac{1}{r r' B} e^{-E x_0} \frac{1}{-2\xi^2 x_0 + 2 \sinh{x_0}}
+	&= -\frac{1}{4\pi^2f(r)} \int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} \frac{1}{A^2\tau^2 - 2r_*^2 (1 - \cos{B(\tau)})}\\
+	&= -\frac{1}{4\pi^2 r_*^2 f(r) B} \int_{-\infty}^\infty \dd{x} e^{-i E x/B} \frac{1}{\xi^2 x^2 - 2 (1 - \cos{x})}\\
+	&= \frac{i}{2\pi r_*^2 f(r) B}\mathrm{Res}\qty(e^{-i E x/B} \frac{1}{\xi^2 x^2 - 2 (1 - \cos{x})}, -ix_0)\\
+	&= \frac{i}{2\pi r_*^2 f(r) B} e^{-E/B x_0} \lim_{x\to -i x_0} \frac{x + ix_0}{\xi^2 x^2 - 2 (1 - \cos{x})}\\
+	&= \frac{1}{2\pi r_*^2 f(r) B} e^{-E/B x_0} \frac{1}{-2\xi^2 x_0 + 2 \sinh{x_0}}
 \end{align}
 
-So basically a circular observer sees a exponentially falling energy distribution.  
-
-
+So basically a circular observer sees a exponentially falling energy distribution.
+\todo{Erklärung nicht thermisch}
 
 \subsubsection{After the collapse}
 An observer on a circular orbit \(t = A \tau\) and \(\phi = B\tau\) has the following thermal Wightman function:
 \begin{align}
-D^+_\beta(\vb{x}(\tau),\vb{x}(0)) &= -\frac{1}{4\beta^2} \frac{r_*^2}{r^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{A^2\tau^2 - 2 r_*^2 (1-\cos{B\tau})})}\\
-&= -\frac{1}{4\beta^2} \frac{r_*^2}{r^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}r_*\sqrt{\xi^2 x^2 - 2 (1-\cos{x})})}
+D^+_\beta(\vb{x}(\tau),\vb{x}(0)) &= -\frac{1}{4\beta^2 f(r)} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{A^2\tau^2 - 2 r_*^2 (1-\cos{B\tau})})}\\
+&= -\frac{1}{4\beta^2 f(r)} \frac{1}{\sinh[2](\frac{\pi}{\beta}r_*\sqrt{\xi^2 x^2 - 2 (1-\cos{x})})}
 \end{align}
 
-where we replaced \(x = B\tau\) and \(\xi = \frac{A}{Br_*}\) as in \todo{link}.
+where we replaced \(x = B\tau\) and \(\xi = \frac{A}{Br_*}\) as before.
 
-Because of the square root the function is not analytical and we can't use the residue theorem as before. We need to integrate the function by hand. Before that we need to get rid of the singularity at \(x = 0\). This is a second order pole so the series expansion will look like \(\frac{a_{-2}}{x^2} + \order*{x^0}\). \(a_{-2}\) can be computed by taking the limit
+Because of the square root the function is not analytical and we cannot use the residue theorem as before. We need to integrate the function by hand. Before that we need to get rid of the singularity at \(x = 0\). This is a second order pole so the series expansion will look like \(\frac{a_{-2}}{x^2} + \order*{x^0}\). \(a_{-2}\) can be computed by taking the limit
 \begin{align}
 a_{-2} &= \lim_{x\to 0}\frac{x^2}{\sinh[2](\frac{\pi}{\beta}r_*\sqrt{\xi^2 x^2 - 2 (1-\cos{x})})}\\
 	&= \lim_{x\to 0}\frac{x^2}{\qty(\frac{\pi}{\beta}r_*\sqrt{\xi^2 x^2 - 2 (1-\cos{x})})^2}\\
