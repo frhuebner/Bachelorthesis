@@ -16,7 +16,7 @@ A solution $u$ is called positive frequency if
 \begin{align}
 i\partial_t u = \omega u, \omega > 0
 \end{align}
-In case of a static metric it is possible to find a complete set of positive frequency solutions (Quelle: Townsend)
+In case of a static metric it is possible to find a complete set of positive frequency solutions \cite{Townsend}
 \begin{align}
 u(t, x^i) \sim e^{-i\omega t} A(x^i)
 \end{align}
@@ -29,7 +29,7 @@ u_{i}(t, \va{x}) &= \frac{1}{\sqrt{2\omega_i}}e^{-i\omega_i t} A_i(\va{x})\\
 \end{align}
 
 \section{Groundstate of the field}
-As discussed in \todo{link} it is suitable to define the groundstate as the state of lowest energy on a surface \(t = \mathrm{const.}\).
+As discussed in before it is suitable to define the groundstate as the state of lowest energy on a surface \(t = \mathrm{const.}\).
 
 The momentum and the hamiltonian density are given by
 \begin{align}
@@ -47,7 +47,7 @@ H &= \int \dd[3]{x} \mathcal{H} = \int \dd[3]{x} \frac{1}{2}\frac{\sqrt{g}}{\sqr
 &= \frac{1}{2} i (\phi|\partial_t\phi) = \frac{1}{2}(\phi|i\partial_t\phi) 
 \end{align}
 
-Here we used the definition of the scalarproduct \todo{link}. Inserting the definition of \(\phi\) and using the orthogonality of the modes yields
+Here we used the definition of the scalarproduct. Inserting the definition of \(\phi\) and using the orthogonality of the modes yields
 \begin{align}
 H &= \frac{1}{2}(\phi|i\partial_t\phi) = \frac{1}{2} \sum_{ij} (u_i a_i + u_i^* a_i^\dagger|\omega_j u_j a_j -\omega_j u_j^* a_j^\dagger)\\
 	&= \frac{1}{2} \sum_{i} \omega_i a_i^\dagger a_i + \omega_i a_i a_i^\dagger\\
@@ -72,14 +72,16 @@ i\partial_t \eval{D^+(\vb{x},0)}_{t = 0} &= \frac{1}{2}\sum_i A_i(\va{x}) A_i(\v
 \end{align}
 
 \subsection{Wightman function in normal coordinates}
-We can choose any coordinate system we like for \(g_{ij}(\va{x})\). It will be useful to have the Wightmanfunction in normal coordinates around a point \(\vb{x}' = 0\)\todo{link}:
+We can choose any coordinate system we like for \(g_{ij}(\va{x})\). It will be useful to have the Wightmanfunction in normal coordinates around a point \(\vb{x}' = 0\) (see appendix \ref{sec:app_normal}):
 \begin{align}
 D^+(\vb{x},0) = -\frac{1}{4\pi^2} \frac{1}{a(t-i\varepsilon)^2 - |\va{x}|^2} + \order{x^2}
+\label{equ:static_normal}
 \end{align}
 
 which is basically the same as in Minkowskispace up to a prefactor \(a = \beta(0)\).
 
 \subsection{The pole at the origin}
+\label{sec:static_origin}
 When calculating the excitation rate we will first evaluate \(D^+\) on a timelike trajectory \(\vb{x}(\tau)\) with \(\vb{x}(0) = 0\) and \(\dot{\vb{x}}^2 = - \beta \dot{t}^2 + g_{ij} \dot{x}^i \dot{x}^j = -1\) and then integrate over \(\tau\). Thereby we encounter a pole on the real axis at \(\tau = 0\). Due to the \(\varepsilon\) this (second order) pole will move either in upper or in the lower half or could even split into two poles. To examine the behaviour of this pole define \(\tau_\varepsilon\) as the position of the pole at \(\tau = 0\) for a non vanishing \(\varepsilon\), i.e. \(\tau_\varepsilon\) satisfies
 \begin{align}
 a(t(\tau_\varepsilon)-i\varepsilon)^2 - |\va{x}(\tau_\varepsilon)|^2 = 0
@@ -107,6 +109,7 @@ where we defined \(\delta\tau = \eval{\dv{\tau_\varepsilon}{\varepsilon}}_{\vare
 %Apart from that the function will not So we conclude that the \(\varepsilon\) will only have an effect on lightlike surfaces. Apart from that we will assume the function to be smooth.
 
 \subsection{The pole structure of the Wightman function}
+\label{sec:static_pole}
 We know that the Wightman function solves the Klein-Gordon-Equation, i.e.
 \begin{align}
 \nabla_\mu\nabla^\mu D^+(\vb{x},\vb{x}') = 0
@@ -134,10 +137,10 @@ With this argumentation (although it is not a proof) we will assume from now on 
 We will start by showing the following important lemma:
 \begin{lemma}
 In a static spacetime a static observer does not observe any particles.
-\label{lemma:static_spacetime}  
+\label{lemma:static_static}  
 \end{lemma} 
 
-Proof: Recall that the modes in a static spacetime can be written as \(u_i = \frac{1}{\sqrt{2\omega_i}}e^{-i\omega_i t} A_i(\va{x})\) (see eq. \ref{equ:solutions_static}).
+Proof: Recall that the modes in a static spacetime (see eq. \ref{equ:solutions_static}) can be written as \(u_i = \frac{1}{\sqrt{2\omega_i}}e^{-i\omega_i t} A_i(\va{x})\).
 Since the observer moves only along \(\partial_t\) he will have four-velocity \(\dot{\vb{x}} = \frac{1}{\sqrt{\beta(\va{x})}} \partial_t\). Note that \(\beta(\va{x})\) is independent of \(\tau\) because the spatial coordinates stay constant \(\va{x}(\tau) = \va{x}_0\). Integrating yields \(t(\tau) = \frac{1}{\sqrt{\beta(\va{x})}} \tau + t_0\).
 Now we can evaluate \(D^+(\vb{x}(\tau), \vb{x}(\tau'))\):
 \begin{align}
@@ -155,7 +158,7 @@ So \(D^+\) only depends on the difference \(\tau-\tau'\). Therefore we can apply
 
 The deltafunction is always zero because \(E \leq 0\), \(\omega > 0\), and \(\beta(\va{x}_0) > 0\)\footnote{Here one can see why it is sensible to exclude \(\omega = 0\) because it would lead to an infinite transition rate to the groundstate \(E = 0\) which is clearly not physical}. So the observer does not detect any particles. QED.
 
-This exact result will be later used to show whether the approximate form of the Wightmanfunction in the Schwarzschild metric is applicable.
+This exact result will be later used to show whether the approximate form of the Wightmanfunction in the Schwarzschild metric is applicable\todo{rewrite}.
 
 \subsection{Detector on general Trajectories}
 
@@ -164,12 +167,12 @@ In this section we will use the information we gathered about the Wightman funct
 \subsubsection{Vacuum case}
 The last sentence is not really true. There is the small \(\varepsilon\) which removes the singularity from the real axis. We will assume that the integral over the trajectory will remain finite for \(\varepsilon \to 0\)\footnote{One can for example proof this by an explicit calculation for an inertial trajectory.}. Apart from keeping this in mind we will drop the \(\varepsilon\) during this section.
 
-Recall that by \todo{link} the excitation rate is given by
+Recall that by eq. \ref{equ:qft_detector_partial} the excitation rate is given by
 \begin{align}
 \dv{F_E}{\tau} = 2 \mathrm{Re} \int_{-\infty}^0 \dd{\tau'} e^{-i E \tau'} D^+(\vb{x}(\tau + \tau'), \vb{x}(\tau))
 \end{align}
 
-Without loss of generality we can consider call the actual proper time \(\tau = 0\)  and set \(\vb{x}(\tau) = 0\). We will now do a series expansion of the Wightmanfunction around \(\tau = 0\), i.e.
+Without loss of generality we can consider the current proper time \(\tau = 0\) and set \(\vb{x}(\tau) = 0\). We will now do a series expansion of the Wightmanfunction around \(\tau' = 0\), i.e.
 \begin{align}
 D^+(x(\tau'), 0) = \frac{a_{-2}}{\tau'^2} + W(\tau')
 \end{align}
@@ -188,14 +191,14 @@ This means that instead of integrating over \(D^+(x(\tau'), 0)\) we can equivale
 
 \subsubsection{Thermal case}
 
-In a thermal field we can also extract the contribution from an inertial observer to be left with a non singular function. To do this plug the expansion of \(D^+(x(\tau'), 0) = -\frac{1}{4\pi^2 \tau'^2} + W(\tau')\) into the formula for \(D_\beta^+\) \todo{link}
+In a thermal field we can also extract the contribution from an inertial observer to be left with a non singular function. To do this plug the expansion of \(D^+(x(\tau'), 0) = -\frac{1}{4\pi^2 \tau'^2} + W(\tau')\) into the formula \ref{equ:qft_thermal} for \(D_\beta^+\) 
 \begin{align}
 D_\beta^+(t(\tau),x(\tau);0) &= \sum_{n=-\infty}^\infty D^+(t(\tau) - i \beta n,x(\tau);0)\\
 &= \sum_{n=-\infty}^\infty -\frac{1}{4\pi^2 \sqrt(\tau' - i\beta \sqrt{a} n)^2} + \sum_{n=-\infty}^\infty W(\tau(t - i\beta n))\\
 &= -\frac{1}{4\beta^2 a} \frac{1}{\sinh[2](\frac{\pi}{\beta \sqrt{a}} \tau)} + W_\beta(\tau)
 \end{align}
 
-So the observer will see a thermal spectrum of temperature \(T\ind{static} = \frac{T}{\sqrt{a}}\) (compare with \todo{link}) plus some corrections coming from \(W_\beta(\tau)\). These corrections will vanish for a static observer, be small for slow observers and might become the dominating spectrum for fast observers. The relation \(T\ind{static} = \frac{T}{\sqrt{a}}\) is also known from other analysis of thermal systems in general relativity and is called Tolman relation \todo{Quelle}. The origin of this effect is the observer dependent time dilation in the spacetime.
+So the observer will see a thermal spectrum of temperature \(T\ind{static} = \frac{T}{\sqrt{a}}\) (compare with eq. \ref{equ:qft_thermal_inertial}) plus some corrections coming from \(W_\beta(\tau)\). These corrections will vanish for a static observer, be small for slow observers and might become the dominating spectrum for fast observers. The relation \(T\ind{static} = \frac{T}{\sqrt{a}}\) is also known from other analysis of thermal systems in general relativity and is called Tolman relation (Quelle?)\todo{Quelle}. The origin of this effect is the observer dependent time dilation in the spacetime.
 %For this we need the form of the thermal Wightmanfunction near the origin which can be found by adjusting the calculation in Minkowskispace \todo{link}:
 %\begin{align}
 %D_\beta^+(\vb{x},0) = -\frac{1}{4\beta^2a} \frac{1}{\sinh[2](\frac{\pi}{\beta\sqrt{a}}\sqrt{a t^2 - |\va{x}|^2})}  + \order*{x^2}
@@ -236,12 +239,13 @@ So the observer will see a thermal spectrum of temperature \(T\ind{static} = \fr
 
 \subsection{Equivalence principle?}
 
-The statement of lemma \todo{link} that a static observer does not recognize particles might seem surprising as in many spacetimes a static observer needs to accelerate in order to stay at his position (take the schwarzschild metric for example). As a first guess on could think that by equivalence principle an proper accelerating observer would see a heat bath as given by the unruh effect. This would also imply that a freely falling observer does not detect any particles. In order to show that this assumption is misleading we will first analyse the properties of trajectories on which no particles will be detected in general. To conclude the discussion we will show that on circular geodesics in the Schwarzschildmetric one actually detects something. 
+The statement of lemma \ref{lemma:static_static} that a static observer does not recognize particles might seem surprising as in many spacetimes a static observer needs to accelerate in order to stay at his position (take the schwarzschild metric for example). As a first guess on could think that by equivalence principle an proper accelerating observer would see a heat bath as given by the unruh effect. This would also imply that a freely falling observer does not detect any particles. In order to show that this assumption is misleading we will first analyse the properties of trajectories on which no particles will be detected in general. To conclude the discussion we will show that on circular geodesics in the Schwarzschildmetric one actually detects something. 
 
 Recall that transition probability (not the rate) for a detector proportional to the square of the following state\todo{link}
 \begin{align}
 \ket*{\psi} &= \int_{-\infty}^\tau \dd{\tau'} e^{i E \tau'} \phi(\vb{x}(\tau'))\ket*{0}\\
 	&= \sum_i \frac{1}{\sqrt{2\omega_i}}\int_{-\infty}^\tau \dd{\tau'} e^{i E \tau'} e^{+i\omega_i t(\tau')} A_i(\va{x}(\tau'))^* \ket*{\vb{1}_i}
+\label{equ:static_transition_prob}
 \end{align}
 
 Since we would like to have no transitions at all the transition probability has to be zero and (note that the scalarproduct of states is positive definite) therefore the state \(\ket*{\psi} = 0\). But this implies since the one particle states \(\ket*{\vb{1}_i}\) are linear independent that all
@@ -271,7 +275,7 @@ Proof: Choose a coordinate system for the spatial metric such that it has a coor
 u_{m, i} \sim e^{-i\omega_m t} \cdot e^{i m \phi}
 \end{align}
 
-In order to show that an observer will see excitations it is enough to show that he won't see nothing, i.e. we will show that \todo{link} does not vanish for \(\tau \to \infty\):
+In order to show that an observer will see excitations it is enough to show that he won't see nothing at \(\tau \to \infty\):
 \begin{align}
 A_m &\sim \int_{-\infty}^\infty \dd{\tau'} e^{i E \tau'} e^{+i\omega_m t(\tau')} e^{-i m \phi(\tau')} = \int_{-\infty}^\infty \dd{\tau'} e^{i E \tau'} e^{+i\omega_m A\tau'} e^{-i m B \tau'}\\
 	&= \delta(E + \omega_m A - m B)
