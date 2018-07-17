@@ -15,6 +15,8 @@
 % Pass TeX Live version to the package
 % Use command pdflatex --version to find out which version you are running
 % Add option backref=false when your thesis is ready to turn off back-referencing
+%friedrich \usepackage[backend=bibtex, hyperref=true, style=numeric-comp, sorting=none, block=ragged, firstinits=true]{biblatex}
+%\usepackage[backend=bibtex8,sorting=none]{biblatex}
 % in your bibliography
 \usepackage[texlive=2016]{ubonn-thesis}
 % Adjustments to standard biblatex style
@@ -57,10 +59,10 @@
 % Use standard_refs-bibtex if you use bibtex or bibtex8
 % and standard_refs-biber  if you use biber
 \addbibresource{bib/thesis_refs.bib}
-%\addbibresource{bib/standard_refs-biber.bib}
+%\addbibresource{bib/standard_refs-bibtex.bib}
 
 \usepackage{physics}
-\usepackage{todonotes}
+\usepackage[disable]{todonotes}
 
 %------------------------------------------------------------------------------
 % The following definitions are used to produce the title pages
@@ -105,7 +107,9 @@
 % \includeonly{%
 %   thesis_intro,
 %   thesis_appendix,
-%   thesis_acknowledge
+%   thesis_acknowledge,
+%	chapter/qft,
+%	chapter/qft_spacetime,
 % }
 
 %------------------------------------------------------------------------------
@@ -215,7 +219,8 @@
 % Use biblatex for the bibliography
 % Add bibliography to Table of Contents
 % Comment out this command if your references are printed for each chapter.
-\printbibliography[heading=bibintoc]
+\printbibliography
+%[heading=bibintoc]
 
 %------------------------------------------------------------------------------
 % Include the following lines and comment out \printbibliography if
@@ -223,9 +228,9 @@
 % If you use biblatex package the files should be specified in the preamble.
 % \KOMAoptions{toc=bibliography}
 % {\raggedright
-%   \bibliographystyle{../refs/atlasBibStyleWithTitle.bst}
-%   % \bibliographystyle{unsrt}
-%   \bibliography{./thesis_refs,../refs/standard_refs-bibtex}
+%   \bibliographystyle{refs/atlasBibStyleWithTitle.bst}
+   % \bibliographystyle{unsrt}
+   %\bibliography{./thesis_refs,../refs/standard_refs-bibtex}
 % }
 
 %------------------------------------------------------------------------------

@@ -111,7 +111,7 @@ The Wightman function evaluated on the curve is
 D^+(\vb{x}(\tau), \vb{x}(\tau')) &= -\frac{1}{4\pi^2f(r)} \frac{1}{(A(\tau-\tau')-i\varepsilon)^2 - 2r_*^2 (1 - \cos{B(\tau-\tau')})}
 \end{align}
 
-We see that \(D^+\) only depends on \(\tau - \tau'\). So we can use the simplified formular \eqref{equ:detector_final}. For this we need to find the poles in the lower half of \(D^+(\vb{x})(\tau),0\) which means finding the roots of 
+We see that \(D^+\) only depends on \(\tau - \tau'\). So we can use the simplified formular \eqref{equ:qft_detector_final}. For this we need to find the poles in the lower half of \(D^+(\vb{x})(\tau),0\) which means finding the roots of 
 
 \begin{align}
 0 &= A^2\tau^2 - 2r_*^2 (1 - \cos{B\tau})\\
@@ -125,7 +125,7 @@ Clearly \(\tau = 0\) is a root (which will lie in the upper half\todo{link}). Ap
 \item \(\xi > 1\): This case represents slower motions. There are two more (first order) poles at \(\pm i x_0\) of whom one is in the lower half. 
 \end{itemize}
 
-The rate is given by eq. \ref{equ:detector_final}
+The rate is given by eq. \ref{equ:qft_detector_final}
 \begin{align}
 \dv{F_E}{\tau} &= \int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} D^+(\vb{x}(\tau), \vb{x}(0))\\
 	&= -\frac{1}{4\pi^2f(r)} \int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} \frac{1}{A^2\tau^2 - 2r_*^2 (1 - \cos{B(\tau)})}\\
