@@ -108,6 +108,7 @@ where we defined \(\delta\tau = \eval{\dv{\tau_\varepsilon}{\varepsilon}}_{\vare
 
 \subsection{The pole structure of the Wightman function}
 \label{sec:static_pole}
+\todo{words missing}
 We know that the Wightman function solves the Klein-Gordon-Equation, i.e.
 \begin{align}
 \nabla_\mu\nabla^\mu D^+(\vb{x},\vb{x}') = 0
@@ -137,7 +138,7 @@ We will start by showing the following important lemma:
 In a static spacetime a static observer does not observe any particles.
 \label{lemma:static_static}  
 \end{lemma} 
-
+\todo{beta(x) -> a}
 Proof: Recall that the modes in a static spacetime (see eq. \ref{equ:solutions_static}) can be written as \(u_i = \frac{1}{\sqrt{2\omega_i}}e^{-i\omega_i t} A_i(\va{x})\).
 Since the observer moves only along \(\partial_t\) he will have four-velocity \(\dot{\vb{x}} = \frac{1}{\sqrt{\beta(\va{x})}} \partial_t\). Note that \(\beta(\va{x})\) is independent of \(\tau\) because the spatial coordinates stay constant \(\va{x}(\tau) = \va{x}_0\). Integrating yields \(t(\tau) = \frac{1}{\sqrt{\beta(\va{x})}} \tau + t_0\).
 Now we can evaluate \(D^+(\vb{x}(\tau), \vb{x}(\tau'))\):
@@ -194,6 +195,7 @@ In a thermal field we can also extract the contribution from an inertial observe
 D_\beta^+(t(\tau),x(\tau);0) &= \sum_{n=-\infty}^\infty D^+(t(\tau) - i \beta n,x(\tau);0)\\
 &= \sum_{n=-\infty}^\infty -\frac{1}{4\pi^2 \sqrt(\tau' - i\beta \sqrt{a} n)^2} + \sum_{n=-\infty}^\infty W(\tau(t - i\beta n))\\
 &= -\frac{1}{4\beta^2 a} \frac{1}{\sinh[2](\frac{\pi}{\beta \sqrt{a}} \tau)} + W_\beta(\tau)
+\label{equ:static_thermal_observer_general}
 \end{align}
 
 So the observer will see a thermal spectrum of temperature \(T\ind{static} = \frac{T}{\sqrt{a}}\) (compare with eq. \ref{equ:qft_thermal_inertial}) plus some corrections coming from \(W_\beta(\tau)\). These corrections will vanish for a static observer, be small for slow observers and might become the dominating spectrum for fast observers. The relation \(T\ind{static} = \frac{T}{\sqrt{a}}\) is also known from other analysis of thermal systems in general relativity and is called Tolman relation (Quelle?)\todo{Quelle}. The origin of this effect is the observer dependent time dilation in the spacetime.
@@ -283,4 +285,4 @@ This will be non zero at least for one energy if \(\omega_m A - m B < 0\) or \(\
 
 We can now apply this to a circular geodesic in the Schwarzschild metric. Since the metric is spherically symmetric the trajectory is along a killing vector. Also the values of \(\omega\) are continuous from \(0\) to \(\infty\) and are especially independent of \(m\) (this will be derived in the next chapter). This means no matter how big \(\frac{A}{B}\) is we will always find a combination of \(m\) and \(\omega\) that fulfils the second condition. So we have found one explicit example for a geodesic on which particle excitations occur.  
 
-But how does this work with the equivalence principle. This simply resolved by recalling that the equivalence principle only states that it is impossible to distinguish between flat space and curved space using only local measurements. But the calculations above required integration over the whole worldline of the particle. Therefore this is a non local effect and we cannot apply the equivalence principle here. 
+But how does this work with the equivalence principle. This simply resolved by recalling that the equivalence principle only states that it is impossible to distinguish between flat space and curved space using only local measurements. But the calculations above required integration over the whole worldline of the particle\todo{observer}. Therefore this is a non local effect and we cannot apply the equivalence principle here. 

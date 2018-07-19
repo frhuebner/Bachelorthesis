@@ -1,4 +1,4 @@
-\documentclass[Bachelor, ngerman, UKenglish]{scrbook}
+\documentclass[Bachelor, ngerman, UKenglish,biblatex=false]{scrbook}
 %------------------------------------------------------------------------------
 % This file contains a skeleton thesis for
 % a Physics or Astronomy Institute in the University of Bonn
@@ -15,8 +15,9 @@
 % Pass TeX Live version to the package
 % Use command pdflatex --version to find out which version you are running
 % Add option backref=false when your thesis is ready to turn off back-referencing
-%friedrich \usepackage[backend=bibtex, hyperref=true, style=numeric-comp, sorting=none, block=ragged, firstinits=true]{biblatex}
-%\usepackage[backend=bibtex8,sorting=none]{biblatex}
+%friedrich 
+%\usepackage[backend=bibtex, hyperref=true, style=numeric-comp, sorting=none, block=ragged, firstinits=true]{biblatex}
+\usepackage[backend=bibtex8,sorting=none]{biblatex}
 % in your bibliography
 \usepackage[texlive=2016]{ubonn-thesis}
 % Adjustments to standard biblatex style
@@ -62,12 +63,13 @@
 %\addbibresource{bib/standard_refs-bibtex.bib}
 
 \usepackage{physics}
-\usepackage[disable]{todonotes}
+\usepackage{todonotes}
+\usepackage{booktabs}
 
 %------------------------------------------------------------------------------
 % The following definitions are used to produce the title pages
 % needed at various stages
-\newcommand{\thesistitle}{Hawking radiation as Seen by Observers}
+\newcommand{\thesistitle}{Hawking Radiation as Seen by Observers}
 \newcommand*{\thesisauthor}{Friedrich Hübner}
 \newcommand*{\thesistown}{Jena}
 \renewcommand*{\InstituteName}{\PI}
@@ -187,7 +189,8 @@
 %------------------------------------------------------------------------------
 % You can add your acknowledgements here - don't forget to also add
 % them to \includeonly above
-\include{thesis_acknowledge}
+%\include{thesis_acknowledge}
+\input{thesis_acknowledge}
 
 \tableofcontents
 
@@ -237,8 +240,9 @@
 \appendix
 % \part*{Appendix}
 % Add your appendices here - don't forget to also add them to \includeonly above
-\include{thesis_appendix}
-%\printbibliography[heading=subbibliography]
+%\include{thesis_appendix}
+\input{thesis_appendix}
+\printbibliography[heading=subbibliography]
 
 %------------------------------------------------------------------------------
 % Declare lists of figures and tables and acknowledgements as backmatter

@@ -162,353 +162,118 @@ So up to linear order we achieve the plane wave modes as in Minkowskispace. Ther
 D^+(\vb{x},0) = - \frac{1}{4\pi^2} \frac{1}{a(t-i\varepsilon)^2 - |\va{x}|^2} + \order{x^2}
 \end{align}
 
-\section{Radial null geodesics in the Schwarzschildmetric}
-The radial null geodesics are defined by \(\dot{x}^2 = 0\), \(\dot{\theta} = \dot{\phi} = 0\), where the dot means derivative w.r.t the affine parameter \(\lambda\). Because \(\partial_t\) is killing we know that \(E := f(r)\dot{t}\) is constant along the geodesic. This yields to 
+\section{Determination of the temperature}
+In chapter \ref{sec:bh} we need to find the temperature that an observer will see on the basis of the energy spectrum. The energy spectrum is basically given by a fourierlike transform of \(D^+\) evaluated along the curve (see eq. \eqref{equ:qft_detector_partial} and \eqref{equ:qft_detector_final}). 
+\subsection{Idea}
+Imaging an observer equipped with an Unruh-detector on a trajectory in the Schwarzschild metric. By eq. \eqref{equ:static_thermal_observer_general} he expects some thermal spectrum together with some corrections. These corrections could either shift the observed temperature or could be part of the non thermal spectrum. However he won't be able to distinguish which part of the spectrum is thermal or not. So to determine the temperature he will fit a thermal spectrum into the observed spectrum, i.e. find a value \(\beta\) such that the following minimizes: 
 \begin{align}
-0 &= -f(r)\dot{t}^2 + \frac{1}{f(r)}\dot{r}^2\\
-  &= -\frac{1}{f(r)} (E^2 - \dot{r}^2)
-\end{align}
-Since \(f(r) \neq 0\) we conclude: 
-\begin{align}
-\dot{r} &= \pm E\\
-r &= \pm E \lambda + r_0
-\label{bh_geo_r_E}
-\end{align}
-Inserting this into the definition of \(E\) yields to
-\begin{align}
-\dot{r} &= \pm f(r) \dot{t}\\
-0 &= \dot{t}\mp\frac{\dot{r}}{f(r)} = \dv{\lambda}(t \mp r_*)
+\int_0^\infty \dd{E} \qty(\dv{F_E}{\tau} - \frac{1}{2\pi} \frac{E}{e^{\beta E}-1})^2 \to \mathrm{min}
 \end{align}
 
-where the tortoise coordinate \(r_* = r + 2M\ln(\frac{r}{2M} - 1)\) has the property \(\dv{r_*}{r} = \frac{1}{f(r)}\). So either \(u := t - r_*\) (outgoing geodesic) or \(v := t + r_*\) (ingoing geodesic) is constant.
-
-Consider an ingoing null geodesic \(v = \mathrm{const}, r = -E\lambda + r_0\) (from \(\dot{r} = -E\)) and compute
+We will use this measurement process to define the temperature observed \todo{understandable} on a trajectory. To minimize this we don't need to calculate the spectrum first, we can equivalently directly minimize the difference of \(D^+\) and the thermal Wightmanfunction in Minkowskispace
 
 \begin{align}
-\dv{u}{\lambda} &=  \dv{2 t - v} = 2\dot{t} = 2\frac{E}{f(r)}\\
-	&= 2\frac{Er}{r-2M} = 2E\frac{r-2M + 2M}{r-2M} = 2E\qty(1 + \frac{2M}{r-2M})\\
-	&= 2E\qty(1 + \frac{2M}{r_0-2M - E\lambda})\\
-u(\lambda) &= 2E\lambda - 4M\ln(r_0-2M-E\lambda) + 4M\ln(r_0-2M) + u_0\\
-	&= 2E\lambda - 4M\ln(1 - \frac{E\lambda}{r_0-2M}) + u_0
-\label{equ:bh_geo_in}
+D_\beta\upd{M}(x(\tau + \tau'), x(\tau)) = -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta} \tau')}
 \end{align}
 
-where \(u_0 = u(0)\). For an outgoing geodesic one finds analogously:
-\begin{align}
-v(\lambda) &= 2E\lambda + 4M\ln(1 + \frac{E\lambda}{r_0 - 2M}) + v_0
-\label{equ:bh_geo_out}
-\end{align}
+corresponding to \(\beta\)\footnote{This is due to the Plancherel theorem which states that the integral over the square of a function equals the integral over the square of its Fourier transform.}:
 
-We will later need the affine separation between null geodesics, i.e. the value \(\lambda\) on a lightlike geodesic running from one geodesic to the other. For two ingoing geodesics (characterised by \(v, v'\)) far away from the black hole (i.e. \(E\lambda \ll r_0 - 2M\)) one can neglect the logarithm and the distance from \(v_0\) to \(v\) is given by:
 \begin{align}
-\lambda = \frac{v - v_0}{2E} 
-\label{equ:bh_in_simplified}
-\end{align}
-
-The other case which will be important is the distance of two outgoing geodesics \(u_0, u\) where \(u_0 = \infty\) is the event horizon \(r_0 \to 2M\). Now one can neglect the linear term and the distance (note that \(\lambda <0\)) is given by:
-\begin{align}
-u &= - 4M\ln(1 - \frac{E\lambda}{r_0-2M}) + u_0\\
-	&= - 4M\ln(1 - \frac{E\lambda}{r_0-2M}) + v_0 - 2r_{0*}\\
-	&= - 4M\ln(1 - \frac{E\lambda}{r_0-2M}) + v_0 - 2r_0 - 4M\ln(\frac{r_0-2M}{2M})\\
-	&= - 4M\ln(\qty(1 - \frac{E\lambda}{r_0-2M})\frac{r_0-2M}{2M}) + v_0 - 2r_0\\
-	&= - 4M\ln(\frac{r_0 - 2M - E\lambda}{2M}) + v_0 - 2r_0\\
-	&= - 4M\ln(-\frac{E\lambda}{2M}) + v_0 - 4M\\
--\lambda &= \frac{2M}{E}e^{1+\frac{v_0}{4M}} e^{-\frac{u}{4M}}
-\label{equ:bh_out_simplified}
+\int_{-\infty}^0 \dd{\tau'} \qty(D^+(x(\tau + \tau'), x(\tau)) - D_\beta\upd{M}(x(\tau + \tau'), x(\tau)))^2 \to \mathrm{min}
 \end{align} 
 
-\section{Complete solution of the geodesic equation in a two dimensions}
-\label{sec:app_congruence}
-Let us first assume we already solved the geodesic equation over the whole two dimensional spacetime (call it \(\mathcal{M}\)). Then we can construct lightcone coordinates: Fix a point \(\vb{x}_0\) in the spacetime. In this point there exist two linear independent null vector namely \(\vb{t}\) and another one defined by \(\vb{n}^2 = 0\) and \(\vb{t}\cdot\vb{n} = -1\). Note that since we are in a two dimensional spacetime \(\vb{n}\) is uniquely defined. Then solve for the geodesic starting at \(\vb{x}_0\) with tangent vector \(\vb{n}\). Associate a point on the geodesic with the corresponding value of the affine parameter \(\lambda\). Then starting at such a point solve the geodesic (call it \(\Sigma\)) with tangent vector \(\vb{t}\) and associate every point on this geodesic with the value of the affine parameter \(\tau\). By this we can find a map \(\vb{x}(\tau,\lambda)\). We can use this map for a coordinate transformation which yields to the coordinate system \(\partial_\tau = \vb{t}\) and \(\partial_\lambda = \vb{n}\).
+We expect the temperature shift to be small compared to the Hawking temperature \(\beta\ind{H} = 8\pi M\) (and indeed this will be the case). So we can do a Taylor expansion of the thermal Wightman function around \(\beta\ind{H}\)\footnote{Note that we are expanding around the fixed Hawking temperature and not around the position dependent Tolman temperature \(\beta\ind{static} = \sqrt{f(r)}\beta\ind{H}\). This is useful to compare the observed temperatures.} Expansion yields to
 
-For the boundary condition take \(\vb{t}\vb{n} = -1\) on \(\Sigma\). Before we start let us summarize the known properties of \(\vb{t}\) and \(\vb{n}\): Clearly on the whole spacetime \(\nabla_{\vb{t}}\vb{t} = 0\) and \(\vb{t}^2 = 0\). Also since they are a coordinate system \([\vb{t},\vb{n}] = 0\) which means \(\covd{t}\vb{n} = \nabla_{\vb{n}}\vb{t}\). On \(\Sigma\) we also know that \(\vb{t}\vb{n} = -1\) and \(\vb{n}^2 = 0\).
-
-First observe that
 \begin{align}
-\vb{t} \covd{t}\vb{n} = \vb{t} \covd{n}\vb{t} = \frac{1}{2} \covd{n}\vb{t}^2 = 0
-\label{equ:congruence_tdtn}
-\end{align}
-in the whole spacetime. Use this to calculate \( \covd{t}(\vb{t}\vb{n}) = \vb{t}\covd{t}\vb{n} = 0\) which means that
-\begin{align}
-\vb{t}\vb{n} = \mathrm{const.} = -1 
-\end{align}
-This also implies that \(\covd{t}\vb{n} = -\vb{t} (\vb{n}\covd{t}\vb{n})\,\)(since \(\vb{t} \covd{t}\vb{n} = 0\) and therefore \(\covd{t}\vb{n} \sim \vb{t}\)).
-
-Next derive
-\begin{align}
-\vb{n}\covd{n}\vb{t} = \covd{n}(\vb{t}\vb{n} - \vb{t}\covd{n}\vb{n} = \covd{n}(-1) - \vb{t}\covd{n}\vb{n}) = - \vb{t}\covd{n}\vb{n}
+D_\beta\upd{M}(x(\tau + \tau'), x(\tau)) &\approx D_{\beta\ind{H}}\upd{M}(x(\tau + \tau'), x(\tau)) + \frac{\Delta\beta}{\beta\ind{H}} \frac{\sinh(\frac{\pi}{\beta\ind{H}} \tau') - \frac{\pi}{\beta\ind{H}} \tau' \cosh(\frac{\pi}{\beta\ind{H}} \tau')}{2\beta\ind{H}^2 \sinh[3](\frac{\pi}{\beta\ind{H}} \tau')} \\
+	&=: D_{\beta\ind{H}}\upd{M}(x(\tau + \tau'), x(\tau)) + \alpha g(\tau')
 \end{align}
 
-Note that on \(\Sigma\): \(\covd{n}\vb{n} = 0\) which means \(\vb{n}\covd{n}\vb{t} = 0\) and (by eq. \ref{equ:congruence_tdtn} )\(\covd{n}\vb{t} = \covd{t}\vb{n} = 0\). Unfortunately this parallel transport condition is only satisfied on \(\Sigma\) not on \(\mathcal{M}\). Therefore two things will happen to \(\vb{n}\): it won't remain a null vector and it will not solve the geodesic equation outside of \(\Sigma\). To see this calculate
+When actually calculating we will use dimensionless variables so it is more useful to compute \(\alpha = \frac{\Delta\beta}{\beta\ind{H}} = \frac{\beta - \beta\ind{H}}{\beta\ind{H}}\) rather than \(\Delta\beta\)\todo{remove?}. Using this expansion we can easily find the minimum by differentiating w.r.t. \(\alpha\):
 \begin{align}
-\covd{t}\covd{t}\vb{n}^2 &= 2\covd{t}(\vb{n}\covd{t}\vb{n}) = 2(\covd{t}\vb{n})^2 + 2 \vb{n}\covd{t}\covd{t}\vb{n}\\
-	&\overset{\covd{t}\vb{n} \sim \vb{t}}{=} 2 \vb{n}\covd{t}\covd{n}\vb{t} = 2\vb{n} R(\vb{t},\vb{n})\vb{t} + 2 \vb{n}\covd{n}\covd{t}\vb{t}\\
-	&\overset{\covd{t}\vb{t} = 0}{=} 2 \vb{n}\mathrm{R}(\vb{t},\vb{n})\vb{t}
+\int_{-\infty}^0 &\dd{\tau'} \qty(D^+(x(\tau + \tau'), x(\tau)) - D_{\beta\ind{H}}\upd{M}(x(\tau + \tau'), x(\tau)) - \alpha g(\tau'))^2 \to \mathrm{min}\\
+\alpha &= \frac{\int_{-\infty}^0 \dd{\tau'} \qty(D^+(x(\tau + \tau'), x(\tau)) - D_{\beta\ind{H}}\upd{M}(x(\tau + \tau'), x(\tau)))\cdot g(\tau')}{\int_{-\infty}^0 \dd{\tau'} g(\tau')^2}\\
+	&=: \frac{\int_{-\infty}^0 \dd{\tau'} h(\tau')\cdot g(\tau')}{\int_{-\infty}^0 \dd{\tau'} g(\tau')^2}
 \end{align}
 
-where \(\mathrm{R}(\vb{a},\vb{b}) = \covd{a}\covd{b}-\covd{b}\covd{a} - \nabla_{[\vb{a},\vb{b}]}\) is the curvature tensor. If it vanishes \(\dv[2]{\vb{n}^2}{\tau} = 0\) and so \(\vb{n}^2 = a\tau + b\). But from the boundary condition on \(\Sigma\) follows that \(a = b = 0\) and so \(\vb{n}^2 = 0\). However when there is curvature (as in our case) \(\vb{n}^2\) will differ from \(0\). Since the behaviour of \(\vb{n}^2\) fully determines \(\covd{n}\vb{n}\)
+The integral over \(g^2\) can be calculated ones and yields \(I_g = \int_{-\infty}^0 \dd{\tau'} g(\tau')^2 = \frac{15 - \pi^2}{92160 \pi^4} M^{-3} \approx 5.7149\cdot 10^{-7} M^{-3}\)\todo{explain?}. In the diagrams we will not plot \(\alpha\) but rather \(-\alpha = \Delta T/T\ind{H}\).
+
+\subsection{Technicalities}
+The other integral \(I = \int_{-\infty}^0 \dd{\tau'} h(\tau')g(\tau')\) is evaluated numerically (over a finite range \((\tau_1,\tau_2)\)) using \todo{method}\footnote{Note that all \(\tau\) are negative.}. Therefore we need to estimate the errors.
+
+For big absolute values of \(\tau'\) we can replace the \(\sinh\) and \(\cosh\) in \(g\) by an exponential function:
 \begin{align}
-\vb{t}\covd{n}\vb{n} &= \covd{n}(\vb{t}\vb{n}) - \vb{n}\covd{n} \vb{t} = - \vb{n}\covd{t}\vb{n} = -\frac{1}{2} \covd{t}\vb{n}^2\\
-\vb{n}\covd{n}\vb{n} &= \frac{1}{2} \covd{n}\vb{n}^2
-\end{align}  
-
-this also means that \(\covd{n}\vb{n} \neq 0\). However is the curvature is small one can neglect this change and so \(\vb{n}^2 \approx 0\) and \(\covd{n}\vb{n} \approx 0\). One may then keep track of two neighbouring geodesics by computing the null geodesic between them and evaluating it at the corresponding \(\lambda\) value. Frankly speaking this means that the (null geodesic) distance \(\lambda\) between null geodesics will remain constant.
-
-\section{The Hawking Effect}
-\label{sec:app_hawking}
-In this secton we will follow the treatment of Hawking \todo{(Quelle: Hawking)} to show that the quantum field after the collapse is equivalent to a thermal state in the former spacetime.
-
-\subsection{Geometric Optics Approximation}
-We need to solve the Klein-Gordon-Equation in this time dependent metric. Hawking realised that modes after leaving the star shortly before it forms a horizon will become highly redshifted. This means their frequency was much larger inside the star so one can apply a geometric optics approximation. The derivation here is similar to a analogously derivation for light in (Stephani). The ansatz for the wavefunction is \(\phi = A(\vb{x}) e^{-i\omega S(\vb{x})}\) where \(\omega\) is large. Plugging this into the Klein-Gordon-Equation gives
-\begin{align}
-0 &= \nabla_\mu\nabla^\mu \qty(A e^{i\omega S})\\ 
- &= \nabla_\mu \qty(\partial^\mu A e^{i\omega S} + i \omega \partial^\mu S A e^{i\omega S})\\
-&= \nabla_\mu \partial^\mu A e^{i\omega S} + 2 i \omega \partial^\mu S \partial_\mu A e^{i\omega S} + i \omega \nabla_\mu\partial^\mu S A e^{-i\omega S} - \omega^2 A \partial_\mu S \partial^\mu S e^{-i\omega S}
+g(\tau') &\approx \frac{1 - \frac{\pi}{\beta\ind{H}} \tau'}{2\beta\ind{H}^2} \exp(2\frac{\pi}{\beta\ind{H}} \tau')\\
+	&\approx -\frac{\pi}{2 \beta\ind{H}^3} \tau' \exp(2\frac{\pi}{\beta\ind{H}} \tau')
+\label{equ:app_num_g_asymptotic}
 \end{align}
 
-For \(\omega\) quite large we can treat every order of \(\omega\) separately and then neglect the low order terms. The quadratic term in \(\omega\) is given by \(\partial_\mu S \partial^\mu S = 0\) which means that \(\partial^\mu S\) is a null vector. By differentiating this we find that \(\partial_\mu S\) actually solves the geodesic equation: 
+Integrating this from \(-\infty\) to \(\tau_1\) yields\todo{check}:
 \begin{align}
-0 &= \nabla_\nu \qty(\partial_\mu S \partial^\mu S)\\
-	&= 2 \partial^\mu S \nabla_\nu \partial_\mu S\\
-	&= 2 \partial^\mu S \nabla_\mu \partial_\nu S\\
-	&= 2 \nabla_{\nabla S} \partial_\nu S 
+\int_{-\infty}^{\tau_1} g(\tau') &= \frac{1}{4\beta\ind{H}}\qty(\frac{-\tau_1}{\beta_H} + \frac{1}{2\pi}) \exp(2\frac{\pi}{\beta\ind{H}} \tau_1)\\
+&\approx \frac{\beta\ind{H}}{2\pi} g(\tau_1)
 \end{align}
 
-Therefore \(\partial^\mu S\) is the tangent vector to a null geodesic. Since we know that for early times \(S\) only depends on \(t\) and \(r\) \(\partial^\mu S\) actually describes radial null geodesics.
+Since \(h\)\todo{erklaerung?} will drop to zero we can assume an upper bound of the error for sufficiently small \(\tau_1\) by
 
-In order to determine also the amplitude \(A\) we need to take into account the linear order of \(\omega\).
 \begin{align}
-0 &= 2 \partial^\mu S \partial_\mu A + \nabla_\mu\partial^\mu S A &| \cdot A
-0 &= 2 A \partial_\mu A \partial^\mu S + A^2 \nabla_\mu\partial^\mu S\\
-	&= \nabla_\mu\qty(A^2 \partial^\mu S)
+\Delta I_1 \approx \frac{\beta\ind{H}}{2\pi} |g(\tau_1)h(\tau_1)| 
 \end{align}
 
-Expanding this again and note that \(\partial^\mu S \partial_\mu = \dv{\lambda}\) yields to the following useful formula:
+Another error arises from the fact\todo{anders?} that around zero \(h\) is the (finite) difference of two divergent functions. Evaluating the function is therefore afflicted with increasing numerical errors when approaching zero. Since we cannot control those errors we will stop integrating at \(\tau_2 \lesssim 0\). When we assume that the function is nearly constant on the small interval we can add the missing contribution \(g(\tau_2)h(\tau_2)\cdot |\tau_2|\). However this will lead to an error which we estimate generously by the expected amount of the contribution:
 \begin{align}
-0 &= \partial_\mu \qty(A^2) \partial^\mu S + A^2 \nabla_\mu\partial^\mu S\\
-\dv{A^2}{\lambda} &= -A^2 \nabla_\mu\partial^\mu S
+\Delta I_2 \approx |g(\tau_2)h(\tau_2) \tau_2| \approx |g(0)h(0) \tau_2|
 \end{align}
 
-We could now solve this equation in general for \(A^2(\lambda)\). However we would then have to replace \(\lambda\) by some \(\lambda(t,r)\). Since we will later be given a relation \(\lambda(r)\) we can solve for \(A^2(r)\) instead:
+The last contribution comes from the error of the method used. For the trapezoidal method \todo{Quelle!!!} this error is given by (\(\Delta\tau\) is the stepwidth)
 \begin{align}
-\dv{A^2}{r} &= -A^2 \dv{\lambda}{r} \nabla_\mu\partial^\mu S\\
-A^2 &= A_0^2 e^{-\int\dd{r} \dv{\lambda}{r} \nabla_\mu\partial^\mu S}
-\label{equ:hawking_amplitude}
+\Delta I\ind{trapez} = \frac{\Delta\tau^2}{12} (\tau_2-\tau_1) |(h\cdot g)''(\chi)| 
 \end{align}
 
-\(A_0\) can be found by comparing the result to the modes in early times.
-
-\subsubsection{Solving the geodesic equation}
-
-We need to solve the geodesic equation for \(\vb{t} = \nabla S\) namely \(\nabla_{\vb{t}} \vb{t} = 0\) and \(\vb{t}^2 = 0\). Since the spacetime is spherical symmetric for all times the angular coordinates will stay constant and the resulting geodesics are the same as in the corresponding two dimensional spacetime (e.g. with outer metric \(\dd{s^2} = -f(r)\dd{t^2} + \frac{1}{f(r)}\dd{r^2}\). For this section we can therefore consider the two dimensional spacetime which is much easier to handle. We will also assume that the radius of the star is much bigger than \(2M\) which means we can neglect the curvature in the early spacetime and that the modes \(u_{\omega l m}\) in eq. \ref{equ:bh_modes} are still a good approximation. 
-
-Since we have a two dimensional spacetime we can use the result of section \ref{sec:app_congruence} which basically says that if one can neglect the curvature along the path of some neighbouring geodesics their affine distance along a null geodesic will remain constant. Since the outer spacetime does not change outgoing waves will not be affected by the collapse. Therefore consider ingoing waves i.e. \(\sim e^{-i\omega v}\) or \(S = - v\). Calculating \(\vb{t} = \nabla S\) and the corresponding \(\vb{n}\) gives:
+where \(\chi\) is some value in the interval \((\tau_1,\tau_2)\). Since the \(h\cdot g\) will asymptotically drop to zero at least exponentially the second derivative will also drop. We are therefore interested in the curvature nearby \(\chi \approx \tau_2 \approx 0\). In fact we will use the second derivative at zero to estimate the error:
 \begin{align}
-\vb{t} &= \nabla S = - \nabla v = \frac{1}{f(r)} \partial_t - \partial_r = \frac{1}{f(r)} \partial_u\\
-\vb{n} &= \frac{1}{2} (\partial_t + f(r)\partial_r) = \frac{1}{2} \partial_v
+\Delta I\ind{trapez} \approx \frac{\Delta\tau^2}{12} (\tau_2-\tau_1) |(h\cdot g)''(0)|
 \end{align}
 
-One can easily show that \(\vb{n}^2 = 0\) and \(\vb{t}\vb{n} = -1\) independent of the position. Note that the second equation is a requirement for the calculations in section \ref{sec:app_congruence}.
-
-TODO: BILD
-
-Call the last geodesic that will later form the event horizon \(\gamma_0\). Now we would like to identify an ingoing geodesic slightly before the formation of a horizon with an outgoing geodesic after the formation if both have the same (null geodesic) distance from \(\gamma_0\). Therefore we need to check if \(\vb{n}\mathrm{R}(\vb{t},\vb{n})\vb{t} = -\frac{2M}{r^3}\) is actually small. Since the radius of a star is much bigger than its Schwarzschildradius \(2M\) we can neglect the curvature in the early spacetime. However during the collapse the geodesics will be near the black hole horizon so we need the curvature at \(r = 2M\) which is \(\frac{1}{4M^2}\). The larger the mass of the object is the lower the curvature. So for a sufficiently heavy star we can neglect the curvature\footnote{Actually one has to be very careful here since the curvature is not dimensionless. The change of \(\vb{n}^2\) can be achieved by integrating the curvature twice over the geodesic. But since the length of the geodesic inside the star is \(\sim 2M\) we will get a dimensionless change of order \(\order{1}\)}.
-
-In order to keep the differences as small as possible we will only handle the part of the geodesic which is inside the star by this method. Let's say that the ingoing part of \(\gamma_0\) is given by \(v_0 = 0\). Take the value \(u_0\) such that \(r (u_0,v_0) \geq R_0\) is outside the star before the collapse\footnote{Note that since the star starts to collapse before the event horizon appears \((u_0,v_0)\) is not on the surface of the star at this time. So there will be also some smaller \(v < 0\) with \((u_0, v)\) also outside the star. This is important since we need a family of geodesics which start outside the star}. The distance between another ingoing ray \(\gamma\) with \(v < v_0 = 0\) and \(\gamma_0\) is given by the length of a null geodesic running from \(v_0\) to \(v\). Since \(R_0 \gg r\) we can use the simplified formula \ref{equ:bh_in_simplified} to  find\footnote{\(E = f(r) \dot{t} = \frac{f(r)}{2} \approx \frac{1}{2}\)} 
+Recall that we minimized \(\int (h - \alpha g)^2\) and therefore expect \(h \approx \alpha g\). So \((h\cdot g)''(0) \approx (\alpha g^2)''(0)\) that inserting the definition yields to\todo{check}
 \begin{align}
--\lambda = \frac{-v}{2E} = -v
-\label{equ:hawking_affine_in}
-\end{align}
-
-Now both ingoing geodesics will pass through the star, will become outgoing geodesics at \(r = 0\) and then \(\gamma_0\) will form the horizon and \(\gamma\) will escape. We know that after the star collapsed \(\vb{t} = a \partial_u\) but we don't know the prefactor \(a\). \(\vb{n}\) is given by \(\vb{n} = \frac{1}{2 a f(r)}\partial_v\). The geodesic from \(\gamma_0\) to \(\gamma\) is given by \(v_A = \mathrm{const.}\) and  has the same form as in eq. \ref{equ:bh_out_simplified}. Since \(\vb{n}^t = \frac{1}{2 a f(r)}\) one finds that \(E = \frac{1}{2a}\). So by eq. \ref{equ:bh_out_simplified} and eq. \ref{equ:hawking_affine_in} we can conclude
-\begin{align}
--\lambda &= \frac{2M}{E}e^{1+\frac{v_A}{4M}} e^{-\frac{u}{4M}}
-\end{align}
-
-This means (since before \(S = -v\)) after the collapse
-\begin{align}
-S = \frac{-\lambda}{2} = 2Ma e^{1+\frac{v_A}{4M}} e^{-\frac{u}{4M}}
-\label{equ:hawking_phase}
-\end{align}
-
-We conclude that the outgoing modes at late times are given by \(\sim e^{i\omega \cdot 2Ma e^{1+\frac{v_A}{4M}} e^{-\frac{u}{4M}}}\).
-
-\subsubsection{Calculating the Amplitude}
-Now we need to keep track of the Amplitude of the wave. According to eq. \ref{equ:hawking_amplitude} we need to integrate \(\nabla_\mu \nabla^\mu S = \nabla_\mu \vb{t}^\mu = \frac{\sqrt{|g|}} \partial_\mu \qty(\sqrt{|g|} \vb{t}^\mu)\).
-
-For ingoing waves
-\begin{align}
-\vb{t} &= \frac{1}{f(r)} \partial_t - \partial_r\\
-\frac{1}{\sqrt{|g|}} \partial_\mu \qty(\sqrt{|g|} \vb{t}^\mu) &= 0 - \frac{1}{r^2}\partial_r \qty(r^2) = -\frac{2}{r}
-\end{align}
-
-Also since \(\dv{\tau}{r} = -\frac{1}{E} = -\frac{1}{f(r)\vb{t}^t} = -1\) by eq. \ref{bh_geo_r_E} we find
-\begin{align}
-\int\dd{r} \dv{\tau}{r} \nabla_\mu\partial^\mu S &= 2\int\dd{r} \frac{1}{r} = 2\ln(\frac{r}{r_0}) = \ln(\frac{r^2}{r_0^2})
-A^2 &= A_0^2 \frac{r_0^2}{r^2}\\
-A &= A_0 \frac{r_0}{r}
+\Delta I\ind{trapez} \approx \alpha \frac{\Delta\tau^2}{12} (\tau_2-\tau_1) \frac{2 \pi^2}{45 \beta^6}
 \end{align} 
 
-So \(A\) scales like \(r^{-1}\) which is conform with the modes in eq. \ref{equ:bh_modes}. 
-
-After the collapse \(S(u) = B e^{-\frac{u}{4M}}\) where \(B := 2Ma e^{1+\frac{v_A}{4M}}\) (compare to eq. \ref{equ:hawking_phase}). 
-
+To compare the order of magnitude of the different error contributions we will replace \(h \approx \alpha g\), use the asymptotic form of \(g\) in \eqref{equ:app_num_g_asymptotic} and express all quantities in units of the mass of the star (i.e. set \(M = 1\))
 \begin{align}
-\vb{t} &= \frac{S(u)}{4M} \qty(\frac{1}{f(r)} \partial_t + \partial_r)\\
-\frac{1}{\sqrt{|g|}} \partial_\mu \qty(\sqrt{|g|} \vb{t}^\mu) &= \frac{2}{r}\frac{S(u)}{4M}\\
-\dv{\tau}{r} &= \frac{1}{E} = \frac{1}{f(r)\vb{t}^t} = \frac{4M}{S(u)}\\
-\int\dd{r} \dv{\tau}{r} \nabla_\mu\partial^\mu S &= 2\int\dd{r} \frac{1}{r} = 2\ln(\frac{r}{r_0}) = \ln(\frac{r^2}{r_0^2})\\
-A^2 &= A_0^2 \frac{r_0^2}{r^2}\\
-A &= A_0 \frac{r_0}{r}
+\Delta I_1[M^{-3}] &= 4 |g(\tau_1)h(\tau_1)| \approx \alpha \frac{1}{524288\pi^4} \tau_1[M]^2 \exp(\frac{1}{2} \tau_1[M])\\
+\Delta I_2[M^{-3}] &= |g(0) h(0) \tau_2| \approx \alpha \frac{1}{36 \beta^4} |\tau_2| = \alpha\frac{1}{147456 \pi^4} |\tau_2[M]|\\
+\Delta I\ind{trapez}[M^{-3}] &= \alpha \frac{\Delta\tau^2}{12} (\tau_2-\tau_1) \frac{2 \pi^2}{45 \beta^6} \approx \alpha \Delta\tau[M]^2 (\tau_2[M]-\tau_1[M]) \frac{1}{70778880 \pi^4}
 \end{align}
 
-The outgoing modes also scale with \(r^{-1}\).
-
-Since ingoing and outgoing waves scale the same way with \(r^{-1}\) before and after the collapse we will assume this also for the collapse. So we conclude \(A\cdot r = \mathrm{const}.\). However when comparing with spherical modes in Minkowskispace or in the early spacetime (see eq. \ref{equ:bh_modes}) we see that outgoing modes have an extra factor \(-(-1)^l\) as compared to ingoing modes. This factor is caused by a phaseshift when passing \(r = 0\)\footnote{This is because the wavefunction must remain finite at \(r = 0\), i.e. one must create a sine instead of a cosine}. Since at the moment when the geodesics pass \(r = 0\) the star is not collapsed yet we can infer that there should be also such a phaseshift for the outgoing modes.
-
-We conclude with stating the form of the modes before and after the collapse. We will call the later modes \(\psi_{\omega l m}\) instead of \(u_{\omega l m}\) to distinguish them. 
+Apart from the \(\tau_2\) we can minimize the errors by choosing sufficient values for \(\tau_1\) and \(\Delta\tau\). If we set 
 \begin{align}
-u_{\omega l m} &= \frac{i^{-l}}{2i\sqrt{\pi\omega}r} e^{-i\omega u} Y_l^m (\theta, \phi) - \frac{i^{l}}{2i\sqrt{\pi\omega}r} e^{-i\omega v} Y_l^m (\theta, \phi)\\
-\psi_{\omega l m} &= \frac{i^{-l}}{2i\sqrt{\pi\omega}r} e^{i\omega B e^{-\frac{u}{4M}}} Y_l^m (\theta, \phi) - \frac{i^{l}}{2i\sqrt{\pi\omega}r} e^{-i\omega v} Y_l^m (\theta, \phi)
+\label{equ:app_num_cond_1}
+\Delta \tau[M] &\ll 1/(\tau_2[M]-\tau_1[M]])\\
+\Delta \tau[M] &\ll |\tau_2[M]|
 \end{align}
-
-\subsection{The Wigthman function of the Field}
-
-After the collapse the field is given by (\(i\) stands for \((\omega l m)\))
+ the contribution of \(\Delta I\ind{trapez}\) is neglectable compared to \(\Delta I_2\). If we further set \(\tau_1\) such that 
 \begin{align}
-\phi(\vb{x}) = \sum_i \psi_i(\vb{x}) a_i + \psi_i(\vb{x})^* a_i^\dagger
-\end{align}
+\tau_1[M]^2 \exp(\frac{1}{2} \tau_1[M]) \ll |\tau_2[M]|
+\label{equ:app_num_cond_2}
+\end{align} 
+we can also neglect \(\Delta I_1\). So the dominant error contribution will come from \(\Delta I_2 = |g(0) h(0) \tau_2|\). This error is -- as the value -- divided by \(I_g\) to achieve the error on \(\alpha\) which is then given in the diagrams as errorbars.
 
-One could now calculate \(D^+\) directly from our new functions. However it gives more insight to do a Bogoliubov transformation and express \(\phi(\vb{x})\) in terms of the old modes \(u_i\) but with different annihilation operator \(b_i\):
-\begin{align}
-\phi(\vb{x}) = \sum_j u_j(\vb{x}) b_j + u_j(\vb{x})^* b_j^\dagger
-\end{align}
+For computing those diagrams the parameters in tab. \ref{tab:app_num_params} were used. 
+\begin{table}
+\centering
+\caption{Parameters used for numerical integration: integration from \(\tau_1\) to \(\tau_2\) using \(\Delta\tau\) as stepwidth.}
+\label{tab:app_num_params}
+\begin{tabular}{cccc}
+\toprule
+Observer & \(\tau_1[M]\) & \(\tau_2[M]\) & \(\Delta\tau[M]\)\\
+\midrule
+static & \\
+circular & \\
+radial & \(-40\) & \(-0.1\) &  \(0.0001\)\\
+\bottomrule
+\end{tabular}
+\end{table}
 
-By formula \ref{equ:qft_bogolyubov} the \(b_i\) are given through
-\begin{align}
-b_j = \sum_i (u_j|\psi_i) a_i + (u_j|\psi_i^*) a_i^\dagger
-\end{align}
-
-\subsubsection{Calculating the scalarproduct}
-\label{sec:app_scalarproduct}
-We would like to calculate the scalarproduct between the following modes in the later spacetime:
-
-\begin{align}
-u_{\omega l m} &= \frac{i^{-l}}{2i\sqrt{\pi\omega}r} e^{-i\omega u} Y_l^m (\theta, \phi) - \frac{i^{l}}{2i\sqrt{\pi\omega}r} e^{-i\omega v} Y_l^m (\theta, \phi)\\
-\psi_{\omega l m} &= \frac{i^{-l}}{2i\sqrt{\pi\omega}r} e^{i\omega B e^{-\frac{u}{4M}}} Y_l^m (\theta, \phi) - \frac{i^{l}}{2i\sqrt{\pi\omega}r} e^{-i\omega v} Y_l^m (\theta, \phi)
-\end{align}
-
-To do so we choose as hypersurface a lightlike surface with \(v = \mathrm{const}.\) together with some spacelike surface that captures the complete interior region (we need both surfaces since \(\Im^+\) is only a partial Cauchysurface \footnote{Note that \(v = \mathrm{const}.\) is a lightlike surface but partial Cauchysurfaces need to be spacelike. So it is not a partial Cauchysurface. However as eq. \ref{equ:qft_scalarproduct_invariant} is also true for lightlike surfaces the value of the scalarproduct will not change.}). However the the \(u\) modes are \(0\) inside the black hole and therefore the integral over the interior will vanish.
-
-So we will only integrate over the lightlike surface. The normal vector of the surface is given by \(S = \frac{r^2 \sin\theta}{f(r)} \partial_u\). We will neglect the factor \(f(r) \approx 1\) since the bigger part of the hypersurface will be far away from the black hole and we assume that the non approximate wave functions will drop to zero at the event horizon\footnote{Actually Hawking and all other authors I encountered so far didn't mentioned this factor.}.
-
-Before evaluating the integral let us rewrite the modes. First define the prefactor as \(A = \frac{i^{-l}}{2i\sqrt{\pi\omega}}\) and then  
-\begin{align}
-u_{\omega l m} &= \frac{\tilde{u}_\omega}{r} Y_l^m (\theta, \phi)\\
-\psi_{\omega l m} &= \frac{\tilde{\psi}_\omega}{r} Y_l^m (\theta, \phi)\\
-\tilde{u}_{\omega} &= A e^{-i\omega u} + A^* e^{-i\omega v}\\
-\tilde{\psi}_{\omega} &= A e^{i\omega B e^{-\frac{u}{4M}}} + A^* e^{-i\omega v}
-\end{align}
-
-Using this we can simplify the scalarproduct (we will drop the indices \(l, m\) because the angular integral will just give \(\delta_{ll'}\delta_{mm'}\)):
-\begin{align}
-(u_{\omega'}|\psi_\omega) &= i\int_{-\infty}^\infty r^2 \dd{u} \frac{\tilde{u}_{\omega'}^*}{r} \partial_u \frac{\tilde{\psi}_\omega}{r} - \frac{\tilde{\psi}_\omega}{r} \partial_u \frac{\tilde{u}_{\omega'}^*}{r}\\
-	&= i\int_{-\infty}^\infty r^2 \dd{u} \frac{\tilde{u}_{\omega'}^*}{r} \frac{\partial_u \tilde{\psi}_\omega}{r} - \frac{\tilde{\psi}_\omega}{r} \frac{\partial_u \tilde{u}_{\omega'}^*}{r} - \frac{\tilde{u}_{\omega'}^*}{r} \frac{\tilde{\psi}_\omega}{r^2} \partial_u r + \frac{\tilde{\psi}_\omega}{r} \frac{\tilde{u}_{\omega'}^*}{r^2} \partial_u r\\
-	&= i\int_{-\infty}^\infty \dd{u} \tilde{u}_{\omega'}^* \partial_u \tilde{\psi}_\omega - \tilde{\psi}_\omega \partial_u \tilde{u}_{\omega'}^*\\
-	&= -2i\int_{-\infty}^\infty \dd{u} \tilde{\psi}_\omega \partial_u \tilde{u}_{\omega'}^*
-\end{align}
-
-In the last step we integrated by parts and assume that the boundary terms vanish (We know that the later modes drop to zero at the horizon \(u = \infty\). For \(u = -\infty\) we have a rapidly oscillating function which is zero at average).
-
-\begin{align}
-(u_{\omega'}|\psi_\omega) &= -2i\int_{-\infty}^\infty \dd{u} \tilde{\psi}_\omega \partial_u \tilde{u}_{\omega'}^*\\
-	&= 2\omega' \int_{-\infty}^\infty \dd{u} \qty(A e^{i\omega B e^{-\frac{u}{4M}}} + A^* e^{-i\omega v}) A'^* e^{i\omega' u}\\
-	&= 2\omega' AA'^* \int_{-\infty}^\infty \dd{u} e^{i\omega B e^{-\frac{u}{4M}}} e^{i\omega' u} + 2\omega' A^*A'^* e^{-i\omega v} \delta(\omega')\\
-	&= 2\omega' AA'^* \int_{-\infty}^\infty \dd{u} e^{i\omega B e^{-\frac{u}{4M}}} e^{i\omega' u}
-\end{align}
-
-Next substitute \(x = e^{-\frac{u}{4M}}\) and then use contour integration to integrate over the positive imaginary axis (\(x = i y\)):
-\begin{align}
-(u_{\omega'}|\psi_\omega) &= 8M \omega' A^*A'^* \int_{0}^\infty \frac{\dd{x}}{x} e^{i\omega B x} e^{-4M i \omega' \ln x}\\
-&= 8M \omega' AA'^* \int_{0}^\infty \dd{x} e^{i\omega B x} x^{-4M i \omega' - 1}\\
-&= i 8M \omega' AA'^* \int_{0}^\infty \dd{y} e^{-\omega B y} (iy)^{-4M i \omega' - 1}\\
-&= i^{-4M i \omega'} 8M \omega' AA'^* \int_{0}^\infty \dd{y} e^{-\omega B y} y^{-4M i \omega' - 1}\\
-&\overset{z = \omega B y}{=} i^{-4M i \omega'} 8M \omega' AA'^* \int_{0}^\infty \frac{\dd{z}}{B\omega} e^{-z} z^{-4M i \omega' - 1} (\omega B)^{4M i \omega' + 1}\\
-&= i^{-4M i \omega'} (\omega B)^{4M i \omega'} 8M \omega' AA'^* \Gamma(-4M i \omega')
-\label{equ:app_scalarproduct}
-\end{align}
-
-To calculate \((u_{\omega'}|\psi_\omega*)\) one can redo the same calculation but choose a contour over the negative imaginary axis (\(x = - iy\))
-
-\begin{align}
-(u_{\omega'}|\psi_\omega^*) &= -2i\int_{-\infty}^\infty \dd{u} \tilde{\psi}_\omega^* \partial_u \tilde{u}_{\omega'}^*\\
-	&= 2\omega' A^*A'^* \int_{-\infty}^\infty \dd{u} e^{-i\omega B e^{-\frac{u}{4M}}} e^{i\omega' u}\\
-	&= 8M \omega'A^*A'^* \int_{0}^\infty \dd{x} e^{-i\omega B x} x^{-4M i \omega' - 1}\\
-	&= -i 8M \omega' A^*A'^* \int_{0}^\infty \dd{y} e^{-\omega B y} (-iy)^{-4M i \omega' - 1}\\
-	&= i^{4M i \omega'} 8M \omega' A^*A'^* \int_{0}^\infty \dd{y} e^{-\omega B y} y^{-4M i \omega' - 1}\\
-	&\overset{z = \omega B y}{=} i^{4M i \omega'} 8M \omega' A^*A'^* \int_{0}^\infty \frac{\dd{z}}{\omega B} e^{-z} z^{-4M i \omega' - 1} (\omega B)^{4M i \omega' + 1}\\
-	&= i^{4M i \omega'} (\omega B)^{4M i \omega'}  8M \omega' A^*A'^* \Gamma(-4M i \omega')\\
-	&= (-1)^{l+1} i^{8M i \omega'} (u_{\omega'}|\psi_\omega) = (-1)^{l+1} e^{-4\pi M \omega'} (u_{\omega'}|\psi_\omega) 
-\end{align}
-
-So both scalar products lead (up to a prefactor) to the same result.
-
-\subsubsection{Expectation values}
-
-For simplicity I will drop the angular momentum indices \(l, m\) since they will be equal for all modes. Since \(\{\psi\}\) is a complete set of modes for the whole spacetime we can write\footnote{Actually the sum over \(\omega\) is an integral.}
-\begin{align}
-\delta_{\tilde{\omega}\omega'} = (u_{\tilde{\omega}}|u_{\omega'}) &= \sum_{\omega} (u_{\tilde{\omega}}|\psi_\omega)(\psi_\omega|u_{\omega'}) - (u_{\tilde{\omega}}|\psi_\omega^*)(\psi_\omega^*|u_{\omega'})\\
-	&= \sum_{\omega} (u_{\tilde{\omega}}|\psi_\omega)(\psi_\omega|u_{\omega'}) - e^{- 4 M \pi (\tilde{\omega} + \omega')} (u_{\tilde{\omega}}|\psi_\omega)(\psi_\omega|u_{\omega'})\\
-	&= \qty(1 - e^{- 4 M \pi (\tilde{\omega} + \omega')}) \sum_{\omega} (u_{\tilde{\omega}}|\psi_\omega)(\psi_\omega|u_{\omega'})\\
-\sum_{\omega} (u_{\tilde{\omega}}|\psi_\omega)(\psi_\omega|u_{\omega'}) &= \frac{\delta_{\tilde{\omega}\omega'}}{1 - e^{- 4 M \pi (\tilde{\omega} + \omega')}}\\
-\sum_{\omega} (u_{\tilde{\omega}}|\psi_\omega^*)(\psi_\omega^*|u_{\omega'}) &= \frac{e^{- 4 M \pi (\tilde{\omega} + \omega')}}{1 - e^{- 4 M \pi (\tilde{\omega} + \omega')}} \delta_{\tilde{\omega}\omega'} = \frac{1}{e^{8 M \pi \omega'} - 1} \delta_{\tilde{\omega}\omega'}
-\end{align}
-
-To calculate \(D^+\) now we need the vacuum expectation values like \(\bra*{0}b_{\tilde{\omega}} b_{\omega'}\ket*{0}\) and \(\bra*{0}b_{\tilde{\omega}}^\dagger b_{\omega'}\ket*{0}\).
-
-\begin{align}
-\bra*{0}b_{\tilde{\omega}}^\dagger b_{\omega'}\ket*{0} &= \sum_{\omega} (u_{\tilde{\omega}}|\psi_\omega^*)^* (u_{\omega'}|\psi_\omega^*)\\
-	&= \sum_{\omega} (\psi_\omega^*|u_{\tilde{\omega}}) (u_{\omega'}|\psi_\omega^*)\\
-	&= \frac{1}{e^{8 M \pi \omega'} - 1} \delta_{\tilde{\omega}\omega'}
-\end{align}
-
-To calculate \(\bra*{0}b_{\tilde{\omega}} b_{\omega'}\ket*{0}\) make use of \([b_{\tilde{\omega}}, b_{\omega'}] = 0\)
-
-\begin{align}
-\bra*{0}b_{\tilde{\omega}} b_{\omega'}\ket*{0} &= \bra*{0} b_{\omega'} b_{\tilde{\omega}} \ket*{0}\\
-\sum_{\omega} (u_{\tilde{\omega}}|\psi_\omega) (u_{\omega'}|\psi_\omega^*) &= \sum_{\omega} (u_{\omega'}|\psi_\omega) (u_{\tilde{\omega}}|\psi_\omega^*)\\
-(-1)^{l+1} e^{-4 M\pi \omega'} \sum_{\omega} (u_{\tilde{\omega}}|\psi_\omega) (u_{\omega'}|\psi_\omega)	&= (-1)^{l+1} e^{-4 M\pi \tilde{\omega}} \sum_{\omega} (u_{\omega'}|\psi_\omega) (u_{\tilde{\omega}}|\psi_\omega)
-\label{equ:hawking_bb}
-\end{align}
-
-So unless \(\tilde{\omega} = \omega'\) the expectation value has to vanish. To show that is also vanishes for \(\tilde{\omega} = \omega'\) one has to calculate this directly:
-
-\begin{align}
-\bra*{0}b_{\tilde{\omega}} b_{\omega'}\ket*{0} &= (-1)^{l+1} e^{-4 M\pi \omega'} \int_0^\infty \dd{\omega} (u_{\omega'}|\psi_\omega) (u_{\omega'}|\psi_\omega)\\
-&= (-1)^{l+1} e^{-4 M\pi \omega'} \int_0^\infty \dd{\omega} i^{-8M i \omega'} (\omega B)^{8M i \omega'} (8M)^2 \omega'^2 A^2A'^{2*} \Gamma(-4M i \omega')^2\\
-	&= B^{8M i \omega'} (8M)^2 \omega'^2 \frac{1}{4\pi} A'^{2*} \Gamma(-4M i \omega')^2 \int_0^\infty \dd{\omega}\omega^{8M i \omega'} \frac{1}{\omega}\\
-	&= (8M)^2 B^{8M i \omega'} \omega'^2 \frac{1}{4\pi} A'^{2*} \Gamma(-4M i \omega')^2 \int_0^\infty \dd{\omega}e^{(8M i \omega' - 1)\ln \omega}\\
-	&\overset{x = \ln\omega}{=} B^{8M i \omega'} (8M)^2 \omega'^2 \frac{1}{4\pi} A'^{2*} \Gamma(-4M i \omega')^2 \int_{-\infty}^\infty \dd{x} e^x e^{(8M i \omega' - 1)x}\\
-	&= B^{8M i \omega'} (8M)^2 \omega'^2 \frac{1}{4\pi} A'^{2*} \Gamma(-4M i \omega')^2 \delta(8M\omega')\\
-	&= B^{8M i \omega'} 8M \omega'^2 \frac{1}{4\pi} A'^{2*} \Gamma(-4M i \omega')^2 \delta(\omega')
-\end{align}
-
-There is only a contribution for \(\omega' = 0\) which we excluded from our analysis. The other expectation values \(\bra*{0}b_{\tilde{\omega}} b_{\omega'}^\dagger\ket*{0}\) and \(\bra*{0}b_{\tilde{\omega}}^\dagger b_{\omega'}^\dagger\ket*{0}\) can easily be achieved by complex conjugating the other other two results.
-
-The expectation values in the later spacetime coincide with the expectation values for a thermal state with \(\beta = 8 M \pi\) in the early spacetime, i.e.
-
-\begin{align}
-\bra*{0}b_{\tilde{\omega}}^\dagger b_{\omega'}\ket*{0} &= \frac{1}{e^{8 M \pi \omega'} - 1} \delta_{\tilde{\omega}\omega'} &= \langle a_{\tilde{\omega}}^\dagger a_{\omega'}\rangle_\beta\\
-\bra*{0}b_{\tilde{\omega}} b_{\omega'}\ket*{0} &= 0 &= \langle a_{\tilde{\omega}} a_{\omega'}\rangle_\beta
-\end{align}
-
-It can easily be shown by expanding the definition that this also happens for \(D^+\):
-\begin{align}
-D^+(\vb{x},\vb{x}') &= \bra*{0}\phi(\vb{x})\phi(\vb{x}')\ket*{0}\\
-	&= \sum_{ij} \bra*{0}\qty(u_i(\vb{x})b_i + u_i(\vb{x})^*b_i^\dagger)\qty(u_j(\vb{x})b_j + u_j(\vb{x})^*b_j^\dagger)\ket*{0}\\
-	&= \sum_{ij} \langle\qty(u_i(\vb{x})b_i + u_i(\vb{x})^*b_i^\dagger)\qty(u_j(\vb{x})b_j + u_j(\vb{x})^*b_j^\dagger)\rangle_\beta\\
-	&= \langle\phi(\vb{x})\phi(\vb{x}')\rangle_\beta 
-\end{align}
-
-So as long as we are only interested in two point correlations in the later spacetime we can ignore the gravitational collapse  by putting the quantum system not in the ground state but in a thermal state with temperature \(T\ind{H} = \frac{1}{k\ind{B} \beta} = \frac{1}{8\pi k\ind{B} M}\).
-
+One can easily check that they fulfil relations \eqref{equ:app_num_cond_1} - \eqref{equ:app_num_cond_2}.

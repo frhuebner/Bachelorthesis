@@ -1,0 +1,89 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{Townsend}{article}{}
+    \name{author}{1}{}{%
+      {{hash=TPK}{%
+         family={Townsend},
+         familyi={T\bibinitperiod},
+         given={P.\bibnamedelima K.},
+         giveni={P\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TPK1}
+    \strng{fullhash}{TPK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{eprint}
+    \verb gr-qc/9707012
+    \endverb
+    \field{title}{{Black holes: Lecture notes}}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{gr-qc}
+    \field{year}{1997}
+  \endentry
+
+  \entry{krishnan1011.5875}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=KC}{%
+         family={Krishnan},
+         familyi={K\bibinitperiod},
+         given={Chethan},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KC1}
+    \strng{fullhash}{KC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{{Croatian Black Hole School Trpanj, Peljesac, Croatia,
+  June 21-25, 2010}}
+    \verb{eprint}
+    \verb 1011.5875
+    \endverb
+    \field{title}{{Quantum Field Theory, Black Holes and Holography}}
+    \verb{url}
+    \verb https://inspirehep.net/record/879076/files/arXiv:1011.5875.pdf
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{hep-th}
+    \field{year}{2010}
+  \endentry
+
+  \entry{davies}{book}{}
+    \name{author}{1}{}{%
+      {{hash=BD}{%
+         family={Birrell},
+         familyi={B\bibinitperiod},
+         given={Davies},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Camebridge University Press}%
+    }
+    \strng{namehash}{BD1}
+    \strng{fullhash}{BD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Quantum fields in curved space}
+    \field{year}{1982}
+  \endentry
+\enddatalist
+\endinput

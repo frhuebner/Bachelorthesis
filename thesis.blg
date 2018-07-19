@@ -1,10 +1,5 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: thesis.aux
-A level-1 auxiliary file: thesis_acknowledge.aux
-A level-1 auxiliary file: chapter/qft.tex.aux
-A level-1 auxiliary file: chapter/qft_spacetime.tex.aux
-A level-1 auxiliary file: chapter/bh.tex.aux
-A level-1 auxiliary file: thesis_appendix.aux
-I found no \citation commands---while reading file thesis.aux
-I found no \bibdata command---while reading file thesis.aux
-I found no \bibstyle command---while reading file thesis.aux
-(There were 3 error messages)
+The style file: biblatex.bst
+Database file #1: thesis-blx.bib
+Database file #2: bib/thesis_refs.bib
+Biblatex version: 3.8

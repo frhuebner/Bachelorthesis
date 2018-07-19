@@ -50,19 +50,17 @@ set term pngcairo size 1280,960 fontscale 2 linewidth 2
 
 set xlabel "r"
 set key right top
-set xrange [-1:2**30]
+set xrange [1:1e6]
 set ylabel "-alpha"
 
 set logscale x
 set logscale y
 
-radius(x)=(-3/2*sqrt(2)*(x-4/3))**(2.0/3)
-print radius(-100)
-
 set output "data_rad_1707_2_radius.png"
-plot (1/sqrt(1-2/radius(-x))-1) title "tolman" lt rgb "black"
-
-#"data_rad_1707_2.txt" u (-($1)):(-$2):(abs($3)) w yerrorbars title "radial",\	
+plot "data_rad_1707_2.txt" u (radius($1)):(-$2):(abs($3)) w yerrorbars title "radial",\
+	-(sqrt(1-2/x)-1) title "tolman" lt rgb "black",\
+	#(1/(1-2/x)-1) title "tolman" lt rgb "red"
+	
 	
 ###########################
 reset
