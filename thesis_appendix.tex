@@ -194,6 +194,7 @@ When actually calculating we will use dimensionless variables so it is more usef
 \int_{-\infty}^0 &\dd{\tau'} \qty(D^+(x(\tau + \tau'), x(\tau)) - D_{\beta\ind{H}}\upd{M}(x(\tau + \tau'), x(\tau)) - \alpha g(\tau'))^2 \to \mathrm{min}\\
 \alpha &= \frac{\int_{-\infty}^0 \dd{\tau'} \qty(D^+(x(\tau + \tau'), x(\tau)) - D_{\beta\ind{H}}\upd{M}(x(\tau + \tau'), x(\tau)))\cdot g(\tau')}{\int_{-\infty}^0 \dd{\tau'} g(\tau')^2}\\
 	&=: \frac{\int_{-\infty}^0 \dd{\tau'} h(\tau')\cdot g(\tau')}{\int_{-\infty}^0 \dd{\tau'} g(\tau')^2}
+\label{equ:app_num_formula}
 \end{align}
 
 The integral over \(g^2\) can be calculated ones and yields \(I_g = \int_{-\infty}^0 \dd{\tau'} g(\tau')^2 = \frac{15 - \pi^2}{92160 \pi^4} M^{-3} \approx 5.7149\cdot 10^{-7} M^{-3}\)\todo{explain?}. In the diagrams we will not plot \(\alpha\) but rather \(-\alpha = \Delta T/T\ind{H}\).
@@ -260,7 +261,7 @@ Apart from the \(\tau_2\) we can minimize the errors by choosing sufficient valu
 \end{align} 
 we can also neglect \(\Delta I_1\). So the dominant error contribution will come from \(\Delta I_2 = |g(0) h(0) \tau_2|\). This error is -- as the value -- divided by \(I_g\) to achieve the error on \(\alpha\) which is then given in the diagrams as errorbars.
 
-For computing those diagrams the parameters in tab. \ref{tab:app_num_params} were used. 
+For computing those diagrams the parameters in tab. \ref{tab:app_num_params} were used. \todo{value in table}
 \begin{table}
 \centering
 \caption{Parameters used for numerical integration: integration from \(\tau_1\) to \(\tau_2\) using \(\Delta\tau\) as stepwidth.}
@@ -269,8 +270,8 @@ For computing those diagrams the parameters in tab. \ref{tab:app_num_params} wer
 \toprule
 Observer & \(\tau_1[M]\) & \(\tau_2[M]\) & \(\Delta\tau[M]\)\\
 \midrule
-static & \\
-circular & \\
+static & \(-40\) & \(-0.1\) &  \(0.0001\)\\
+circular & \(-40\) &  &  \(0.0001\)\\
 radial & \(-40\) & \(-0.1\) &  \(0.0001\)\\
 \bottomrule
 \end{tabular}

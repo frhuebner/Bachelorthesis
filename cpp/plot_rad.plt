@@ -37,7 +37,7 @@ set ylabel "-alpha"
 set logscale x
 set logscale y
 
-radius(x)=(-3/2*sqrt(2)*(x-4/3))**(2.0/3)
+radius(x)=(-3.0/2*sqrt(2.0)*(x-4.0/3))**(2.0/3)
 
 set output "data_rad_1707_2.png"
 plot "data_rad_1707_2.txt" u (-($1)):(-$2):(abs($3)) w yerrorbars title "radial",\
@@ -58,7 +58,7 @@ set logscale y
 
 set output "data_rad_1707_2_radius.png"
 plot "data_rad_1707_2.txt" u (radius($1)):(-$2):(abs($3)) w yerrorbars title "radial",\
-	-(sqrt(1-2/x)-1) title "tolman" lt rgb "black",\
+	(1/sqrt(1-2/x)-1) title "tolman" lt rgb "black",\
 	#(1/(1-2/x)-1) title "tolman" lt rgb "red"
 	
 	

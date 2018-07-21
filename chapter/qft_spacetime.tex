@@ -140,22 +140,22 @@ In a static spacetime a static observer does not observe any particles.
 \end{lemma} 
 \todo{beta(x) -> a}
 Proof: Recall that the modes in a static spacetime (see eq. \ref{equ:solutions_static}) can be written as \(u_i = \frac{1}{\sqrt{2\omega_i}}e^{-i\omega_i t} A_i(\va{x})\).
-Since the observer moves only along \(\partial_t\) he will have four-velocity \(\dot{\vb{x}} = \frac{1}{\sqrt{\beta(\va{x})}} \partial_t\). Note that \(\beta(\va{x})\) is independent of \(\tau\) because the spatial coordinates stay constant \(\va{x}(\tau) = \va{x}_0\). Integrating yields \(t(\tau) = \frac{1}{\sqrt{\beta(\va{x})}} \tau + t_0\).
+Since the observer moves only along \(\partial_t\) he will have four-velocity \(\dot{\vb{x}} = \frac{1}{\sqrt{a}} \partial_t\). Note that all components of the metric are independent of \(\tau\) because the spatial coordinates stay constant \(\va{x}(\tau) = \va{x}_0\). Integrating yields \(t(\tau) = \frac{1}{\sqrt{a}} \tau + t_0\).
 Now we can evaluate \(D^+(\vb{x}(\tau), \vb{x}(\tau'))\):
 \begin{align}
 D^+(\vb{x}(\tau), \vb{x}(\tau')) &= \bra*{0}\phi(\vb{x}(\tau))\phi(\vb{x}(\tau'))\ket*{0} = \sum_i u_i(\vb{x}(\tau)) u_i^*(\vb{x}(\tau'))\\
 	&= \sum_i \frac{1}{2\omega_i} e^{-i\omega_i (t(\tau)-t(\tau')} A_i(\va{x}_0)A_i^*(\va{x}_0)\\
-	&= \sum_i \frac{1}{2\omega_i} e^{-i\omega_i(\tau - \tau')/\sqrt{\beta(\va{x}_0)}} A_i(\va{x}_0)A_i^*(\va{x}_0)
+	&= \sum_i \frac{1}{2\omega_i} e^{-i\omega_i(\tau - \tau')/\sqrt{a}} A_i(\va{x}_0)A_i^*(\va{x}_0)
 \end{align} 
 
 So \(D^+\) only depends on the difference \(\tau-\tau'\). Therefore we can apply eq. \ref{equ:detector_final}:
 \begin{align}
 \dv{F_E}{\tau} &= \int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} D^+(\vb{x}(\tau), \vb{x}(0))\\
-	&= \sum_i \frac{1}{2\omega_i} A_i(\va{x}_0)A_i^*(\va{x}_0) \qty(\int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} e^{-i\omega  \tau//\sqrt{\beta(\va{x}_0)}})\\
-	&= \sum_i \frac{1}{2\omega_i} A_i(\va{x}_0)A_i^*(\va{x}_0) \delta\qty(E + \omega/\sqrt{\beta(\va{x}_0)}) = 0
+	&= \sum_i \frac{1}{2\omega_i} A_i(\va{x}_0)A_i^*(\va{x}_0) \qty(\int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} e^{-i\omega  \tau/\sqrt{a}})\\
+	&= \sum_i \frac{1}{2\omega_i} A_i(\va{x}_0)A_i^*(\va{x}_0) \delta\qty(E + \omega/\sqrt{a}) = 0
 \end{align}
 
-The deltafunction is always zero because \(E \leq 0\), \(\omega > 0\), and \(\beta(\va{x}_0) > 0\)\footnote{Here one can see why it is sensible to exclude \(\omega = 0\) because it would lead to an infinite transition rate to the groundstate \(E = 0\) which is clearly not physical}. So the observer does not detect any particles. QED.
+The deltafunction is always zero because \(E \leq 0\), \(\omega > 0\), and \(a > 0\)\footnote{Here one can see why it is sensible to exclude \(\omega = 0\) because it would lead to an infinite transition rate to the groundstate \(E = 0\) which is clearly not physical (This is due to the first order perturbation theory).}. So the observer does not detect any particles. QED.
 
 This exact result will be later used to show whether the approximate form of the Wightmanfunction in the Schwarzschild metric is applicable\todo{rewrite}.
 
@@ -164,7 +164,7 @@ This exact result will be later used to show whether the approximate form of the
 In this section we will use the information we gathered about the Wightman function to tackle the problem how to calculate the detector response function on a general trajectory. In particular we have the problem that in general we cannot integrate from \(-\infty\) to \(\infty\) and use the residue theorem but we would rather have to integrate from \(-\infty\) to \(0\). Since there's a singularity at \(0\) we will have in all cases a diverging integral.
 
 \subsubsection{Vacuum case}
-The last sentence is not really true. There is the small \(\varepsilon\) which removes the singularity from the real axis. We will assume that the integral over the trajectory will remain finite for \(\varepsilon \to 0\)\footnote{One can for example proof this by an explicit calculation for an inertial trajectory.}. Apart from keeping this in mind we will drop the \(\varepsilon\) during this section.
+The last sentence is not really true. There is the small \(\varepsilon\) which removes the singularity from the real axis. We will assume that the integral over the trajectory will remain finite for \(\varepsilon \to 0\)\footnote{One can for example proof this by an explicit calculation for an inertial trajectory.}. 
 
 Recall that by eq. \ref{equ:qft_detector_partial} the excitation rate is given by
 \begin{align}
@@ -184,9 +184,9 @@ a_{-2} &= \lim_{\tau' \to 0}\tau'^2 \cdot D^+(x(\tau'), 0)\\
 	&= - \frac{1}{4\pi^2}
 \end{align}
 
-Where we have used \(t(0) = \va{x}(0) = 0\) and \(a \dot{t}^2 - \dot{\va{x}}^2 = 1\). So the singular part of the Wightmanfunction does neither depend on the specific trajectory nor on the geometry of the spacetime at all. So to calculate this we can take any trajectory we like, for example a static trajectory for which the remaining part vanishes \(W(\tau') = 0\). Since the rate for this trajectory is zero the \(\frac{1}{\tau'^2}\) term will not contribute in general.
+Where we have used \(t(0) = \va{x}(0) = 0\) and \(a \dot{t}^2 - \dot{\va{x}}^2 = 1\). Redoing the calculation with the \(\varepsilon\) shifts the pole to the upper half: \(- \frac{1}{4\pi^2 (\tau' - i\varepsilon)^2}\). So the singular part of the Wightmanfunction does neither depend on the specific trajectory nor on the geometry of the spacetime at all. So to calculate this we can take any trajectory we like, for example a static trajectory for which the remaining part vanishes \(W(\tau') = 0\). Since the rate for this trajectory is zero the \(\frac{1}{\tau'^2}\) term will not contribute in general.
 
-This means that instead of integrating over \(D^+(x(\tau'), 0)\) we can equivalently integrate over \(W(\tau') = D^+(x(\tau'), 0) + \frac{1}{4\pi^2 \tau'^2}\) which is well defined.
+This means that instead of integrating over \(D^+(x(\tau'), 0)\) we can equivalently integrate over \(W(\tau') = D^+(x(\tau'), 0) + \frac{1}{4\pi^2 \tau'^2}\) which is well defined. Since we don't expect any singular behaviour of \(W\) we can do the \(\varepsilon \to 0\) limit and therefore drop the \(\varepsilon\).
 
 \subsubsection{Thermal case}
 
@@ -199,43 +199,6 @@ D_\beta^+(t(\tau),x(\tau);0) &= \sum_{n=-\infty}^\infty D^+(t(\tau) - i \beta n,
 \end{align}
 
 So the observer will see a thermal spectrum of temperature \(T\ind{static} = \frac{T}{\sqrt{a}}\) (compare with eq. \ref{equ:qft_thermal_inertial}) plus some corrections coming from \(W_\beta(\tau)\). These corrections will vanish for a static observer, be small for slow observers and might become the dominating spectrum for fast observers. The relation \(T\ind{static} = \frac{T}{\sqrt{a}}\) is also known from other analysis of thermal systems in general relativity and is called Tolman relation (Quelle?)\todo{Quelle}. The origin of this effect is the observer dependent time dilation in the spacetime.
-%For this we need the form of the thermal Wightmanfunction near the origin which can be found by adjusting the calculation in Minkowskispace \todo{link}:
-%\begin{align}
-%D_\beta^+(\vb{x},0) = -\frac{1}{4\beta^2a} \frac{1}{\sinh[2](\frac{\pi}{\beta\sqrt{a}}\sqrt{a t^2 - |\va{x}|^2})}  + \order*{x^2}
-%\end{align}
-
-%Again we will split the \(D^+\) into the singular and the non singular part. Calculating the coefficient \(a_{-2}\) as before yields to the same result
-%\begin{align}
-%a_{-2} = -\frac{1}{4\pi^2}
-%\end{align}
-
-%Here it is now applicable to remove this singularity by subtracting the Wightmanfunction of a static observer i.e. a thermal %one with inverse temperature \(\sqrt{a}\beta\) since for slow .    
-
-%So we could now remove this singularity by calculating it for an inertial observer in (vacuum) Minkowskispace. However %intuition tells us that an slow observer in a thermal field should see nearly the thermal excitations as a static observer. %For such an observer the Wightmanfunction is given by:
-%\begin{align}
-%D_\beta^+(\vb{x},0) = -\frac{1}{4\beta^2 a} \frac{1}{\sinh[2](\frac{\pi}{\beta \sqrt{a}} \tau)}
-%\end{align}
-
-%This is the same as replacing \(\beta \to \beta \sqrt{a}\) in \todo{link} 
-%\begin{align}
-%D_\beta^+(\vb{x},0) = \frac{1}{2\pi} \left(\frac{E}{e^{\beta \sqrt{a} E}-1}\right)
-%\end{align}
-
-%A static observer recognizes the field at a different temperature \(T\ind{static} = \frac{T}{\sqrt{a}}\). This is simply due to time dilation and is known as Tolman relation \todo{Quelle}.
-
-
-%We could also do some more. The general expansion of \(a t^2-\va{x}^2\) and \(D^+\) is given by
-%\begin{align}
-%a t^2-\va{x}^2 &= \tau'^2 + \qty(\frac{a\ddot{t}^2-\ddot{\va{x}}^2}{4} + \frac{a\dot{t}\dddot{t}-\dot{\va{x}}\dddot{\va{x}}}{3}) \tau'^4 + \order*{\tau'^5}\\
-%D^+(\vb{x}(\tau'),0) &= -\frac{1}{4\pi^2 \tau'^2} + \frac{a\ddot{t}^2-\ddot{\va{x}}^2}{16\pi^2} + \frac{a\dot{t}\dddot{t}-\dot{\va{x}}\dddot{\va{x}}}{12\pi^2} + \order*{\tau'^2}
-%\end{align}
-
-%Compare this to the expansion of the thermal Wightmanfunction
-%\begin{align}
-%-\frac{1}{4\beta'^2} \frac{1}{\sinh[2](\frac{\pi}{\beta'}\tau')} &=  -\frac{1}{4\pi^2 \tau'^2} + \frac{1}{12\beta'^2} + \order*{\tau^2}
-%\end{align}
-
-%and observe that we can also remove the zero'th order term by setting \(\frac{1}{\beta'^2} = \frac{1}{4\pi^2} \qty(3 (a\ddot{t}^2-\ddot{\va{x}}^2) +  4 (a\dot{t}\dddot{t}-\dot{\va{x}}\dddot{\va{x}}))\). So if we subtract a thermal Wightmanfunciton instead of an inertial one we are left with something only depending on \(\tau^2\). This does not mean that this observer sees a thermal bath at this temperature. We only fixed one order of an infinite series which later will be fouriertransformed. Fouriertransformation does only work globally so we don't have won any information yet \footnote{unless many more orders would coincide like in the unruheffect.}. However the small order behaviour of a function determines the behaviour of the fouriertransform for very small energies. So if we are measuring only small energy excitation and would fit a thermal spectrum to the data we would find a temperature similar to \(\beta'\). Apart from that the excitation rate can (and will for example for an observer on a circular orbit\todo{link}) differ significant from a thermal rate. This is simply due to the fact that this is a global effect. Therefore it is not suitable to treat the Unruh-detector in a local manner like thinking an observer would always see a thermal spectrum according to his current acceleration.
 
 \subsection{Equivalence principle?}
 
@@ -250,7 +213,7 @@ Recall that transition probability (not the rate) for a detector proportional to
 
 Since we would like to have no transitions at all the transition probability has to be zero and (note that the scalarproduct of states is positive definite) therefore the state \(\ket*{\psi} = 0\). But this implies since the one particle states \(\ket*{\vb{1}_i}\) are linear independent that all
 \begin{align}
-A_i := \int_{-\infty}^\tau \dd{\tau'} e^{i E \tau'} e^{+i\omega_i t(\tau')} A_i(\va{x}(\tau'))^* \overset{!}{=} 0
+Q_i := \int_{-\infty}^\tau \dd{\tau'} e^{i E \tau'} e^{+i\omega_i t(\tau')} A_i(\va{x}(\tau'))^* \overset{!}{=} 0
 \end{align} 
 have to vanish. If we were not dealing with distributions but rather with functions this would imply (since we need this for all \(\tau\)):
 
