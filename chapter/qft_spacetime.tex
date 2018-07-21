@@ -229,23 +229,47 @@ We cannot apply this argument directly since \(D^+\) is a distribution. But apar
 We will conclude the argumentation with giving an explicit geodesic on which the detector response function is non zero. To do this we will need the following lemma for observers moving along killing vectors:
 
 \begin{lemma}
-In a static spacetime an observer moving with constant velocity \(\dot{\vb{x}} = A\partial_t + B\vb{k}\) along a spatial killingvector \(\vb{k}\) will see excitations if there exists at least one eigenfunction \(u\)\footnote{Of course it is implied that \(u\) is a solution to the Klein-Gordon-equation with \(\omega = \omega_m\)} to \(\vb{k}\) with eigenvalue '\(i m\)' such that \(\frac{A}{B} < \frac{m}{\omega_m}\). 
+In a static spacetime an observer moving with constant velocity \(\dot{\vb{x}} = A\partial_t + B\vb{k}\) along a spatial killingvector \(\vb{k}\) will see excitations if and only if there exists at least one eigenfunction \(u\)\footnote{It is implied that \(u\) is a solution to the Klein-Gordon-equation with \(\omega = \omega_m\)} to \(\vb{k}\) with eigenvalue '\(i m\)' such that \(\frac{A}{|B|} < \frac{|m|}{\omega_m}\). 
 \label{lemma:killing}  
 \end{lemma} 
 
-Proof: Choose a coordinate system for the spatial metric such that it has a coordinate \(\phi\) with \(\partial_\phi = \vb{k}\). Since \(\partial_\phi\) is killing the metric will not depend on \(\phi\) which implies that an eigenfunction of \(\partial_\phi\) is also an eigenfunction to \(\nabla_\mu\nabla^\mu\) i.e. we can find a complete set of solutions such that
+Proof: Choose a coordinate system \((\phi, y_1, y_2)\) for the spatial metric such that it has a coordinate \(\phi\) with \(\partial_\phi = \vb{k}\). Since \(\partial_\phi\) is killing the metric will not depend on \(\phi\):
 \begin{align}
-u_{m, i} \sim e^{-i\omega_m t} \cdot e^{i m \phi}
+	[\partial_t, \partial_\phi] = [\partial_t, \nabla_\mu \nabla^\mu] = [\partial_\phi, \nabla_\mu \nabla^\mu] = 0
 \end{align}
 
-In order to show that an observer will see excitations it is enough to show that he won't see nothing at \(\tau \to \infty\):
+We can therefore simultaneously diagonalize the operators which implies that we can find a complete set of solutions such that
 \begin{align}
-A_m &\sim \int_{-\infty}^\infty \dd{\tau'} e^{i E \tau'} e^{+i\omega_m t(\tau')} e^{-i m \phi(\tau')} = \int_{-\infty}^\infty \dd{\tau'} e^{i E \tau'} e^{+i\omega_m A\tau'} e^{-i m B \tau'}\\
+u_{m, i} = \tilde{A}_i(y_1, y_2) e^{-i\omega_m t} \cdot e^{i m \phi}
+\end{align}
+
+Note that if \(u_{m,i}\) solves the Klein-Gordon-equation then also \(u_{-m,i}\) is a solution with the same frequency \(\omega_{-m} = \omega_{m}\).
+
+The observer will only see nothing if he will see nothing for \(\tau \to \infty\)\footnote{This is because the transition rate is constant}:
+\begin{align}
+Q_m &\sim \int_{-\infty}^\infty \dd{\tau'} e^{i E \tau'} e^{+i\omega_m t(\tau')} e^{-i m \phi(\tau')} = \int_{-\infty}^\infty \dd{\tau'} e^{i E \tau'} e^{+i\omega_m A\tau'} e^{-i m B \tau'}\\
 	&= \delta(E + \omega_m A - m B)
 \end{align}
 
-This will be non zero at least for one energy if \(\omega_m A - m B < 0\) or \(\frac{A}{B} < \frac{m}{\omega_m}\)\footnote{If either \(m < 0\) or \(B < 0\) just switch the sign of \(B\) and redo the proof.}. Using the assumption completes the proof. QED.
+This will be non zero at least for one energy only if \(\omega_m A - m B < 0\). For \(m B > 0\) we directly find \(\frac{A}{|B|} < \frac{|m|}{\omega_m}\). For \(m B < 0\) we can take the solution with \(-m\) which will give a contribution. QED.\\
 
 We can now apply this to a circular geodesic in the Schwarzschild metric. Since the metric is spherically symmetric the trajectory is along a killing vector. Also the values of \(\omega\) are continuous from \(0\) to \(\infty\) and are especially independent of \(m\) (this will be derived in the next chapter). This means no matter how big \(\frac{A}{B}\) is we will always find a combination of \(m\) and \(\omega\) that fulfils the second condition. So we have found one explicit example for a geodesic on which particle excitations occur.  
 
-But how does this work with the equivalence principle. This simply resolved by recalling that the equivalence principle only states that it is impossible to distinguish between flat space and curved space using only local measurements. But the calculations above required integration over the whole worldline of the particle\todo{observer}. Therefore this is a non local effect and we cannot apply the equivalence principle here. 
+But how does this work with the equivalence principle. This simply resolved by recalling that the equivalence principle only states that it is impossible to distinguish between flat space and curved space using only local measurements. But the calculations above required integration over the whole worldline of the observer. Therefore this is a non local effect and we cannot apply the equivalence principle here. 
+
+We can remove the detailed trajectory dependence in lemma \ref{lemma:killing} by showing a further lemma (for simplicity we will work again in a coordinate system where \(\phi\) is a coordinate.)
+
+\begin{lemma}
+In a static spacetime there exists an observer moving with constant velocity along a spatial killingvector \(\vb{k} = \partial_\phi\) who will see excitations if and only if there exists a spacetime point \(\vb{x}\) and at least one eigenfunction \(u\)\footnote{Again \(u\) is a solution to the Klein-Gordon-equation with \(\omega = \omega_m\)} to \(\vb{k}\) with eigenvalue '\(i m\)' such that \(\frac{g_{\phi\phi}(\vb{x})}{|g_{tt}(\vb{x})|} < \frac{m^2}{\omega_m^2}\). 
+\label{lemma:killing_extended}  
+\end{lemma} 
+
+Proof: We are considering trajectories \(\dot{\vb{x}} = A\partial_t + B\partial_\phi\). The metric in the chosen coordinates will not change during the movement and so \(\dot{\vb{x}}^2 = -1\) implies
+\begin{align}
+ |g_{tt}| A^2 - g_{\phi\phi} B^2 &= 1\\
+ \frac{A^2}{B^2} = \frac{1}{B^2 g_{tt}} + \frac{g_{\phi\phi}}{g_{tt}} 
+\end{align} 
+
+Since there are no restriction to \(B\) we conclude that \(\frac{g_{\phi\phi}}{g_{tt}} < \frac{A^2}{B^2} < \infty\). The value \(\frac{g_{\phi\phi}}{g_{tt}}\) cannot be achieved, however we can get infinitesimal close. Assuming \(\frac{g_{\phi\phi}(\vb{x})}{-g_{tt}(\vb{x})} < \frac{m^2}{\omega_m^2}\) we will therefore always find a trajectory such that \(\frac{A}{B} < \frac{m}{\omega_m}\) and so the conditions for lemma \ref{lemma:killing} are satisfied. If on the other side \(\frac{g_{\phi\phi}(\vb{x})}{-g_{tt}(\vb{x})} \geq \frac{m^2}{\omega_m^2}\) there is no trajectory for lemma \ref{lemma:killing} and no excitations will be detected. QED. \\
+
+This lemma implies that there are circular trajectories on which one will encounter particles as well as all inertial observers in Minkowskispace will see no excitations. There all inertial trajectories are along killing vectors (e.g. take \(\phi = x\)) and \(\frac{g_{xx}}{|g_{tt}|} = 1\), but \(\frac{k_x^2}{\omega^2} \leq 1\). So lemma \ref{lemma:killing_extended} implies no excitations.
