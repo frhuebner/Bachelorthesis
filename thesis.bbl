@@ -17,26 +17,24 @@
 \endgroup
 
 \datalist[entry]{none/global//global/global}
-  \entry{Townsend}{article}{}
+  \entry{davies}{book}{}
     \name{author}{1}{}{%
-      {{hash=TPK}{%
-         family={Townsend},
-         familyi={T\bibinitperiod},
-         given={P.\bibnamedelima K.},
-         giveni={P\bibinitperiod\bibinitdelim K\bibinitperiod},
+      {{hash=BD}{%
+         family={Birrell},
+         familyi={B\bibinitperiod},
+         given={Davies},
+         giveni={D\bibinitperiod},
       }}%
     }
-    \strng{namehash}{TPK1}
-    \strng{fullhash}{TPK1}
+    \list{publisher}{1}{%
+      {Camebridge University Press}%
+    }
+    \strng{namehash}{BD1}
+    \strng{fullhash}{BD1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \verb{eprint}
-    \verb gr-qc/9707012
-    \endverb
-    \field{title}{{Black holes: Lecture notes}}
-    \field{eprinttype}{arXiv}
-    \field{eprintclass}{gr-qc}
-    \field{year}{1997}
+    \field{title}{Quantum fields in curved space}
+    \field{year}{1982}
   \endentry
 
   \entry{krishnan1011.5875}{inproceedings}{}
@@ -66,24 +64,46 @@
     \field{year}{2010}
   \endentry
 
-  \entry{davies}{book}{}
+  \entry{Townsend}{article}{}
     \name{author}{1}{}{%
-      {{hash=BD}{%
-         family={Birrell},
-         familyi={B\bibinitperiod},
-         given={Davies},
-         giveni={D\bibinitperiod},
+      {{hash=TPK}{%
+         family={Townsend},
+         familyi={T\bibinitperiod},
+         given={P.\bibnamedelima K.},
+         giveni={P\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TPK1}
+    \strng{fullhash}{TPK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{eprint}
+    \verb gr-qc/9707012
+    \endverb
+    \field{title}{{Black holes: Lecture notes}}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{gr-qc}
+    \field{year}{1997}
+  \endentry
+
+  \entry{bessels}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=MH}{%
+         family={Murayama},
+         familyi={M\bibinitperiod},
+         given={Hitoshi},
+         giveni={H\bibinitperiod},
       }}%
     }
     \list{publisher}{1}{%
-      {Camebridge University Press}%
+      {University of California, Berkeley}%
     }
-    \strng{namehash}{BD1}
-    \strng{fullhash}{BD1}
+    \strng{namehash}{MH1}
+    \strng{fullhash}{MH1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{title}{Quantum fields in curved space}
-    \field{year}{1982}
+    \field{title}{221B Lecture Notes, Notes on Spherical Bessel Functions}
+    \field{year}{2001}
   \endentry
 \enddatalist
 \endinput

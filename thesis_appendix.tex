@@ -25,9 +25,9 @@ D^+(x,x') &= \cfrac{1}{2 i |\vec{x}-\vec{x}'|}\int_0^\infty \frac{\mathrm{d} \om
 
 Alternatively one can achieve the form by first choosing a coordinate system such that \(\vb{x} = \tilde{t} \partial_0\) (as we will do for the thermal case) and then transforming it back (one has to be very careful with the \(\varepsilon\) here).  
 
-\section{Thermal Wigthmanfunction in Minkowskispace}
+\section{Thermal Wigthman function in Minkowski space}
 \label{sec:app_minwighttherm}
-To calculate the thermal Wightmanfunction we will restrict to the interior of the lightcone (we will only need that). At a specific point choose the following coordinate system: First we will set \(\vb{x}' = 0\) and then choose a coordinate system such that \(\vb{x} = \tilde{t} \partial_0\). Here \(\tilde{t} = \pm \sqrt{-\vb{x}^2}\) with the upper sign for \(t > 0\) and the lower for \(t < 0\). In this coordinate system we can redo the calculation of the Wightmanfunction and achieve
+To calculate the thermal Wightman function we will restrict to the interior of the light cone (we will only need that). At a specific point choose the following coordinate system: First we will set \(\vb{x}' = 0\) and then choose a coordinate system such that \(\vb{x} = \tilde{t} \partial_0\). Here \(\tilde{t} = \pm \sqrt{-\vb{x}^2}\) with the upper sign for \(t > 0\) and the lower for \(t < 0\). In this coordinate system we can redo the calculation of the Wightman function and achieve
 \begin{align}
 D^+(\vb{x},0) = -\frac{1}{4\pi^2} \frac{1}{(\tilde{t} - i\varepsilon)^2}
 \end{align} 
@@ -43,10 +43,8 @@ D^+_\beta(\vb{x},0) &= -\frac{1}{4\pi^2} \sum_{n=-\infty}^\infty \frac{1}{(\tild
 Now go back to the old frame and replace \(\tilde{t} = \pm \sqrt{-\vb{x}^2}\)
 \begin{align}
 D^+_\beta(\vb{x},\vb{x}') &= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\qty(\pm \sqrt{(t-t')^2 - |\va{x}-\va{x}'|^2} - i\varepsilon))}\\
-	&= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{(t-t')^2 - |\va{x}-\va{x}'|^2})}
+	&= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{(t-t'-i\varepsilon)^2 - |\va{x}-\va{x}'|^2})}
 \end{align}
-
-In the last step we set \(\varepsilon \to 0\) to get a closed form. One needs to be careful because the \(\varepsilon\) will move poles in different directions for \(t > 0\) and \(t < 0\). However normally we only have to worry about the pole at zero which will as in the vacuum case will be moved to the upper half\footnote{To show this recall that the pole at zero is due to the pole of the vacuum Wightmanfunction which contributes to sum as \(n = 0\)}. 
 
 \section{The Unruh-Detector}
 \label{sec:app_unruh}
