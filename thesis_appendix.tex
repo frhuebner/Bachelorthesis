@@ -55,19 +55,20 @@ Our treatment of such a detector will follow (Quelle: Birell Davies).
 One describes a detector by a operator \(m(\tau)\) which couples to the field via a interaction term \(c\cdot m(\tau) \phi(x(\tau))\), where \(c\) is small and \(x(\tau)\) is the trajectory of the detector. For \(\tau \to -\infty\) the detector is in the groundstate \(\ket{E_0}\) and the field is in the vacuum state \(\ket{0}\). The detector develops with time according to \(m(\tau) = e^{i H_0 \tau} m(0) e^{-i H_0 \tau}\) with \(H_0 \ket{E} = E\ket{E}\).\\
 We would like to calculate the probability that the detector detects a particle with energy \(E\). Since \(c\) is small one can use first order perturbation theory where the transition amplitude to another state \(\ket{E,\psi}\) at time \(\tau\) is given by
 \begin{align}
-A_{\ket{E_0,0}\to\ket{E,\psi}}(\tau) &= i c \bra{E,\psi} \int_{-\infty}^\tau m(\tau') \phi(x(\tau'))\mathrm{d}\tau'\ket{E_0,0}\\
+Q_{\ket{E_0,0}\to\ket{E,\psi}}(\tau) &= i c \bra{E,\psi} \int_{-\infty}^\tau m(\tau') \phi(x(\tau'))\mathrm{d}\tau'\ket{E_0,0}\\
 	&= i c \bra{E,\psi} \int_{-\infty}^\tau e^{i H_0 \tau'} m(0) e^{-i H_0 \tau'} \phi(x(\tau'))\mathrm{d}\tau'\ket{E_0,0}\\
 	&= i c \bra{\psi} \int_{-\infty}^\tau e^{i E \tau'} \bra{E}m(0)\ket{E_0}  e^{-i E_0 \tau'} \phi(x(\tau'))\mathrm{d}\tau'\ket{0}\\
 	&= i c \bra{E}m(0)\ket{E_0} \int_{-\infty}^\tau e^{i (E-E_0) \tau'} \bra{\psi}\phi(x(\tau'))\ket{0}\mathrm{d}\tau'\\
 \end{align}
 
-The transition probability is \(P_{\ket{E_0,0}\to\ket{E,\psi}}(\tau) = |A_{\ket{E_0,0}\to\ket{E,\psi}}(\tau)|^2\). But since we are only interested in the state of the detector we sum over all field configurations:
+The transition probability is \(P_{\ket{E_0,0}\to\ket{E,\psi}}(\tau) = |Q_{\ket{E_0,0}\to\ket{E,\psi}}(\tau)|^2\). But since we are only interested in the state of the detector we sum over all field configurations:
 \begin{align}
-P_E(\tau) &:= \sum_{i} P_{\ket{E_0,0}\to\ket{E,\psi_i}}(\tau) = \sum_{i}  |A_{\ket{E_0,0}\to\ket{E,\psi}}(\tau)|^2\\
+P_E(\tau) &:= \sum_{i} P_{\ket{E_0,0}\to\ket{E,\psi_i}}(\tau) = \sum_{i}  |Q_{\ket{E_0,0}\to\ket{E,\psi}}(\tau)|^2\\
 		  &= c^2 |\bra{E}m(0)\ket{E_0}|^2 F_{E-E_0}(\tau)\\
-\text{with}\,F_E(\tau) &= \sum_{i}\left|\int_{-\infty}^\tau e^{i (E-E_0) \tau} \bra{\psi_i}\phi(x(\tau'))\ket{0}\mathrm{d}\tau'\right|^2\\
+\text{with}\,F_E(\tau) &= \sum_{i}\left|\int_{-\infty}^\tau e^{i E \tau} \bra{\psi_i}\phi(x(\tau'))\ket{0}\mathrm{d}\tau'\right|^2\\
 	&= \sum_{i} \int_{-\infty}^\tau e^{-i E \tau''} \bra{0}\phi(x(\tau''))\mathrm{d}\tau''\ket{\psi_i}\bra{\psi_i}\int_{-\infty}^\tau e^{i E \tau'} \phi(x(\tau'))\ket{0}\mathrm{d}\tau'\\
-	&= \int_{-\infty}^\tau\mathrm{d}\tau' \int_{-\infty}^\tau \mathrm{d}\tau'' e^{-i E (\tau''-\tau')} \bra{0}\phi(x(\tau'')) \phi(x(\tau'))\ket{0} := \int_{-\infty}^\tau\mathrm{d}\tau' \int_{-\infty}^\tau \mathrm{d}\tau'' e^{-i E (\tau''-\tau')} D^+(x(\tau''), x(\tau'))
+	&= \int_{-\infty}^\tau\mathrm{d}\tau' \int_{-\infty}^\tau \mathrm{d}\tau'' e^{-i E (\tau''-\tau')} \bra{0}\phi(x(\tau'')) \phi(x(\tau'))\ket{0}\\ 
+	&= \int_{-\infty}^\tau\mathrm{d}\tau' \int_{-\infty}^\tau \mathrm{d}\tau'' e^{-i E (\tau''-\tau')} D^+(x(\tau''), x(\tau'))
 \end{align}
 
 There we introduced the Wightman function \(D^+(x,x') = \bra{0}\phi(x) \phi(x')\ket{0}\). The probability splits in a product of two parts. The first one only depends on the model of the detector while the second part only depends on the trajectory. We will therefore interpret the (so called detector response) function \(F_E(\tau)\) as the distribution of energy excitations as been 'seen' by an observer on the trajectory \(x(\tau)\).

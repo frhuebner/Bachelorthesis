@@ -148,7 +148,7 @@ D^+(\vb{x}(\tau), \vb{x}(\tau')) &= \bra*{0}\phi(\vb{x}(\tau))\phi(\vb{x}(\tau')
 	&= \sum_i \frac{1}{2\omega_i} e^{-i\omega_i(\tau - \tau')/\sqrt{a}} A_i(\va{x}_0)A_i^*(\va{x}_0)
 \end{align} 
 
-So \(D^+\) only depends on the difference \(\tau-\tau'\). Therefore we can apply eq. \ref{equ:detector_final}:
+So \(D^+\) only depends on the difference \(\tau-\tau'\). Therefore we can apply eq. \ref{equ:qft_detector_final}:
 \begin{align}
 \dv{F_E}{\tau} &= \int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} D^+(\vb{x}(\tau), \vb{x}(0))\\
 	&= \sum_i \frac{1}{2\omega_i} A_i(\va{x}_0)A_i^*(\va{x}_0) \qty(\int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} e^{-i\omega  \tau/\sqrt{a}})\\
@@ -255,7 +255,7 @@ This will be non zero at least for one energy only if \(\omega_m A - m B < 0\). 
 
 We can now apply this to a circular geodesic in the Schwarzschild metric. Since the metric is spherically symmetric the trajectory is along a killing vector. Also the values of \(\omega\) are continuous from \(0\) to \(\infty\) and are especially independent of \(m\) (this will be derived in the next chapter). This means no matter how big \(\frac{A}{B}\) is we will always find a combination of \(m\) and \(\omega\) that fulfils the second condition. So we have found one explicit example for a geodesic on which particle excitations occur.  
 
-But how does this work with the equivalence principle. This simply resolved by recalling that the equivalence principle only states that it is impossible to distinguish between flat space and curved space using only local measurements. But the calculations above required integration over the whole worldline of the observer. Therefore this is a non local effect and we cannot apply the equivalence principle here. 
+But how does this work with the equivalence principle? This simply resolved by recalling that the equivalence principle only states that it is impossible to distinguish between flat space and curved space using only local measurements. But the calculations above required integration over the whole worldline of the observer. Therefore this is a non local effect and we cannot apply the equivalence principle here. 
 
 We can remove the detailed trajectory dependence in lemma \ref{lemma:killing} by showing a further lemma (for simplicity we will work again in a coordinate system where \(\phi\) is a coordinate.)
 
