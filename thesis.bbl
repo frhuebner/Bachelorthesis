@@ -105,5 +105,42 @@
     \field{title}{221B Lecture Notes, Notes on Spherical Bessel Functions}
     \field{year}{2001}
   \endentry
+
+  \entry{tolman}{article}{}
+    \name{author}{2}{}{%
+      {{hash=TRC}{%
+         family={Tolman},
+         familyi={T\bibinitperiod},
+         given={Richard\bibnamedelima C.},
+         giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=EP}{%
+         family={Ehrenfest},
+         familyi={E\bibinitperiod},
+         given={Paul},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Physical Society}%
+    }
+    \strng{namehash}{TRCEP1}
+    \strng{fullhash}{TRCEP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1103/PhysRev.36.1791
+    \endverb
+    \field{issue}{12}
+    \field{pages}{1791\bibrangedash 1798}
+    \field{title}{Temperature Equilibrium in a Static Gravitational Field}
+    \verb{url}
+    \verb https://link.aps.org/doi/10.1103/PhysRev.36.1791
+    \endverb
+    \field{volume}{36}
+    \field{journaltitle}{Phys. Rev.}
+    \field{year}{1930}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
 \enddatalist
 \endinput

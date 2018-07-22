@@ -24,33 +24,7 @@ u_{i}(t, \va{x}) &= \frac{1}{\sqrt{2\omega_i}}e^{-i\omega_i t} A_i(\va{x})\\
 \sum_k A_k(\va{x}) A_k^*(\va{x}') &= \frac{\sqrt{\beta}}{\sqrt{g}}\delta^3(\va{x}-\va{x}')
 \end{align}
 
-\section{Groundstate of the field}
-As discussed in before it is suitable to define the groundstate as the state of lowest energy on a surface \(t = \mathrm{const.}\)
-
-The momentum and the hamiltonian density are given by
-\begin{align}
-\pi &= \pdv{\mathcal{L}}{\partial_t \phi} = \sqrt{g\beta} \beta^{-1} \partial_t \phi = \frac{\sqrt{g}}{\sqrt{\beta}} \partial_t \phi \\
-\mathcal{H} &= \pi\partial_t \phi - \mathcal{L} = \frac{\sqrt{g}}{\sqrt{\beta}} \partial_t \phi \partial_t \phi - \frac{1}{2} \frac{\sqrt{g}}{\sqrt{\beta}} \partial_t \phi \partial_t \phi + \frac{1}{2}\sqrt{g\beta} g^{ij} \partial_i \phi \partial_j \phi\\
-&= \frac{1}{2}\frac{\sqrt{g}}{\sqrt{\beta}} \partial_t \phi \partial_t \phi + \frac{1}{2}\sqrt{g\beta} g^{ij} \partial_i \phi \partial_j \phi  
-\end{align}
-
-To get the Hamiltonian we need to integrate this over the whole space. Then we can perform a integration by parts and insert the Klein-Gordon-equation:
-\begin{align}
-H &= \int \dd[3]{x} \mathcal{H} = \int \dd[3]{x} \frac{1}{2}\frac{\sqrt{g}}{\sqrt{\beta}} \partial_t \phi \partial_t \phi + \frac{1}{2}\sqrt{g\beta} g^{ij} \partial_i \phi \partial_j \phi\\
-&\overset{\mathrm{PI}}{=} \int \dd[3]{x} \frac{1}{2}\frac{\sqrt{g}}{\sqrt{\beta}} \partial_t \phi \partial_t \phi - \frac{1}{2}\phi \partial_i \sqrt{g\beta} g^{ij} \partial_j \phi\\
-&= \int \dd[3]{x} \frac{1}{2}\frac{\sqrt{g}}{\sqrt{\beta}} \partial_t \phi \partial_t \phi + \frac{1}{2}\phi \partial_t \sqrt{g\beta} g^{tt} \partial_t \phi\\
-&= \int \dd[3]{x} \frac{1}{2}\frac{\sqrt{g}}{\sqrt{\beta}} \partial_t \phi \partial_t \phi - \frac{1}{2} \frac{\sqrt{g}}{\beta} \phi \partial_t \partial_t \phi\\
-&= \frac{1}{2} i (\phi|\partial_t\phi) = \frac{1}{2}(\phi|i\partial_t\phi) 
-\end{align}
-
-Here we used the definition of the scalarproduct. Inserting the definition of \(\phi\) and using the orthogonality of the modes yields
-\begin{align}
-H &= \frac{1}{2}(\phi|i\partial_t\phi) = \frac{1}{2} \sum_{ij} (u_i a_i + u_i^* a_i^\dagger|\omega_j u_j a_j -\omega_j u_j^* a_j^\dagger)\\
-	&= \frac{1}{2} \sum_{i} \omega_i a_i^\dagger a_i + \omega_i a_i a_i^\dagger\\
-:H:	&= \sum_{i} \omega_i a_i^\dagger a_i
-\end{align}
-
-The normal ordering is as always applied to get rid of an infinite offset energy. Written in this way it is clear that the vacuum state corresponding to our modes, i.e. \(a_i\ket*{0} = 0\) is the state with the lowest energy and therefore the groundstate. 
+As mentioned before in section \ref{sec:qft_quantisation} there is a natural choice for the groundstate, namely the vacuum with \(a_i \ket*{0} = 0\).
 
 \section{Properties of the Wightman function}
 
@@ -59,8 +33,6 @@ The Wightman function is given by
 D^+(\vb{x},\vb{x}') = \sum_i \frac{1}{2\omega_i} e^{-i\omega_i (t-t')}A_i(\va{x}) A_i(\va{x}')
 \end{align}
 
-Actually to make this convergent we will replace \(t \to t - i \varepsilon\) and treat \(D^+\) as a distribution\footnote{We will from now on assume that this replacement is enough to make the integral convergent.}. For convenience we will set \(\vb{x}' = 0\). 
-
 A first property of \(D^+\) is obtained by derivating w.r.t \(t\) and then setting \(t = 0\)
 \begin{align}
 i\partial_t \eval{D^+(\vb{x},0)}_{t = 0} &= \frac{1}{2}\sum_i A_i(\va{x}) A_i(\va{x}')\\
@@ -68,13 +40,13 @@ i\partial_t \eval{D^+(\vb{x},0)}_{t = 0} &= \frac{1}{2}\sum_i A_i(\va{x}) A_i(\v
 \end{align}
 
 \subsection{Wightman function in normal coordinates}
-We can choose any coordinate system we like for \(g_{ij}(\va{x})\). It will be useful to have the Wightmanfunction in normal coordinates around a point \(\vb{x}' = 0\) (see appendix \ref{sec:app_normal}):
+We can choose any coordinate system we like for \(g_{ij}(\va{x})\). It will be useful to have the Wightman function in normal coordinates around a point \(\vb{x}' = 0\) (see appendix \ref{sec:app_normal}):
 \begin{align}
 D^+(\vb{x},0) = -\frac{1}{4\pi^2} \frac{1}{a(t-i\varepsilon)^2 - |\va{x}|^2} + \order{x^2}
 \label{equ:static_normal}
 \end{align}
 
-which is basically the same as in Minkowskispace up to a prefactor \(a = \beta(0)\).
+which is basically the same as in Minkowski space up to a prefactor \(a = \beta(0)\).
 
 \subsection{The pole at the origin}
 \label{sec:static_origin}
@@ -95,16 +67,7 @@ where we defined \(\delta\tau = \eval{\dv{\tau_\varepsilon}{\varepsilon}}_{\vare
 
 \(\delta\tau\) has two solutions and therefore the pole will split into two poles. But we know that \(a\dot{t}(0) > 0\) and so will both values of \(\delta\tau\) have positive imaginary part. Recall that \(\delta\tau = \eval{\dv{\tau_\varepsilon}{\varepsilon}}_{\varepsilon = 0}\) and so \(\tau_\varepsilon = \delta\tau \varepsilon + \order{\varepsilon^2}\) which means that for a sufficient small value of \(\varepsilon\) both poles will lie in the upper half of the complex plane.
 
-%\subsection{The influence of the \(\varepsilon\)}
-
-%Please note that the next part will just be a motivation (rather than a proof) that we can assume the Wightmanfunction to behave like a smooth function on our trajectory. Especially we will assume that there is no isolated behaviour (e.g. isolated jumps) since this is unlikely to solve the Klein-Gordon-equation. 
-%\(D^+\) is defined as a distribution in the sense that we replaced the time \(t \to t - i\varepsilon\). This can lead to complicated behaviour of the Wightmanfunction, in fact it can lead to (finite and infinite) jumps of the function. So it is interesting to classify where we can treat \(D^+\) as a smooth function and where we need to consider the \(\varepsilon\) explicitly. We are excluding isolated behaviour so consider a surface where such a jump occurs. However these are unlikely to solve the Klein-Gordon-Equation since then the gradient on the surface will pick up a \(\delta\) (and therefore the Laplacian a \(\delta'\)) which will not add to zero if it is surrounded just by a smooth function. This argument does not apply if the surface is a null surface because the gradient will point into the direction of the surface and therefore will not pick up a \(\delta\).
-
-%Since \(t = t'\) is a cauchysurface this null surface will cross it somewhere\footnote{We will exclude closed timelike curves}. Therefore if the Wightmanfunction does not jump on \(t = t'\) we can assume that there are no such null surfaces at all and we can be describe the Wightmanfunction by a smooth function. However the imaginary part of the Wightmanfunction \(\sim [\phi(\vb{x}),\phi(\vb{x}')]\) jumps near \(\vb{x} = \vb{x}'\) (it is infinite on the lightcone and \(0\) anywhere else). This implies that the jump will continue on the lightcone (one can easily check this in Minkowskispace). 
-
-%Apart from that the function will not So we conclude that the \(\varepsilon\) will only have an effect on lightlike surfaces. Apart from that we will assume the function to be smooth.
-
-\subsection{The pole structure of the Wightman function}
+\subsection{Singularities of the Wightman function}
 \label{sec:static_pole}
 \todo{words missing}
 We know that the Wightman function solves the Klein-Gordon-Equation, i.e.
@@ -115,20 +78,20 @@ We know that the Wightman function solves the Klein-Gordon-Equation, i.e.
 Now again fix \(\vb{x}'\) and define \(A(\vb{x}) = \frac{1}{D^+(\vb{x},\vb{x}')}\).
 \begin{align}
 0 &= \nabla_\mu\nabla^\mu \frac{1}{A}\\
-	&= -\nabla_\mu \frac{\nabla^\mu A}{A^2}\\
-	&= -\frac{A^2 \nabla_\mu \nabla^\mu A - 2 A \nabla_\mu A \nabla^\mu A}{A^4}\\
 	&= -\frac{A \nabla_\mu \nabla^\mu A - 2 \nabla_\mu A \nabla^\mu A}{A^3}\\
 0 &= A \nabla_\mu \nabla^\mu A - 2 \nabla_\mu A \nabla^\mu A\\
 \nabla_\mu A \nabla^\mu A &=\frac{A}{2} \nabla_\mu \nabla^\mu A 
 \end{align}
 
-This must be also the case for points where the Wightman function has a pole, i.e. \(A = 0\). In this case we conclude that at such a point \(\nabla_\mu A \nabla^\mu A = 0\) which means that \(\nabla A\) is a lightlike vector. Poles can now have two different behaviours: either they are an isolated singularity or they are part of a hypersurface on which \(D^+ = \infty\). We will exclude the first type by the following handwaving argument: since \(D^+\) solves the Klein-Gordon-equation with well we don't expect such solutions to create isolated poles. The second type appears for example in Minkowskispace on the light cone. We know that such a hypersurface is given by \(A = 0\) and since \(\nabla A\) is a lightlike vector it is a null hypersurface. Since the \(t = t'\) plane is cauchy this hypersurfaces will it\footnote{We will exclude spacetimes with closed null curves}. So if \(D^+\) stays finite on \(t = t'\) except for \(\vb{x} = \vb{x}'\) (which will be the case for our examples) we can conclude that there will be no singular behaviour of \(D^+\) apart from the lightcone of \(\vb{x}'\). Since observers stay always inside the lightcone this implies that it will not encounter any pole on its trajectory except for \(\vb{x}'\).
+This must be also the case for points where the Wightman function has a pole, i.e. \(A = 0\). Then we conclude \(\nabla_\mu A \nabla^\mu A = 0\) which means that \(\nabla A\) is a lightlike vector. Poles can now have two different behaviours: either they are an isolated singularity or they are part of a hypersurface on which \(D^+ = \infty\). We will exclude the first type by the following handwaving argument: since \(D^+\) solves the Klein-Gordon-equation with well we don't expect such solutions to create isolated poles. The second type appears for example in Minkowski space on the light cone. We know that such a hypersurface is given by \(A = 0\) and since \(\nabla A\) is a lightlike vector it is a null hypersurface. Since the \(t = t'\) plane is Cauchy this hypersurfaces will cross it\footnote{We will exclude spacetimes with closed null curves}. So if \(D^+\) stays finite on \(t = t'\) except for \(\vb{x} = \vb{x}'\) (which will be the case for our examples) we can assume no singular behaviour of \(D^+\) apart from the lightcone of \(\vb{x}'\). Since observers always stay inside the lightcone this implies that it will not encounter any pole on its trajectory except for \(\vb{x}'\).
 
-Note that we can repeat the same argumentation for \(D = 2\mathrm{Im} D^+\). Around the origin \(D\) vanishes except for being  singular on the lightcone. It will therefore remain singular there. Apart from that we know that by causality outside the lightcone, \(iD = [\phi(\vb{x}),\phi(\vb{x'})] = 0\) which implies that there are no more hypersurfaces with \(D = \infty\). So inside the lightcone \(D\) is nonsingular. If we assume that \(D\) is analytically in a region without singularities we can conclude \(D = 0\) inside the lightcone (since this is true in a small region around the origin). So \(D^+\) is a real function inside the lightcone.
+Note that we can repeat the same argumentation for \(D = 2\mathrm{Im} D^+\). Around the origin \(D\) vanishes except for being singular on the lightcone. It will therefore remain singular there. Apart from that we know that by causality outside the lightcone \(iD = [\phi(\vb{x}),\phi(\vb{x'})] = 0\) which implies that there are no more hypersurfaces with \(D = \infty\). So inside the lightcone \(D\) is nonsingular. If we assume that \(D\) is analytically in a region without singularities we can conclude \(D = 0\) inside the lightcone (since this is true in a small region around the origin). So \(D^+\) is a real function inside the lightcone.
 
 With this argumentation (although it is not a proof) we will assume from now on that \(D^+\) is real and finite on all trajectories (except for \(\vb{x} = \vb{x}'\)).    
 
 \section{Observers on Trajectories}
+
+Before considering observers in the Schwarzschild metric it is useful to analyse the behaviour of the Unruh detector in a static spacetime in general.
 
 \subsection{Static observers}
 We will start by showing the following important lemma:
@@ -153,7 +116,7 @@ So \(D^+\) only depends on the difference \(\tau-\tau'\). Therefore we can apply
 	&= \sum_i \frac{1}{2\omega_i} A_i(\va{x}_0)A_i^*(\va{x}_0) \delta\qty(E + \omega/\sqrt{a}) = 0
 \end{align}
 
-The deltafunction is always zero because \(E \leq 0\), \(\omega > 0\), and \(a > 0\)\footnote{Here one can see why it is sensible to exclude \(\omega = 0\) because it would lead to an infinite transition rate to the groundstate \(E = 0\) which is clearly not physical (This is due to the first order perturbation theory).}. So the observer does not detect any particles. QED.
+The deltafunction is always zero because \(E > 0\), \(\omega > 0\), and \(a > 0\)\footnote{Here one can see why it is sensible to exclude \(\omega = 0\) because it would lead to an infinite transition rate to the groundstate \(E = 0\) which is clearly not physical (This is due to the first order perturbation theory).}. So the observer does not detect any particles. QED.
 
 This exact result will be later used to show whether the approximate form of the Wightmanfunction in the Schwarzschild metric is applicable\todo{rewrite}.
 
@@ -171,11 +134,11 @@ Recall that by eq. \ref{equ:qft_detector_partial} the excitation rate is given b
 
 Without loss of generality we can consider the current proper time \(\tau = 0\) and set \(\vb{x}(\tau) = 0\). We will now do a series expansion of the Wightmanfunction around \(\tau' = 0\), i.e.
 \begin{align}
-D^+(x(\tau'), 0) = \frac{a_{-2}}{\tau'^2} + W(\tau')
+D^+(\vb{x}(\tau'), 0) = \frac{a_{-2}}{\tau'^2} + W(\tau')
 \end{align}
 where \(W(\tau')\) is finite at \(\tau' = 0\). We can find \(a_{-2}\) by the following limit
 \begin{align}
-a_{-2} &= \lim_{\tau' \to 0}\tau'^2 \cdot D^+(x(\tau'), 0)\\
+a_{-2} &= \lim_{\tau' \to 0}\tau'^2 \cdot D^+(\vb{x}(\tau'), 0)\\
 	&= - \frac{1}{4\pi^2} \lim_{\tau' \to 0} \frac{\tau'^2}{at(\tau')^2 - |\va{x}(\tau)|^2} + \order{x^2}\\
 	&= - \frac{1}{4\pi^2} \lim_{\tau' \to 0} \frac{\tau'}{a t\dot{t} - \va{x}\dot{\va{x}}}\\
 	&= - \frac{1}{4\pi^2} \frac{1}{a \dot{t}^2 - \dot{\va{x}}^2}\\
@@ -184,25 +147,25 @@ a_{-2} &= \lim_{\tau' \to 0}\tau'^2 \cdot D^+(x(\tau'), 0)\\
 
 Where we have used \(t(0) = \va{x}(0) = 0\) and \(a \dot{t}^2 - \dot{\va{x}}^2 = 1\). Redoing the calculation with the \(\varepsilon\) shifts the pole to the upper half: \(- \frac{1}{4\pi^2 (\tau' - i\varepsilon)^2}\). So the singular part of the Wightmanfunction does neither depend on the specific trajectory nor on the geometry of the spacetime at all. So to calculate this we can take any trajectory we like, for example a static trajectory for which the remaining part vanishes \(W(\tau') = 0\). Since the rate for this trajectory is zero the \(\frac{1}{\tau'^2}\) term will not contribute in general.
 
-This means that instead of integrating over \(D^+(x(\tau'), 0)\) we can equivalently integrate over \(W(\tau') = D^+(x(\tau'), 0) + \frac{1}{4\pi^2 \tau'^2}\) which is well defined. Since we don't expect any singular behaviour of \(W\) we can do the \(\varepsilon \to 0\) limit and therefore drop the \(\varepsilon\).
+This means that instead of integrating over \(D^+(\vb{x}(\tau'), 0)\) we can equivalently integrate over \(W(\tau') = D^+(\vb{x}(\tau'), 0) + \frac{1}{4\pi^2 \tau'^2}\) which is well defined. Since we don't expect any singular behaviour of \(W\) we can do the \(\varepsilon \to 0\) limit and therefore drop the \(\varepsilon\).
 
 \subsubsection{Thermal case}
 
-In a thermal field we can also extract the contribution from an inertial observer to be left with a non singular function. To do this plug the expansion of \(D^+(x(\tau'), 0) = -\frac{1}{4\pi^2 \tau'^2} + W(\tau')\) into the formula \ref{equ:qft_thermal} for \(D_\beta^+\) 
+In a thermal field we can also extract the contribution from an inertial observer to be left with a non singular function. To do this plug the expansion of \(D^+(\vb{x}(\tau'), 0) = -\frac{1}{4\pi^2 \tau'^2} + W(\tau')\) into formula~\eqref{equ:qft_thermal} for \(D_\beta^+\) 
 \begin{align}
-D_\beta^+(t(\tau),x(\tau);0) &= \sum_{n=-\infty}^\infty D^+(t(\tau) - i \beta n,x(\tau);0)\\
-&= \sum_{n=-\infty}^\infty -\frac{1}{4\pi^2 \sqrt(\tau' - i\beta \sqrt{a} n)^2} + \sum_{n=-\infty}^\infty W(\tau(t - i\beta n))\\
+D_\beta^+(t(\tau),\va{x}(\tau);0) &= \sum_{n=-\infty}^\infty D^+(t(\tau) - i \beta n,\va{x}(\tau);0)\\
+&= \sum_{n=-\infty}^\infty -\frac{1}{4\pi^2 (\tau' - i\beta \sqrt{a} n)^2} + \sum_{n=-\infty}^\infty W(\tau(t - i\beta n))\\
 &= -\frac{1}{4\beta^2 a} \frac{1}{\sinh[2](\frac{\pi}{\beta \sqrt{a}} \tau)} + W_\beta(\tau)
 \label{equ:static_thermal_observer_general}
 \end{align}
 
-So the observer will see a thermal spectrum of temperature \(T\ind{static} = \frac{T}{\sqrt{a}}\) (compare with eq. \ref{equ:qft_thermal_inertial}) plus some corrections coming from \(W_\beta(\tau)\). These corrections will vanish for a static observer, be small for slow observers and might become the dominating spectrum for fast observers. The relation \(T\ind{static} = \frac{T}{\sqrt{a}}\) is also known from other analysis of thermal systems in general relativity and is called Tolman relation (Quelle?)\todo{Quelle}. The origin of this effect is the observer dependent time dilation in the spacetime.
+The last equation is obtained by comparing to an inertial observer in Minkowski space (also see \ref{sec:app_minwighttherm}). So the observer will see a thermal spectrum of temperature \(T\ind{static} = \frac{T}{\sqrt{a}}\) (compare with eq. \ref{equ:qft_thermal_inertial}) plus some corrections coming from \(W_\beta(\tau)\). These corrections will vanish for a static observer, be small for slow observers and might become the dominating spectrum for fast observers. The relation \(T\ind{static} = \frac{T}{\sqrt{a}}\) is also known from other analysis of thermal systems in general relativity and is called Tolman relation \cite{tolman}.
 
 \subsection{Equivalence principle?}
 
 The statement of lemma \ref{lemma:static_static} that a static observer does not recognize particles might seem surprising as in many spacetimes a static observer needs to accelerate in order to stay at his position (take the schwarzschild metric for example). As a first guess on could think that by equivalence principle an proper accelerating observer would see a heat bath as given by the unruh effect. This would also imply that a freely falling observer does not detect any particles. In order to show that this assumption is misleading we will first analyse the properties of trajectories on which no particles will be detected in general. To conclude the discussion we will show that on circular geodesics in the Schwarzschildmetric one actually detects something. 
 
-Recall that transition probability (not the rate) for a detector proportional to the square of the following state\todo{link}
+Recall that transition probability (not the rate) for a detector proportional to the square norm of the following state (see \ref{sec:app_unruh})
 \begin{align}
 \ket*{\psi} &= \int_{-\infty}^\tau \dd{\tau'} e^{i E \tau'} \phi(\vb{x}(\tau'))\ket*{0}\\
 	&= \sum_i \frac{1}{\sqrt{2\omega_i}}\int_{-\infty}^\tau \dd{\tau'} e^{i E \tau'} e^{+i\omega_i t(\tau')} A_i(\va{x}(\tau'))^* \ket*{\vb{1}_i}
@@ -217,12 +180,12 @@ have to vanish. If we were not dealing with distributions but rather with functi
 
 \begin{align}
 \forall \tau&: e^{i E \tau} e^{+i\omega_i t(\tau)} A_i(\va{x}(\tau))^* \overset{!}{=} 0\\
-	\Rightarrow & A_i(\va{x}(\tau)) \overset{!}{=} 0
+	\Rightarrow &\,A_i(\va{x}(\tau)) \overset{!}{=} 0
 \end{align}
 
 However this is impossible since the \(A_i\) are supposed to form a complete basis over the full space.
 
-We cannot apply this argument directly since \(D^+\) is a distribution. But apart from the \(-\frac{1}{4\pi^2\tau^2}\) term the Wightmanfunction behaves like a function and therefore the \(W(\tau)\) has to vanish in order to see no excitations. Therefore \(D^+\) evaluated on the trajectory can only be given by \(-\frac{1}{4\pi^2\tau^2}\)\footnote{This is for example the case for inertial trajectories in Minkowskispace}. It is clear that it will be quite hard to figure out a trajectory that satisfies that apart from static trajectories. This argument shows that it is very unlikely that all free falling observers will not recognize any particles.\\
+We cannot apply this argument directly since \(D^+\) is a distribution. But apart from the \(-\frac{1}{4\pi^2\tau^2}\) term the Wightman function behaves like a function and therefore \(W(\tau)\) has to vanish in order to see no excitations. Therefore \(D^+\) evaluated on the trajectory can only be given by \(-\frac{1}{4\pi^2\tau^2}\)\footnote{This is for example the case for inertial trajectories in Minkowski space}. It is clear that it will be quite hard to figure out a trajectory that satisfies that apart from static trajectories. This argument shows that it is very unlikely that all free falling observers will not recognize any particles.\\
 
 We will conclude the argumentation with giving an explicit geodesic on which the detector response function is non zero. To do this we will need the following lemma for observers moving along killing vectors:
 
@@ -231,43 +194,43 @@ In a static spacetime an observer moving with constant velocity \(\dot{\vb{x}} =
 \label{lemma:killing}  
 \end{lemma} 
 
-Proof: Choose a coordinate system \((\phi, y_1, y_2)\) for the spatial metric such that it has a coordinate \(\phi\) with \(\partial_\phi = \vb{k}\). Since \(\partial_\phi\) is killing the metric will not depend on \(\phi\):
+Proof: Choose a coordinate system \((\xi, y_1, y_2)\) for the spatial metric such that it has a coordinate \(\xi\) with \(\partial_\xi = \vb{k}\). Since \(\partial_\xi\) is killing the metric will not depend on \(\xi\):
 \begin{align}
-	[\partial_t, \partial_\phi] = [\partial_t, \nabla_\mu \nabla^\mu] = [\partial_\phi, \nabla_\mu \nabla^\mu] = 0
+	[\partial_t, \partial_\xi] = [\partial_t, \nabla_\mu \nabla^\mu] = [\partial_\xi, \nabla_\mu \nabla^\mu] = 0
 \end{align}
 
 We can therefore simultaneously diagonalize the operators which implies that we can find a complete set of solutions such that
 \begin{align}
-u_{m, i} = \tilde{A}_i(y_1, y_2) e^{-i\omega_m t} \cdot e^{i m \phi}
+u_{m, i} = \tilde{A}_i(y_1, y_2) e^{-i\omega_m t} \cdot e^{i m \xi}
 \end{align}
 
 Note that if \(u_{m,i}\) solves the Klein-Gordon-equation then also \(u_{-m,i}\) is a solution with the same frequency \(\omega_{-m} = \omega_{m}\).
 
 The observer will only see nothing if he will see nothing for \(\tau \to \infty\)\footnote{This is because the transition rate is constant}:
 \begin{align}
-Q_m &\sim \int_{-\infty}^\infty \dd{\tau'} e^{i E \tau'} e^{+i\omega_m t(\tau')} e^{-i m \phi(\tau')} = \int_{-\infty}^\infty \dd{\tau'} e^{i E \tau'} e^{+i\omega_m A\tau'} e^{-i m B \tau'}\\
+Q_m &\sim \int_{-\infty}^\infty \dd{\tau'} e^{i E \tau'} e^{+i\omega_m t(\tau')} e^{-i m \xi(\tau')} = \int_{-\infty}^\infty \dd{\tau'} e^{i E \tau'} e^{+i\omega_m A\tau'} e^{-i m B \tau'}\\
 	&= \delta(E + \omega_m A - m B)
 \end{align}
 
 This will be non zero at least for one energy only if \(\omega_m A - m B < 0\). For \(m B > 0\) we directly find \(\frac{A}{|B|} < \frac{|m|}{\omega_m}\). For \(m B < 0\) we can take the solution with \(-m\) which will give a contribution. QED.\\
 
-We can now apply this to a circular geodesic in the Schwarzschild metric. Since the metric is spherically symmetric the trajectory is along a killing vector. Also the values of \(\omega\) are continuous from \(0\) to \(\infty\) and are especially independent of \(m\) (this will be derived in the next chapter). This means no matter how big \(\frac{A}{B}\) is we will always find a combination of \(m\) and \(\omega\) that fulfils the second condition. So we have found one explicit example for a geodesic on which particle excitations occur.  
+We can now apply this to a circular geodesic in the Schwarzschild metric. Since the metric is spherically symmetric the trajectory is along the killing vector \(\partial_\varphi\). Also the values of \(\omega\) are continuous from \(0\) to \(\infty\) and are especially independent of \(m\) (this will be derived in the next chapter). This means no matter how big \(\frac{A}{B}\) is we will always find a combination of \(m\) and \(\omega\) that fulfils the second condition. So we have found one explicit example for a geodesic on which particle excitations occur.  
 
 But how does this work with the equivalence principle? This simply resolved by recalling that the equivalence principle only states that it is impossible to distinguish between flat space and curved space using only local measurements. But the calculations above required integration over the whole worldline of the observer. Therefore this is a non local effect and we cannot apply the equivalence principle here. 
 
-We can remove the detailed trajectory dependence in lemma \ref{lemma:killing} by showing a further lemma (for simplicity we will work again in a coordinate system where \(\phi\) is a coordinate.)
+We can remove the detailed trajectory dependence in lemma \ref{lemma:killing} by showing a further lemma (for simplicity we will work again in a coordinate system where \(\xi\) is a coordinate.)
 
 \begin{lemma}
-In a static spacetime there exists an observer moving with constant velocity along a spatial killingvector \(\vb{k} = \partial_\phi\) who will see excitations if and only if there exists a spacetime point \(\vb{x}\) and at least one eigenfunction \(u\)\footnote{Again \(u\) is a solution to the Klein-Gordon-equation with \(\omega = \omega_m\)} to \(\vb{k}\) with eigenvalue '\(i m\)' such that \(\frac{g_{\phi\phi}(\vb{x})}{|g_{tt}(\vb{x})|} < \frac{m^2}{\omega_m^2}\). 
+In a static spacetime there exists an observer moving with constant velocity along a spatial killingvector \(\vb{k} = \partial_\xi\) who will see excitations if and only if there exists a spacetime point \(\vb{x}\) and at least one eigenfunction \(u\)\footnote{Again \(u\) is a solution to the Klein-Gordon-equation with \(\omega = \omega_m\)} to \(\vb{k}\) with eigenvalue '\(i m\)' such that \(\frac{g_{\xi\xi}(\vb{x})}{|g_{tt}(\vb{x})|} < \frac{m^2}{\omega_m^2}\). 
 \label{lemma:killing_extended}  
 \end{lemma} 
 
-Proof: We are considering trajectories \(\dot{\vb{x}} = A\partial_t + B\partial_\phi\). The metric in the chosen coordinates will not change during the movement and so \(\dot{\vb{x}}^2 = -1\) implies
+Proof: We are considering trajectories \(\dot{\vb{x}} = A\partial_t + B\partial_\xi\). The metric in the chosen coordinates will not change during the movement and so \(\dot{\vb{x}}^2 = -1\) implies
 \begin{align}
- |g_{tt}| A^2 - g_{\phi\phi} B^2 &= 1\\
- \frac{A^2}{B^2} = \frac{1}{B^2 g_{tt}} + \frac{g_{\phi\phi}}{g_{tt}} 
+ |g_{tt}| A^2 - g_{\xi\xi} B^2 &= 1\\
+ \frac{A^2}{B^2} = \frac{1}{B^2 g_{tt}} + \frac{g_{\xi\xi}}{g_{tt}} 
 \end{align} 
 
-Since there are no restriction to \(B\) we conclude that \(\frac{g_{\phi\phi}}{g_{tt}} < \frac{A^2}{B^2} < \infty\). The value \(\frac{g_{\phi\phi}}{g_{tt}}\) cannot be achieved, however we can get infinitesimal close. Assuming \(\frac{g_{\phi\phi}(\vb{x})}{-g_{tt}(\vb{x})} < \frac{m^2}{\omega_m^2}\) we will therefore always find a trajectory such that \(\frac{A}{B} < \frac{m}{\omega_m}\) and so the conditions for lemma \ref{lemma:killing} are satisfied. If on the other side \(\frac{g_{\phi\phi}(\vb{x})}{-g_{tt}(\vb{x})} \geq \frac{m^2}{\omega_m^2}\) there is no trajectory for lemma \ref{lemma:killing} and no excitations will be detected. QED. \\
+Since there are no restriction to \(B\) we conclude that \(\frac{g_{\xi\xi}}{g_{tt}} < \frac{A^2}{B^2} < \infty\). The value \(\frac{g_{\xi\xi}}{g_{tt}}\) cannot be achieved, however we can get infinitesimal close. Assuming \(\frac{g_{\xi\xi}(\vb{x})}{-g_{tt}(\vb{x})} < \frac{m^2}{\omega_m^2}\) we will therefore always find a trajectory such that \(\frac{A}{B} < \frac{m}{\omega_m}\) and so the conditions for lemma \ref{lemma:killing} are satisfied. If on the other side \(\frac{g_{\xi\xi}(\vb{x})}{-g_{tt}(\vb{x})} \geq \frac{m^2}{\omega_m^2}\) there is no trajectory for lemma \ref{lemma:killing} and no excitations will be detected. QED. \\
 
-This lemma implies that there are circular trajectories on which one will encounter particles as well as all inertial observers in Minkowskispace will see no excitations. There all inertial trajectories are along killing vectors (e.g. take \(\phi = x\)) and \(\frac{g_{xx}}{|g_{tt}|} = 1\), but \(\frac{k_x^2}{\omega^2} \leq 1\). So lemma \ref{lemma:killing_extended} implies no excitations.
+This lemma implies that there are circular trajectories on which one will encounter particles as well as all inertial observers in Minkowskispace will see no excitations. There all inertial trajectories are along killing vectors (e.g. take \(\xi = x\)) and \(\frac{g_{xx}}{|g_{tt}|} = 1\), but \(\frac{k_x^2}{\omega^2} \leq 1\). So lemma \ref{lemma:killing_extended} implies no excitations.

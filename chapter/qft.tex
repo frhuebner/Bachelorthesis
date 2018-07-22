@@ -26,7 +26,7 @@ The scalar product is independent of the choice of \(\Sigma\)\cite{Townsend}. No
 The completeness of the modes implies \((\phi|\psi) = \sum_i (\phi|u_i)(u_i|\psi) - (\phi|u_i^*)(u_i^*|\psi)\).
 
 \section{Quantisation, Bogolyubov Transformations and Vacua}
-
+\label{sec:qft_quantisation}
 We can quantize the field by introducing the canonical commutation relations CCR on a cauchysurface \(\Sigma\) with (future directed) normal vector $S^\mu$\cite{krishnan1011.5875}:
 
 \begin{align}
@@ -123,10 +123,10 @@ The prefactor \(\frac{1}{\sqrt{2 |k|}}\) is required for normalisation \((u_{\va
 
 Since the Minkowskispace is also spherical symmetric one could also choose spherical modes
 \begin{align}
-u_{\omega,l,m}\upd{M} = \frac{\sqrt{\omega}}{\sqrt{\pi}} e^{- i \omega t} j_l(\omega r) Y_l^m(\theta,\phi),
+u_{\omega,l,m}\upd{M} = \frac{\sqrt{\omega}}{\sqrt{\pi}} e^{- i \omega t} j_l(\omega r) Y_l^m(\theta,\varphi),
 \end{align} where \(j_l\) is a spherical Bessel function. The prefactor is again due to normalisation and can be achieved using the completeness relation for spherical Bessels \(\int_0^\infty r^2 \dd{r} j_l(w r) j_l(w' r) = \frac{\pi}{2\omega^2}\delta(\omega - \omega')\)\cite{bessels}. For great distances from the origin one can approximate the Bessels by their asymptotic behaviour \(j_l(x) \overset{x \gg 1}{\to} \frac{\sin(x-l\frac{\pi}{2})}{x}\) \cite{bessels} and achieves:
 \begin{align}
-u_{\omega,l,m}\upd{M} \approx \frac{1}{\sqrt{\pi\omega}} e^{- i \omega t} \frac{\sin(\omega r - l\frac{\pi}{2})}{r} Y_l^m(\theta,\phi)
+u_{\omega,l,m}\upd{M} \approx \frac{1}{\sqrt{\pi\omega}} e^{- i \omega t} \frac{\sin(\omega r - l\frac{\pi}{2})}{r} Y_l^m(\theta,\varphi)
 \label{equ:bessel_asympt}
 \end{align}
 
@@ -144,20 +144,20 @@ Up to the small imaginary number \(i\varepsilon\) this is a real function. This 
 
 Since we will later use spherical modes in order to calculate \(D^+\) in the Schwarzschildmetric it is useful to have an expression for the Wightmanfunction in terms of the spherical modes. This is given by:
 \begin{align}
-D^+(\vb{x},\vb{x}') = \int_0^\infty \frac{\omega \dd{\omega}}{\pi} \sum_{l,m} e^{-i\omega(t-t')} j_l(\omega r) j_l(\omega r')  Y_l^m(\theta,\phi) Y_l^{m*}(\theta',\phi')
+D^+(\vb{x},\vb{x}') = \int_0^\infty \frac{\omega \dd{\omega}}{\pi} \sum_{l,m} e^{-i\omega(t-t')} j_l(\omega r) j_l(\omega r')  Y_l^m(\theta,\varphi) Y_l^{m*}(\theta',\varphi')
 \end{align}
 
 or when using the approximate forms for great \(r\)
 
 \begin{align}
-D^+(\vb{x},\vb{x}') = \int_0^\infty \frac{\dd{\omega}}{\pi\omega} \sum_{l,m} e^{-i\omega(t-t')} \frac{\sin(\omega r - l\frac{\pi}{2})}{r} \frac{\sin(\omega r' - l\frac{\pi}{2})}{r'} Y_l^m(\theta,\phi) Y_l^{m*}(\theta',\phi')
+D^+(\vb{x},\vb{x}') = \int_0^\infty \frac{\dd{\omega}}{\pi\omega} \sum_{l,m} e^{-i\omega(t-t')} \frac{\sin(\omega r - l\frac{\pi}{2})}{r} \frac{\sin(\omega r' - l\frac{\pi}{2})}{r'} Y_l^m(\theta,\varphi) Y_l^{m*}(\theta',\varphi')
 \label{equ:wightman_minkoski_spherical}
 \end{align}
 
 When using the approximate form two main problems occur. They can be seen by expanding \(\sin(\omega r - l\frac{\pi}{2}) = \frac{e^{i\omega r} i^{-l} - e^{-i\omega r} i^{l}}{2i}\).
 \begin{enumerate}
 \item After expanding one has to integrate \( \int_0^\infty \frac{\dd{\omega}}{\omega} e^{i\omega \dots}\). This integral does not converge since the real part has a (logarithmic) divergence. This IR-divergence is due to the fact that the asymptotic approximation is only true for \(r \gg 1/\omega\) and therefore fails for small \(\omega\). The spherical Bessel functions remain finite when approaching \(\omega \to 0\), while in the asymptotic form \(\frac{\cos{\omega\dots}}{\omega}\) diverges.
-\item Instead of integrating over \(\omega\) one could also do the summation over \(l,m\) first. Taking care of the \(i^{\pm l}\) one either has to sum \(\sum_{l,m} Y_l^m(\theta,\phi) Y_l^{m*}(\theta',\phi') \sim \delta(\phi-\phi')\delta(\theta-\theta')\) or \(\sum_{l,m} (-1)^l Y_l^m(\theta,\phi) Y_l^{m*}(\theta',\phi') = \sum_{l,m} Y_l^m(\pi - \theta,\pi + \phi) Y_l^{m*}(\theta',\phi') \sim \delta(\phi-\phi'+\pi)\delta(\theta-\pi+\theta')\) which means that there's only a contribution in two directions namely the direction of the detector and the opposite direction. This is again an artefact of the asymptotic form but in this case it is due to the assumption that \(r\) is big. Since \(D^+(\vb{x},\vb{x}')\) has the same 'spatial size' independent of \(\vb{x}\), moving it far away from the origin will shrink the corresponding solid angle. For \(r\) quite big all contribution will appear only in one direction.  
+\item Instead of integrating over \(\omega\) one could also do the summation over \(l,m\) first. Taking care of the \(i^{\pm l}\) one either has to sum \(\sum_{l,m} Y_l^m(\theta,\varphi) Y_l^{m*}(\theta',\varphi') \sim \delta(\varphi-\varphi')\delta(\theta-\theta')\) or \(\sum_{l,m} (-1)^l Y_l^m(\theta,\varphi) Y_l^{m*}(\theta',\varphi') = \sum_{l,m} Y_l^m(\pi - \theta,\pi + \varphi) Y_l^{m*}(\theta',\varphi') \sim \delta(\varphi-\varphi'+\pi)\delta(\theta-\pi+\theta')\) which means that there's only a contribution in two directions namely the direction of the detector and the opposite direction. This is again an artefact of the asymptotic form but in this case it is due to the assumption that \(r\) is big. Since \(D^+(\vb{x},\vb{x}')\) has the same 'spatial size' independent of \(\vb{x}\), moving it far away from the origin will shrink the corresponding solid angle. For \(r\) quite big all contribution will appear only in one direction.  
 \end{enumerate}
 
 In asymptotic flat spacetimes (as the Schwarzschild metric) one often cannot find exact solutions but rather asymptotic forms of them. Therefore these two effects can (and will in our case) occur when calculating \(D^+\) in such spacetimes. 
@@ -167,7 +167,7 @@ In asymptotic flat spacetimes (as the Schwarzschild metric) one often cannot fin
 We can now calculate the excitation rate for observers in Minkowskispace. Let's start with an steady observer \(t(\tau) = \tau, \va{x}(\tau) = 0\):
 \begin{align}
 D^+(\vb{x}(\tau),\vb{x}(\tau')) = -\frac{1}{4\pi^2}\frac{1}{(\tau-\tau'-i\varepsilon)^2}
-\label{equ:qft_wightman_thermal}
+\label{equ:qft_inertial}
 \end{align}
 
 Clearly \(D^+(\vb{x}(\tau),\vb{x}(\tau'))\) only depends on \(\Delta\tau = \tau-\tau'\). So we can use eq. \eqref{equ:qft_detector_final} to obtain:
@@ -192,7 +192,7 @@ Computing the thermal Wightman function (see appendix \ref{sec:app_minwighttherm
 
 \begin{align}
 D^+_\beta(x,x') &= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{(t-t'-i\varepsilon)^2 - |\va{x}-\va{x}'|^2})}
-\label{equ:qft_thermal_inertial}
+\label{equ:qft_wightman_thermal}
 \end{align} 
 
 and evaluating it on a inertial trajectory, i.e. \(t = \tau, \vec{x} = 0\) leads to the same formula as in eq. \eqref{equ:qft_d_unruh}
