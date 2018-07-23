@@ -3,9 +3,9 @@
 \section{The metric}
 In this thesis we will only use the Schwarzschild-metric to describe stars and black holes (which means that they have no charge and no angular momentum). The metric for an spherical symmetric object with mass \(M\) is given by
 \begin{align}
-\dd s^2 &= -f(r)\dd{t^2} + \frac{1}{f(r)}\dd{r^2} + r^2 \dd{\Omega} &\dd{\Omega} = \dd{\theta^2} + \sin[2](\theta) \dd{\phi^2} 
+\dd s^2 &= -f(r)\dd{t^2} + \frac{1}{f(r)}\dd{r^2} + r^2 \dd{\Omega} &\dd{\Omega} = \dd{\theta^2} + \sin[2](\theta) \dd{\varphi^2} 
 \end{align}
-where \(f(r) = 1-\frac{2M}{r}\). The metric is only valid outside the boundary of the star or for \(r > 2M\). The two vector fields \(\partial_t\) and \(\partial_\phi\) are killing.
+where \(f(r) = 1-\frac{2M}{r}\). The metric is only valid outside the boundary of the star or for \(r > 2M\). The two vector fields \(\partial_t\) and \(\partial_\varphi\) are killing.
 
 \section{The Klein-Gordon-Equation in the Schwarzschild metric}
 
@@ -22,10 +22,10 @@ where \(L^2\) is the usual angular momentum operator.
 
 Since the spacetime is spherical symmetric and has the killing vector field \(\partial_t\) we can do the following ansatz for the modes
 \begin{align}
-u_{\omega l m} = A e^{-i\omega t} \frac{R_{\omega l}}{r}Y_l^m (\theta, \phi)
+u_{\omega l m} = A e^{-i\omega t} \frac{R_{\omega l}}{r}Y_l^m (\theta, \varphi)
 \end{align}
 
-Plugging this into the Klein-Gordon-Equation \(\nabla_\mu\nabla^\mu u_{\omega l m} = 0\) yields to the following equation for \(R_{\omega l}\) (see for example (Birell Davies)):
+Plugging this into the Klein-Gordon-Equation \(\nabla_\mu\nabla^\mu u_{\omega l m} = 0\) yields to the following equation for \(R_{\omega l}\) (see for example \cite{davies}):
 \begin{align}
 \dv[2]{R_{\omega l}}{r_*} + \omega^2 R_{\omega l} -\qty(\frac{l(l+1)}{r^2} + \frac{f'(r)}{r})f(r) R_{\omega l} &= 0\\
 \dv[2]{R_{\omega l}}{r_*} + \omega^2 R_{\omega l} - \order{r^{-2}} R_{\omega l} &= 0
@@ -34,46 +34,46 @@ Plugging this into the Klein-Gordon-Equation \(\nabla_\mu\nabla^\mu u_{\omega l 
 So for \(\omega r \gg l\) one can neglect the \(r\) dependent part. In this case we find the asymptotic solutions
 \begin{align}
 R_{\omega l} &= e^{\pm i \omega r_*}\\
-u_{\omega l m} &=  \frac{A_{\omega l m}}{r} e^{-i\omega t + i\omega r_*} Y_l^m (\theta, \phi) + \frac{B_{\omega l m}}{r} e^{-i\omega t - i\omega r_*} Y_l^m (\theta, \phi)\\
-	&= \frac{A_{\omega l m}}{r} e^{-i\omega u} Y_l^m (\theta, \phi) + \frac{B_{\omega l m}}{r} e^{-i\omega v} Y_l^m (\theta, \phi)
+u_{\omega l m} &=  \frac{A_{\omega l m}}{r} e^{-i\omega t + i\omega r_*} Y_l^m (\theta, \varphi) + \frac{B_{\omega l m}}{r} e^{-i\omega t - i\omega r_*} Y_l^m (\theta, \varphi)\\
+	&= \frac{A_{\omega l m}}{r} e^{-i\omega u} Y_l^m (\theta, \varphi) + \frac{B_{\omega l m}}{r} e^{-i\omega v} Y_l^m (\theta, \varphi)
 \end{align}
 
-Unfortunately we either cannot determine the (quite important) phase between \(A_{\omega l m}\) and \(B_{\omega l m}\) nor can we normalise the modes by integrating over all space. Instead I will impose that very far away from the star (where \(r_* \approx r\)) the field behaves as in Minkowskispace (which means that e.g. all experiments give the same results). This implies that \(D^+(\vb{x},\vb{x}')\) is the same as in Minkowskispace. Comparing with the asymptotic spherical modes in Minkowskispace (see eq. \ref{equ:bessel_asympt}) yields to:
+Unfortunately we either cannot determine the (quite important) phase between \(A_{\omega l m}\) and \(B_{\omega l m}\) nor can we normalise the modes by integrating over all space. Instead I will impose that very far away from the star (where \(r_* \approx r\)) the field behaves as in Minkowskispace (which means that e.g. experiments give the same results). This implies that \(D^+(\vb{x},\vb{x}')\) is the same as in Minkowskispace. Comparing with the asymptotic spherical modes in Minkowskispace (see eq. \eqref{equ:bessel_asympt}) yields to:
 \begin{align}
-u_{\omega l m} &=  \frac{1}{\sqrt{\pi\omega}} e^{-i\omega t} \frac{\sin(\omega r_* - l\frac{\pi}{2})}{r} Y_l^m (\theta, \phi)  = \frac{r_*}{r} u_{\omega l m}\upd{M}(r_*,\theta,\phi)\\
-&= \frac{i^{-l}}{2i\sqrt{\pi\omega}r} e^{-i\omega u} Y_l^m (\theta, \phi) - \frac{i^{l}}{2i\sqrt{\pi\omega}r} e^{-i\omega v} Y_l^m (\theta, \phi)
+u_{\omega l m} &=  \frac{1}{\sqrt{\pi\omega}} e^{-i\omega t} \frac{\sin(\omega r_* - l\frac{\pi}{2})}{r} Y_l^m (\theta, \varphi)  = \frac{r_*}{r} u_{\omega l m}\upd{M}(r_*,\theta,\varphi)\\
+&= \frac{i^{-l}}{2i\sqrt{\pi\omega}r} e^{-i\omega u} Y_l^m (\theta, \varphi) - \frac{i^{l}}{2i\sqrt{\pi\omega}r} e^{-i\omega v} Y_l^m (\theta, \varphi)
 \label{equ:bh_modes}
 \end{align}
 
-\subsection{The Wightman Function}
-The next step would be to calculate the Wightman function \(D^+(\vb{x}, \vb{x}')\). Note that since \(\partial_t\) is a timelike killing vector we define the ground state \(\ket{0}\) by \(a_{\omega l m} \ket{0} = 0\) and use eq. \ref{equ:wightman_modes}.
+\subsection{The Wightman function}
+The next step would be to calculate the Wightman function \(D^+(\vb{x}, \vb{x}')\). Note that since \(\partial_t\) is a timelike killing vector we define the ground state \(\ket*{0}\) by \(a_{\omega l m} \ket*{0} = 0\) and use eq. \ref{equ:wightman_modes}.
 \begin{align}
-D^+(\vb{x}, \vb{x}') = \int_0^\infty \frac{\dd{\omega}}{\pi\omega} \sum_{l,m} e^{-i\omega(t-t')} \frac{\sin(\omega r_* - l\frac{\pi}{2})}{r} \frac{\sin(\omega r_*' - l\frac{\pi}{2})}{r'} Y_l^m(\theta,\phi) Y_l^{m*}(\theta',\phi')
+D^+(\vb{x}, \vb{x}') = \int_0^\infty \frac{\dd{\omega}}{\pi\omega} \sum_{l,m} e^{-i\omega(t-t')} \frac{\sin(\omega r_* - l\frac{\pi}{2})}{r} \frac{\sin(\omega r_*' - l\frac{\pi}{2})}{r'} Y_l^m(\theta,\varphi) Y_l^{m*}(\theta',\varphi')
 \end{align}
 
 Since this integral is nearly the same as in Minkowskispace (see eq. \ref{equ:wightman_minkoski_spherical}) we also encounter the same problems, namely the IR divergence and the fact that it is non-zero only in two directions. This is due to the fact that the approximation \(\omega r \gg l\) breaks down for small \(\omega\) and for large \(l\). Recall that the problems in the non approximate calculation in Minkowskispace didn't occur because the \(j_l(\omega r)\) remain finite at \(\omega \to 0\). In other words the essential feature of the \(j_l(\omega r)\) is that they let all the \(\cos(\omega ...)\) terms in the integral drop to zero for \(\omega \to 0\) instead of \(\cos{0} = 1\) in the approximate case. Therefore we can assume that the same happens for exact solutions around the star.
 
-Unfortunately the exact behaviour for small \(\omega\) is the same as for small \(r\) which will depend on the specific geometry of the star. But the metric of a star is almost flat (since the radius of a star \(R_0\) is much bigger than its Schwarzschildradius \(R_S\)). Therefore we will approximate the global mode by replacing the sine with the spherical bessel function:
+Unfortunately the exact behaviour for small \(\omega\) is the same as for small \(r\) which will depend on the specific geometry of the star. But the metric of a star is almost flat (since the radius of a star \(R_0\) is much bigger than its Schwarzschildradius \(R_S\)). Therefore we will approximate the global mode by replacing the sine with the spherical Bessel function:
 \begin{align}
 u_{\omega l m} &= \frac{\sqrt{\omega}}{\sqrt{\pi}} e^{-i\omega t} \frac{r_*}{r} F(r) j_l(\omega r_*) Y_l^m (\theta, \phi) = \frac{r_*}{r} F(r) u_{\omega l m}\upd{M}(r_*,\theta,\phi)
 \end{align}
 
-We introduced an extra factor \(F(r)\) to correct the \(r\) dependence again. This factor must approach \(1\) at infinity. Because the modes now are the same (up to a prefactor and replacing \(r \to r_*\)) as in Minkowskispace we can find the Wightman function by adjusting the Wightman function of Minkowskispace\todo{link}:
+We introduced an extra factor \(F(r)\) to correct the \(r\) dependence again. This factor must approach \(1\) at infinity. Because the modes now are the same (up to a prefactor and replacing \(r \to r_*\)) as in Minkowski space we can find the Wightman function by adjusting the Wightman function of Minkowski space (see eq. \eqref{equ:qft_inertial})
 \begin{align}
 D^+(\vb{x}, \vb{x}') &= -\frac{1}{4\pi^2}\frac{r_* r_*' F(r) F(r')}{r r'} \frac{1}{(t-t'-i\varepsilon)^2 - |\va{x}_*-\va{x}_*'|^2}\\
 	&=  -\frac{1}{4\pi^2}\frac{r_* r_*' F(r) F(r')}{r r'} \frac{1}{(t-t'-i\varepsilon)^2 - r_*^2 - r_*'^2 + 2r_*r_*' \cos{\alpha}}
 \end{align}
 
-where \(\va{x}_*\) is obtained by replacing \(r \to r_*\) in \(\va{x}\) and \(\alpha\) is the angle between the two vectors. We still have the factor \(F(r)\). This can be fixed because we know the behaviour around \(\vb{x} \approx \vb{x}'\) by eq. \ref{equ:static_normal}. First we know exact that for \(\va{x} = \va{x}'\) it should look like \(-\frac{1}{4\pi^2}\frac{1}{f(r) (t-t')^2}\). This implies \(F(r) = \frac{r}{r_* \sqrt{f(r)}}\). Second for \(t = t'\) the denominator is given by the spatial distance \(|\va{x} - \va{x}'|^2\). The distance between two infinitesimal separated \(r\) and \(r + \dd{r}\) is given by \(|\va{x}(r+\dd{r}) - \va{x}(r)| = \sqrt{g_{rr}} \dd{r} = \frac{\dd{r}}{\sqrt{f(r)}}\). But \(|r_*(r+\dd{r}) - r_*(r)| = \dv{r_*}{r} \dd{r}= \frac{\dd{r}}{f(r)}\). Again we can correct this by setting \(F(r) = \frac{r}{r_* \sqrt{f(r)}}\). Since both independent arguments lead to the same result we conclude that the asymptotic form of the Wightmanfunction is given by:
+where \(\va{x}_*\) is obtained by replacing \(r \to r_*\) in \(\va{x}\) and \(\alpha\) is the angle between the two vectors. We still have the factor \(F(r)\). This can be fixed because we know the behaviour around \(\vb{x} \approx \vb{x}'\) by eq. \eqref{equ:static_normal}. First we know exact that for \(\va{x} = \va{x}'\) it should look like \(-\frac{1}{4\pi^2}\frac{1}{f(r) (t-t')^2}\). This implies \(F(r) = \frac{r}{r_* \sqrt{f(r)}}\). Second for \(t = t'\) the denominator is given by the spatial distance \(|\va{x} - \va{x}'|^2\). The distance between two infinitesimal separated \(r\) and \(r + \dd{r}\) is given by \(|\va{x}(r+\dd{r}) - \va{x}(r)| = \sqrt{g_{rr}} \dd{r} = \frac{\dd{r}}{\sqrt{f(r)}}\). But \(|r_*(r+\dd{r}) - r_*(r)| = \dv{r_*}{r} \dd{r}= \frac{\dd{r}}{f(r)}\). Again we can correct this by setting \(F(r) = \frac{r}{r_* \sqrt{f(r)}}\). Since both independent arguments lead to the same result we conclude that the asymptotic form of the Wightmanfunction is given by:
 \begin{align}
 D^+(\vb{x}, \vb{x}') &= -\frac{1}{4\pi^2 \sqrt{f(r)f(r')}} \frac{1}{(t-t'-i\varepsilon)^2 - |\va{x}_*-\va{x}_*'|^2}\\
 	&=  -\frac{1}{4\pi^2 \sqrt{f(r)f(r')}} \frac{1}{(t-t'-i\varepsilon)^2 - r_*^2 - r_*'^2 + 2r_*r_*' \cos{\alpha}}
 \end{align}
 
-\subsection{The Wightmanfunction after the collapse}
-To calculate the Wightmanfunction after the collapse we will follow the treatment of Hawking (see Appendix \ref{sec:app_hawking}) to find that the expectation value of two operators thereafter is given by the thermal expectation value with \(\beta = 8\pi M\) in the spacetime before the collapse. The corresponding temperature \(T_H = \frac{1}{8\pi M k\ind{B}}\) is called Hawking temperature.
+\subsection{The Wightman function after the collapse}
+To calculate the Wightman function after the collapse we will apply the result of Hawking to find that the expectation value of two operators thereafter is given by the thermal expectation value with \(\beta = 8\pi M\) in the spacetime before the collapse. The corresponding temperature \(T_H = \frac{1}{8\pi M k\ind{B}}\) is called Hawking temperature. \cite{hawking}
 
-Therefore the (vacuum) Wightmanfunction at late times is given by the thermal Wightmanfunction at early (it can be computed analogously to the one in Minkowskispace)
+Therefore the (vacuum) Wightman function at late times is given by the thermal Wightman function at early times (it can be computed analogously to the one in Minkowski space)
 \begin{align}
 D^+_\beta(\vb{x},\vb{x}') &= -\frac{1}{4\beta^2\sqrt{f(r)f(r')}} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{(t-t')^2 - |\va{x}_*-\va{x}_*'|^2})}
 \label{equ:bh_wightman_thermal}
@@ -81,27 +81,27 @@ D^+_\beta(\vb{x},\vb{x}') &= -\frac{1}{4\beta^2\sqrt{f(r)f(r')}} \frac{1}{\sinh[
 
 \section{Observers in the Schwarzschildmetric}
 
-In this section we will finally calculate what an observer will see when moving on static, circular and radial trajectories using the thermal Wightman function. We are not interested in the concrete spectrum but rather in the observed temperature. Apart from the static trajectories we cannot solve this analytically, so we need to use numerical methods (see \todo{link} and ). For a static and circular observer we will also calculate the observed spectrum in the spacetime before the collapse (using the vacuum Wightman function) because we dealt with that before in \todo{link}.\todo{numerical errors}  
+In this section we will finally calculate what an observer will see when moving on static, circular and radial trajectories using the thermal Wightman function. We are not interested in the concrete spectrum but rather in the observed temperature. Apart from the static trajectories we cannot solve this analytically, so we need to use numerical methods (see section \ref{sec:app_num}). For a static and circular observer we will also calculate the observed spectrum in the spacetime before the collapse (using the vacuum Wightman function) because we dealt with that before in section \ref{sec:static_observers}.
 
 \subsection{Static observer}
 \subsubsection{Before the collapse}
-We already know by lemma \ref{lemma:static_static} that a static observer will not see any excitations. We will now show that this is also true when using our approximate form of \(D^+\). A static observer is given by \(t = \frac{\tau}{\sqrt{f(r)}}\) and all other coordinates constant. Inserting this into the Wightmanfunction yields
+We already know by lemma \ref{lemma:static_static} that a static observer will not see any excitations. We will now show that this is also true when using our approximate form of \(D^+\). A static observer is given by \(t = \frac{\tau}{\sqrt{f(r)}}\) and all other coordinates constant. Inserting this into the Wightman function yields
 \begin{align}
 D^+(\vb{x}(\tau), \vb{x}(\tau')) =  -\frac{1}{4\pi^2} \frac{1}{(\tau-\tau'-i\varepsilon)^2}
 \end{align} 
 
-Up to a prefactor this is the same as for an inertial observer in Minkowskispace (see eq. \ref{equ:qft_inertial}). So a static observer indeed does not recognize any particles.
+This is the same as for an inertial observer in Minkowski space (see eq. \ref{equ:qft_inertial}). So a static observer indeed does not recognize any particles.
 
 \subsubsection{After the collapse}
 
-The thermal Wightmanfunction is given by
+The thermal Wightman function is given by
 \begin{align}
 D^+_\beta(\vb{x}(\tau),0) &= -\frac{1}{4\beta^2f(r)} \frac{1}{\sinh[2](\frac{\pi}{\beta\sqrt{f(r)}} \tau)}
 \end{align}
 
-which results in an observed temperature of \(T = f(r)^{-1/2} T\ind{H}\) which agrees with the Tolman effect\todo{link}. So a static observer will see a slightly higher temperature than the Hawking temperature.
+which results in an observed temperature of \(T = f(r)^{-1/2} T\ind{H}\) which agrees with the Tolman effect found in section \ref{sec:static_observers_thermal}. So a static observer will see a slightly higher temperature than the Hawking temperature.
 
-Since we know the exact result we can use this as a benchmark for our method to approximate the temperature. Running this on a static observer \todo{ok?} gives the result depicted in fig. \ref{fig:bh_stat}. It fits with the Tolman relation over all orders of magnitude \todo{genauer?}. The small difference lies within the numerical errors. We can therefore conclude that our method is suitable for determining the temperature\todo{logscale}. 
+Since we know the exact result we can use this as a benchmark for our method to approximate the temperature. Running this on a static observer \todo{ok?} gives the result depicted in fig. \ref{fig:bh_stat}. It fits with the Tolman relation over all orders of magnitude\todo{genauer?}. The small difference lies within the numerical errors\footnote{Note that all error depicted in the errorbars is the estimated numerical error, not errors induced by the approximative Wightman function}. We can therefore conclude that our method is suitable for determining the temperature. 
 
 \begin{figure}[h]
   \centering
@@ -115,13 +115,13 @@ Since we know the exact result we can use this as a benchmark for our method to 
     \includegraphics[width=\textwidth]{cpp/final/stat_tolman.png}
     \caption{Difference to Tolman relation}
   \end{subfigure}
-  \caption{Static observer -- The relative temperature fits with Tolman-relation as shown in a). In b) the Tolman relation was subtracted. It matches with the Tolman relation within the numerical errors. Below the dotted line at \(r = 200M\) the approximation is not suitable.}
+  \caption[Static observer]{Static observer -- The relative temperature fits with Tolman-relation as shown in a). In b) the Tolman relation was subtracted. It matches with the Tolman relation within the numerical errors. Below the dotted line at \(r = 200M\) the approximation is not suitable.}
   \label{fig:bh_stat}
 \end{figure}
  
 \subsection{Circular observer}
 \subsubsection{Before the collapse}
-By Lemma \ref{lemma:killing} we know that a circular observer should see some excitations. Using our approximate form we can now calculate what he will actually measure. A circular observer is given by \(t = a\tau\), \(\phi = B\tau\), \(r = \mathrm{const.}\), \(\theta = \frac{\pi}{2}\)\footnote{Since the spacetime is spherically symmetric we can choose a coordinate system such that \(\theta = \frac{\pi}{2}\) and \(B>0\)}. The geodesic equation and \(\dot{\vb{x}}^2 = 0\) give constrains on the constants
+By Lemma \ref{lemma:killing} we know that a circular observer should see some excitations. Using our approximate form we can now calculate what he will actually measure. A circular observer is given by \(t = a\tau\), \(\varphi = B\tau\), \(r = \mathrm{const.}\), \(\theta = \frac{\pi}{2}\)\footnote{Since the spacetime is spherically symmetric we can choose a coordinate system such that \(\theta = \frac{\pi}{2}\) and \(B>0\)}. The geodesic equation and \(\dot{\vb{x}}^2 = -1\) give constrains on the constants (see for example \cite{carroll})
 \begin{align}
 A^2 &= \frac{r}{r-3M}\\
 B^2 &= \frac{1}{r^2}\frac{M}{r-3M}
@@ -132,21 +132,21 @@ The Wightman function evaluated on the curve is
 D^+(\vb{x}(\tau), \vb{x}(\tau')) &= -\frac{1}{4\pi^2f(r)} \frac{1}{(A(\tau-\tau')-i\varepsilon)^2 - 2r_*^2 (1 - \cos{B(\tau-\tau')})}
 \end{align}
 
-We see that \(D^+\) only depends on \(\tau - \tau'\). So we can use the simplified formular \eqref{equ:qft_detector_final}. For this we need to find the poles in the lower half of \(D^+(\vb{x})(\tau),0\) which means finding the roots of 
+We see that \(D^+\) only depends on \(\tau - \tau'\). So we can use the simplified formular \eqref{equ:qft_detector_final}. For this we need to find the poles in the lower half of \(D^+(\vb{x}(\tau),0)\) which means finding the roots of 
 
 \begin{align}
 0 &= A^2\tau^2 - 2r_*^2 (1 - \cos{B\tau})\\
 0 &= \xi^2 x^2 - 2(1 - \cos{x})
 \end{align}
 \todo{footnote}
-where \(x = B\tau\) and \(\xi = \frac{A}{Br_*}\)\footnote{We exclude the case that \(r_* = 0\) since this corresponds to \(r\approx 1.4 R\ind{S}\) which is not far away from the horizon}. 
-Clearly \(\tau = 0\) is a root (which will lie in the upper half\todo{link}). Apart from that we have to differentiate between two cases\todo{more information}:
+where \(x = B\tau\) and \(\xi = \frac{A}{Br_*}\). 
+Clearly \(\tau = 0\) is a root (which will lie in the upper half\todo{link}). Apart from that we have to differentiate between two cases:
 \begin{itemize}
 \item \(\xi < 1\): In this case there are another two roots on the real axis. The reason is that for \(\xi < 1\) (which is a very fast circular motion) the trajectory hits the Minkowski-lightcone. But we know that this is not possible in the Schwarzschild-spacetime by the argumentation in section \ref{sec:static_pole}. So we assume that this behaviour is due to our approximation and therefore exclude this case\footnote{Note that \(\xi < 1\) for a geodesic can only happen for \(r \lesssim 1.1 R\ind{S}\) which is definitely not far away from the black hole}.
 \item \(\xi > 1\): This case represents slower motions. There are two more (first order) poles at \(\pm i x_0\) of whom one is in the lower half. 
 \end{itemize}
 
-The rate is given by eq. \ref{equ:qft_detector_final}
+The rate is given by eq. \eqref{equ:qft_detector_final}
 \begin{align}
 \dv{F_E}{\tau} &= \int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} D^+(\vb{x}(\tau), \vb{x}(0))\\
 	&= -\frac{1}{4\pi^2f(r)} \int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} \frac{1}{A^2\tau^2 - 2r_*^2 (1 - \cos{B(\tau)})}\\
@@ -160,7 +160,7 @@ So basically a circular observer sees a exponentially falling energy distributio
 \todo{Erklärung nicht thermisch}
 
 \subsubsection{After the collapse}
-An observer on a circular orbit \(t = A \tau\) and \(\phi = B\tau\) has the following thermal Wightman function:
+An observer on a circular orbit \(t = A \tau\) and \(\varphi = B\tau\) has the following thermal Wightman function:
 \begin{align}
 D^+_\beta(\vb{x}(\tau),\vb{x}(0)) &= -\frac{1}{4\beta^2 f(r)} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{A^2\tau^2 - 2 r_*^2 (1-\cos{B\tau})})}
 \end{align}
@@ -170,14 +170,14 @@ This function is problematic because expanding around zero yields:
 D^+_\beta(\vb{x}(\tau),\vb{x}(0)) &= -\frac{1}{4\pi^2 \tau^2} \frac{1}{f(r) A^2 - f(r)r_*^2 B^2} + \order*{\tau^0}\neq -\frac{1}{4\pi^2 \tau^2} + \order*{\tau^0}
 \end{align}
 
-Unfortunately the \(\tau^{-2}\) term has a different prefactor since we are only given \(\dot{\vb{x}}^2 = -f(r) A^2 + r^2 B^2 = -1\). However we know by \todo{link}\todo{erklärung weiter vorne} that for every non approximate Wightman function on a trajectory this prefactor looks like \(-1/4\pi^2\). So this deviation is due to our approximation which is therefore only applicable if \(r^2 \approx f(r)r_*^2\). For \(r > 200 M\) the deviation is smaller than \(10 \%\). We will ignore smaller values of \(r\) for the interpretation of the results. \todo{plot}.
+Unfortunately the \(\tau^{-2}\) term has a different prefactor since we are only given \(\dot{\vb{x}}^2 = -f(r) A^2 + r^2 B^2 = -1\). However we know by \ref{sec:static_observers_thermal} that for every non approximate Wightman function on a trajectory this prefactor looks like \(-1/4\pi^2\). So this deviation is due to our approximation which is therefore only applicable if \(r^2 \approx f(r)r_*^2\). For \(r > 200 M\) the deviation is smaller than \(10 \%\). We will ignore smaller values of \(r\) for the interpretation of the results. \todo{plot}
 
 The main problem with the different prefactor is that the difference with another thermal Wightman function will remain divergent at \(\tau = 0\)\footnote{This difference must not be singular since we would like to integrate it numerically, see eq. \eqref{equ:app_num_formula}}. We can deal with this problem by replacing \(r_*^2\) by \(r^2/f(r)\) in the Wightman function
 \begin{align}
 D^+_\beta(\vb{x}(\tau),\vb{x}(0)) &= -\frac{1}{4\beta^2 f(r)} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{A^2\tau^2 - 2 \frac{r^2}{f(r)} (1-\cos{B\tau})})}
 \end{align}
 
-This is possible because the approximation is only valid when the difference is neglectable. Now we can determine the temperature shift according to \todo{link}. The result is given in fig. \ref{fig:bh_circ}. One can see as long as our approximation is suitable (above the dotted line) the result fits to the Tolman relation. Again the difference between both lies inside the numerical errors.
+This is possible because the approximation is only valid when the difference is neglectable. Now we can determine the temperature shift according to section \ref{sec:app_num}. The result is given in fig. \ref{fig:bh_circ}. One can see as long as our approximation is suitable (above the dotted line) the result fits to the Tolman relation. Again the difference between both lies inside the numerical errors.
 
 \begin{figure}[h]
   \centering
@@ -191,19 +191,19 @@ This is possible because the approximation is only valid when the difference is 
     \includegraphics[width=\textwidth]{cpp/final/circ_tolman.png}
     \caption{Difference to Tolman relation}
   \end{subfigure}
-  \caption{Circular observer -- The relative temperature fits with Tolman-relation as shown in a). In b) the Tolman relation was subtracted. It matches with the Tolman relation within the numerical errors. Below the dotted line at \(r = 200M\) the approximation is not suitable.}
+  \caption[Circular observer]{Circular observer -- The relative temperature fits with Tolman-relation as shown in a). In b) the Tolman relation was subtracted. It matches with the Tolman relation within the numerical errors. Below the dotted line at \(r = 200M\) the approximation is not suitable.}
   \label{fig:bh_circ}
 \end{figure} 
 
 \subsection{Radial observer after the collapse}
 
-We will restrict ourselves to the case of a freely falling observer that is dropped at infinity with zero velocity. This means \(E = f(r) \dot{t} = 1\). The geodesic equation and \(\dot{\vb{x}}^2 = -1\) result in the following trajectory\todo{Quelle!}:
+We will restrict ourselves to the case of a freely falling observer that is dropped at infinity with zero velocity. This means \(E = f(r) \dot{t} = 1\). The geodesic equation and \(\dot{\vb{x}}^2 = -1\) result in the following trajectory \cite{weinstein}:
 \begin{align}
-r(\tau) &= \qty(-\frac{3}{2}\sqrt{2M} \qty(\tau - \tau_0))^\frac{2}{3}
-t(\tau) &= \tau - \tau_0 - 3\tau_0 (\frac{1}{x(\tau)} + \frac{1}{2}\ln \frac{x-1}{x+1})
+r(\tau) &= \qty(-\frac{3}{2}\sqrt{2M} \qty(\tau - \tau_0))^\frac{2}{3}\\
+t(\tau) &= \tau - \tau_0 - 3\tau_0 \qty(\frac{1}{x(\tau)} + \frac{1}{2}\ln \frac{x(\tau)-1}{x(\tau)+1})
 \end{align}   
 
-where \(x(\tau) = -\dot{r} = \qty(1-\frac{\tau}{\tau_0})^{-\frac{1}{3}}\) and \(\tau_0 = \frac{4M}{3}\). This is inserted in the thermal Wightman function \eqref{equ:bh_wightman_thermal} and the measured temperature is determined (see fig. \ref{fig:bh_rad}).
+where \(x(\tau) = -\dot{r} = \qty(1-\frac{\tau}{\tau_0})^{-\frac{1}{3}}\) and \(\tau_0 = \frac{4M}{3}\)\footnote{\(\tau_0\) is chosen such that at \(\tau = 0\) the observer hits the event horizon.}. This is inserted in the thermal Wightman function \eqref{equ:bh_wightman_thermal} and the measured temperature is determined (see fig. \ref{fig:bh_rad}).
 
 \begin{figure}[h]
   \centering
@@ -217,7 +217,7 @@ where \(x(\tau) = -\dot{r} = \qty(1-\frac{\tau}{\tau_0})^{-\frac{1}{3}}\) and \(
     \includegraphics[width=\textwidth]{cpp/final/rad_tolman_error.png}
     \caption{Difference to Tolman relation}
   \end{subfigure}
-  \caption{Radial infalling observer -- The relative temperature fits with Tolman-relation as shown in a). In b) the Tolman relation was subtracted. The difference is outside of the numerical errors even for radii \(r > 200 M\) (dotted vertical line). However the difference has the same order of magnitude of the estimated error caused by approximating the Wightman function (dotted curve).}
+  \caption[Radial infalling observer]{Radial infalling observer -- The relative temperature fits with Tolman-relation as shown in a). In b) the Tolman relation was subtracted. The difference is outside of the numerical errors even for radii \(r > 200 M\) (dotted vertical line). However the difference has the same order of magnitude of the estimated error caused by approximating the Wightman function (dotted curve).}
   \label{fig:bh_rad}
 \end{figure}
 

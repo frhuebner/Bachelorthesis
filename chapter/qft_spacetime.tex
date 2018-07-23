@@ -90,6 +90,7 @@ Note that we can repeat the same argumentation for \(D = 2\mathrm{Im} D^+\). Aro
 With this argumentation (although it is not a proof) we will assume from now on that \(D^+\) is real and finite on all trajectories (except for \(\vb{x} = \vb{x}'\)).    
 
 \section{Observers on Trajectories}
+\label{sec:static_observers}
 
 Before considering observers in the Schwarzschild metric it is useful to analyse the behaviour of the Unruh detector in a static spacetime in general.
 
@@ -150,6 +151,7 @@ Where we have used \(t(0) = \va{x}(0) = 0\) and \(a \dot{t}^2 - \dot{\va{x}}^2 =
 This means that instead of integrating over \(D^+(\vb{x}(\tau'), 0)\) we can equivalently integrate over \(W(\tau') = D^+(\vb{x}(\tau'), 0) + \frac{1}{4\pi^2 \tau'^2}\) which is well defined. Since we don't expect any singular behaviour of \(W\) we can do the \(\varepsilon \to 0\) limit and therefore drop the \(\varepsilon\).
 
 \subsubsection{Thermal case}
+\label{sec:static_observers_thermal}
 
 In a thermal field we can also extract the contribution from an inertial observer to be left with a non singular function. To do this plug the expansion of \(D^+(\vb{x}(\tau'), 0) = -\frac{1}{4\pi^2 \tau'^2} + W(\tau')\) into formula~\eqref{equ:qft_thermal} for \(D_\beta^+\) 
 \begin{align}
@@ -160,6 +162,8 @@ D_\beta^+(t(\tau),\va{x}(\tau);0) &= \sum_{n=-\infty}^\infty D^+(t(\tau) - i \be
 \end{align}
 
 The last equation is obtained by comparing to an inertial observer in Minkowski space (also see \ref{sec:app_minwighttherm}). So the observer will see a thermal spectrum of temperature \(T\ind{static} = \frac{T}{\sqrt{a}}\) (compare with eq. \ref{equ:qft_thermal_inertial}) plus some corrections coming from \(W_\beta(\tau)\). These corrections will vanish for a static observer, be small for slow observers and might become the dominating spectrum for fast observers. The relation \(T\ind{static} = \frac{T}{\sqrt{a}}\) is also known from other analysis of thermal systems in general relativity and is called Tolman relation \cite{tolman}.
+
+Another property of the thermal Wightman function will be important later: Going through similar steps as in the vacuum case one finds that around the origin it looks like \(-\frac{1}{4\pi^2 \tau'^2} + \order*{\tau'^0}\). So again the singularity at \(\tau' = 0\) is trajectory and geometry invariant. 
 
 \subsection{Equivalence principle?}
 

@@ -142,5 +142,77 @@
     \field{year}{1930}
     \warn{\item Invalid format of field 'month'}
   \endentry
+
+  \entry{hawking}{article}{}
+    \name{author}{1}{}{%
+      {{hash=HSW}{%
+         family={Hawking},
+         familyi={H\bibinitperiod},
+         given={S.\bibnamedelima W.},
+         giveni={S\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HSW1}
+    \strng{fullhash}{HSW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/BF02345020
+    \endverb
+    \field{issn}{1432-0916}
+    \field{number}{3}
+    \field{pages}{199\bibrangedash 220}
+    \field{title}{Particle creation by black holes}
+    \verb{url}
+    \verb https://doi.org/10.1007/BF02345020
+    \endverb
+    \field{volume}{43}
+    \field{journaltitle}{Communications in Mathematical Physics}
+    \field{year}{1975}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{carroll}{article}{}
+    \name{author}{1}{}{%
+      {{hash=CSM}{%
+         family={Carroll},
+         familyi={C\bibinitperiod},
+         given={Sean\bibnamedelima M.},
+         giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CSM1}
+    \strng{fullhash}{CSM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{eprint}
+    \verb gr-qc/9712019
+    \endverb
+    \field{title}{{Lecture notes on general relativity}}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{gr-qc}
+    \field{year}{1997}
+  \endentry
+
+  \entry{weinstein}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=WG}{%
+         family={Weinstein},
+         familyi={W\bibinitperiod},
+         given={Gilbert},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Ariel University}%
+    }
+    \strng{namehash}{WG1}
+    \strng{fullhash}{WG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{General Relativity: The geodesics of the Schwarzschild
+  metric}
+    \field{year}{2017}
+  \endentry
 \enddatalist
 \endinput

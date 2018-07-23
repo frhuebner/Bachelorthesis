@@ -1,26 +1,25 @@
 %------------------------------------------------------------------------------
 \chapter{Appendix}
 \label{sec:app}
+\begin{refsection}
 %------------------------------------------------------------------------------
 
 \section{Wightmanfunction in Minkowskispace}
 \label{sec:app_minwightvac}
-\todo{old notation}
-Using eq. \ref{equ:wightman_modes} we can calculate the Wightman function:
+Using eq. \eqref{equ:wightman_modes} we can calculate the Wightman function:
 \begin{align}
-D^+(x,x') &= \int \mathrm{d}^3 k\, u_{\vec{k}}(x) u_{\vec{k}}^*(x')\\
-	&= \int \frac{\mathrm{d}^3 k}{(2\pi)^3}\, \frac{1}{2|k|} e^{- i |k| (t-t') + i \vec{k} (\vec{x}-\vec{x}')}\\
-	&\overset{\omega = |k|}{=} \int_0^\infty \int_{-1}^1 \frac{\omega^2 \mathrm{d} \omega\,\mathrm{d} \cos{\theta}}{(2\pi)^2}\, \cfrac{1}{2\omega} e^{- i \omega (t-t') + i \omega |\vec{x}-\vec{x}'| \cos{\theta}}\\
-	&= \cfrac{1}{2 i |\vec{x}-\vec{x}'|}\int_0^\infty \frac{\mathrm{d} \omega}{(2\pi)^2}\, e^{- i \omega (t-t')} \left(e^{i\omega |\vec{x}-\vec{x}'|} - e^{-i\omega |\vec{x}-\vec{x}'|}\right)\\
+D^+(\vb{x},\vb{x}') &= \int \dd[3]{k} u_{\va{k}}(x) u_{\va{k}}^*(x')\\
+	&= \int \frac{\dd[3]{k}}{(2\pi)^3}\, \frac{1}{2|\va{k}|} e^{- i |\va{k}| (t-t') + i \va{k} (\va{x}-\va{x}')}\\
+	&\overset{\omega = |\va{k}|}{=} \int_0^\infty \int_{-1}^1 \frac{\omega^2 \dd{\omega}\dd{\cos{\theta}}}{(2\pi)^2}\, \cfrac{1}{2\omega} e^{- i \omega (t-t') + i \omega |\va{x}-\va{x}'| \cos{\theta}}\\
+	&= \cfrac{1}{2 i |\va{x}-\va{x}'|}\int_0^\infty \frac{\dd{\omega}}{(2\pi)^2}\, e^{- i \omega (t-t')} \qty(e^{i\omega |\va{x}-\va{x}'|} - e^{-i\omega |\va{x}-\va{x}'|})
 \end{align}
 
-This oscillating integral does not converge. Therefore we will first calculate \(D^+(x,x')\) for complex times by setting \(t \to t - i\varepsilon, \varepsilon > 0\) and then treating \(D^+(x,x')\) as a distribution when setting \(\varepsilon \to 0\).
+This oscillating integral does not converge. Therefore we will first calculate \(D^+(\vb{x},\vb{x}')\) for complex times by setting \(t \to t - i\varepsilon, \varepsilon > 0\) and then treating \(D^+(\vb{x},\vb{x}')\) as a distribution when setting \(\varepsilon \to 0\).
 
 \begin{align}
-D^+(x,x') &= \cfrac{1}{2 i |\vec{x}-\vec{x}'|}\int_0^\infty \frac{\mathrm{d} \omega}{(2\pi)^2}\, e^{- i \omega (t-t' - i\varepsilon - |\vec{x}-\vec{x}'|)} - e^{- i \omega (t-t' - i\varepsilon + |\vec{x}-\vec{x}'|)}\\
-	&= -\cfrac{1}{2 i |\vec{x}-\vec{x}'|}\frac{1}{(2\pi)^2}\left(\frac{i}{t-t' - i\varepsilon - |\vec{x}-\vec{x}'|} - \frac{i}{t-t' - i\varepsilon + |\vec{x}-\vec{x}'|}\right)\\
-	&= -\cfrac{1}{2 |\vec{x}-\vec{x}'|}\frac{1}{(2\pi)^2} \frac{(t-t' - i\varepsilon + |\vec{x}-\vec{x}'|) - (t-t'-i\varepsilon - |\vec{x}-\vec{x}'|)}{(t-t'-i\varepsilon)^2 - |\vec{x}-\vec{x}'|^2}\\
-	&= -\frac{1}{4\pi^2} \frac{1}{(t-t'-i\varepsilon)^2 - |\vec{x}-\vec{x}'|^2}
+D^+(\vb{x},\vb{x}') &= \cfrac{1}{2 i |\va{x}-\va{x}'|}\int_0^\infty \frac{\dd{\omega}}{(2\pi)^2}\, e^{- i \omega (t-t' - i\varepsilon - |\va{x}-\va{x}'|)} - e^{- i \omega (t-t' - i\varepsilon + |\va{x}-\va{x}'|)}\\
+	&= -\cfrac{1}{2 i |\va{x}-\va{x}'|}\frac{1}{(2\pi)^2}\qty(\frac{i}{t-t' - i\varepsilon - |\va{x}-\va{x}'|} - \frac{i}{t-t' - i\varepsilon + |\va{x}-\va{x}'|})\\
+	&= -\frac{1}{4\pi^2} \frac{1}{(t-t'-i\varepsilon)^2 - |\va{x}-\va{x}'|^2}
 \end{align}
 
 Alternatively one can achieve the form by first choosing a coordinate system such that \(\vb{x} = \tilde{t} \partial_0\) (as we will do for the thermal case) and then transforming it back (one has to be very careful with the \(\varepsilon\) here).  
@@ -32,7 +31,7 @@ To calculate the thermal Wightman function we will restrict to the interior of t
 D^+(\vb{x},0) = -\frac{1}{4\pi^2} \frac{1}{(\tilde{t} - i\varepsilon)^2}
 \end{align} 
 
-To find the thermal Wightmanfunction we to replace \(\tilde{t} \to \tilde{t} - i \beta n\)\todo{link} and add all the contributions (note that inside the lightcone \(D^+ = D^{(1)}\))
+To find the thermal Wightmanfunction we to replace \(\tilde{t} \to \tilde{t} - i \beta n\) (see eq. \eqref{equ:qft_thermal}) and add all the contributions (note that inside the lightcone \(D^+ = D^{(1)}\))
 \begin{align}
 D^+_\beta(\vb{x},0) &= -\frac{1}{4\pi^2} \sum_{n=-\infty}^\infty \frac{1}{(\tilde{t} -i\beta n - i\varepsilon)^2}\\
 	&= \frac{1}{4\pi^2\beta^2} \sum_{n=-\infty}^\infty \frac{1}{(- i \frac{\tilde{t}}{\beta} - n - \varepsilon)^2}\\
@@ -40,7 +39,7 @@ D^+_\beta(\vb{x},0) &= -\frac{1}{4\pi^2} \sum_{n=-\infty}^\infty \frac{1}{(\tild
 	&= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}(\tilde{t} - i\varepsilon))}
 \end{align}
 
-Now go back to the old frame and replace \(\tilde{t} = \pm \sqrt{-\vb{x}^2}\)
+Here we used \(\sin[-2](\pi x) = \pi^{-2} \sum_n (x-n)^{-2}\) \cite{davies}. Now go back to the old frame and replace \(\tilde{t} = \pm \sqrt{-\vb{x}^2}\)
 \begin{align}
 D^+_\beta(\vb{x},\vb{x}') &= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\qty(\pm \sqrt{(t-t')^2 - |\va{x}-\va{x}'|^2} - i\varepsilon))}\\
 	&= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{(t-t'-i\varepsilon)^2 - |\va{x}-\va{x}'|^2})}
@@ -49,54 +48,53 @@ D^+_\beta(\vb{x},\vb{x}') &= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\b
 \section{The Unruh-Detector}
 \label{sec:app_unruh}
 \todo{shorten?}
-Our treatment of such a detector will follow (Quelle: Birell Davies).
-One describes a detector by a operator \(m(\tau)\) which couples to the field via a interaction term \(c\cdot m(\tau) \phi(x(\tau))\), where \(c\) is small and \(x(\tau)\) is the trajectory of the detector. For \(\tau \to -\infty\) the detector is in the groundstate \(\ket{E_0}\) and the field is in the vacuum state \(\ket{0}\). The detector develops with time according to \(m(\tau) = e^{i H_0 \tau} m(0) e^{-i H_0 \tau}\) with \(H_0 \ket{E} = E\ket{E}\).\\
-We would like to calculate the probability that the detector detects a particle with energy \(E\). Since \(c\) is small one can use first order perturbation theory where the transition amplitude to another state \(\ket{E,\psi}\) at time \(\tau\) is given by
+Our treatment of such a detector will follow Birrell and Davies \cite{davies}.
+One describes a detector by a operator \(m(\tau)\) which couples to the field via a interaction term \(c\cdot m(\tau) \phi(\vb{x}(\tau))\), where \(c\) is small and \(\vb{x}(\tau)\) is the trajectory of the detector. For \(\tau \to -\infty\) the detector is in the groundstate \(\ket*{E_0}\) and the field is in the vacuum state \(\ket*{0}\). The detector develops with time according to \(m(\tau) = e^{i H_0 \tau} m(0) e^{-i H_0 \tau}\) with \(H_0 \ket*{E} = E\ket*{E}\).
+
+We would like to calculate the probability that the detector detects a particle with energy \(E\). Since \(c\) is small one can use first order perturbation theory where the transition amplitude to another state \(\ket*{E,\psi}\) at time \(\tau\) is given by
 \begin{align}
-Q_{\ket{E_0,0}\to\ket{E,\psi}}(\tau) &= i c \bra{E,\psi} \int_{-\infty}^\tau m(\tau') \phi(x(\tau'))\mathrm{d}\tau'\ket{E_0,0}\\
-	&= i c \bra{E,\psi} \int_{-\infty}^\tau e^{i H_0 \tau'} m(0) e^{-i H_0 \tau'} \phi(x(\tau'))\mathrm{d}\tau'\ket{E_0,0}\\
-	&= i c \bra{\psi} \int_{-\infty}^\tau e^{i E \tau'} \bra{E}m(0)\ket{E_0}  e^{-i E_0 \tau'} \phi(x(\tau'))\mathrm{d}\tau'\ket{0}\\
-	&= i c \bra{E}m(0)\ket{E_0} \int_{-\infty}^\tau e^{i (E-E_0) \tau'} \bra{\psi}\phi(x(\tau'))\ket{0}\mathrm{d}\tau'\\
+Q_{\ket*{E_0,0}\to\ket*{E,\psi}}(\tau) &= i c \bra*{E,\psi} \int_{-\infty}^\tau m(\tau') \phi(\vb{x}(\tau'))\dd{\tau'}\ket*{E_0,0}\\
+	&= i c \bra*{E,\psi} \int_{-\infty}^\tau e^{i H_0 \tau'} m(0) e^{-i H_0 \tau'} \phi(\vb{x}(\tau'))\dd{\tau'}\ket*{E_0,0}\\
+	&= i c \bra*{\psi} \int_{-\infty}^\tau e^{i E \tau'} \bra{E}m(0)\ket{E_0}  e^{-i E_0 \tau'} \phi(\vb{x}(\tau'))\dd{\tau'}\ket*{0}\\
+	&= i c \bra{E}m(0)\ket{E_0} \int_{-\infty}^\tau e^{i (E-E_0) \tau'} \bra*{\psi}\phi(\vb{x}(\tau'))\ket*{0}\dd{\tau'}
 \end{align}
 
 The transition probability is \(P_{\ket{E_0,0}\to\ket{E,\psi}}(\tau) = |Q_{\ket{E_0,0}\to\ket{E,\psi}}(\tau)|^2\). But since we are only interested in the state of the detector we sum over all field configurations:
 \begin{align}
-P_E(\tau) &:= \sum_{i} P_{\ket{E_0,0}\to\ket{E,\psi_i}}(\tau) = \sum_{i}  |Q_{\ket{E_0,0}\to\ket{E,\psi}}(\tau)|^2\\
-		  &= c^2 |\bra{E}m(0)\ket{E_0}|^2 F_{E-E_0}(\tau)\\
-\text{with}\,F_E(\tau) &= \sum_{i}\left|\int_{-\infty}^\tau e^{i E \tau} \bra{\psi_i}\phi(x(\tau'))\ket{0}\mathrm{d}\tau'\right|^2\\
-	&= \sum_{i} \int_{-\infty}^\tau e^{-i E \tau''} \bra{0}\phi(x(\tau''))\mathrm{d}\tau''\ket{\psi_i}\bra{\psi_i}\int_{-\infty}^\tau e^{i E \tau'} \phi(x(\tau'))\ket{0}\mathrm{d}\tau'\\
-	&= \int_{-\infty}^\tau\mathrm{d}\tau' \int_{-\infty}^\tau \mathrm{d}\tau'' e^{-i E (\tau''-\tau')} \bra{0}\phi(x(\tau'')) \phi(x(\tau'))\ket{0}\\ 
-	&= \int_{-\infty}^\tau\mathrm{d}\tau' \int_{-\infty}^\tau \mathrm{d}\tau'' e^{-i E (\tau''-\tau')} D^+(x(\tau''), x(\tau'))
+P_E(\tau) &:= \sum_{i} P_{\ket*{E_0,0}\to\ket*{E,\psi_i}}(\tau) = \sum_{i}  |Q_{\ket*{E_0,0}\to\ket*{E,\psi}}(\tau)|^2\\
+		  &= c^2 |\bra*{E}m(0)\ket*{E_0}|^2 F_{E-E_0}(\tau)\\
+\text{with}\,F_E(\tau) &= \sum_{i}\qty|\int_{-\infty}^\tau e^{i E \tau} \bra*{\psi_i}\phi(\vb{x}(\tau'))\ket*{0}\dd{\tau'}|^2\\
+	&= \sum_{i} \int_{-\infty}^\tau e^{-i E \tau''} \bra*{0}\phi(\vb{x}(\tau''))\dd{\tau''}\ket*{\psi_i}\bra*{\psi_i}\int_{-\infty}^\tau e^{i E \tau'} \phi(\vb{x}(\tau'))\ket*{0}\dd{\tau'}\\
+	&= \int_{-\infty}^\tau\dd{\tau'} \int_{-\infty}^\tau \dd{\tau''} e^{-i E (\tau''-\tau')} \bra*{0}\phi(\vb{x}(\tau'')) \phi(\vb{x}(\tau'))\ket*{0}\\ 
+	&= \int_{-\infty}^\tau\dd{\tau'} \int_{-\infty}^\tau \dd{\tau''} e^{-i E (\tau''-\tau')} D^+(\vb{x}(\tau''), \vb{x}(\tau'))
 \end{align}
 
-There we introduced the Wightman function \(D^+(x,x') = \bra{0}\phi(x) \phi(x')\ket{0}\). The probability splits in a product of two parts. The first one only depends on the model of the detector while the second part only depends on the trajectory. We will therefore interpret the (so called detector response) function \(F_E(\tau)\) as the distribution of energy excitations as been 'seen' by an observer on the trajectory \(x(\tau)\).
+Here we introduced the Wightman function \(D^+(\vb{x},\vb{x}') = \bra*{0}\phi(\vb{x}) \phi(\vb{x}')\ket*{0}\). The probability splits in a product of two parts. The first one only depends on the model of the detector while the second part only depends on the trajectory. We will therefore interpret the (so called detector response) function \(F_E(\tau)\) as the distribution of energy excitations (or particles) as 'seen' by an observer on the trajectory \(\vb{x}(\tau)\).
 
 The transition rate is then given by:
 \begin{align}
-\cfrac{\mathrm{d}F_E(\tau)}{\mathrm{d}\tau} &= \int_{-\infty}^\tau \mathrm{d}\tau'' e^{-i E (\tau''-\tau)} D^+(x(\tau''), x(\tau)) \phi(x(\tau))\ket{0} + \int_{-\infty}^\tau \mathrm{d}\tau' e^{-i E (\tau-\tau')} D^+(x(\tau), x(\tau'))\\
-&= \int_{-\infty}^\tau \mathrm{d}\tau' e^{-i E (\tau'-\tau)} D^+(x(\tau'), x(\tau)) + e^{-i E (\tau-\tau')} D^+(x(\tau), x(\tau'))\\
-&\overset{\tilde{\tau} = \tau'-\tau}{=} \int_{-\infty}^0 \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau)) + e^{i E \tilde{\tau}} D^+(x(\tau), x(\tilde{\tau} + \tau))\\
-&= 2 \mathrm{Re} \int_{-\infty}^0 \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau))
+\dv{F_E}{\tau} &= \int_{-\infty}^\tau \dd{\tau''} e^{-i E (\tau''-\tau)} D^+(\vb{x}(\tau''), \vb{x}(\tau)) + \int_{-\infty}^\tau \dd{\tau'} e^{-i E (\tau-\tau')} D^+(\vb{x}(\tau), \vb{x}(\tau'))\\
+&= 2 \mathrm{Re} \int_{-\infty}^0 \dd{\tilde{\tau}} e^{-i E \tilde{\tau}} D^+(\vb{x}(\tilde{\tau} + \tau), \vb{x}(\tau))
 \end{align}
 
-since \(D^+(x,x')^* = D^+(x',x)\). For the special case that the Wightman function does only depend on the difference of the \(\tau\text{'s}\), i.e. \(D^+(x(\tau_1 + \tau'),x(\tau_2 + \tau')) = D^+(x(\tau_1),x(\tau_2))\) one can simplify this further:
+since \(D^+(\vb{x},\vb{x}')^* = D^+(\vb{x}',\vb{x})\). For the special case that the Wightman function does only depend on the difference of the \(\tau\text{'s}\), i.e. \(D^+(\vb{x}(\tau_1 + \tau'),\vb{x}(\tau_2 + \tau')) = D^+(\vb{x}(\tau_1),\vb{x}(\tau_2))\) one can simplify this further:
 
 \begin{align}
-\cfrac{\mathrm{d}F_E(\tau)}{\mathrm{d}\tau} &=  \int_{-\infty}^0 \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau)) + \int_{0}^\infty \mathrm{d}\tilde{\tau} e^{- i E \tilde{\tau}} D^+(x(\tau), x(\tau - \tilde{\tau}))\\
-&= \int_{-\infty}^0 \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau)) + \int_{0}^\infty \mathrm{d}\tilde{\tau} e^{- i E \tilde{\tau}} D^+(x(\tau  + \tilde{\tau}), x(\tau))\\
-&= \int_{-\infty}^\infty \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau} + \tau), x(\tau)) = \int_{-\infty}^\infty \mathrm{d}\tilde{\tau} e^{-i E \tilde{\tau}} D^+(x(\tilde{\tau}), x(0))
+\dv{F_E}{\tau} &=  \int_{-\infty}^0 \dd{\tilde{\tau}} e^{-i E \tilde{\tau}} D^+(\vb{x}(\tilde{\tau} + \tau), \vb{x}(\tau)) + \int_{0}^\infty \dd{\tilde{\tau}} e^{- i E \tilde{\tau}} D^+(\vb{x}(\tau), \vb{x}(\tau - \tilde{\tau}))\\
+	&= \int_{-\infty}^0 \dd{\tilde{\tau}} e^{-i E \tilde{\tau}} D^+(\vb{x}(\tilde{\tau} + \tau), \vb{x}(\tau)) + \int_{0}^\infty \dd{\tilde{\tau}} e^{- i E \tilde{\tau}} D^+(\vb{x}(\tau  + \tilde{\tau}), \vb{x}(\tau))\\
+	&= \int_{-\infty}^\infty \dd{\tilde{\tau}} e^{-i E \tilde{\tau}} D^+(\vb{x}(\tilde{\tau} + \tau), \vb{x}(\tau)) = \int_{-\infty}^\infty \dd{\tilde{\tau}} e^{-i E \tilde{\tau}} D^+(\vb{x}(\tilde{\tau}), \vb{x}(0))
 \end{align}
 
-The rate is the fouriertransform of the Wightman function and is independent of \(\tau\).
+The rate is the Fourier transform of the Wightman function and is independent of \(\tau\).
 
 \section{Wightman function in normal coordinates}
 \label{sec:app_normal}
-Fix \(\vb{x}' = 0\). The metric in normal coordinates then looks like (Quelle?):
+Fix \(\vb{x}' = 0\). The metric in normal coordinates then looks like \cite{davies}:
 \begin{align}
 g_{ij} &= \delta_{ij} - \frac{1}{3} R_{iajb} x^a x^b + \order{x^3}
 \end{align}
 
-Since the metric is given to the second order we will also expand other quantities\footnote{Note that one can raise and lower indices with \(\delta_{ij}\) if one is neglecting \(\order{x^2}\).}
+Since the metric is given to the second order we will also expand other quantities\footnote{Note that one can raise and lower indices with \(\delta_{ij}\) if one is neglecting \(\order*{x^2}\).}
 
 \begin{align}
 g^{ij} &= \delta^{ij} + \frac{1}{3} R^{i\;j}_{\;a\;b} x^a x^b + \order{x^3}\\
@@ -118,10 +116,11 @@ The Klein-Gordon-equation is given by
 &= \frac{1}{2} \qty(b_i + c_{ik} x^k) \partial_i \phi - \frac{2a}{3} R_{ik} x^k \partial_i \phi + \qty(a + b_k x^k) \partial_i \partial_i \phi + \order{x^2}
 \end{align}
 
-To solve these equations make the ansatz \(\tilde{u}_{\va{k}}(\vb{x}) = \exp(-i\omega t + i k_i x^i + i \frac{1}{2} k_a B^{a}_{ij}\qty(\va{k}) x^i x^j + i\order{x^3})\) and separate the different orders:
+To solve these equations make the ansatz \(\tilde{u}_{\va{k}}(\vb{x}) = \exp(-i\omega t + i k_i x^i + i \frac{1}{2} k_a B^{a}_{ij}(\va{k}) x^i x^j + i\order*{x^3})\) and separate the different orders:
 
 \begin{align}
--\omega^2 &= \frac{1}{2} \qty(b_i + c_{ik} x^k) i \qty(k_i + k_a B^a_{ik} x^k) - \frac{2a}{3} R_{ik} x^k i k_i + \qty(a + b_k x^k) \qty(i k_a B^a_{ii} - \qty(k_i + k_a B^a_{ik} x^k)\qty(k_i + k_b B^b_{il} x^l)) + \order{x^2}\\
+-\omega^2 &= \frac{1}{2} \qty(b_i + c_{ik} x^k) i \qty(k_i + k_a B^a_{ik} x^k) - \frac{2a}{3} R_{ik} x^k i k_i\notag\\
+&\,+ \qty(a + b_k x^k) \qty(i k_a B^a_{ii} - \qty(k_i + k_a B^a_{ik} x^k)\qty(k_i + k_b B^b_{il} x^l)) + \order{x^2}\\
 -\omega^2 &= \frac{1}{2}i b_i k_i + a i k_a B^a_{ii} - a k_ik_i\\
 0 &= ik_a\qty(\frac{1}{2} b_i B^a_{ik} + \frac{1}{2} c_{ak} - \frac{2a}{3} R_{ak} + b_k B^a_{ii}) - 2 a k_i k_a B^a_{ik} - b_k k_i k_i 
 \end{align}
@@ -140,7 +139,7 @@ Next we need to find the right normalisation of the modes. Since we can't integr
    &\overset{!}{=} i \delta^3(\va{x}) = i \int \frac{\dd[3]{k}}{(2\pi)^3} e^{i \va{k}\va{x}}\\
 %   
 [\sqrt{g} \partial_0 \phi(\vb{x}), \sqrt{g} \partial_0 \phi(0)] &= \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{\omega}{2 N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x}) \tilde{u}_{\va{k}}(0)^* - \frac{\omega}{2 N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x})^* \tilde{u}_{\va{k}}(0)  + \order{x^2}\\
-	&= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{\omega}{2 N_{\va{k}}} e^{i \va{k}\va{x} + \order*{x^2}} - \frac{\omega}{2 N_{\va{k}}}e^{-i \va{k}\va{x} + \order*{x^2}} + \order{x^2} \overset{!}{=} 0\\
+	&= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{\omega}{2 N_{\va{k}}} e^{i \va{k}\va{x} + \order*{x^2}} - \frac{\omega}{2 N_{\va{k}}}e^{-i \va{k}\va{x} + \order*{x^2}} + \order{x^2} \overset{!}{=} 0
 \end{align}
 
 Since \(e^{i \va{k}\va{x}}\) is a basis we find:
@@ -156,50 +155,51 @@ u_{\va{k}} &= \frac{1}{\sqrt{2\pi}^3 \sqrt{2\omega}} e^{-i\omega t + i\va{k}\va{
 	&= \frac{1}{\sqrt{2\pi}^3 \sqrt{2\omega}} e^{-i\omega t + i\va{k}\va{x}} \qty(1 + \order{x^2})
 \end{align}
 
-So up to linear order we achieve the plane wave modes as in Minkowskispace. Therefore the Wightman function is also the equivalent and given by
+So up to linear order we achieve the plane wave modes as in Minkowski space. Therefore the Wightman function is also the equivalent and given by
 \begin{align}
 D^+(\vb{x},0) = - \frac{1}{4\pi^2} \frac{1}{a(t-i\varepsilon)^2 - |\va{x}|^2} + \order{x^2}
 \end{align}
 
 \section{Determination of the temperature}
-In chapter \ref{sec:bh} we need to find the temperature that an observer will see on the basis of the energy spectrum. The energy spectrum is basically given by a fourierlike transform of \(D^+\) evaluated along the curve (see eq. \eqref{equ:qft_detector_partial} and \eqref{equ:qft_detector_final}). 
+\label{sec:app_num}
+In chapter \ref{sec:bh} we need to find the temperature that an observer will see on the basis of the energy spectrum. The energy spectrum is basically given by a Fourier-like transform of \(D^+\) evaluated along the curve (see eq. \eqref{equ:qft_detector_partial} and \eqref{equ:qft_detector_final}). 
 \subsection{Idea}
 Imaging an observer equipped with an Unruh-detector on a trajectory in the Schwarzschild metric. By eq. \eqref{equ:static_thermal_observer_general} he expects some thermal spectrum together with some corrections. These corrections could either shift the observed temperature or could be part of the non thermal spectrum. However he won't be able to distinguish which part of the spectrum is thermal or not. So to determine the temperature he will fit a thermal spectrum into the observed spectrum, i.e. find a value \(\beta\) such that the following minimizes: 
 \begin{align}
 \int_0^\infty \dd{E} \qty(\dv{F_E}{\tau} - \frac{1}{2\pi} \frac{E}{e^{\beta E}-1})^2 \to \mathrm{min}
 \end{align}
 
-We will use this measurement process to define the temperature observed \todo{understandable} on a trajectory. To minimize this we don't need to calculate the spectrum first, we can equivalently directly minimize the difference of \(D^+\) and the thermal Wightmanfunction in Minkowskispace
+We will use this measurement process to define the temperature observed \todo{understandable} on a trajectory. To minimize this we don't need to calculate the spectrum first, we can equivalently directly minimize the difference of \(D^+\) and the thermal Wightman function in Minkowski space
 
 \begin{align}
-D_\beta\upd{M}(x(\tau + \tau'), x(\tau)) = -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta} \tau')}
+D_\beta\upd{M}(\tau') = -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta} \tau')}
 \end{align}
 
 corresponding to \(\beta\)\footnote{This is due to the Plancherel theorem which states that the integral over the square of a function equals the integral over the square of its Fourier transform.}:
 
 \begin{align}
-\int_{-\infty}^0 \dd{\tau'} \qty(D^+(x(\tau + \tau'), x(\tau)) - D_\beta\upd{M}(x(\tau + \tau'), x(\tau)))^2 \to \mathrm{min}
+\int_{-\infty}^0 \dd{\tau'} \qty(D^+(\vb{x}(\tau + \tau'), \vb{x}(\tau)) - D_\beta\upd{M}(\tau'))^2 \to \mathrm{min}
 \end{align} 
 
-We expect the temperature shift to be small compared to the Hawking temperature \(\beta\ind{H} = 8\pi M\) (and indeed this will be the case). So we can do a Taylor expansion of the thermal Wightman function around \(\beta\ind{H}\)\footnote{Note that we are expanding around the fixed Hawking temperature and not around the position dependent Tolman temperature \(\beta\ind{static} = \sqrt{f(r)}\beta\ind{H}\). This is useful to compare the observed temperatures.} Expansion yields to
+We expect the temperature shift to be small compared to the Hawking temperature \(\beta\ind{H} = 8\pi M\) (and indeed this will be the case). So we can do a Taylor expansion of the thermal Wightman function around \(\beta\ind{H}\)\footnote{Note that we are expanding around the fixed Hawking temperature and not around the position dependent Tolman temperature \(\beta\ind{static} = \sqrt{f(r)}\beta\ind{H}\). This is useful to compare the observed temperatures.} This yields to
 
 \begin{align}
-D_\beta\upd{M}(x(\tau + \tau'), x(\tau)) &\approx D_{\beta\ind{H}}\upd{M}(x(\tau + \tau'), x(\tau)) + \frac{\Delta\beta}{\beta\ind{H}} \frac{\sinh(\frac{\pi}{\beta\ind{H}} \tau') - \frac{\pi}{\beta\ind{H}} \tau' \cosh(\frac{\pi}{\beta\ind{H}} \tau')}{2\beta\ind{H}^2 \sinh[3](\frac{\pi}{\beta\ind{H}} \tau')} \\
-	&=: D_{\beta\ind{H}}\upd{M}(x(\tau + \tau'), x(\tau)) + \alpha g(\tau')
+D_\beta\upd{M}(\tau') &\approx D_{\beta\ind{H}}\upd{M}(\tau') + \frac{\Delta\beta}{\beta\ind{H}} \frac{\sinh(\frac{\pi}{\beta\ind{H}} \tau') - \frac{\pi}{\beta\ind{H}} \tau' \cosh(\frac{\pi}{\beta\ind{H}} \tau')}{2\beta\ind{H}^2 \sinh[3](\frac{\pi}{\beta\ind{H}} \tau')} \\
+	&=: D_{\beta\ind{H}}\upd{M}(\tau') + \alpha g(\tau')
 \end{align}
 
-When actually calculating we will use dimensionless variables so it is more useful to compute \(\alpha = \frac{\Delta\beta}{\beta\ind{H}} = \frac{\beta - \beta\ind{H}}{\beta\ind{H}}\) rather than \(\Delta\beta\)\todo{remove?}. Using this expansion we can easily find the minimum by differentiating w.r.t. \(\alpha\):
+We would like to compute \(\alpha = \frac{\Delta\beta}{\beta\ind{H}} = \frac{\beta - \beta\ind{H}}{\beta\ind{H}}\). This is easily done because we can find the minimum by differentiating w.r.t. \(\alpha\):
 \begin{align}
-\int_{-\infty}^0 &\dd{\tau'} \qty(D^+(x(\tau + \tau'), x(\tau)) - D_{\beta\ind{H}}\upd{M}(x(\tau + \tau'), x(\tau)) - \alpha g(\tau'))^2 \to \mathrm{min}\\
-\alpha &= \frac{\int_{-\infty}^0 \dd{\tau'} \qty(D^+(x(\tau + \tau'), x(\tau)) - D_{\beta\ind{H}}\upd{M}(x(\tau + \tau'), x(\tau)))\cdot g(\tau')}{\int_{-\infty}^0 \dd{\tau'} g(\tau')^2}\\
+\int_{-\infty}^0 &\dd{\tau'} \qty(D^+(\vb{x}(\tau + \tau'), \vb{x}(\tau)) - D_{\beta\ind{H}}\upd{M}(\tau') - \alpha g(\tau'))^2 \to \mathrm{min}\\
+\alpha &= \frac{\int_{-\infty}^0 \dd{\tau'} \qty(D^+(\vb{x}(\tau + \tau'), \vb{x}(\tau)) - D_{\beta\ind{H}}\upd{M}(\tau'))\cdot g(\tau')}{\int_{-\infty}^0 \dd{\tau'} g(\tau')^2}\\
 	&=: \frac{\int_{-\infty}^0 \dd{\tau'} h(\tau')\cdot g(\tau')}{\int_{-\infty}^0 \dd{\tau'} g(\tau')^2}
 \label{equ:app_num_formula}
 \end{align}
 
 The integral over \(g^2\) can be calculated ones and yields \(I_g = \int_{-\infty}^0 \dd{\tau'} g(\tau')^2 = \frac{15 - \pi^2}{92160 \pi^4} M^{-3} \approx 5.7149\cdot 10^{-7} M^{-3}\)\todo{explain?}. In the diagrams we will not plot \(\alpha\) but rather \(-\alpha = \Delta T/T\ind{H}\).
 
-\subsection{Technicalities}
-The other integral \(I = \int_{-\infty}^0 \dd{\tau'} h(\tau')g(\tau')\) is evaluated numerically (over a finite range \((\tau_1,\tau_2)\)) using \todo{method}\footnote{Note that all \(\tau\) are negative.}. Therefore we need to estimate the errors.
+\subsection{Error estimation}
+The other integral \(I = \int_{-\infty}^0 \dd{\tau'} h(\tau')g(\tau')\) is evaluated numerically using the trapezoidal rule (see for example \cite{ron}). Since we cannot integrate the infinite range \((-\infty,0)\) with this method we will integrate over a finite range \((\tau_1,\tau_2)\)\footnote{Note that all \(\tau\) are negative.}. In order to get a meaningful result we need to estimate the errors. There are basically 3 sources of errors: the lower and upper integration limit and the error by the method itself.
 
 For big absolute values of \(\tau'\) we can replace the \(\sinh\) and \(\cosh\) in \(g\) by an exponential function:
 \begin{align}
@@ -214,18 +214,18 @@ Integrating this from \(-\infty\) to \(\tau_1\) yields\todo{check}:
 &\approx \frac{\beta\ind{H}}{2\pi} g(\tau_1)
 \end{align}
 
-Since \(h\)\todo{erklaerung?} will drop to zero we can assume an upper bound of the error for sufficiently small \(\tau_1\) by
+Since \(h\) will drop to zero we can assume an upper bound of the error for sufficiently small \(\tau_1\) by
 
 \begin{align}
 \Delta I_1 \approx \frac{\beta\ind{H}}{2\pi} |g(\tau_1)h(\tau_1)| 
 \end{align}
 
-Another error arises from the fact\todo{anders?} that around zero \(h\) is the (finite) difference of two divergent functions. Evaluating the function is therefore afflicted with increasing numerical errors when approaching zero. Since we cannot control those errors we will stop integrating at \(\tau_2 \lesssim 0\). When we assume that the function is nearly constant on the small interval we can add the missing contribution \(g(\tau_2)h(\tau_2)\cdot |\tau_2|\). However this will lead to an error which we estimate generously by the expected amount of the contribution:
+Another error arises from the fact\todo{anders?} that around zero \(h\) is the (finite) difference of two divergent functions. Evaluating the function is therefore afflicted with increasing sampling errors when approaching zero. Since we cannot control those errors we will stop integrating at \(\tau_2 \lesssim 0\). When we assume that the function is nearly constant on the small interval we can add the missing contribution \(g(\tau_2)h(\tau_2)\cdot |\tau_2|\). However this will lead to an error which we estimate generously by the expected amount of the contribution:
 \begin{align}
 \Delta I_2 \approx |g(\tau_2)h(\tau_2) \tau_2| \approx |g(0)h(0) \tau_2|
 \end{align}
 
-The last contribution comes from the error of the method used. For the trapezoidal method \todo{Quelle!!!} this error is given by (\(\Delta\tau\) is the stepwidth)
+The last contribution comes from the error of the method used. For the trapezoidal method this error is given by (\(\Delta\tau\) is the stepwidth)\cite{ron}
 \begin{align}
 \Delta I\ind{trapez} = \frac{\Delta\tau^2}{12} (\tau_2-\tau_1) |(h\cdot g)''(\chi)| 
 \end{align}
@@ -260,20 +260,22 @@ Apart from the \(\tau_2\) we can minimize the errors by choosing sufficient valu
 \end{align} 
 we can also neglect \(\Delta I_1\). So the dominant error contribution will come from \(\Delta I_2 = |g(0) h(0) \tau_2|\). This error is -- as the value -- divided by \(I_g\) to achieve the error on \(\alpha\) which is then given in the diagrams as errorbars.
 
-For computing those diagrams the parameters in tab. \ref{tab:app_num_params} were used. \todo{value in table}
+For computing those diagrams the parameters in tab. \ref{tab:app_num_params} were used. One can easily check that they fulfil relations \eqref{equ:app_num_cond_1} - \eqref{equ:app_num_cond_2}. It was necessary to adjust \(\tau_2\) for circular observers because the numerical errors increased with increasing \(r\). For the other observers \(g\cdot h\) became thinner with increasing \(r\) till the sampling errors dominated. Therefore it was not possible to use this algorithm for arbitrary high radii.
 \begin{table}
 \centering
-\caption{Parameters used for numerical integration: integration from \(\tau_1\) to \(\tau_2\) using \(\Delta\tau\) as stepwidth.}
+\caption[Integration parameters]{Parameters used for numerical integration: integration from \(\tau_1\) to \(\tau_2\) using \(\Delta\tau\) as stepwidth.}
 \label{tab:app_num_params}
 \begin{tabular}{cccc}
 \toprule
 Observer & \(\tau_1[M]\) & \(\tau_2[M]\) & \(\Delta\tau[M]\)\\
 \midrule
 static & \(-40\) & \(-0.1\) &  \(0.0001\)\\
-circular & \(-40\) &  &  \(0.0001\)\\
+circular & \(-40\) & \(-(\log_2(r)/10)^2\) &  \(0.0001\)\\
 radial & \(-40\) & \(-0.1\) &  \(0.0001\)\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-One can easily check that they fulfil relations \eqref{equ:app_num_cond_1} - \eqref{equ:app_num_cond_2}.
+\printbibliography[heading=subbibliography]
+
+\end{refsection}
