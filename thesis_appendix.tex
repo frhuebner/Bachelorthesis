@@ -22,7 +22,7 @@ D^+(\vb{x},\vb{x}') &= \cfrac{1}{2 i |\va{x}-\va{x}'|}\int_0^\infty \frac{\dd{\o
 	&= -\frac{1}{4\pi^2} \frac{1}{(t-t'-i\varepsilon)^2 - |\va{x}-\va{x}'|^2}
 \end{align}
 
-Alternatively one can achieve the form by first choosing a coordinate system such that \(\vb{x} = \tilde{t} \partial_0\) (as we will do for the thermal case) and then transforming it back (one has to be very careful with the \(\varepsilon\) here).  
+Alternatively one can achieve the form by first choosing a coordinate system such that \(\vb{x} = \tilde{t} \partial_0\) (as we will do for the thermal case) and then transforming it back (one has to be very careful with the \(\varepsilon\) here). \cite{davies} 
 
 \section{Thermal Wigthman function in Minkowski space}
 \label{sec:app_minwighttherm}
@@ -42,7 +42,7 @@ D^+_\beta(\vb{x},0) &= -\frac{1}{4\pi^2} \sum_{n=-\infty}^\infty \frac{1}{(\tild
 Here we used \(\sin[-2](\pi x) = \pi^{-2} \sum_n (x-n)^{-2}\) \cite{davies}. Now go back to the old frame and replace \(\tilde{t} = \pm \sqrt{-\vb{x}^2}\)
 \begin{align}
 D^+_\beta(\vb{x},\vb{x}') &= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\qty(\pm \sqrt{(t-t')^2 - |\va{x}-\va{x}'|^2} - i\varepsilon))}\\
-	&= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{(t-t'-i\varepsilon)^2 - |\va{x}-\va{x}'|^2})}
+	&= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{(t-t'-i\varepsilon)^2 - |\va{x}-\va{x}'|^2})}. \text{\cite{davies}}
 \end{align}
 
 \section{The Unruh-Detector}
@@ -85,7 +85,7 @@ since \(D^+(\vb{x},\vb{x}')^* = D^+(\vb{x}',\vb{x})\). For the special case that
 	&= \int_{-\infty}^\infty \dd{\tilde{\tau}} e^{-i E \tilde{\tau}} D^+(\vb{x}(\tilde{\tau} + \tau), \vb{x}(\tau)) = \int_{-\infty}^\infty \dd{\tilde{\tau}} e^{-i E \tilde{\tau}} D^+(\vb{x}(\tilde{\tau}), \vb{x}(0))
 \end{align}
 
-The rate is the Fourier transform of the Wightman function and is independent of \(\tau\).
+The rate is the Fourier transform of the Wightman function and is independent of \(\tau\).\cite{davies}
 
 \section{Wightman function in normal coordinates}
 \label{sec:app_normal}
@@ -95,7 +95,6 @@ g_{ij} &= \delta_{ij} - \frac{1}{3} R_{iajb} x^a x^b + \order{x^3}
 \end{align}
 
 Since the metric is given to the second order we will also expand other quantities\footnote{Note that one can raise and lower indices with \(\delta_{ij}\) if one is neglecting \(\order*{x^2}\).}
-
 \begin{align}
 g^{ij} &= \delta^{ij} + \frac{1}{3} R^{i\;j}_{\;a\;b} x^a x^b + \order{x^3}\\
 \partial_i g^{ij} &= -\frac{1}{3} R^j_{\;i} x^i + \order{x^2} = -\frac{1}{3} R_{ji} x^i + \order{x^2}\\
@@ -233,9 +232,10 @@ The last contribution comes from the error of the method used. For the trapezoid
 where \(\chi\) is some value in the interval \((\tau_1,\tau_2)\). Since the \(h\cdot g\) will asymptotically drop to zero at least exponentially the second derivative will also drop. We are therefore interested in the curvature nearby \(\chi \approx \tau_2 \approx 0\). In fact we will use the second derivative at zero to estimate the error:
 \begin{align}
 \Delta I\ind{trapez} \approx \frac{\Delta\tau^2}{12} (\tau_2-\tau_1) |(h\cdot g)''(0)|
+\label{equ:app_num_dtrapez}
 \end{align}
 
-Recall that we minimized \(\int (h - \alpha g)^2\) and therefore expect \(h \approx \alpha g\). So \((h\cdot g)''(0) \approx (\alpha g^2)''(0)\) that inserting the definition yields to\todo{check}
+Recall that we minimized \(\int (h - \alpha g)^2\) and therefore expect \(h \approx \alpha g\). So \((h\cdot g)''(0) \approx (\alpha g^2)''(0)\) that inserting into \eqref{equ:app_num_formula} yields\todo{check}
 \begin{align}
 \Delta I\ind{trapez} \approx \alpha \frac{\Delta\tau^2}{12} (\tau_2-\tau_1) \frac{2 \pi^2}{45 \beta^6}
 \end{align} 

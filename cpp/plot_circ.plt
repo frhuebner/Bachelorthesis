@@ -29,4 +29,3 @@ set logscale x
 set output "data_circ_1907_tolman.png"
 plot "data_circ_1907.txt" u 1:(-(-($2)+(sqrt(1-2/($1))-1))):(abs($3)) w yerrorbars title "circular - tolman" pt 1 lt rgb "black"
 	
-	
