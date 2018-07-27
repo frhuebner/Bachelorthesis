@@ -17,6 +17,57 @@
 \endgroup
 
 \datalist[entry]{none/global//global/global}
+  \entry{hawking}{article}{}
+    \name{author}{1}{}{%
+      {{hash=HSW}{%
+         family={Hawking},
+         familyi={H\bibinitperiod},
+         given={S.\bibnamedelima W.},
+         giveni={S\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HSW1}
+    \strng{fullhash}{HSW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/BF02345020
+    \endverb
+    \field{issn}{1432-0916}
+    \field{number}{3}
+    \field{pages}{199\bibrangedash 220}
+    \field{title}{Particle creation by black holes}
+    \verb{url}
+    \verb https://doi.org/10.1007/BF02345020
+    \endverb
+    \field{volume}{43}
+    \field{journaltitle}{Communications in Mathematical Physics}
+    \field{year}{1975}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{Townsend}{article}{}
+    \name{author}{1}{}{%
+      {{hash=TPK}{%
+         family={Townsend},
+         familyi={T\bibinitperiod},
+         given={P.\bibnamedelima K.},
+         giveni={P\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TPK1}
+    \strng{fullhash}{TPK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{eprint}
+    \verb gr-qc/9707012
+    \endverb
+    \field{title}{{Black holes: Lecture notes}}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{gr-qc}
+    \field{year}{1997}
+  \endentry
+
   \entry{davies}{book}{}
     \name{author}{1}{}{%
       {{hash=BD}{%
@@ -35,6 +86,83 @@
     \field{labeltitlesource}{title}
     \field{title}{Quantum fields in curved space}
     \field{year}{1982}
+  \endentry
+
+  \entry{smerlak}{article}{}
+    \name{author}{2}{}{%
+      {{hash=SM}{%
+         family={Smerlak},
+         familyi={S\bibinitperiod},
+         given={Matteo},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Singh},
+         familyi={S\bibinitperiod},
+         given={Suprit},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SMSS1}
+    \strng{fullhash}{SMSS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.88.104023
+    \endverb
+    \verb{eprint}
+    \verb 1304.2858
+    \endverb
+    \field{number}{10}
+    \field{pages}{104023}
+    \field{title}{{New perspectives on Hawking radiation}}
+    \field{volume}{D88}
+    \field{journaltitle}{Phys. Rev.}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{gr-qc}
+    \field{year}{2013}
+  \endentry
+
+  \entry{Hodgkinson}{article}{}
+    \name{author}{3}{}{%
+      {{hash=HL}{%
+         family={Hodgkinson},
+         familyi={H\bibinitperiod},
+         given={Lee},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=LJ}{%
+         family={Louko},
+         familyi={L\bibinitperiod},
+         given={Jorma},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=OAC}{%
+         family={Ottewill},
+         familyi={O\bibinitperiod},
+         given={Adrian\bibnamedelima C.},
+         giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HLLJOAC1}
+    \strng{fullhash}{HLLJOAC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1103/PhysRevD.89.104002
+    \endverb
+    \verb{eprint}
+    \verb 1401.2667
+    \endverb
+    \field{number}{10}
+    \field{pages}{104002}
+    \field{title}{{Static detectors and circular-geodesic detectors on the
+  Schwarzschild black hole}}
+    \field{volume}{D89}
+    \field{journaltitle}{Phys. Rev.}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{gr-qc}
+    \field{year}{2014}
   \endentry
 
   \entry{krishnan1011.5875}{inproceedings}{}
@@ -62,28 +190,6 @@
     \field{eprinttype}{arXiv}
     \field{eprintclass}{hep-th}
     \field{year}{2010}
-  \endentry
-
-  \entry{Townsend}{article}{}
-    \name{author}{1}{}{%
-      {{hash=TPK}{%
-         family={Townsend},
-         familyi={T\bibinitperiod},
-         given={P.\bibnamedelima K.},
-         giveni={P\bibinitperiod\bibinitdelim K\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{TPK1}
-    \strng{fullhash}{TPK1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \verb{eprint}
-    \verb gr-qc/9707012
-    \endverb
-    \field{title}{{Black holes: Lecture notes}}
-    \field{eprinttype}{arXiv}
-    \field{eprintclass}{gr-qc}
-    \field{year}{1997}
   \endentry
 
   \entry{bessels}{misc}{}
@@ -143,35 +249,6 @@
     \warn{\item Invalid format of field 'month'}
   \endentry
 
-  \entry{hawking}{article}{}
-    \name{author}{1}{}{%
-      {{hash=HSW}{%
-         family={Hawking},
-         familyi={H\bibinitperiod},
-         given={S.\bibnamedelima W.},
-         giveni={S\bibinitperiod\bibinitdelim W\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{HSW1}
-    \strng{fullhash}{HSW1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \verb{doi}
-    \verb 10.1007/BF02345020
-    \endverb
-    \field{issn}{1432-0916}
-    \field{number}{3}
-    \field{pages}{199\bibrangedash 220}
-    \field{title}{Particle creation by black holes}
-    \verb{url}
-    \verb https://doi.org/10.1007/BF02345020
-    \endverb
-    \field{volume}{43}
-    \field{journaltitle}{Communications in Mathematical Physics}
-    \field{year}{1975}
-    \warn{\item Invalid format of field 'month'}
-  \endentry
-
   \entry{carroll}{article}{}
     \name{author}{1}{}{%
       {{hash=CSM}{%
@@ -213,6 +290,30 @@
     \field{title}{General Relativity: The geodesics of the Schwarzschild
   metric}
     \field{year}{2017}
+  \endentry
+
+  \entry{deeg}{thesis}{}
+    \name{author}{1}{}{%
+      {{hash=DD}{%
+         family={Deeg},
+         familyi={D\bibinitperiod},
+         given={Dorothea},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DD1}
+    \strng{fullhash}{DD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{{Quantum Aspects of Black Holes}}
+    \verb{url}
+    \verb https://edoc.ub.uni-muenchen.de/6024/
+    \endverb
+    \list{institution}{1}{%
+      {Munich U.}%
+    }
+    \field{type}{phdthesis}
+    \field{year}{2006}
   \endentry
 \enddatalist
 \endinput
