@@ -1,6 +1,6 @@
 \chapter{Quantum field theory in spacetimes}
 
-Introducing a QFT in a spacetime has been done numerous times in literature. We will mainly follow the treatment from Birell and Davies \cite{davies} together with some aspects from \cite{krishnan1011.5875} and \cite{Townsend}.    
+Introducing a QFT in a spacetime has been done numerous times in literature. We will mainly follow the treatment from Birrell and Davies \cite{davies} together with some aspects from \cite{krishnan1011.5875} and \cite{Townsend}.    
 
 \section{Klein-Gordon field}
 Consider a massless real Klein-Gordon field in a curved spacetime with metric \(g_{\mu\nu}\) given by the Lagrangian:
@@ -23,7 +23,7 @@ The scalar product is independent of the choice of \(\Sigma\) \cite{Townsend}. N
 (u_i| u_j) = \delta_{ij},\,(u_i^*| u_j^*) = -\delta_{ij}\,\text{and}\,(u_i^*| u_j) = 0
 \end{align}
 
-The completeness of the modes implies \((\phi|\psi) = \sum_i (\phi|u_i)(u_i|\psi) - (\phi|u_i^*)(u_i^*|\psi)\).
+The completeness of the modes implies \((\phi|\psi) = \sum_i (\phi|u_i)(u_i|\psi) - (\phi|u_i^*)(u_i^*|\psi)\).\cite{davies}
 
 \section{Quantisation and vacua}
 \label{sec:qft_quantisation}
@@ -42,7 +42,7 @@ So far everything went through in complete analogy to quantisation in Minkowski 
 In a static spacetime one usually chooses the state given by \(a_i \ket*{0} = 0\), where \(a_i\) are annihilation operators for positive frequency modes (i.e. \(i \partial_t u_i = \omega_i u_i, \omega > 0\)). For the collapsing star we will choose the groundstate of the (static) spacetime before the collapse (which will then eventually convert into an excited state).\cite{davies}
 
 \section{Greens functions}
-After defining the groundstate of the QFT on can define several Greens functions (there are many more, but we will only need the following)\cite{davies}.
+After defining the groundstate of the QFT on can define several Greens functions (there are many more, but we will only need the following) \cite{davies}.
 \subsection{Vacuum Greens functions}
 \begin{itemize}
 	\item The Wightman function \(D^+(\vb{x},\vb{x}') := \bra*{0}\phi(\vb{x})\phi(\vb{x}')\ket*{0}\)
@@ -55,7 +55,7 @@ One does not need to take the expectation value of the commutator because (using
 If the ground state is defined as \(a_i\ket*{0} = 0\) for a complete set of modes \(u_i\) (as for example for positive frequency modes in a static spacetime) we can calculate \(D^+(\vb{x},\vb{x}')\) by summing over all modes:
 
 \begin{align}
-D^+(\vb{x},\vb{x}') &= \bra*{0}\phi(\vb{x})\phi(\vb{x}')\ket*{0} = \sum_{i} u_i(\vb{x}) u_i^*(\vb{x}'). \text{\cite{davies}}
+D^+(\vb{x},\vb{x}') &= \bra*{0}\phi(\vb{x})\phi(\vb{x}')\ket*{0} = \sum_{i} u_i(\vb{x}) u_i^*(\vb{x}').\text{\cite{davies}}
 \label{equ:wightman_modes}
 \end{align}
 
@@ -106,7 +106,7 @@ The prefactor \(\frac{1}{\sqrt{2 |k|}}\) is required for normalisation \((u_{\va
 Since the Minkowski space is also spherically symmetric one could also choose spherical modes
 \begin{align}
 u_{\omega,l,m}\upd{M} = \frac{\sqrt{\omega}}{\sqrt{\pi}} e^{- i \omega t} j_l(\omega r) Y_l^m(\theta,\varphi),
-\end{align} where \(j_l\) is a spherical Bessel function. The prefactor is again due to normalisation and can be achieved using the completeness relation for spherical Bessels \(\int_0^\infty r^2 \dd{r} j_l(w r) j_l(w' r) = \frac{\pi}{2\omega^2}\delta(\omega - \omega')\)\cite{bessels}. For great distances from the origin one can approximate the Bessels by their asymptotic behaviour \(j_l(x) \overset{x \gg 1}{\to} \frac{\sin(x-l\frac{\pi}{2})}{x}\) \cite{bessels} and achieves:
+\end{align} where \(j_l\) is a spherical Bessel function. The prefactor is again due to normalisation and can be achieved using the completeness relation for spherical Bessels \(\int_0^\infty r^2 \dd{r} j_l(w r) j_l(w' r) = \frac{\pi}{2\omega^2}\delta(\omega - \omega')\) \cite{bessels}. For great distances from the origin one can approximate the Bessels by their asymptotic behaviour \(j_l(x) \overset{x \gg 1}{\to} \frac{\sin(x-l\frac{\pi}{2})}{x}\) \cite{bessels} and achieves:
 \begin{align}
 u_{\omega,l,m}\upd{M} \approx \frac{1}{\sqrt{\pi\omega}} e^{- i \omega t} \frac{\sin(\omega r - l\frac{\pi}{2})}{r} Y_l^m(\theta,\varphi)
 \label{equ:bessel_asympt}
@@ -185,8 +185,8 @@ D^+_\beta(\vb{x}(\tau),\vb{x}(\tau')) &= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\
 
 for \(\beta = 2\pi/\alpha\). So an accelerating observer actually sees the Minkowski vacuum as a heat bath. So indeed the notion of a particle is observer dependent.
 
-Using eq. \eqref{equ:qft_detector_final} one can then easily evaluate the excitation spectrum for such an observer \cite{davies}:
+Using eq. \eqref{equ:qft_detector_final} one can then easily evaluate the excitation spectrum for such an observer:
 \begin{align}
-\dv{F_E}{\tau} &= \frac{1}{2\pi} \frac{E}{e^{\beta E}-1}. \text{\cite{davies}}
+\dv{F_E}{\tau} &= \frac{1}{2\pi} \frac{E}{e^{\beta E}-1}.\text{\cite{davies}}
 \label{equ:qft_thermal_result}
 \end{align} 

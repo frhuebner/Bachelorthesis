@@ -291,29 +291,5 @@
   metric}
     \field{year}{2017}
   \endentry
-
-  \entry{deeg}{thesis}{}
-    \name{author}{1}{}{%
-      {{hash=DD}{%
-         family={Deeg},
-         familyi={D\bibinitperiod},
-         given={Dorothea},
-         giveni={D\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{DD1}
-    \strng{fullhash}{DD1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{title}{{Quantum Aspects of Black Holes}}
-    \verb{url}
-    \verb https://edoc.ub.uni-muenchen.de/6024/
-    \endverb
-    \list{institution}{1}{%
-      {Munich U.}%
-    }
-    \field{type}{phdthesis}
-    \field{year}{2006}
-  \endentry
 \enddatalist
 \endinput

@@ -22,7 +22,7 @@ D^+(\vb{x},\vb{x}') &= \cfrac{1}{2 i |\va{x}-\va{x}'|}\int_0^\infty \frac{\dd{\o
 	&= -\frac{1}{4\pi^2} \frac{1}{(t-t'-i\varepsilon)^2 - |\va{x}-\va{x}'|^2}
 \end{align}
 
-Alternatively one can achieve the form by first choosing a coordinate system such that \(\vb{x} = \tilde{t} \partial_0\) (as we will do for the thermal case) and then transforming it back (one has to be very careful with the \(\varepsilon\) here). \cite{davies} 
+Alternatively one can achieve the form by first choosing a coordinate system such that \(\vb{x} = \tilde{t} \partial_0\) (as we will do for the thermal case) and then transforming it back (one has to be very careful with the \(\varepsilon\) here).\cite{davies} 
 
 \section{Thermal Wigthman function in Minkowski space}
 \label{sec:app_minwighttherm}
@@ -42,7 +42,7 @@ D^+_\beta(\vb{x},0) &= -\frac{1}{4\pi^2} \sum_{n=-\infty}^\infty \frac{1}{(\tild
 Here we used \(\sin[-2](\pi x) = \pi^{-2} \sum_n (x-n)^{-2}\) \cite{davies}. Now go back to the old frame and replace \(\tilde{t} = \pm \sqrt{-\vb{x}^2}\)
 \begin{align}
 D^+_\beta(\vb{x},\vb{x}') &= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\qty(\pm \sqrt{(t-t')^2 - |\va{x}-\va{x}'|^2} - i\varepsilon))}\\
-	&= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{(t-t'-i\varepsilon)^2 - |\va{x}-\va{x}'|^2})}. \text{\cite{davies}}
+	&= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{(t-t'-i\varepsilon)^2 - |\va{x}-\va{x}'|^2})}.\text{\cite{davies}}
 \end{align}
 
 \section{The Unruh detector}
@@ -128,31 +128,32 @@ To solve these equations use the ansatz \(\tilde{u}_{\va{k}}(\vb{x}) = \exp(-i\o
 If we require that all parameters be real then we have 8 equations for 18 free parameters of \(B^a_{ij}\)\footnote{Note that \(B^a_{ij}\) is symmetric in \(i, j\).}. We could now fix some more properties of \(B\) but it is not necessary for our argumentation. Note that the dispersion relation now reads \(\omega = \sqrt{a} \qty|\va{k}|\).
 
 \subsection{Normalising the modes}
-Next we need to find the right normalisation of the modes. Since we cannot integrate our modes over the whole spacetime we will use the CCR to find the right normalisation\footnote{This works because the CCR are only valid in the right normalisation.}. So expand \(\phi(\vb{x}) = \int \frac{\dd[3]{k}}{\sqrt{2\pi}^3} \frac{1}{\sqrt{2\omega N_{\va{k}}}}\tilde{u}_{\va{k}}(\vb{x}) a_{\va{k}} + \frac{1}{\sqrt{2\omega N_{\va{k}}}} \tilde{u}_{\va{k}}(\vb{x})^* a_{\va{k}}^\dagger\) and calculate the CCR for a surface \(t = \mathrm{const}\):
+Next we need to find the right normalisation of the modes. Since we cannot integrate our modes over the whole spacetime we will use the CCR to find the right normalisation\footnote{This works because the CCR are only valid in the right normalisation.}. So expand \(\phi(\vb{x}) = \int \frac{\dd[3]{k}}{\sqrt{2\pi}^3} \frac{1}{\sqrt{2|\va{k}| N_{\va{k}}}}\tilde{u}_{\va{k}}(\vb{x}) a_{\va{k}} + \frac{1}{\sqrt{2|\va{k}| N_{\va{k}}}} \tilde{u}_{\va{k}}(\vb{x})^* a_{\va{k}}^\dagger\) and calculate the CCR for a surface \(t = \mathrm{const}\):
 
 \begin{align}
-[\phi(\vb{x}), \phi(0)] &= \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2\omega N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x}) \tilde{u}_{\va{k}}(0)^*  - \frac{1}{2\omega N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x})^* \tilde{u}_{\va{k}}(0)\\
-	&= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2\omega N_{\va{k}}} e^{i \va{k}\va{x} + \order*{x^2}} - \frac{1}{2\omega N_{\va{k}}}e^{-i \va{k}\va{x} + \order*{x^2}} \overset{!}{=} 0\\
-[\sqrt{g} \partial_0 \phi(\vb{x}), \sqrt{g} \partial_0 \phi(0)] &= \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{\omega}{2 N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x}) \tilde{u}_{\va{k}}(0)^* - \frac{\omega}{2 N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x})^* \tilde{u}_{\va{k}}(0)  + \order{x^2}\\
-	&= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{\omega}{2 N_{\va{k}}} e^{i \va{k}\va{x} + \order*{x^2}} - \frac{\omega}{2 N_{\va{k}}}e^{-i \va{k}\va{x} + \order*{x^2}} + \order{x^2} \overset{!}{=} 0
+[\phi(\vb{x}), \phi(0)] &= \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2|\va{k}| N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x}) \tilde{u}_{\va{k}}(0)^*  - \frac{1}{2|\va{k}| N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x})^* \tilde{u}_{\va{k}}(0)\\
+	&= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2|\va{k}| N_{\va{k}}} e^{i \va{k}\va{x} + \order*{x^2}} - \frac{1}{2|\va{k}| N_{\va{k}}}e^{-i \va{k}\va{x} + \order*{x^2}} \overset{!}{=} 0\\
+%	
+[\sqrt{g/\beta} \partial_t \phi(\vb{x}), \sqrt{g/\beta} \partial_t \phi(0)] &= \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{|\va{k}|}{2 N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x}) \tilde{u}_{\va{k}}(0)^* - \frac{|\va{k}|}{2 N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x})^* \tilde{u}_{\va{k}}(0)  + \order{x^2}\\
+	&= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{|\va{k}|}{2 N_{\va{k}}} e^{i \va{k}\va{x} + \order*{x^2}} - \frac{|\va{k}|}{2 N_{\va{k}}}e^{-i \va{k}\va{x} + \order*{x^2}} + \order{x^2} \overset{!}{=} 0
 \end{align}
 \begin{align}
-[\phi(\vb{x}), \sqrt{g} \partial_0 \phi(0)] &= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x}) \tilde{u}_{\va{k}}(0)^* + \frac{1}{2N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x})^* \tilde{u}_{\va{k}}(0) + \order{x^2}\\
+[\phi(\vb{x}), \sqrt{g/\beta} \partial_t \phi(0)] &= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x}) \tilde{u}_{\va{k}}(0)^* + \frac{1}{2N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x})^* \tilde{u}_{\va{k}}(0) + \order{x^2}\\
    &= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2N_{\va{k}}} e^{i \va{k}\va{x} + \order*{x^2}} + \frac{1}{2N_{\va{k}}}e^{-i \va{k}\va{x} + \order*{x^2}} + \order{x^2}\\
    &\overset{!}{=} i \delta^3(\va{x}) = i \int \frac{\dd[3]{k}}{(2\pi)^3} e^{i \va{k}\va{x}}
 \end{align}
 
 Since \(e^{i \va{k}\va{x}}\) is a basis we find:
 \begin{align}
-\frac{1}{2\omega N_{\va{k}}} - \frac{1}{2\omega N_{-\va{k}}} &= 0\\
+\frac{1}{2|\va{k}| N_{\va{k}}} - \frac{1}{2|\va{k}| N_{-\va{k}}} &= 0\\
 \frac{1}{2N_{\va{k}}} + \frac{1}{2N_{-\va{k}}} &= 1\\
-\frac{\omega}{2N_{\va{k}}} - \frac{\omega}{2 N_{-\va{k}}} &= 0
+\frac{|\va{k}|}{2N_{\va{k}}} - \frac{|\va{k}|}{2 N_{-\va{k}}} &= 0
 \end{align}
 
 This system of equations is only solved for \(N_{\va{k}} = 1\) and so the normalised modes are
 \begin{align}
-u_{\va{k}} &= \frac{1}{\sqrt{2\pi}^3 \sqrt{2\omega}} e^{-i\omega t + i\va{k}\va{x} + \order*{x^2}}\\
-	&= \frac{1}{\sqrt{2\pi}^3 \sqrt{2\omega}} e^{-i\omega t + i\va{k}\va{x}} \qty(1 + \order{x^2})
+u_{\va{k}} &= \frac{1}{\sqrt{2\pi}^3 \sqrt{2|\va{k}|}} e^{-i|\va{k}|\sqrt{a} t + i\va{k}\va{x} + \order*{x^2}}\\
+	&= \frac{1}{\sqrt{2\pi}^3 \sqrt{2|\va{k}|}} e^{-i|\va{k}|\sqrt{a} t + i\va{k}\va{x}} \qty(1 + \order{x^2})
 \end{align}
 
 So up to linear order we achieve the plane wave modes as in Minkowski space. Therefore the Wightman function is also the equivalent and given by
@@ -219,7 +220,7 @@ Another error arises from the fact that around zero \(h\) is the (finite) differ
 \Delta I_2 \approx |g(\tau_2)h(\tau_2) \tau_2| \approx |g(0)h(0) \tau_2|
 \end{align}
 
-The last contribution comes from the error of the method used. For the trapezoidal method this error is given by (\(\Delta\tau\) is the stepwidth)\cite{ron}
+The last contribution comes from the error of the method used. For the trapezoidal method this error is given by (\(\Delta\tau\) is the stepwidth) \cite{ron}
 \begin{align}
 \Delta I\ind{trapez} = \frac{\Delta\tau^2}{12} (\tau_2-\tau_1) |(h\cdot g)''(\chi)| 
 \end{align}
