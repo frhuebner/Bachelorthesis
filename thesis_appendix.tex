@@ -1,5 +1,5 @@
 %------------------------------------------------------------------------------
-\chapter{Appendix}
+\chapter{Wightman function and Unruh detector}
 \label{sec:app}
 \begin{refsection}
 %------------------------------------------------------------------------------
@@ -160,10 +160,10 @@ So up to linear order we achieve the plane wave modes as in Minkowski space. The
 D^+(\vb{x},0) = - \frac{1}{4\pi^2} \frac{1}{a(t-i\varepsilon)^2 - |\va{x}|^2} + \order{x^2}
 \end{align}
 
-\section{Determination of the temperature}
+\chapter{Determination of the temperature}
 \label{sec:app_num}
-In Chapter \ref{sec:bh} we need to find the temperature that an observer will see on the basis of the energy spectrum. The energy spectrum is basically given by a Fourier-like transform of \(D^+\) evaluated along the curve (see eq. \eqref{equ:qft_detector_partial} and \eqref{equ:qft_detector_final}). 
-\subsection{Idea}
+In Chapter \ref{sec:bh} we need to find the temperature that an observer will see on the basis of the energy spectrum. The energy spectrum is given by a Fourier-like transform of \(D^+\) evaluated along the curve (see eq. \eqref{equ:qft_detector_partial} and \eqref{equ:qft_detector_final}). 
+\section{Idea}
 Imagine an observer equipped with an Unruh detector on a trajectory in the Schwarzschild metric. By eq. \eqref{equ:static_thermal_observer_general} we expect some thermal spectrum together with some corrections. These corrections could either shift the observed temperature or could be part of the non thermal spectrum. However for the observer it is impossible to distinguish which part of the spectrum is thermal or not. So to determine the temperature the observer will have to fit a thermal spectrum into the observed spectrum, i.e. find a value \(\beta\) such that the following minimizes: 
 \begin{align}
 \int_0^\infty \dd{E} \qty(\dv{F_E}{\tau} - \frac{1}{2\pi} \frac{E}{e^{\beta E}-1})^2 \to \mathrm{min}
@@ -194,7 +194,7 @@ We would like to compute \(\alpha = \frac{\Delta\beta}{\beta\ind{H}} = \frac{\be
 
 The integral over \(g^2\) can be calculated ones and yields \(I_g = \int_{-\infty}^0 \dd{\tau'} g(\tau')^2 = \frac{15 - \pi^2}{92160 \pi^4} M^{-3} \approx 5.7149\cdot 10^{-7} M^{-3}\). In the diagrams we will not plot \(\alpha\) but rather the temperature shift \(\Delta T/T\ind{H} = -\alpha\).
 
-\subsection{Error estimation}
+\section{Error estimation}
 The other integral \(I = \int_{-\infty}^0 \dd{\tau'} h(\tau')g(\tau')\) is evaluated numerically using the trapezoidal rule (see for example \cite{ron}). Since we cannot integrate over the infinite range \((-\infty,0)\) with this method we will integrate over a finite range \((\tau_1,\tau_2)\)\footnote{Note that all \(\tau\) are negative.}. In order to get a meaningful result we need to estimate the errors. There are basically 3 sources of errors: the lower and upper integration limit (\(\Delta I_1\) and \(\Delta I_2\)) and the error by the method itself (\(\Delta I\ind{trapez}\)).
 
 For big absolute values of \(\tau'\) we can replace the \(\sinh\) and \(\cosh\) in \(g\) by an exponential function:

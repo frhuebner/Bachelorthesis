@@ -1,4 +1,4 @@
-\documentclass[Bachelor, ngerman, UKenglish,biblatex=false]{scrbook}
+\documentclass[Submit,Bachelor, ngerman, UKenglish,biblatex=false]{scrbook}
 %------------------------------------------------------------------------------
 % This file contains a skeleton thesis for
 % a Physics or Astronomy Institute in the University of Bonn
@@ -38,9 +38,8 @@
 % Instead of colouring  links, cites, table of contents etc.
 % put them in a coloured box for the screen version.
 % This is probably a good idea when you print your thesis.
-% \hypersetup{colorlinks=false,
-%   linkbordercolor=blue,citebordercolor=magenta,urlbordercolor=darkgreen
-% }
+ \hypersetup{hidelinks
+ }
 
 %------------------------------------------------------------------------------
 % When writing your thesis it is often helpful to have the date and
@@ -256,7 +255,10 @@
 \backmatter
 
 \listoffigures
+\begingroup
+\let\clearpage\relax
 \listoftables
+\endgroup
 
 %------------------------------------------------------------------------------
 % Print the glossary and list of acronyms
@@ -270,7 +272,6 @@
 %------------------------------------------------------------------------------
 % CV needed when you submit your PhD thesis
 % \input{thesis_cv}
-\listoftodos
 \end{document}
 
 %%% Local Variables:

@@ -2,7 +2,7 @@
 
 Introducing a QFT in a spacetime has been done numerous times in literature. We will mainly follow the treatment from Birell and Davies \cite{davies} together with some aspects from \cite{krishnan1011.5875} and \cite{Townsend}.    
 
-\section{Klein-Gordon Field}
+\section{Klein-Gordon field}
 Consider a massless real Klein-Gordon field in a curved spacetime with metric \(g_{\mu\nu}\) given by the Lagrangian:
 \begin{align}
 \mathcal{L} &= -\frac{1}{2}\sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\,\partial_\nu \phi 
@@ -25,7 +25,7 @@ The scalar product is independent of the choice of \(\Sigma\) \cite{Townsend}. N
 
 The completeness of the modes implies \((\phi|\psi) = \sum_i (\phi|u_i)(u_i|\psi) - (\phi|u_i^*)(u_i^*|\psi)\).
 
-\section{Quantisation and Vacua}
+\section{Quantisation and vacua}
 \label{sec:qft_quantisation}
 We can quantize the field by introducing the canonical commutation relations CCR on a Cauchy surface \(\Sigma\) with (future directed) normal vector $S^\mu$:
 
@@ -70,7 +70,7 @@ D^{(1)}_\beta(t,\va{x};t',\va{x}') = \sum_n D^{(1)}(t-i\beta n, \va{x};t',\va{x}
 
 To find \(D^+_\beta\) we can use that \(D\) (which is the imaginary part of \(D^+\) and \(D^+_\beta\)) is just a c-number and therefore independent of the state of the field. If one is only interested in points where \(D^+\) is real (as we will) one can replace \(D^{(1)}\) by \(D^+\) in the above formula since both Greens functions are then proportional.\cite{davies}
 
-\section{Particle Detectors}
+\section{Particle detectors}
 We have already seen that there is no suitable definition of vacuum in a spacetime. This implies that in the rest frame of an observer the vacuum state could differ from the vacuum state we defined. Therefore also the notion of what a particle is will be different for different observers. To analyse what particles a specific observer sees, Unruh and DeWitt invented a model for a particle detector which measures the energy excitations (particles) of the field along a specific trajectory. 
 
 The calculations are done in the appendix \ref{sec:app_unruh}. The main result is that one can split the observed spectrum in a contribution from the detector and one from the field given by an excitation rate at energy \(E\):
@@ -145,7 +145,7 @@ When using the approximate form two main problems occur. They can be seen by exp
 
 In asymptotic flat spacetimes (as the Schwarzschild metric) one often cannot find exact solutions but rather asymptotic forms of them. Therefore these two effects can (and will in our case) occur when calculating \(D^+\) in such spacetimes. 
 
-\subsection{Inertial Observer}
+\subsection{Inertial observer}
 
 We can now calculate the excitation rate for observers in Minkowski space. Let us start with a static observer \(t(\tau) = \tau, \va{x}(\tau) = 0\):
 \begin{align}
@@ -158,7 +158,7 @@ Clearly \(D^+(\vb{x}(\tau),\vb{x}(\tau'))\) only depends on \(\Delta\tau = \tau-
 \cfrac{\mathrm{d}F_E(\tau)}{\mathrm{d}\tau} &= \int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} D^+(\vb{x}(\tau), \vb{x}(0)) = -\frac{1}{4\pi^2} \int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} \frac{1}{(\tau-i\varepsilon)^2} = 0
 \end{align} 
 
-For the last step use contour integration and close the contour in the lower half plane. Since \(e^{-i E \tau}\) drops to \(0\) for large \(\tau\) with negative imaginary part the integral is given by the sum over all residuals in the lower half plane. Because the \(\varepsilon\) moves the pole at \(\tau = 0\) into the upper half plane there are no poles in the lower half plane and therefore the integral vanishes. So there are no particle excitations for an observer on a inertial worldline\footnote{Note that by Poincare invariance of \(D^+(x,x')\) one can always choose a frame in which an inertial observer does not move.} which simply means that the Minkowski vacuum is treated as a state with no particles. \cite{davies}
+For the last step use contour integration and close the contour in the lower half plane. Since \(e^{-i E \tau}\) drops to \(0\) for large \(\tau\) with negative imaginary part the integral is given by the sum over all residuals in the lower half plane. Because the \(\varepsilon\) moves the pole at \(\tau = 0\) into the upper half plane there are no poles in the lower half plane and therefore the integral vanishes. So there are no particle excitations for an observer on a inertial worldline\footnote{Note that by Poincare invariance of \(D^+(x,x')\) one can always choose a frame in which an inertial observer does not move.} which simply means that the Minkowski vacuum is treated as a state with no particles.\cite{davies}
 
 \subsection{The Unruh effect}
 Another interesting case is that of an observer which is accelerating with an constant proper acceleration \(\alpha > 0\), i.e. \(t(\tau) = 1/\alpha \sinh \alpha\tau,\,x(\tau) = 1/\alpha \cosh \alpha\tau,\, y(\tau) = z(\tau) = 0\). Define \(\lambda = \alpha\tau\). For simplicity calculate \(D^+\) with \(\varepsilon = 0\)\footnote{The result with \(\varepsilon\) is analogue, e.g. \cite{davies}}

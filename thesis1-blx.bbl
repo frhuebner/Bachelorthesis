@@ -1,0 +1,61 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{davies}{book}{}
+    \name{author}{1}{}{%
+      {{hash=BD}{%
+         family={Birrell},
+         familyi={B\bibinitperiod},
+         given={Davies},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Camebridge University Press}%
+    }
+    \strng{namehash}{BD1}
+    \strng{fullhash}{BD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Quantum fields in curved space}
+    \field{year}{1982}
+  \endentry
+
+  \entry{ron}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=RA}{%
+         family={Ron},
+         familyi={R\bibinitperiod},
+         given={Amos},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {University of Wisconsin}%
+    }
+    \strng{namehash}{RA1}
+    \strng{fullhash}{RA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Introduction to numerical analysis, Lecture 18: Numerical
+  Integration}
+    \field{year}{2010}
+  \endentry
+\enddatalist
+\endinput
