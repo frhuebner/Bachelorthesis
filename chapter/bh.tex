@@ -71,7 +71,7 @@ D^+(\vb{x}, \vb{x}') &= -\frac{1}{4\pi^2 \sqrt{f(r)f(r')}} \frac{1}{(t-t'-i\vare
 \end{align}
 
 \subsection{The Wightman function after the collapse}
-To calculate the Wightman function after the collapse we will apply the result of Hawking to find that the expectation value of two operators thereafter is given by the thermal expectation value with \(\beta\ind{H} = 8\pi M\) in the spacetime before the collapse. The corresponding temperature \(T\ind{H} = \frac{1}{8\pi M k\ind{B}}\) is called Hawking temperature.\cite{hawking}
+To calculate the Wightman function after the collapse we will apply the result of Hawking to find that the expectation value of two operators thereafter is given by the thermal expectation value with \(\beta = \beta\ind{H} = 8\pi M\) in the spacetime before the collapse. The corresponding temperature \(T\ind{H} = \frac{1}{8\pi M k\ind{B}}\) is called Hawking temperature.\cite{hawking}
 
 Therefore the (vacuum) Wightman function at late times is given by the thermal Wightman function at early times (it can be computed analogously to the one in Minkowski space)
 \begin{align}
@@ -101,7 +101,7 @@ D^+_\beta(\vb{x}(\tau),0) &= -\frac{1}{4\beta^2f(r)} \frac{1}{\sinh[2](\frac{\pi
 
 which results in an observed temperature of \(T = f(r)^{-1/2} T\ind{H}\) which agrees with the Tolman effect found in Section \ref{sec:static_observers_thermal}. So a static observer will see a slightly higher temperature than the Hawking temperature.
 
-Since we know the exact result we can use this as a benchmark for our method to approximate the temperature. Running this on a static observer \todo{ok?} gives the result depicted in fig. \ref{fig:bh_stat}. It fits the Tolman relation over all orders of magnitude. The small difference lies within the numerical errors\footnote{Note that all errors depicted in the errorbars are the estimated numerical errors, not errors induced by the approximative Wightman function}. We can therefore conclude that our method is suitable for determining the temperature. 
+Since we know the exact result we can use this as a benchmark for our method to approximate the temperature. Applying this on a static observer gives the result depicted in fig. \ref{fig:bh_stat}. It fits the Tolman relation over all orders of magnitude. The small difference lies within the numerical errors\footnote{Note that all errors depicted in the errorbars are the estimated numerical errors, not errors induced by the approximative Wightman function}. We can therefore conclude that our method is suitable for determining the temperature. 
 
 \begin{figure}[h]
   \centering
@@ -138,9 +138,8 @@ We see that \(D^+\) only depends on \(\tau - \tau'\). So we can use the simplifi
 0 &= A^2\tau^2 - 2r_*^2 (1 - \cos{B\tau})\\
 0 &= \xi^2 x^2 - 2(1 - \cos{x})
 \end{align}
-\todo{footnote}
 where \(x = B\tau\) and \(\xi = \frac{A}{Br_*}\). 
-Clearly \(\tau = 0\) is a root (which will lie in the upper half\todo{link}). Apart from that we have to differentiate between two cases:
+Clearly \(\tau = 0\) is a root (which will lie in the upper half). Apart from that we have to differentiate between two cases:
 \begin{itemize}
 \item \(\xi < 1\): In this case there are two further roots on the real axis. The reason is that for \(\xi < 1\) (which is a very fast circular motion) the trajectory hits the Minkowski lightcone. But we know that this is not possible in the Schwarzschild-spacetime by the argumentation in Section \ref{sec:static_pole}. So we assume that this behaviour is due to our approximation and therefore exclude this case\footnote{Note that \(\xi < 1\) for a geodesic can only happen for \(r \lesssim 1.1 R\ind{S}\) which not far away from a black hole}.
 \item \(\xi > 1\): This case represents slower motions. There are two more (first order) poles at \(\pm i x_0\) of whom one is in the lower half. 
@@ -157,7 +156,6 @@ The rate is given by eq. \eqref{equ:qft_detector_final}
 \end{align}
 
 So basically a circular observer sees a exponentially falling energy distribution.
-\todo{Erklärung nicht thermisch}
 
 \subsubsection{After the collapse}
 An observer on a circular orbit \(t = A \tau\) and \(\varphi = B\tau\) has the following thermal Wightman function:
@@ -170,7 +168,7 @@ This function is problematic because expanding around zero yields:
 D^+_\beta(\vb{x}(\tau),\vb{x}(0)) &= -\frac{1}{4\pi^2 \tau^2} \frac{1}{f(r) A^2 - f(r)r_*^2 B^2} + \order*{\tau^0}\neq -\frac{1}{4\pi^2 \tau^2} + \order*{\tau^0}
 \end{align}
 
-Unfortunately the \(\tau^{-2}\) term has a different prefactor since we are only given \(\dot{\vb{x}}^2 = -f(r) A^2 + r^2 B^2 = -1\). However we know by Section \ref{sec:static_observers_thermal} that for every non approximate Wightman function on a trajectory this prefactor looks like \(-1/4\pi^2\). So this deviation is due to our approximation which is therefore only applicable if \(r^2 \approx f(r)r_*^2\). For \(r > 200 M\) the deviation is smaller than \(10 \%\). We will ignore smaller values of \(r\) for the interpretation of the results. \todo{plot}
+Unfortunately the \(\tau^{-2}\) term has a different prefactor since we are only given \(\dot{\vb{x}}^2 = -f(r) A^2 + r^2 B^2 = -1\). However we know by Section \ref{sec:static_observers_thermal} that for every non approximate Wightman function on a trajectory this prefactor looks like \(-1/4\pi^2\). So this deviation is due to our approximation which is therefore only applicable if \(r^2 \approx f(r)r_*^2\). For \(r > 200 M\) the deviation is smaller than \(10 \%\). We will ignore smaller values of \(r\) for the interpretation of the results.
 
 The main problem with the different prefactor is that the difference with another thermal Wightman function will remain divergent at \(\tau = 0\)\footnote{This difference must not be singular since we would like to integrate it numerically, see eq. \eqref{equ:app_num_formula}}. We can deal with this problem by replacing \(r_*^2\) by \(r^2/f(r)\) in the Wightman function
 \begin{align}
@@ -221,4 +219,4 @@ where \(x(\tau) = -\dot{r} = \qty(1-\frac{\tau}{\tau_0})^{-\frac{1}{3}}\) and \(
   \label{fig:bh_rad}
 \end{figure}
 
-The result again fits the Tolman relation. After subtracting the Tolman relation we find a difference much larger than the numerical errors. Note that the error bars only depict the numerical error, not the error done by approximating the Wightman function. In the last section we found that we can only use our Wightman function when \(\frac{r_*^2}{r^2} f(r) \approx 1\). We need to estimate the order of magnitude of the error caused by this approximation in order to show whether or not the difference in fig. \ref{fig:bh_rad} b) is a significant deviation from the Tolman relation\todo{Fehler berechnen?}. We can give a (rough) estimate by applying the relative error done by the approximation on the Tolman relation, i.e. \(\frac{r_*^2}{r^2} f(r) \cdot \qty(\frac{1}{\sqrt{f(r)}} - 1)\). This is given as a dotted curve in fig. \ref{fig:bh_rad} b). The calculated temperature deviation has about the same order of magnitude. This means that the difference could be completely due to our approximation. We will therefore be conservative and conclude that up to the errors of our method there is no temperature shift for an infalling observer.         
+The result again fits the Tolman relation. After subtracting the Tolman relation we find a difference much larger than the numerical errors. Note that the error bars only depict the numerical error, not the error done by approximating the Wightman function. In the last section we found that we can only use our Wightman function when \(\frac{r_*^2}{r^2} f(r) \approx 1\). We need to estimate the order of magnitude of the error caused by this approximation in order to show whether or not the difference in fig. \ref{fig:bh_rad} b) is a significant deviation from the Tolman relation. We can give a (rough) estimate by applying the relative error done by the approximation on the Tolman relation, i.e. \(\frac{r_*^2}{r^2} f(r) \cdot \qty(\frac{1}{\sqrt{f(r)}} - 1)\). This is given as a dotted curve in fig. \ref{fig:bh_rad} b). The calculated temperature deviation has about the same order of magnitude. This means that the difference could be completely due to our approximation. We will therefore be conservative and conclude that up to the errors of our method there is no temperature shift for an infalling observer.         
