@@ -4,7 +4,7 @@
 \begin{refsection}
 %------------------------------------------------------------------------------
 
-\section{Wightmanfunction in Minkowskispace}
+\section{Wightman function in Minkowski space}
 \label{sec:app_minwightvac}
 Using eq. \eqref{equ:wightman_modes} we can calculate the Wightman function:
 \begin{align}
@@ -26,12 +26,12 @@ Alternatively one can achieve the form by first choosing a coordinate system suc
 
 \section{Thermal Wigthman function in Minkowski space}
 \label{sec:app_minwighttherm}
-To calculate the thermal Wightman function we will restrict to the interior of the light cone (we will only need that). At a specific point choose the following coordinate system: First we will set \(\vb{x}' = 0\) and then choose a coordinate system such that \(\vb{x} = \tilde{t} \partial_0\). Here \(\tilde{t} = \pm \sqrt{-\vb{x}^2}\) with the upper sign for \(t > 0\) and the lower for \(t < 0\). In this coordinate system we can redo the calculation of the Wightman function and achieve
+To calculate the thermal Wightman function we will ourselves to the interior of the light cone (we will only need that). At a specific point choose the following coordinate system: First set \(\vb{x}' = 0\) and then choose a coordinate system such that \(\vb{x} = \tilde{t} \partial_0\). Here \(\tilde{t} = \pm \sqrt{-\vb{x}^2}\) with the upper sign for \(t > 0\) and the lower for \(t < 0\). In this coordinate system we can redo the calculation of the Wightman function and achieve
 \begin{align}
-D^+(\vb{x},0) = -\frac{1}{4\pi^2} \frac{1}{(\tilde{t} - i\varepsilon)^2}
+D^+(\vb{x},0) = -\frac{1}{4\pi^2} \frac{1}{(\tilde{t} - i\varepsilon)^2}.
 \end{align} 
 
-To find the thermal Wightmanfunction we to replace \(\tilde{t} \to \tilde{t} - i \beta n\) (see eq. \eqref{equ:qft_thermal}) and add all the contributions (note that inside the lightcone \(D^+ = D^{(1)}\))
+To find the thermal Wightman function we to replace \(\tilde{t} \to \tilde{t} - i \beta n\) (see eq. \eqref{equ:qft_thermal}) and add all the contributions (note that inside the lightcone \(D^+ = D^{(1)}\))
 \begin{align}
 D^+_\beta(\vb{x},0) &= -\frac{1}{4\pi^2} \sum_{n=-\infty}^\infty \frac{1}{(\tilde{t} -i\beta n - i\varepsilon)^2}\\
 	&= \frac{1}{4\pi^2\beta^2} \sum_{n=-\infty}^\infty \frac{1}{(- i \frac{\tilde{t}}{\beta} - n - \varepsilon)^2}\\
@@ -45,11 +45,11 @@ D^+_\beta(\vb{x},\vb{x}') &= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\b
 	&= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{(t-t'-i\varepsilon)^2 - |\va{x}-\va{x}'|^2})}. \text{\cite{davies}}
 \end{align}
 
-\section{The Unruh-Detector}
+\section{The Unruh detector}
 \label{sec:app_unruh}
 \todo{shorten?}
 Our treatment of such a detector will follow Birrell and Davies \cite{davies}.
-One describes a detector by a operator \(m(\tau)\) which couples to the field via a interaction term \(c\cdot m(\tau) \phi(\vb{x}(\tau))\), where \(c\) is small and \(\vb{x}(\tau)\) is the trajectory of the detector. For \(\tau \to -\infty\) the detector is in the groundstate \(\ket*{E_0}\) and the field is in the vacuum state \(\ket*{0}\). The detector develops with time according to \(m(\tau) = e^{i H_0 \tau} m(0) e^{-i H_0 \tau}\) with \(H_0 \ket*{E} = E\ket*{E}\).
+One describes a detector by an operator \(m(\tau)\) which couples to the field via a interaction term \(c\cdot m(\tau) \phi(\vb{x}(\tau))\), where \(c\) is small and \(\vb{x}(\tau)\) is the trajectory of the detector. For \(\tau \to -\infty\) the detector is in the groundstate \(\ket*{E_0}\) and the field is in the vacuum state \(\ket*{0}\). The detector evolves with time according to \(m(\tau) = e^{i H_0 \tau} m(0) e^{-i H_0 \tau}\) with \(H_0 \ket*{E} = E\ket*{E}\).
 
 We would like to calculate the probability that the detector detects a particle with energy \(E\). Since \(c\) is small one can use first order perturbation theory where the transition amplitude to another state \(\ket*{E,\psi}\) at time \(\tau\) is given by
 \begin{align}
@@ -69,7 +69,7 @@ P_E(\tau) &:= \sum_{i} P_{\ket*{E_0,0}\to\ket*{E,\psi_i}}(\tau) = \sum_{i}  |Q_{
 	&= \int_{-\infty}^\tau\dd{\tau'} \int_{-\infty}^\tau \dd{\tau''} e^{-i E (\tau''-\tau')} D^+(\vb{x}(\tau''), \vb{x}(\tau'))
 \end{align}
 
-Here we introduced the Wightman function \(D^+(\vb{x},\vb{x}') = \bra*{0}\phi(\vb{x}) \phi(\vb{x}')\ket*{0}\). The probability splits in a product of two parts. The first one only depends on the model of the detector while the second part only depends on the trajectory. We will therefore interpret the (so called detector response) function \(F_E(\tau)\) as the distribution of energy excitations (or particles) as 'seen' by an observer on the trajectory \(\vb{x}(\tau)\).
+Here we introduced the Wightman function \(D^+(\vb{x},\vb{x}') = \bra*{0}\phi(\vb{x}) \phi(\vb{x}')\ket*{0}\). The probability factors into a product of two parts. The first one only depends on the model of the detector while the second part only depends on the trajectory. We will therefore interpret the (so called detector response) function \(F_E(\tau)\) as the distribution of energy excitations (or particles) as 'seen' by an observer on the trajectory \(\vb{x}(\tau)\).
 
 The transition rate is then given by:
 \begin{align}
@@ -94,7 +94,7 @@ Fix \(\vb{x}' = 0\). The metric in normal coordinates then looks like \cite{davi
 g_{ij} &= \delta_{ij} - \frac{1}{3} R_{iajb} x^a x^b + \order{x^3}
 \end{align}
 
-Since the metric is given to the second order we will also expand other quantities\footnote{Note that one can raise and lower indices with \(\delta_{ij}\) if one is neglecting \(\order*{x^2}\).}
+Since the metric is given up to the second order we will also expand other quantities\footnote{Note that one can raise and lower indices with \(\delta_{ij}\) if one is neglecting \(\order*{x^2}\).}
 \begin{align}
 g^{ij} &= \delta^{ij} + \frac{1}{3} R^{i\;j}_{\;a\;b} x^a x^b + \order{x^3}\\
 \partial_i g^{ij} &= -\frac{1}{3} R^j_{\;i} x^i + \order{x^2} = -\frac{1}{3} R_{ji} x^i + \order{x^2}\\
@@ -103,19 +103,21 @@ g = \det g_{ij} &= 1 - \frac{1}{3} R_{ij} x^i x^j + \order{x^3}\\
 \beta &= a + b_i x^i + \frac{1}{2} c_{ij} x^i x^j + \order{x^3}
 \end{align}
 
-\subsection{Solutions of the Klein-Gordon-equation}
+\subsection{Solutions of the Klein-Gordon equation}
 
-The Klein-Gordon-equation is given by
+The Klein-Gordon equation is given by
 \begin{align}
 0 &= \nabla_\mu\nabla^\mu\phi = -\frac{1}{\sqrt{\beta g}} \partial_t \qty(\sqrt{\beta g} \frac{1}{\beta} \partial_t \phi) + \frac{1}{\sqrt{\beta g}} \partial_i \qty(\sqrt{\beta g} g^{ij} \partial_j \phi)\\
 &= -\frac{1}{\beta} \partial_t^2 \phi + \frac{1}{\sqrt{\beta g}} \partial_i \qty(\sqrt{\beta g})  g^{ij} \partial_j \phi +  \qty(\partial_i g^{ij}) \partial_j \phi + g^{ij} \partial_i \partial_j \phi\\
-&= -\frac{1}{\beta} \partial_t^2 \phi + \frac{1}{2\beta g} \partial_i \qty(\beta g) g^{ij} \partial_j \phi +  \qty(\partial_i g^{ij}) \partial_j \phi + g^{ij} \partial_i \partial_j \phi\\
+&= -\frac{1}{\beta} \partial_t^2 \phi + \frac{1}{2\beta g} \partial_i \qty(\beta g) g^{ij} \partial_j \phi +  \qty(\partial_i g^{ij}) \partial_j \phi + g^{ij} \partial_i \partial_j \phi
+\end{align}
+\begin{align}
 \partial_t^2 \phi &= \frac{\partial_i\beta}{2} g^{ij} \partial_j \phi + \frac{\beta \partial_i g}{2g} g^{ij} \partial_j \phi + \beta \qty(\partial_i g^{ij}) \partial_j \phi + \beta g^{ij} \partial_i \partial_j \phi\\
 &= \frac{1}{2} \qty(b_i + c_{ik} x^k) \partial_i \phi - \frac{a}{3} R_{ik} x^k \partial_i \phi - \frac{a}{3} R_{ik} x^k \partial_ i\phi + \qty(a + b_k x^k) \partial_i \partial_i \phi + \order{x^2}\\
 &= \frac{1}{2} \qty(b_i + c_{ik} x^k) \partial_i \phi - \frac{2a}{3} R_{ik} x^k \partial_i \phi + \qty(a + b_k x^k) \partial_i \partial_i \phi + \order{x^2}
 \end{align}
 
-To solve these equations make the ansatz \(\tilde{u}_{\va{k}}(\vb{x}) = \exp(-i\omega t + i k_i x^i + i \frac{1}{2} k_a B^{a}_{ij}(\va{k}) x^i x^j + i\order*{x^3})\) and separate the different orders:
+To solve these equations use the ansatz \(\tilde{u}_{\va{k}}(\vb{x}) = \exp(-i\omega t + i k_i x^i + i \frac{1}{2} k_a B^{a}_{ij}(\va{k}) x^i x^j + i\order*{x^3})\) and separate the different orders:
 
 \begin{align}
 -\omega^2 &= \frac{1}{2} \qty(b_i + c_{ik} x^k) i \qty(k_i + k_a B^a_{ik} x^k) - \frac{2a}{3} R_{ik} x^k i k_i\notag\\
@@ -124,21 +126,21 @@ To solve these equations make the ansatz \(\tilde{u}_{\va{k}}(\vb{x}) = \exp(-i\
 0 &= ik_a\qty(\frac{1}{2} b_i B^a_{ik} + \frac{1}{2} c_{ak} - \frac{2a}{3} R_{ak} + b_k B^a_{ii}) - 2 a k_i k_a B^a_{ik} - b_k k_i k_i 
 \end{align}
 
-If we demand that all parameters should be real then we have 8 equations for 18 free parameters of \(B^a_{ij}\)\footnote{Note that \(B^a_{ij}\) is symmetric in \(i, j\).}. We could now fix some more properties of \(B\) but it is not necessary for our argumentation. Note that the dispersion relation now reads \(\omega = \sqrt{a} \qty|\va{k}|\).
+If we require that all parameters be real then we have 8 equations for 18 free parameters of \(B^a_{ij}\)\footnote{Note that \(B^a_{ij}\) is symmetric in \(i, j\).}. We could now fix some more properties of \(B\) but it is not necessary for our argumentation. Note that the dispersion relation now reads \(\omega = \sqrt{a} \qty|\va{k}|\).
 
 \subsection{Normalising the modes}
-Next we need to find the right normalisation of the modes. Since we can't integrate our modes over the whole spacetime we will use the CCR to find the right normalisation\footnote{This works because the CCR are only valid in the right normalisation}. So expand \(\phi(\vb{x}) = \int \frac{\dd[3]{k}}{\sqrt{2\pi}^3} \frac{1}{\sqrt{2\omega N_{\va{k}}}}\tilde{u}_{\va{k}}(\vb{x}) a_{\va{k}} + \frac{1}{\sqrt{2\omega N_{\va{k}}}} \tilde{u}_{\va{k}}(\vb{x})^* a_{\va{k}}^\dagger\) and calculate the CCR for a surface \(t = \mathrm{const.}\):
+Next we need to find the right normalisation of the modes. Since we cannot integrate our modes over the whole spacetime we will use the CCR to find the right normalisation\footnote{This works because the CCR are only valid in the right normalisation.}. So expand \(\phi(\vb{x}) = \int \frac{\dd[3]{k}}{\sqrt{2\pi}^3} \frac{1}{\sqrt{2\omega N_{\va{k}}}}\tilde{u}_{\va{k}}(\vb{x}) a_{\va{k}} + \frac{1}{\sqrt{2\omega N_{\va{k}}}} \tilde{u}_{\va{k}}(\vb{x})^* a_{\va{k}}^\dagger\) and calculate the CCR for a surface \(t = \mathrm{const}\):
 
 \begin{align}
 [\phi(\vb{x}), \phi(0)] &= \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2\omega N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x}) \tilde{u}_{\va{k}}(0)^*  - \frac{1}{2\omega N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x})^* \tilde{u}_{\va{k}}(0)\\
 	&= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2\omega N_{\va{k}}} e^{i \va{k}\va{x} + \order*{x^2}} - \frac{1}{2\omega N_{\va{k}}}e^{-i \va{k}\va{x} + \order*{x^2}} \overset{!}{=} 0\\
-%
-[\phi(\vb{x}), \sqrt{g} \partial_0 \phi(0)] &= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x}) \tilde{u}_{\va{k}}(0)^* + \frac{1}{2N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x})^* \tilde{u}_{\va{k}}(0) + \order{x^2}\\
-   &= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2N_{\va{k}}} e^{i \va{k}\va{x} + \order*{x^2}} + \frac{1}{2N_{\va{k}}}e^{-i \va{k}\va{x} + \order*{x^2}} + \order{x^2}\\
-   &\overset{!}{=} i \delta^3(\va{x}) = i \int \frac{\dd[3]{k}}{(2\pi)^3} e^{i \va{k}\va{x}}\\
-%   
 [\sqrt{g} \partial_0 \phi(\vb{x}), \sqrt{g} \partial_0 \phi(0)] &= \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{\omega}{2 N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x}) \tilde{u}_{\va{k}}(0)^* - \frac{\omega}{2 N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x})^* \tilde{u}_{\va{k}}(0)  + \order{x^2}\\
 	&= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{\omega}{2 N_{\va{k}}} e^{i \va{k}\va{x} + \order*{x^2}} - \frac{\omega}{2 N_{\va{k}}}e^{-i \va{k}\va{x} + \order*{x^2}} + \order{x^2} \overset{!}{=} 0
+\end{align}
+\begin{align}
+[\phi(\vb{x}), \sqrt{g} \partial_0 \phi(0)] &= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x}) \tilde{u}_{\va{k}}(0)^* + \frac{1}{2N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x})^* \tilde{u}_{\va{k}}(0) + \order{x^2}\\
+   &= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2N_{\va{k}}} e^{i \va{k}\va{x} + \order*{x^2}} + \frac{1}{2N_{\va{k}}}e^{-i \va{k}\va{x} + \order*{x^2}} + \order{x^2}\\
+   &\overset{!}{=} i \delta^3(\va{x}) = i \int \frac{\dd[3]{k}}{(2\pi)^3} e^{i \va{k}\va{x}}
 \end{align}
 
 Since \(e^{i \va{k}\va{x}}\) is a basis we find:
@@ -161,9 +163,9 @@ D^+(\vb{x},0) = - \frac{1}{4\pi^2} \frac{1}{a(t-i\varepsilon)^2 - |\va{x}|^2} + 
 
 \section{Determination of the temperature}
 \label{sec:app_num}
-In chapter \ref{sec:bh} we need to find the temperature that an observer will see on the basis of the energy spectrum. The energy spectrum is basically given by a Fourier-like transform of \(D^+\) evaluated along the curve (see eq. \eqref{equ:qft_detector_partial} and \eqref{equ:qft_detector_final}). 
+In Chapter \ref{sec:bh} we need to find the temperature that an observer will see on the basis of the energy spectrum. The energy spectrum is basically given by a Fourier-like transform of \(D^+\) evaluated along the curve (see eq. \eqref{equ:qft_detector_partial} and \eqref{equ:qft_detector_final}). 
 \subsection{Idea}
-Imaging an observer equipped with an Unruh-detector on a trajectory in the Schwarzschild metric. By eq. \eqref{equ:static_thermal_observer_general} he expects some thermal spectrum together with some corrections. These corrections could either shift the observed temperature or could be part of the non thermal spectrum. However he won't be able to distinguish which part of the spectrum is thermal or not. So to determine the temperature he will fit a thermal spectrum into the observed spectrum, i.e. find a value \(\beta\) such that the following minimizes: 
+Imaging an observer equipped with an Unruh detector on a trajectory in the Schwarzschild metric. By eq. \eqref{equ:static_thermal_observer_general} he expects some thermal spectrum together with some corrections. These corrections could either shift the observed temperature or could be part of the non thermal spectrum. However he won't be able to distinguish which part of the spectrum is thermal or not. So to determine the temperature he will fit a thermal spectrum into the observed spectrum, i.e. find a value \(\beta\) such that the following minimizes: 
 \begin{align}
 \int_0^\infty \dd{E} \qty(\dv{F_E}{\tau} - \frac{1}{2\pi} \frac{E}{e^{\beta E}-1})^2 \to \mathrm{min}
 \end{align}
@@ -180,7 +182,7 @@ corresponding to \(\beta\)\footnote{This is due to the Plancherel theorem which 
 \int_{-\infty}^0 \dd{\tau'} \qty(D^+(\vb{x}(\tau + \tau'), \vb{x}(\tau)) - D_\beta\upd{M}(\tau'))^2 \to \mathrm{min}
 \end{align} 
 
-We expect the temperature shift to be small compared to the Hawking temperature \(\beta\ind{H} = 8\pi M\) (and indeed this will be the case). So we can do a Taylor expansion of the thermal Wightman function around \(\beta\ind{H}\)\footnote{Note that we are expanding around the fixed Hawking temperature and not around the position dependent Tolman temperature \(\beta\ind{static} = \sqrt{f(r)}\beta\ind{H}\). This is useful to compare the observed temperatures.} This yields to
+We expect the temperature shift to be small compared to the Hawking temperature \(\beta\ind{H} = 8\pi M\) (and indeed this will be the case). So we can do a Taylor expansion of the thermal Wightman function around \(\beta\ind{H}\)\footnote{Note that we are expanding around the fixed Hawking temperature and not around the position dependent Tolman temperature \(\beta\ind{static} = \sqrt{f(r)}\beta\ind{H}\). This is useful to compare the observed temperatures.} This yields
 
 \begin{align}
 D_\beta\upd{M}(\tau') &\approx D_{\beta\ind{H}}\upd{M}(\tau') + \frac{\Delta\beta}{\beta\ind{H}} \frac{\sinh(\frac{\pi}{\beta\ind{H}} \tau') - \frac{\pi}{\beta\ind{H}} \tau' \cosh(\frac{\pi}{\beta\ind{H}} \tau')}{2\beta\ind{H}^2 \sinh[3](\frac{\pi}{\beta\ind{H}} \tau')} \\
@@ -198,7 +200,7 @@ We would like to compute \(\alpha = \frac{\Delta\beta}{\beta\ind{H}} = \frac{\be
 The integral over \(g^2\) can be calculated ones and yields \(I_g = \int_{-\infty}^0 \dd{\tau'} g(\tau')^2 = \frac{15 - \pi^2}{92160 \pi^4} M^{-3} \approx 5.7149\cdot 10^{-7} M^{-3}\)\todo{explain?}. In the diagrams we will not plot \(\alpha\) but rather \(-\alpha = \Delta T/T\ind{H}\).
 
 \subsection{Error estimation}
-The other integral \(I = \int_{-\infty}^0 \dd{\tau'} h(\tau')g(\tau')\) is evaluated numerically using the trapezoidal rule (see for example \cite{ron}). Since we cannot integrate the infinite range \((-\infty,0)\) with this method we will integrate over a finite range \((\tau_1,\tau_2)\)\footnote{Note that all \(\tau\) are negative.}. In order to get a meaningful result we need to estimate the errors. There are basically 3 sources of errors: the lower and upper integration limit and the error by the method itself.
+The other integral \(I = \int_{-\infty}^0 \dd{\tau'} h(\tau')g(\tau')\) is evaluated numerically using the trapezoidal rule (see for example \cite{ron}). Since we cannot integrate over the infinite range \((-\infty,0)\) with this method we will integrate over a finite range \((\tau_1,\tau_2)\)\footnote{Note that all \(\tau\) are negative.}. In order to get a meaningful result we need to estimate the errors. There are basically 3 sources of errors: the lower and upper integration limit (\(\Delta I_1\) and \(\Delta I_2\)) and the error by the method itself (\(\Delta I\ind{trapez}\)).
 
 For big absolute values of \(\tau'\) we can replace the \(\sinh\) and \(\cosh\) in \(g\) by an exponential function:
 \begin{align}
@@ -219,7 +221,7 @@ Since \(h\) will drop to zero we can assume an upper bound of the error for suff
 \Delta I_1 \approx \frac{\beta\ind{H}}{2\pi} |g(\tau_1)h(\tau_1)| 
 \end{align}
 
-Another error arises from the fact\todo{anders?} that around zero \(h\) is the (finite) difference of two divergent functions. Evaluating the function is therefore afflicted with increasing sampling errors when approaching zero. Since we cannot control those errors we will stop integrating at \(\tau_2 \lesssim 0\). When we assume that the function is nearly constant on the small interval we can add the missing contribution \(g(\tau_2)h(\tau_2)\cdot |\tau_2|\). However this will lead to an error which we estimate generously by the expected amount of the contribution:
+Another error arises from the fact that around zero \(h\) is the (finite) difference of two divergent functions. Evaluating the function is therefore afflicted with increasing sampling errors when approaching zero. Since we cannot control those errors we will stop integrating at \(\tau_2 \lesssim 0\). When we assume that the function is nearly constant on the small interval we can add the missing contribution \(g(\tau_2)h(\tau_2)\cdot |\tau_2|\). However this will lead to an error which we estimate generously by the expected amount of the contribution:
 \begin{align}
 \Delta I_2 \approx |g(\tau_2)h(\tau_2) \tau_2| \approx |g(0)h(0) \tau_2|
 \end{align}
@@ -229,13 +231,13 @@ The last contribution comes from the error of the method used. For the trapezoid
 \Delta I\ind{trapez} = \frac{\Delta\tau^2}{12} (\tau_2-\tau_1) |(h\cdot g)''(\chi)| 
 \end{align}
 
-where \(\chi\) is some value in the interval \((\tau_1,\tau_2)\). Since the \(h\cdot g\) will asymptotically drop to zero at least exponentially the second derivative will also drop. We are therefore interested in the curvature nearby \(\chi \approx \tau_2 \approx 0\). In fact we will use the second derivative at zero to estimate the error:
+where \(\chi\) is some value in the interval \((\tau_1,\tau_2)\). Since the \(h\cdot g\) will asymptotically drop to zero at least exponentially, the second derivative will also drop. We are therefore interested in the curvature near \(\chi \approx \tau_2 \approx 0\). In fact we will use the second derivative at zero to estimate the error:
 \begin{align}
 \Delta I\ind{trapez} \approx \frac{\Delta\tau^2}{12} (\tau_2-\tau_1) |(h\cdot g)''(0)|
 \label{equ:app_num_dtrapez}
 \end{align}
 
-Recall that we minimized \(\int (h - \alpha g)^2\) and therefore expect \(h \approx \alpha g\). So \((h\cdot g)''(0) \approx (\alpha g^2)''(0)\) that inserting into \eqref{equ:app_num_formula} yields\todo{check}
+Recall that we minimized \(\int (h - \alpha g)^2\) and therefore expect \(h \approx \alpha g\). So \((h\cdot g)''(0) \approx (\alpha g^2)''(0)\). Inserting into eq. \eqref{equ:app_num_dtrapez} yields\todo{check}
 \begin{align}
 \Delta I\ind{trapez} \approx \alpha \frac{\Delta\tau^2}{12} (\tau_2-\tau_1) \frac{2 \pi^2}{45 \beta^6}
 \end{align} 
@@ -253,14 +255,14 @@ Apart from the \(\tau_2\) we can minimize the errors by choosing sufficient valu
 \Delta \tau[M] &\ll 1/(\tau_2[M]-\tau_1[M]])\\
 \Delta \tau[M] &\ll |\tau_2[M]|
 \end{align}
- the contribution of \(\Delta I\ind{trapez}\) is neglectable compared to \(\Delta I_2\). If we further set \(\tau_1\) such that 
+ the contribution of \(\Delta I\ind{trapez}\) is negligible compared to \(\Delta I_2\). If we further set \(\tau_1\) such that 
 \begin{align}
 \tau_1[M]^2 \exp(\frac{1}{2} \tau_1[M]) \ll |\tau_2[M]|
 \label{equ:app_num_cond_2}
 \end{align} 
-we can also neglect \(\Delta I_1\). So the dominant error contribution will come from \(\Delta I_2 = |g(0) h(0) \tau_2|\). This error is -- as the value -- divided by \(I_g\) to achieve the error on \(\alpha\) which is then given in the diagrams as errorbars.
+we can also neglect \(\Delta I_1\). So the dominant error contribution will come from \(\Delta I_2 = |g(0) h(0) \tau_2|\). This error is -- like the value -- divided by \(I_g\) to achieve the error on \(\alpha\) which is then given in the diagrams as errorbars.
 
-For computing those diagrams the parameters in tab. \ref{tab:app_num_params} were used. One can easily check that they fulfil relations \eqref{equ:app_num_cond_1} - \eqref{equ:app_num_cond_2}. It was necessary to adjust \(\tau_2\) for circular observers because the numerical errors increased with increasing \(r\). For the other observers \(g\cdot h\) became thinner with increasing \(r\) till the sampling errors dominated. Therefore it was not possible to use this algorithm for arbitrary high radii.
+For computing those diagrams the parameters in tab. \ref{tab:app_num_params} were used. One can easily check that they fulfil the relations \eqref{equ:app_num_cond_1} - \eqref{equ:app_num_cond_2}. It was necessary to adjust \(\tau_2\) for circular observers because the sampling errors increased with increasing \(r\). For the other observers \(g\cdot h\) became thinner with increasing \(r\) till the sampling errors dominated. Therefore it was not possible to use this algorithm for arbitrary high radii.
 \begin{table}
 \centering
 \caption[Integration parameters]{Parameters used for numerical integration: integration from \(\tau_1\) to \(\tau_2\) using \(\Delta\tau\) as stepwidth.}
@@ -270,7 +272,7 @@ For computing those diagrams the parameters in tab. \ref{tab:app_num_params} wer
 Observer & \(\tau_1[M]\) & \(\tau_2[M]\) & \(\Delta\tau[M]\)\\
 \midrule
 static & \(-40\) & \(-0.1\) &  \(0.0001\)\\
-circular & \(-40\) & \(-(\log_2(r)/10)^2\) &  \(0.0001\)\\
+circular & \(-40\) & \(-(\log_2(r[M])/10)^2\) &  \(0.0001\)\\
 radial & \(-40\) & \(-0.1\) &  \(0.0001\)\\
 \bottomrule
 \end{tabular}
