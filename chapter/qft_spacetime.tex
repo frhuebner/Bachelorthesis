@@ -205,18 +205,18 @@ Choose a coordinate system \((\xi, y_1, y_2)\) for the spatial metric such that 
 
 We can therefore simultaneously diagonalize the operators which implies that we can find a complete set of solutions such that
 \begin{align}
-u_{m, i} = \tilde{A}_i(y_1, y_2) e^{-i\omega_m t} e^{i m \xi}
+u_{m, i} = \tilde{A}_i(y_1, y_2) e^{-i\omega_{m,i} t} e^{i m \xi}
 \end{align}
 
-Note that if \(u_{m,i}\) solves the Klein-Gordon-equation then also \(u_{-m,i}\) is a solution with the same frequency \(\omega_{-m} = \omega_{m}\).
+Note that if \(u_{m,i}\) solves the Klein-Gordon-equation then also \(u_{-m,i}\) is a solution with the same frequency \(\omega_{-m,i} = \omega_{m,i}\).
 
 The observer will only see nothing if he will see nothing for \(\tau \to \infty\)\footnote{This is because the transition rate is constant}:
 \begin{align}
-Q_m &\sim \int_{-\infty}^\infty \dd{\tau'} e^{i E \tau'} e^{+i\omega_m t(\tau')} e^{-i m \xi(\tau')} = \int_{-\infty}^\infty \dd{\tau'} e^{i E \tau'} e^{+i\omega_m A\tau'} e^{-i m B \tau'}\\
-	&= \delta(E + \omega_m A - m B)
+Q_m &\sim \int_{-\infty}^\infty \dd{\tau'} e^{i E \tau'} e^{+i\omega_{m,i} t(\tau')} e^{-i m \xi(\tau')} = \int_{-\infty}^\infty \dd{\tau'} e^{i E \tau'} e^{+i\omega_{m,i} A\tau'} e^{-i m B \tau'}\\
+	&= \delta(E + \omega_{m,i} A - m B)
 \end{align}
 
-This will be non zero at least for one energy only if \(\omega_m A - m B < 0\). For \(m B > 0\) we directly find \(\frac{A}{|B|} < \frac{|m|}{\omega_m}\). For \(m B < 0\) we can take the solution with \(-m\) which will give a contribution.
+This will be non zero at least for one energy only if \(\omega_{m,i} A - m B < 0\). For \(m B > 0\) we directly find \(\frac{A}{|B|} < \frac{|m|}{\omega_{m,i}}\). For \(m B < 0\) we can take the solution with \(-m\) which will give a contribution.
 \end{proof}
 
 We can now apply this to a circular geodesic in the Schwarzschild metric. Since the metric is spherically symmetric the trajectory is along the killing vector \(\partial_\varphi\). Also the values of \(\omega\) are continuous from \(0\) to \(\infty\) and are especially independent of \(m\) (this will be derived in the next chapter). This means no matter how big \(\frac{A}{B}\) is we will always find a combination of \(m\) and \(\omega\) that fulfils the second condition. So we have found one explicit example for a geodesic on which particle excitations occur.  
@@ -239,4 +239,4 @@ We are considering trajectories \(\dot{\vb{x}} = A\partial_t + B\partial_\xi\). 
 Since there are no restriction to \(B\) we conclude that \(\frac{g_{\xi\xi}}{g_{tt}} < \frac{A^2}{B^2} < \infty\). The value \(\frac{g_{\xi\xi}}{g_{tt}}\) cannot be achieved, however we can get infinitesimal close. Assuming \(\frac{g_{\xi\xi}(\vb{x})}{-g_{tt}(\vb{x})} < \frac{m^2}{\omega_m^2}\) we will therefore always find a trajectory such that \(\frac{A}{B} < \frac{m}{\omega_m}\) and so the conditions for Lemma \ref{lemma:killing} are satisfied. If on the other side \(\frac{g_{\xi\xi}(\vb{x})}{-g_{tt}(\vb{x})} \geq \frac{m^2}{\omega_m^2}\) there is no trajectory for Lemma \ref{lemma:killing} and no excitations will be detected.
 \end{proof}
 
-This lemma implies that there are circular trajectories on which one will encounter particles as well as all inertial observers in Minkowskispace will see no excitations. There all inertial trajectories are along killing vectors (e.g. take \(\xi = x\)) and \(\frac{g_{xx}}{|g_{tt}|} = 1\), but \(\frac{k_x^2}{\omega^2} \leq 1\). So Lemma \ref{lemma:killing_extended} implies no excitations.
+This lemma implies that there are circular trajectories on which one will encounter particles as well as all inertial observers in Minkowski space will see no excitations. There all inertial trajectories are along killing vectors (e.g. take \(\xi = x\)) and \(\frac{g_{xx}}{|g_{tt}|} = 1\), but \(\frac{k_x^2}{\omega^2} \leq 1\). So Lemma \ref{lemma:killing_extended} implies no excitations.

@@ -198,7 +198,7 @@ The integral over \(g^2\) can be calculated ones and yields \(I_g = \int_{-\inft
 \section{Error estimation}
 The other integral \(I = \int_{-\infty}^0 \dd{\tau'} h(\tau')g(\tau')\) is evaluated numerically using the trapezoidal rule (see for example \cite{ron}). Since we cannot integrate over the infinite range \((-\infty,0)\) with this method we will integrate over a finite range \((\tau_1,\tau_2)\)\footnote{Note that all \(\tau\) are negative.}. In order to get a meaningful result we need to estimate the errors. There are basically 3 sources of errors: the lower and upper integration limit (\(\Delta I_1\) and \(\Delta I_2\)) and the error by the method itself (\(\Delta I\ind{trapez}\)).
 
-For big absolute values of \(\tau'\) we can replace the \(\sinh\) and \(\cosh\) in \(g\) by an exponential function:
+For large absolute values of \(\tau'\) we can replace the \(\sinh\) and \(\cosh\) in \(g\) by an exponential function:
 \begin{align}
 g(\tau') &\approx \frac{1 - \frac{\pi}{\beta\ind{H}} \tau'}{2\beta\ind{H}^2} \exp(2\frac{\pi}{\beta\ind{H}} \tau') \approx -\frac{\pi}{2 \beta\ind{H}^3} \tau' \exp(2\frac{\pi}{\beta\ind{H}} \tau')
 \label{equ:app_num_g_asymptotic}

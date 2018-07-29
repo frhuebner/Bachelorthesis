@@ -57,7 +57,7 @@ set pointsize 3
 set xlabel "{/*1.5 r/M}"
 set key right top
 set xrange [140:2**32]
-set ylabel "{/Symbol D} {/*1.5 T/T_H - 1/√f(r)}"
+set ylabel "{/*1.5 T/T_H - 1/√f(r)}"
 
 
 set format x "10^{%T}"
