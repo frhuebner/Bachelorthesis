@@ -14,12 +14,12 @@ i\partial_t u = \omega u,\,\omega > 0
 \end{align}
 In case of a static metric it is possible to find a complete set of positive frequency solutions \cite{Townsend}
 \begin{align}
-u(t, x^i) \sim e^{-i\omega t} A(x^i)
+u(t, \va{x}) \sim e^{-i\omega t} A(\va{x})
 \end{align}
 Using the normalisation condition on a Cauchy surface \(t = \mathrm{const}\) one finds that 
 \begin{align}
-u_{i}(t, \va{x}) &= \frac{1}{\sqrt{2\omega_i}}e^{-i\omega_i t} A_i(\va{x})\\
 \label{equ:solutions_static}
+u_{i}(t, \va{x}) &= \frac{1}{\sqrt{2\omega_i}}e^{-i\omega_i t} A_i(\va{x})\\
 \delta_{ij} &= \int_\Sigma \dd[3]{x} \frac{\sqrt{g}}{\sqrt{\beta}} A_i^*(\va{x}) A_j(\va{x})\\
 \sum_k A_k(\va{x}) A_k^*(\va{x}') &= \frac{\sqrt{\beta}}{\sqrt{g}}\delta^3(\va{x}-\va{x}').
 \end{align}
@@ -154,13 +154,13 @@ This means that instead of integrating over \(D^+(\vb{x}(\tau'), 0)\) we can equ
 
 In a thermal field we can also extract the contribution from an inertial observer to be left with a non singular function. To do this plug the expansion of \(D^+(\vb{x}(\tau'), 0) = -\frac{1}{4\pi^2 \tau'^2} + W(\tau')\) into formula~\eqref{equ:qft_thermal} for \(D_\beta^+\) 
 \begin{align}
-D_\beta^+(t(\tau),\va{x}(\tau);0) &= \sum_{n=-\infty}^\infty D^+(t(\tau) - i \beta n,\va{x}(\tau);0)\\
-&= \sum_{n=-\infty}^\infty -\frac{1}{4\pi^2 (\tau' - i\beta \sqrt{a} n)^2} + \sum_{n=-\infty}^\infty W(\tau(t - i\beta n))\\
-&= -\frac{1}{4\beta^2 a} \frac{1}{\sinh[2](\frac{\pi}{\beta \sqrt{a}} \tau)} + W_\beta(\tau)
+D_\beta^+(t(\tau'),\va{x}(\tau');0) &= \sum_{n=-\infty}^\infty D^+(t(\tau') - i \beta n,\va{x}(\tau');0)\\
+&= \sum_{n=-\infty}^\infty -\frac{1}{4\pi^2 (\tau' - i\beta \sqrt{a} n)^2} + \sum_{n=-\infty}^\infty W(\tau'(t - i\beta n))\\
+&= -\frac{1}{4\beta^2 a} \frac{1}{\sinh[2](\frac{\pi}{\beta \sqrt{a}} \tau')} + W_\beta(\tau')
 \label{equ:static_thermal_observer_general}
 \end{align}
 
-The last equation is obtained by comparing to an inertial observer in Minkowski space (also see \ref{sec:app_minwighttherm}). So the observer will see a thermal spectrum of temperature \(T\ind{static} = \frac{T}{\sqrt{a}}\) (compare with eq. \eqref{equ:qft_thermal_inertial}) plus some corrections coming from \(W_\beta(\tau)\). These corrections will vanish for a static observer, be small for slow observers and might become the dominating spectrum for fast observers. The relation \(T\ind{static} = \frac{T}{\sqrt{a}}\) is also known from other analysis of thermal systems in general relativity and is called Tolman relation \cite{tolman}.
+The last equation is obtained by comparing to an inertial observer in Minkowski space (also see \ref{sec:app_minwighttherm}). So the observer will see a thermal spectrum of temperature \(T\ind{static} = \frac{T}{\sqrt{a}}\) (compare with eq. \eqref{equ:qft_thermal_inertial}) plus some corrections coming from \(W_\beta(\tau')\). These corrections will vanish for a static observer, be small for slow observers and might become the dominating spectrum for fast observers. The relation \(T\ind{static} = \frac{T}{\sqrt{a}}\) is also known from other analysis of thermal systems in general relativity and is called Tolman relation \cite{tolman}.
 
 Another property of the thermal Wightman function will be important later: Going through similar steps as in the vacuum case one finds that around the origin it looks like \(-\frac{1}{4\pi^2 \tau'^2} + \order*{\tau'^0}\). So again the singularity at \(\tau' = 0\) is trajectory and geometry invariant. 
 
@@ -205,7 +205,7 @@ Choose a coordinate system \((\xi, y_1, y_2)\) for the spatial metric such that 
 
 We can therefore simultaneously diagonalize the operators which implies that we can find a complete set of solutions such that
 \begin{align}
-u_{m, i} = \tilde{A}_i(y_1, y_2) e^{-i\omega_m t} \cdot e^{i m \xi}
+u_{m, i} = \tilde{A}_i(y_1, y_2) e^{-i\omega_m t} e^{i m \xi}
 \end{align}
 
 Note that if \(u_{m,i}\) solves the Klein-Gordon-equation then also \(u_{-m,i}\) is a solution with the same frequency \(\omega_{-m} = \omega_{m}\).

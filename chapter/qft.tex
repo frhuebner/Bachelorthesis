@@ -27,12 +27,12 @@ The completeness of the modes implies \((\phi|\psi) = \sum_i (\phi|u_i)(u_i|\psi
 
 \section{Quantisation and vacua}
 \label{sec:qft_quantisation}
-We can quantize the field by introducing the canonical commutation relations CCR on a Cauchy surface \(\Sigma\) with (future directed) normal vector $S^\mu$:
+We can quantize the field by introducing the canonical commutation relations CCR on a Cauchy surface \(\Sigma\) with (future directed) normal vector \(\vb{S}\):
 
 \begin{align}
 [\phi(\vb{x}),\phi(\vb{x}')]_\Sigma &= 0\\
-[\phi(\vb{x}),\nabla_S \phi(\vb{x}')]_\Sigma &= i\delta(\vb{x}-\vb{x}')\\
-[\nabla_S \phi(\vb{x}),\nabla_S \phi(\vb{x}')]_\Sigma &= 0
+[\phi(\vb{x}),\nabla_{\vb{S}} \phi(\vb{x}')]_\Sigma &= i\delta(\vb{x}-\vb{x}')\\
+[\nabla_{\vb{S}} \phi(\vb{x}),\nabla_{\vb{S}} \phi(\vb{x}')]_\Sigma &= 0
 \end{align}
 
 One can show that if they hold on one Cauchy surface they hold on every Cauchy surface. Given a complete set of modes this leads to \(\phi = \sum_i u_i a_i + u_i^* a_i^\dagger\), with \(a_i\) bosonic annihilation operators satisfying \([a_i,a_j^\dagger] = \delta_{ij}\).\cite{krishnan1011.5875}
@@ -99,14 +99,14 @@ The Klein-Gordon equation in Minkowski space is the normal wave equation:
 
 The solutions are given by plane waves:
 \begin{align}
-u_{\vec{k}}(x) = \frac{1}{\sqrt{2 |k|}} \frac{e^{i \vb{k} \vb{x}}}{\sqrt{2\pi}^3},\,\text{with}\, k^0 = |\va{k}|
+u_{\vec{k}}(\vb{x}) = \frac{1}{\sqrt{2 |k|}} \frac{e^{i \vb{k} \vb{x}}}{\sqrt{2\pi}^3},\,\text{with}\, k^0 = |\va{k}|
 \end{align}
 The prefactor \(\frac{1}{\sqrt{2 |k|}}\) is required for normalisation \((u_{\va{k}}|u_{\va{k}'}) = \delta^3(\va{k}-\va{k}')\). The vacuum in Minkowski space is given by \(a_{\va{k}}\ket*{0_M} = 0\). Throughout this thesis we will always exclude the mode \(\omega = |\va{k}| = 0\)\footnote{This might seem a bit ad hoc at first but it is mainly to exclude some \(\delta(\omega)\) terms which lead to clearly unphysical behaviour, e.g. an infinite transition rate to the groundstate of our detector.}.\cite{davies} 
 
 Since the Minkowski space is also spherically symmetric one could also choose spherical modes
 \begin{align}
 u_{\omega,l,m}\upd{M} = \frac{\sqrt{\omega}}{\sqrt{\pi}} e^{- i \omega t} j_l(\omega r) Y_l^m(\theta,\varphi),
-\end{align} where \(j_l\) is a spherical Bessel function. The prefactor is again due to normalisation and can be achieved using the completeness relation for spherical Bessels \(\int_0^\infty r^2 \dd{r} j_l(w r) j_l(w' r) = \frac{\pi}{2\omega^2}\delta(\omega - \omega')\) \cite{bessels}. For great distances from the origin one can approximate the Bessels by their asymptotic behaviour \(j_l(x) \overset{x \gg 1}{\to} \frac{\sin(x-l\frac{\pi}{2})}{x}\) \cite{bessels} and achieves:
+\end{align} where \(j_l\) is a spherical Bessel function. The prefactor is again due to normalisation and can be achieved using the completeness relation for spherical Bessels \(\int_0^\infty r^2 \dd{r} j_l(\omega r) j_l(\omega' r) = \frac{\pi}{2\omega^2}\delta(\omega - \omega')\) \cite{bessels}. For great distances from the origin one can approximate the Bessels by their asymptotic behaviour \(j_l(x) \overset{x \gg 1}{\to} \frac{\sin(x-l\frac{\pi}{2})}{x}\) \cite{bessels} and achieves:
 \begin{align}
 u_{\omega,l,m}\upd{M} \approx \frac{1}{\sqrt{\pi\omega}} e^{- i \omega t} \frac{\sin(\omega r - l\frac{\pi}{2})}{r} Y_l^m(\theta,\varphi)
 \label{equ:bessel_asympt}
@@ -122,7 +122,7 @@ D^+(\vb{x},\vb{x}') &= -\frac{1}{4\pi^2} \frac{1}{(t-t'-i\varepsilon)^2 - |\va{x
 \label{equ:qft_wighman_vacuum}
 \end{align}
 
-Up to the small imaginary number \(i\varepsilon\) this is a real function. This means that the imaginary part (or \(D(x,x')\)) can only be non-vanishing if the denominator goes to \(0\) for \(\varepsilon \to 0\). This is only the case for lightlike seperated \(x\) and \(x'\) or equivalently if \(x\) is on the lightcone of \(x'\). This means when computing \(D^+(\vb{x}(\tau),\vb{x}(\tau'))\) on a trajectory (like for a detector in eq. \eqref{equ:qft_detector_final}) the imaginary part will always vanish, since our detector stays strictly inside the lightcone\footnote{Of course there is also the case \(\vb{x} = \vb{x}'\) which we have to treat separately. But from the CCR we can conclude \(2i\,\mathrm{Im}\,D^+(x,x) = iD(x,x) = [\phi(x),\phi(x)] = 0\).}.
+Up to the small imaginary number \(i\varepsilon\) this is a real function. This means that the imaginary part (or \(D(\vb{x},\vb{x}')\)) can only be non-vanishing if the denominator goes to \(0\) for \(\varepsilon \to 0\). This is only the case for lightlike seperated \(\vb{x}\) and \(\vb{x}'\) or equivalently if \(\vb{x}\) is on the lightcone of \(\vb{x}'\). This means when computing \(D^+(\vb{x}(\tau),\vb{x}(\tau'))\) on a trajectory (like for a detector in eq. \eqref{equ:qft_detector_final}) the imaginary part will always vanish, since our detector stays strictly inside the lightcone\footnote{Of course there is also the case \(\vb{x} = \vb{x}'\) which we have to treat separately. But from the CCR we can conclude \(2i\,\mathrm{Im}\,D^+(\vb{x},\vb{x}) = iD(\vb{x},\vb{x}) = [\phi(\vb{x}),\phi(\vb{x})] = 0\).}.
 
 Since we will later use spherical modes in order to calculate \(D^+\) in the Schwarzschild metric it is useful to have an expression for the Wightman function in terms of the spherical modes. This is given by:
 \begin{align}
@@ -158,7 +158,7 @@ Clearly \(D^+(\vb{x}(\tau),\vb{x}(\tau'))\) only depends on \(\Delta\tau = \tau-
 \cfrac{\mathrm{d}F_E(\tau)}{\mathrm{d}\tau} &= \int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} D^+(\vb{x}(\tau), \vb{x}(0)) = -\frac{1}{4\pi^2} \int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} \frac{1}{(\tau-i\varepsilon)^2} = 0
 \end{align} 
 
-For the last step use contour integration and close the contour in the lower half plane. Since \(e^{-i E \tau}\) drops to \(0\) for large \(\tau\) with negative imaginary part the integral is given by the sum over all residuals in the lower half plane. Because the \(\varepsilon\) moves the pole at \(\tau = 0\) into the upper half plane there are no poles in the lower half plane and therefore the integral vanishes. So there are no particle excitations for an observer on a inertial worldline\footnote{Note that by Poincare invariance of \(D^+(x,x')\) one can always choose a frame in which an inertial observer does not move.} which simply means that the Minkowski vacuum is treated as a state with no particles.\cite{davies}
+For the last step use contour integration and close the contour in the lower half plane. Since \(e^{-i E \tau}\) drops to \(0\) for large \(\tau\) with negative imaginary part the integral is given by the sum over all residuals in the lower half plane. Because the \(\varepsilon\) moves the pole at \(\tau = 0\) into the upper half plane there are no poles in the lower half plane and therefore the integral vanishes. So there are no particle excitations for an observer on a inertial worldline\footnote{Note that by Poincare invariance of \(D^+(\vb{x},\vb{x}')\) one can always choose a frame in which an inertial observer does not move.} which simply means that the Minkowski vacuum is treated as a state with no particles.\cite{davies}
 
 \subsection{The Unruh effect}
 Another interesting case is that of an observer which is accelerating with an constant proper acceleration \(\alpha > 0\), i.e. \(t(\tau) = 1/\alpha \sinh \alpha\tau,\,x(\tau) = 1/\alpha \cosh \alpha\tau,\, y(\tau) = z(\tau) = 0\). Define \(\lambda = \alpha\tau\). For simplicity calculate \(D^+\) with \(\varepsilon = 0\)\footnote{The result with \(\varepsilon\) is analogue, e.g. \cite{davies}}
@@ -166,14 +166,14 @@ Another interesting case is that of an observer which is accelerating with an co
 \begin{align}
 -\frac{\alpha^2}{4\pi^2 D^+(\vb{x}(\lambda/\alpha), \vb{x}(\lambda'/\alpha))} &= (\sinh \lambda - \sinh \lambda')^2 - (\cosh \lambda - \cosh \lambda')^2\\
 	&= 4 \sinh^2\frac{\lambda-\lambda'}{2}\\
-D^+(x(\tau), x(\tau')) &= -\frac{\alpha^2}{16\pi^2} \frac{1}{\sinh^2\frac{\alpha(\tau-\tau')}{2}}
+D^+(\vb{x}(\tau), \vb{x}(\tau')) &= -\frac{\alpha^2}{16\pi^2} \frac{1}{\sinh^2\frac{\alpha(\tau-\tau')}{2}}
 \label{equ:qft_d_unruh}
 \end{align}
 
 Computing the thermal Wightman function (see appendix \ref{sec:app_minwighttherm})
 
 \begin{align}
-D^+_\beta(x,x') &= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{(t-t'-i\varepsilon)^2 - |\va{x}-\va{x}'|^2})}
+D^+_\beta(\vb{x},\vb{x}') &= -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{(t-t'-i\varepsilon)^2 - |\va{x}-\va{x}'|^2})}
 \label{equ:qft_wightman_thermal}
 \end{align} 
 
