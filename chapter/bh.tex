@@ -53,9 +53,9 @@ D^+(\vb{x}, \vb{x}') = \int_0^\infty \frac{\dd{\omega}}{\pi\omega} \sum_{l,m} e^
 
 Since this integral is nearly the same as in Minkowski space (see eq. \eqref{equ:wightman_minkoski_spherical}) we also encounter the same problems, namely the IR divergence and the fact that it is non-zero only in two directions. This is due to the fact that the approximation \(\omega r \gg l\) breaks down for small \(\omega\) and for large \(l\). Recall that the problems in the non approximate calculation in Minkowski space do not occur because the \(j_l(\omega r)\) remain finite at \(\omega \to 0\). In other words the essential feature of the \(j_l(\omega r)\) is that they let all the \(\cos(\omega ...)\) terms in the integral drop to zero for \(\omega \to 0\) instead of \(\cos{0} = 1\) in the approximate case. Therefore we can assume that the same happens for exact solutions around the star.
 
-Unfortunately the exact behaviour for small \(\omega\) is the same as for small \(r\) which will depend on the specific geometry of the star. But the metric of a star is almost flat (since the radius of a star \(R_0\) is much bigger than its Schwarzschild radius \(R_S\)). Therefore we will approximate the global mode by replacing the sine with the spherical Bessel function:
+Unfortunately the exact behaviour for small \(\omega\) is the same as for small \(r\) which will depend on the specific geometry of the star. But the metric of a star is almost flat (since the radius of a star \(R_0\) is much bigger than its Schwarzschild radius \(R\ind{S}\)). Therefore we will approximate the global mode by replacing the sine with the spherical Bessel function:
 \begin{align}
-u_{\omega l m} &= \frac{\sqrt{\omega}}{\sqrt{\pi}} e^{-i\omega t} \frac{r_*}{r} F(r) j_l(\omega r_*) Y_l^m (\theta, \phi) = \frac{r_*}{r} F(r) u_{\omega l m}\upd{M}(r_*,\theta,\phi)
+u_{\omega l m} &= \frac{\sqrt{\omega}}{\sqrt{\pi}} e^{-i\omega t} \frac{r_*}{r} F(r) j_l(\omega r_*) Y_l^m (\theta, \varphi) = \frac{r_*}{r} F(r)\,u_{\omega l m}\upd{M}(r_*,\theta,\varphi)
 \end{align}
 
 We introduced an extra factor \(F(r)\) to correct the \(r\) dependence again. This factor must approach \(1\) at infinity. Because the modes now are the same (up to a prefactor and replacing \(r \to r_*\)) as in Minkowski space we can find the Wightman function by adjusting the Wightman function of Minkowski space (see eq. \eqref{equ:qft_wighman_vacuum})
@@ -175,7 +175,7 @@ The main problem with the different prefactor is that the difference with anothe
 D^+_\beta(\vb{x}(\tau),\vb{x}(0)) &= -\frac{1}{4\beta^2 f(r)} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{A^2\tau^2 - 2 \frac{r^2}{f(r)} (1-\cos{B\tau})})}
 \end{align}
 
-This is possible because the approximation is only valid when the difference is negligible. Now we can determine the temperature shift according to Section \ref{sec:app_num}. The result is given in fig. \ref{fig:bh_circ}. One can see as long as our approximation is suitable (above the dotted line) the result fits to the Tolman relation. Again the difference between both lies inside the numerical errors.
+This is possible because the approximation is only valid when the difference is negligible. Now we can determine the temperature shift according to appendix \ref{sec:app_num}. The result is given in fig. \ref{fig:bh_circ}. One can see as long as our approximation is suitable (above the dotted line) the result fits to the Tolman relation. Again the difference between both lies inside the numerical errors.
 
 \begin{figure}[h]
   \centering

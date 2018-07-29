@@ -10,7 +10,7 @@ The metric only depends on the spatial coordinates and therefore \(\partial_t\) 
 \section{Positive frequency modes}
 A solution $u$ is called positive frequency if
 \begin{align}
-i\partial_t u = \omega u,\,\omega > 0
+i\partial_t u = \omega\,u,\,\omega > 0
 \end{align}
 In case of a static metric it is possible to find a complete set of positive frequency solutions \cite{Townsend}
 \begin{align}
@@ -35,7 +35,7 @@ D^+(\vb{x},\vb{x}') = \sum_i \frac{1}{2\omega_i} e^{-i\omega_i (t-t')}A_i(\va{x}
 
 A first property of \(D^+\) is obtained by differentiating w.r.t. \(t\) and then setting \(t = t'\):
 \begin{align}
-i\partial_t \eval{D^+(\vb{x},0)}_{t = t'} &= \frac{1}{2}\sum_i A_i(\va{x}) A_i(\va{x}')\\
+i\partial_t \eval{D^+(\vb{x},\vb{x}')}_{t = t'} &= \frac{1}{2}\sum_i A_i(\va{x}) A_i(\va{x}')\\
 &= \frac{1}{2}\frac{\sqrt{\beta}}{\sqrt{g}}\delta^3(\va{x}-\va{x}')
 \end{align}
 
@@ -65,11 +65,11 @@ where we defined \(\delta\tau = \eval{\dv{\tau_\varepsilon}{\varepsilon}}_{\vare
 \delta\tau &= ia\dot{t}(0) \pm \sqrt{-a^2 \dot{t}(0)^2 + 1}.
 \end{align}
 
-\(\delta\tau\) has two solutions and therefore the pole will split into two poles. But we know that \(a\dot{t}(0) > 0\) and so will both values of \(\delta\tau\) have positive imaginary part. Recall that \(\delta\tau = \eval{\dv{\tau_\varepsilon}{\varepsilon}}_{\varepsilon = 0}\) and so \(\tau_\varepsilon = \delta\tau \varepsilon + \order{\varepsilon^2}\) which means that for a sufficient small value of \(\varepsilon\) both poles will lie in the upper half of the complex plane.
+\(\delta\tau\) has two solutions and therefore the pole will split into two poles. But we know that \(a\dot{t}(0) > 0\) and so will both values of \(\delta\tau\) have positive imaginary part. Recall that \(\delta\tau = \eval{\dv{\tau_\varepsilon}{\varepsilon}}_{\varepsilon = 0}\) and so \(\tau_\varepsilon = \delta\tau \varepsilon + \order*{\varepsilon^2}\) which means that for a sufficient small value of \(\varepsilon\) both poles will lie in the upper half of the complex plane.
 
 \subsection{Singularities of the Wightman function}
 \label{sec:static_pole}
-We know that the Wightman function solves the Klein-Gordon-Equation, i.e.
+We know that the Wightman function solves the Klein-Gordon equation, i.e.
 \begin{align}
 \nabla_\mu\nabla^\mu D^+(\vb{x},\vb{x}') = 0
 \end{align}
@@ -100,12 +100,12 @@ In a static spacetime a static observer does not observe any particles.
 \label{lemma:static_static}  
 \end{lemma} 
 \begin{proof}
-Recall that the modes in a static spacetime (see eq. \eqref{equ:solutions_static}) can be written as \(u_i = \frac{1}{\sqrt{2\omega_i}}e^{-i\omega_i t} A_i(\va{x})\).
+Recall that the modes in a static spacetime (see eq. \eqref{equ:solutions_static}) can be written as \(u_i~=~\frac{1}{\sqrt{2\omega_i}}e^{-i\omega_i t} A_i(\va{x})\).
 Since the observer moves only along \(\partial_t\) he will have four-velocity \(\dot{\vb{x}} = \frac{1}{\sqrt{a}} \partial_t\). Note that all components of the metric are independent of \(\tau\) because the spatial coordinates stay constant \(\va{x}(\tau) = \va{x}_0\). Integrating yields \(t(\tau) = \frac{1}{\sqrt{a}} \tau + t_0\).
 Now we can evaluate \(D^+(\vb{x}(\tau), \vb{x}(\tau'))\):
 \begin{align}
 D^+(\vb{x}(\tau), \vb{x}(\tau')) &= \bra*{0}\phi(\vb{x}(\tau))\phi(\vb{x}(\tau'))\ket*{0} = \sum_i u_i(\vb{x}(\tau)) u_i^*(\vb{x}(\tau'))\\
-	&= \sum_i \frac{1}{2\omega_i} e^{-i\omega_i (t(\tau)-t(\tau')} A_i(\va{x}_0)A_i^*(\va{x}_0)\\
+	&= \sum_i \frac{1}{2\omega_i} e^{-i\omega_i (t(\tau)-t(\tau'))} A_i(\va{x}_0)A_i^*(\va{x}_0)\\
 	&= \sum_i \frac{1}{2\omega_i} e^{-i\omega_i(\tau - \tau')/\sqrt{a}} A_i(\va{x}_0)A_i^*(\va{x}_0)
 \end{align} 
 
@@ -139,7 +139,7 @@ D^+(\vb{x}(\tau'), 0) = \frac{a_{-2}}{\tau'^2} + W(\tau')
 where \(W(\tau')\) is finite at \(\tau' = 0\). We can find \(a_{-2}\) by the following limit:
 \begin{align}
 a_{-2} &= \lim_{\tau' \to 0}\tau'^2 \cdot D^+(\vb{x}(\tau'), 0)\\
-	&= - \frac{1}{4\pi^2} \lim_{\tau' \to 0} \frac{\tau'^2}{at(\tau')^2 - |\va{x}(\tau)|^2} + \order{x^2}\\
+	&= - \frac{1}{4\pi^2} \lim_{\tau' \to 0} \frac{\tau'^2}{at(\tau')^2 - |\va{x}(\tau')|^2} + \order{x^2}\\
 	&= - \frac{1}{4\pi^2} \lim_{\tau' \to 0} \frac{\tau'}{a t\dot{t} - \va{x}\dot{\va{x}}}\\
 	&= - \frac{1}{4\pi^2} \frac{1}{a \dot{t}^2 - \dot{\va{x}}^2}\\
 	&= - \frac{1}{4\pi^2}
@@ -168,7 +168,7 @@ Another property of the thermal Wightman function will be important later: Going
 
 The statement of Lemma \ref{lemma:static_static} that a static observer does not recognize particles might seem surprising as in many spacetimes a static observer needs to accelerate in order to stay at his position (take the Schwarzschild metric for example). As a first guess it might seem that by equivalence principle a proper accelerating observer would see a heat bath as given by the Unruh effect. This would also imply that a freely falling observer does not detect any particles. In order to show that this assumption is misleading we will first analyse the properties of trajectories on which no particles will be detected in general. To conclude the discussion we will show that on circular geodesics in the Schwarzschild metric one actually detects something. 
 
-Recall that transition probability (not the rate) for a detector is proportional to the square norm of the following state (see \ref{sec:app_unruh})
+Recall that transition probability (not the rate) for a detector is proportional to the square norm of the following state (see appendix \ref{sec:app_unruh})
 \begin{align}
 \ket*{\psi} &= \int_{-\infty}^\tau \dd{\tau'} e^{i E \tau'} \phi(\vb{x}(\tau'))\ket*{0}\\
 	&= \sum_i \frac{1}{\sqrt{2\omega_i}}\int_{-\infty}^\tau \dd{\tau'} e^{i E \tau'} e^{+i\omega_i t(\tau')} A_i(\va{x}(\tau'))^* \ket*{\vb{1}_i}

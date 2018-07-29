@@ -125,7 +125,7 @@ To solve these equations use the ansatz \(\tilde{u}_{\va{k}}(\vb{x}) = \exp(-i\o
 0 &= ik_a\qty(\frac{1}{2} b_i B^a_{ik} + \frac{1}{2} c_{ak} - \frac{2a}{3} R_{ak} + b_k B^a_{ii}) - 2 a k_i k_a B^a_{ik} - b_k k_i k_i 
 \end{align}
 
-If we require that all parameters be real then we have 8 equations for 18 free parameters of \(B^a_{ij}\)\footnote{Note that \(B^a_{ij}\) is symmetric in \(i, j\).}. We could now fix some more properties of \(B\) but it is not necessary for our argumentation. Note that the dispersion relation now reads \(\omega = \sqrt{a} \qty|\va{k}|\).
+If we require that all parameters be real then we have 8 equations for 18 free parameters of \(B^a_{ij}\)\footnote{Note that \(B^a_{ij}\) is symmetric in \(i, j\).}. We could now fix some more properties of \(B\) but it is not necessary for our argumentation. Note that the dispersion relation now reads \(\omega = \sqrt{a}\,|\va{k}|\).
 
 \subsection{Normalising the modes}
 Next we need to find the right normalisation of the modes. Since we cannot integrate our modes over the whole spacetime we will use the CCR to find the right normalisation\footnote{This works because the CCR are only valid in the right normalisation.}. So expand \(\phi(\vb{x}) = \int \frac{\dd[3]{k}}{\sqrt{2\pi}^3} \frac{1}{\sqrt{2|\va{k}| N_{\va{k}}}}\tilde{u}_{\va{k}}(\vb{x}) a_{\va{k}} + \frac{1}{\sqrt{2|\va{k}| N_{\va{k}}}} \tilde{u}_{\va{k}}(\vb{x})^* a_{\va{k}}^\dagger\) and calculate the CCR for a surface \(t = \mathrm{const}\):
@@ -134,12 +134,12 @@ Next we need to find the right normalisation of the modes. Since we cannot integ
 [\phi(\vb{x}), \phi(0)] &= \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2|\va{k}| N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x}) \tilde{u}_{\va{k}}(0)^*  - \frac{1}{2|\va{k}| N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x})^* \tilde{u}_{\va{k}}(0)\\
 	&= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2|\va{k}| N_{\va{k}}} e^{i \va{k}\va{x} + \order*{x^2}} - \frac{1}{2|\va{k}| N_{\va{k}}}e^{-i \va{k}\va{x} + \order*{x^2}} \overset{!}{=} 0\\
 %	
-[\sqrt{g/\beta} \partial_t \phi(\vb{x}), \sqrt{g/\beta} \partial_t \phi(0)] &= \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{|\va{k}|}{2 N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x}) \tilde{u}_{\va{k}}(0)^* - \frac{|\va{k}|}{2 N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x})^* \tilde{u}_{\va{k}}(0)  + \order{x^2}\\
-	&= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{|\va{k}|}{2 N_{\va{k}}} e^{i \va{k}\va{x} + \order*{x^2}} - \frac{|\va{k}|}{2 N_{\va{k}}}e^{-i \va{k}\va{x} + \order*{x^2}} + \order{x^2} \overset{!}{=} 0
+[\sqrt{g/\beta} \partial_t \phi(\vb{x}), \sqrt{g/\beta} \partial_t \phi(0)] &= \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{|\va{k}|}{2 N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x}) \tilde{u}_{\va{k}}(0)^* - \frac{|\va{k}|}{2 N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x})^* \tilde{u}_{\va{k}}(0)  + \order{x}\\
+	&= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{|\va{k}|}{2 N_{\va{k}}} e^{i \va{k}\va{x} + \order*{x^2}} - \frac{|\va{k}|}{2 N_{\va{k}}}e^{-i \va{k}\va{x} + \order*{x^2}} + \order{x} \overset{!}{=} 0
 \end{align}
 \begin{align}
-[\phi(\vb{x}), \sqrt{g/\beta} \partial_t \phi(0)] &= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x}) \tilde{u}_{\va{k}}(0)^* + \frac{1}{2N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x})^* \tilde{u}_{\va{k}}(0) + \order{x^2}\\
-   &= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2N_{\va{k}}} e^{i \va{k}\va{x} + \order*{x^2}} + \frac{1}{2N_{\va{k}}}e^{-i \va{k}\va{x} + \order*{x^2}} + \order{x^2}\\
+[\phi(\vb{x}), \sqrt{g/\beta} \partial_t \phi(0)] &= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x}) \tilde{u}_{\va{k}}(0)^* + \frac{1}{2N_{\va{k}}}\tilde{u}_{\va{k}}(\vb{x})^* \tilde{u}_{\va{k}}(0) + \order{x}\\
+   &= i \int \frac{\dd[3]{k}}{(2\pi)^3} \frac{1}{2N_{\va{k}}} e^{i \va{k}\va{x} + \order*{x^2}} + \frac{1}{2N_{\va{k}}}e^{-i \va{k}\va{x} + \order*{x^2}} + \order{x}\\
    &\overset{!}{=} i \delta^3(\va{x}) = i \int \frac{\dd[3]{k}}{(2\pi)^3} e^{i \va{k}\va{x}}
 \end{align}
 
