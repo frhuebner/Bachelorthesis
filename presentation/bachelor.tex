@@ -1,0 +1,153 @@
+\documentclass{beamer}
+
+
+%\usetheme{Copenhagen}
+\usetheme{CambridgeUS}
+%\usetheme{madrid}
+\usecolortheme{dolphin}
+\usecolortheme{orchid}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{lmodern}
+%\usepackage{marvosym}
+\usepackage{enumerate}
+\usepackage{textcomp}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{braket}
+\usepackage{mathabx}
+\usepackage{physics}
+\renewcommand{\va}[1]{\vec{#1}}
+\usepackage{todonotes}
+%
+%\usepackage{tikz}
+
+\usepackage[backend=bibtex8,sorting=none]{biblatex}
+\addbibresource{refs.bib}
+
+\newcommand{\upd}[1]{^\mathrm{#1}}
+\newcommand{\ind}[1]{_\mathrm{#1}}
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Hawking Radiation for Observers]{\vspace{1cm}Hawking Radiation as Seen by Observers\\\small{Bachelor thesis}}
+
+\author[Friedrich Hübner]{Friedrich Hübner\\Universität Bonn}
+\date{\today}
+
+\begin{document}
+\beamertemplatenavigationsymbolsempty
+\titlepage
+
+\frame{\tableofcontents}
+
+\section{QFT in curved spacetime}
+\subsection{Scalar field}
+\begin{frame}{Massless scalar field in curved spacetime}
+\begin{itemize}
+	\item Spacetime metric: \(g_{\mu\nu}\)
+	\item Lagrangian: \(\mathcal{L} = -\frac{1}{2}\sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\,\partial_\nu \phi\)
+	\item Klein-Gordon equation: \(\nabla_\mu\nabla^\mu \phi = \frac{1}{\sqrt{|g|}}\partial_\mu \qty(\sqrt{|g|} g^{\mu\nu} \partial_\nu \phi) = 0\)
+	\item Scalar product: \((\phi|\psi) := i \int_{\Sigma}\dd{S^\mu} \phi^*\nabla_\mu \psi - \psi\nabla_\mu \phi^*\)
+	\item Orthonormal basis: \((u_i|u_j) = \delta_{ij},\;(u_i|u_j^*) = 0,\;(u_i^*|u_j^*) = -\delta_{ij}\)
+	\item Quantisation: \(\phi(\vb{x}) = \sum_i u_i a_i + u_i^*a_i^\dagger\)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{State of the QFT}
+\begin{itemize}
+	\item Vacuum: \(a_i \ket*{0} = 0\)
+	\item Problem: \(u_i \to v_j, a_i \to b_j\): \(b_i \ket*{0} \neq 0\)
+	\item[] \(\to\) Need to guess state!
+	\item Static spacetime: choose vacuum w.r.t. positive frequency modes: \(u_i \sim e^{-i\omega t}\)
+	\item What does an observer see? 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Greens functions}
+\begin{itemize}
+	\item Vacuum:
+	\begin{itemize}
+		\item Wightman function \(D^+(\vb{x},\vb{x}') := \bra*{0}\phi(\vb{x})\phi(\vb{x}')\ket*{0}\)
+ 		\item \(i D(\vb{x},\vb{x}') := [\phi(\vb{x}),\phi(\vb{x}')] = 2i\,\mathrm{Im}\,D^+(\vb{x},\vb{x}')\)
+		\item \(D^{(1)}(\vb{x},\vb{x}') := \bra*{0}\{\phi(\vb{x}),\phi(\vb{x}')\}\ket*{0}= 2\,\mathrm{Re}\,D^+(\vb{x},\vb{x}')\)
+	\end{itemize}
+	\item Thermal:
+	\begin{itemize}
+		\item replace \(\bra*{0}\dots\ket*{0}\) by \(\frac{1}{Z} \mathrm{Tr}\,e^{-\beta H} \dots\)
+		\item \(D\) is c-number: \(D_\beta = D\)
+		\item \(D^{(1)}_\beta(t,\va{x};t',\va{x}') = \sum_n D^{(1)}(t-i\beta n, \va{x};t',\va{x}')\)
+	\end{itemize}
+\end{itemize}
+\end{frame}
+\subsection{Unruh detector}
+\begin{frame}{Unruh detector}
+\begin{itemize}
+	\item Detector model: \(c\cdot m(\tau) \phi(\vb{x}(\tau))\),\, \(c \ll 1\)
+	\item Transition amplitude: \(Q_{\ket*{0,0}\to\ket*{E,\psi}}(\tau) \sim \int_{-\infty}^\tau e^{i E \tau'} \bra*{\psi}\phi(\vb{x}(\tau'))\ket*{0}\dd{\tau'}\)
+	\item Transition rate: \(\dv{F_E}{\tau} = 2 \mathrm{Re}\,\int_{-\infty}^0 \dd{\tau'} e^{-i E \tau'} D^+(\vb{x}(\tau + \tau'), \vb{x}(\tau))\)
+	\item For constant rate: \(\dv{F_E}{\tau} = \int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} D^+(\vb{x}(\tau), \vb{x}(0))\)
+	\item Interpretation: \(F_E\) is particle population for observer 
+\end{itemize}
+\end{frame}
+\subsection{Minkowski space}
+\begin{frame}{Minkowski space}
+\begin{itemize}
+	\item Wightman function: \(D^+(\vb{x},\vb{x}') = -\frac{1}{4\pi^2} \frac{1}{(t-t'-i\varepsilon)^2 - |\va{x}-\va{x}'|^2}\)
+	\item Static observer: \(t(\tau) = \tau, \va{x}(\tau) = \mathrm{const}\)
+	\begin{itemize}
+		\item \(D^+(\vb{x}(\tau),\vb{x}(0)) = -\frac{1}{4\pi^2} \frac{1}{(\tau-i\varepsilon)^2}\)
+		\item Fourier transform: \(\dv{F_E}{\tau} = 0\)
+	\end{itemize}
+	\item[]\(\to\) Inertial observer: vacuum contains no particles
+\end{itemize}
+%\todo{image}
+\end{frame}
+
+\begin{frame}{Unruh effect}
+\begin{itemize}
+	\item Accelerating observer: \(t(\tau) = 1/\alpha \sinh \alpha\tau,\,x(\tau) = 1/\alpha \cosh \alpha\tau\)
+	\begin{itemize}
+		\item \(D^+(\vb{x}(\tau), \vb{x}(\tau')) = -\frac{\alpha^2}{16\pi^2} \frac{1}{\sinh^2\frac{\alpha(\tau-\tau')}{2}}\)
+	\end{itemize}
+	\item Thermal state: \(D^+_\beta(\vb{x},\vb{x}') = -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta}\sqrt{(t-t'-i\varepsilon)^2 - |\va{x}-\va{x}'|^2})}\)
+	\begin{itemize}
+		\item Static observer: \(D^+_\beta(\vb{x}(\tau),\vb{x}(\tau')) = -\frac{1}{4\beta^2} \frac{1}{\sinh[2](\frac{\pi}{\beta} (\tau-\tau'))}\)
+	\end{itemize}
+	\item Set \(\beta = 2\pi/\alpha\)
+	\item Accelerating observer: vacuum is a thermal state
+\end{itemize}
+\end{frame}
+
+\section{Static spacetime}
+\begin{frame}{Static spactimes}
+\begin{itemize}
+	\item \(\dd{s^2} = -\beta(\va{x}) \dd{t^2} + g_{ij}(\va{x}) \dd{x^i} \dd{x^j}\)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Quellen}
+\begin{itemize}
+	\item C. S. Wu u. a. 'Experimental Test of Parity Conservation in Beta
+Decay'. In: Phys. Rev. 105 (4 1957), S. 1413-1415. doi:10.1103/PhysRev.105.1413. url:https://link.aps.org/doi/10.1103/PhysRev.105.1413.
+	\item ccreweb.org/documents/parity/parity.html
+	\item www.spektrum.de/lexikon/physik/paritaet/10923
+	\item www.physi.uni-heidelberg.de/$\sim$menzemer/ KeyexperimentsWS1415/lamparth.pdf
+	\item www.weltderphysik.de/gebiet/teilchen/news/2012/verletzung-der-zeitsymmetrie-beobachtet/
+\end{itemize}
+%\printbibliography
+\end{frame}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\end{document}
