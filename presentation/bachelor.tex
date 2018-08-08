@@ -23,6 +23,8 @@
 \usepackage{physics}
 \renewcommand{\va}[1]{\vec{#1}}
 \usepackage{todonotes}
+\let\todox\todo
+\renewcommand\todo[1]{\todox[inline]{#1}}
 %
 %\usepackage{tikz}
 
@@ -108,7 +110,7 @@
 	\end{itemize}
 	\item[]\(\to\) Inertial observer: vacuum contains no particles
 \end{itemize}
-%\todo{image}
+\todo{image}
 \end{frame}
 
 \begin{frame}{Unruh effect}
@@ -129,10 +131,88 @@
 \section{Static spacetime}
 \begin{frame}{Static spactimes}
 \begin{itemize}
-	\item \(\dd{s^2} = -\beta(\va{x}) \dd{t^2} + g_{ij}(\va{x}) \dd{x^i} \dd{x^j}\)
+	\item Metric: \(\dd{s^2} = -\beta(\va{x}) \dd{t^2} + g_{ij}(\va{x}) \dd{x^i} \dd{x^j}\)
+	\item Positive frequency solutions: \(u_{i}(t, \va{x}) = \frac{1}{\sqrt{2\omega_i}}e^{-i\omega_i t} A_i(\va{x})\)
+	\item State of QFT -- vacuum: \(a_i \ket*{0} = 0\)
+	\item Normal coordinates (\(a = \beta(0)\)): \[D^+(\vb{x},0) = -\frac{1}{4\pi^2} \frac{1}{a(t-i\varepsilon)^2 - |\va{x}|^2} + \order{x^2}\]
 \end{itemize}
 \end{frame}
 
+\subsection{Properties of the Wightman function}
+\begin{frame}{Pole at \(\vb{x} = \vb{x}'\)}
+\begin{itemize}
+	\item Consider trajectory \(\vb{x}(\tau)\), \(\vb{x}(0) = 0\)
+	\item \(D^+\) has second order pole at \(\tau = 0\): \(\frac{1}{a(t(\tau)-i\varepsilon)^2 - |\va{x}(\tau)|^2}\)
+	\item \(\varepsilon\) shift pole to upper half:
+	\begin{itemize}
+		\item \(a(t(\tau_\varepsilon)-i\varepsilon)^2 - |\va{x}(\tau_\varepsilon)|^2 = 0\)
+		\item \(\delta\tau = \eval{\dv{\tau_\varepsilon}{\varepsilon}}_{\varepsilon = 0} = ia\dot{t}(0) \pm \sqrt{-a^2 \dot{t}(0)^2 + 1}\)
+		\item[] \(\to \delta\tau\) has positive imaginary part
+	\end{itemize}
+	\item Only poles in the lower half contribute 
+	\item[] \(\to\) drop pole at \(\tau = 0\)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Other singularities of \(D^+\)}
+\begin{itemize}
+	\item \(D^+(\vb{x},\vb{x}') = \bra*{0}\phi(\vb{x})\phi(\vb{x}')\ket*{0}\) satisfies \(\nabla_\mu\nabla^\mu D^+(\vb{x},\vb{x}') = 0\)
+	\item Define \(A = 1/D^+ \Rightarrow A \nabla_\mu\nabla^\mu A = 2 \nabla_\mu A \nabla^\mu A\)
+	\item \(D^+ = \infty \Rightarrow A = 0 \Rightarrow \nabla_\mu A \nabla^\mu A = 0\)
+	\item[] \(\to D^+ = \infty\) is a lightlike hypersurface
+	\item \(D^+\) is singular on the lightcone
+	\item Assume no more singularities \todo{image} 
+	\item[] \(\to\) no singularities on timelike trajectories 
+	\item \(D = [\phi(\vb{x}),\phi(\vb{x}')]\) is only non zero on lightcone
+	\item[] \(\to\) \(D^+\) is real for all trajectories 
+\end{itemize}
+\end{frame}
+
+\subsection{Observers}
+\subsubsection{Static observer}
+\begin{frame}{Static observers}
+Lemma: \todo{box} In a static spacetime a static observer does not observe any particles
+\begin{itemize}
+	\item \(t(\tau) = \frac{\tau}{\sqrt{a}}\)
+	\item \(u_i~=~\frac{1}{\sqrt{2\omega_i}}e^{-i\omega_i t} A_i(\va{x})\)
+	\item \(D^+(\vb{x}(\tau), \vb{x}(0)) = \sum_i \frac{1}{2\omega_i} e^{-i\omega_i\tau/\sqrt{a}} A_i(\va{x}_0)A_i^*(\va{x}_0)\)
+	\begin{align*}
+	\dv{F_E}{\tau} &= \sum_i \frac{1}{2\omega_i} A_i(\va{x}_0)A_i^*(\va{x}_0) \qty(\int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} e^{-i\omega  \tau/\sqrt{a}})\\
+	 	&= \sum_i \frac{1}{2\omega_i} A_i(\va{x}_0)A_i^*(\va{x}_0) \delta\qty(E + \omega/\sqrt{a}) = 0
+	\end{align*}
+\end{itemize}
+\end{frame}
+
+\subsubsection{General observer}
+\begin{frame}{General observers}
+\begin{itemize}
+	\item Transition rate not constant: \(\dv{F_E}{\tau} = 2 \mathrm{Re}\,\int_{-\infty}^0 \dd{\tau'} e^{-i E \tau'} D^+(\vb{x}(\tau + \tau'), \vb{x}(\tau))\)
+	\item[]\(\to\) can not use residuum theorem
+	\item How to handle pole at \(\tau' = 0\)?
+	\item Expansion: \(D^+(\vb{x}(\tau'), 0) = - \frac{1}{4\pi^2\tau'^2} + W(\tau')\)
+	\item \(\frac{1}{\tau'^2}\) term does not contribute
+	\item \(W(\tau')\) is non singular
+\end{itemize}
+\end{frame}
+
+\subsubsection{Thermal case}
+\begin{frame}{Thermal case}
+
+\begin{itemize}
+	\item Thermal Wightman function:
+	\begin{align*}
+		D_\beta^+(t(\tau'),\va{x}(\tau');0) &= \sum_{n=-\infty}^\infty D^+(t(\tau') - i \beta n,\va{x}(\tau');0)\\
+			&= \sum_{n=-\infty}^\infty -\frac{1}{4\pi^2 (\tau' - i\beta \sqrt{a} n)^2} + \sum_{n=-\infty}^\infty W(\tau'(t - i\beta n))\\
+			&= -\frac{1}{4\beta^2 a} \frac{1}{\sinh[2](\frac{\pi}{\beta \sqrt{a}} \tau')} + W_\beta(\tau')
+	\end{align*}
+	\item Static observers: \(T = \frac{T_0}{\sqrt{a}}\) (Tolman effect)
+	\item General: Corrections from \(W_\beta(\tau')\)
+	\begin{itemize}
+		\item shift temperature?
+		\item non thermal?
+	\end{itemize}
+\end{itemize}
+\end{frame}
 
 \begin{frame}{Quellen}
 \begin{itemize}
