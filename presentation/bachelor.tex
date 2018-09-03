@@ -183,6 +183,21 @@ Lemma: \todo{box} In a static spacetime a static observer does not observe any p
 \end{itemize}
 \end{frame}
 
+\subsubsection{Observers along Killing vectors}
+\begin{frame}{Observers along Killing vectors}
+Lemma: \todo{box} An observer moving along a Killing vector will see excitations if and only if there exists at least one solution \(u\): \(\frac{A}{|B|} < \frac{|m|}{\omega_m}\)
+\begin{itemize}
+	\item \(\dot{\vb{x}} = A\partial_t + B\vb{k}\)
+	\item \(\vb{k} u = i m u\)
+\end{itemize}
+\begin{itemize}
+	\item \(u_{m, i} = \tilde{A}_i(y_1, y_2) e^{-i\omega_{m,i} t} e^{i m \xi}\)
+	\item Schwarzschild/Minkowski circular orbit: \(\vb{k} = \partial_\phi\), \(\frac{|m|}{\omega_m}\) unbound
+	\item Minkowski inertial: \(\vb{k} = \partial_x\), \(\frac{A}{|B|} > 1 = \frac{|m|}{\omega}\) 
+\end{itemize}
+Lemma: \todo{box} An observer moving along a Killing vector will see excitations if and only if there exists at least one solution \(u\): \(\frac{g_{\xi\xi}(\vb{x})}{|g_{tt}(\vb{x})|} < \frac{m^2}{\omega_m^2}\)
+\end{frame}
+
 \subsubsection{General observer}
 \begin{frame}{General observers}
 \begin{itemize}
@@ -195,8 +210,85 @@ Lemma: \todo{box} In a static spacetime a static observer does not observe any p
 \end{itemize}
 \end{frame}
 
-\subsubsection{Thermal case}
-\begin{frame}{Thermal case}
+\section{Hawking radiation}
+\begin{frame}{Hawking radiation}
+\begin{itemize}
+	\item Consider star collapsing to black hole
+	\item \(\dd s^2 = -f(r)\dd{t^2} + \frac{1}{f(r)}\dd{r^2} + r^2 \dd{\Omega}\) where \(f(r) = 1 - 2M/r\)
+	\item Before collapse:  vacuum state
+	\item After collapse: Hawking \todo{cite} -- thermal state with temperature \(\beta\ind{H} = 8\pi M\)
+	\item What spectrum will observers see before and after the collapse?
+\end{itemize}
+\end{frame}
+
+\subsection{Wightman function}
+\begin{frame}{Solutions of Klein-Gordon equation}
+\begin{itemize}
+	\item \(u_{\omega l m} = A e^{-i\omega t} \frac{R_{\omega l}}{r}Y_l^m (\theta, \varphi)\)
+	\item \(\dv[2]{R_{\omega l}}{r_*} + \omega^2 R_{\omega l} -\qty(\frac{l(l+1)}{r^2} + \frac{f'(r)}{r})f(r) R_{\omega l} = 0\)
+	\item Asymptotic modes: \(u_{\omega l m} = \frac{1}{\sqrt{\pi\omega}} e^{-i\omega t} \frac{\sin(\omega r_* - l\frac{\pi}{2})}{r} Y_l^m (\theta, \varphi)\) 
+	\item Wightman function: \(D^+(\vb{x}, \vb{x}') = \int_0^\infty \frac{\dd{\omega}}{\pi\omega} \sum_{l,m} e^{-i\omega(t-t')} \frac{\sin(\omega r_* - l\frac{\pi}{2})}{r} \frac{\sin(\omega r_*' - l\frac{\pi}{2})}{r'} Y_l^m(\theta,\varphi) Y_l^{m*}(\theta',\varphi')\)
+	\item Problems:
+		\begin{itemize}
+			\item IR divergence: \(\int_0^\infty \frac{\dd{\omega}}{\pi\omega} e^{i\omega\dots}\)
+			\item Angular dependence: \(\sum_{l,m} Y_l^m(\theta,\varphi) Y_l^{m*}(\theta',\varphi') \sim \delta(\theta-\theta')\delta(\varphi-\varphi')\)
+		\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Intermezzo: Minkowski space spherical modes}
+\todo{image}
+\begin{itemize}
+	\item \(u_{\omega,l,m}\upd{M} = \frac{\sqrt{\omega}}{\sqrt{\pi}} e^{- i \omega t} j_l(\omega r) Y_l^m(\theta,\varphi)\)
+	\item Asymptotic: \(u_{\omega,l,m}\upd{M} \to \frac{1}{\sqrt{\pi\omega}} e^{- i \omega t} \frac{\sin(\omega r - l\frac{\pi}{2})}{r} Y_l^m(\theta,\varphi)\)
+	\item Wightman function: \(D^+(\vb{x},\vb{x}')\)
+%\end{itemize}
+	\(= \int_0^\infty \frac{\omega \dd{\omega}}{\pi} \sum_{l,m} e^{-i\omega(t-t')} j_l(\omega r) j_l(\omega r')  Y_l^m(\theta,\varphi) Y_l^{m*}(\theta',\varphi')\)\\
+	\(\to \int_0^\infty \frac{\dd{\omega}}{\pi\omega} \sum_{l,m} e^{-i\omega(t-t')} \frac{\sin(\omega r - l\frac{\pi}{2})}{r} \frac{\sin(\omega r' - l\frac{\pi}{2})}{r'} Y_l^m(\theta,\varphi) Y_l^{m*}(\theta',\varphi')\)
+%\begin{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+	\item Replace \(\frac{\sin(\omega r_* - l\frac{\pi}{2})}{\omega r} \approx F(r) j_l(\omega r_*)\)
+	\item Fix \(F(r)\) for limit \(\vb{x} \to \vb{x}'\)
+\end{itemize}
+\begin{block}{Wightman function}
+	\(D^+(\vb{x}, \vb{x}') \approx -\frac{1}{4\pi^2 \sqrt{f(r)f(r')}} \frac{1}{(t-t'-i\varepsilon)^2 - r_*^2 - r_*'^2 + 2r_*r_*' \cos{\alpha}}\)
+\end{block}
+\begin{itemize}
+	\item Static observer: \(r = \mathrm{const}, \alpha = 0\)
+	\begin{itemize}
+		\item \(D^+(\vb{x}(\tau), \vb{x}(\tau')) =  -\frac{1}{4\pi^2} \frac{1}{(\tau-\tau'-i\varepsilon)^2}\)
+		\item[\(\to\)] No particles
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Circular observer}
+
+\begin{frame}{Circular Observer before collapse}
+\begin{itemize}
+	\item Circular observer: \(r = \mathrm{const}, t = A\tau, \phi = B \tau\)
+	\begin{itemize}
+		\item \(D^+(\vb{x}(\tau), \vb{x}(\tau')) = -\frac{1}{4\pi^2f(r)} \frac{1}{(A(\tau-\tau')-i\varepsilon)^2 - 2r_*^2 (1 - \cos{B(\tau-\tau')})}\)
+		\item Small velocities \(\frac{A}{Br_*} > 1\): \(\dv{F_E}{\tau} \sim e^{-E/B x_0}\)
+		\item High velocities \(\frac{A}{Br_*} < 1\): Poles on real axis \(\to\) not possible
+	\end{itemize}
+	\item Problem: \(D^+_\beta(\vb{x}(\tau),\vb{x}(0)) = -\frac{1}{4\pi^2 \tau^2} \frac{1}{f(r) A^2 - f(r)r_*^2 B^2} + \order*{\tau^0}\neq -\frac{1}{4\pi^2 \tau^2} + \order*{\tau^0}\)
+	\item Approximation only valid for \(r^2 \approx f(r)r_*^2\)\hspace{1cm}(\(r > 200 M\))
+\end{itemize}
+\end{frame}
+
+\subsection{After collapse}
+\begin{frame}{Hawking radiation}
+\begin{itemize}
+	\item 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Thermal Wightman function}
 
 \begin{itemize}
 	\item Thermal Wightman function:
@@ -208,11 +300,35 @@ Lemma: \todo{box} In a static spacetime a static observer does not observe any p
 	\item Static observers: \(T = \frac{T_0}{\sqrt{a}}\) (Tolman effect)
 	\item General: Corrections from \(W_\beta(\tau')\)
 	\begin{itemize}
-		\item shift temperature?
+		\item temperature shift?
 		\item non thermal?
 	\end{itemize}
 \end{itemize}
 \end{frame}
+
+\begin{frame}{Determining the temperature}
+\todo{image}
+\begin{itemize}
+	\item Expect thermal spectrum + non thermal spectrum
+	\item Fit thermal spectrum
+	\item Minimize \(\int_{-\infty}^0 \dd{\tau'} \qty(D^+(\vb{x}(\tau + \tau'), \vb{x}(\tau)) - D_\beta\upd{M}(\tau'))^2\)
+	\item Expect small shift: \(D_\beta\upd{M}(\tau') \approx D_{\beta\ind{H}}\upd{M}(\tau') + \alpha g(\tau')\) where \(\alpha = \frac{\Delta\beta}{\beta\ind{H}} = - \frac{\Delta T}{T\ind{H}}\)
+	\item \(\alpha = \frac{\int_{-\infty}^0 \dd{\tau'} h(\tau')\cdot g(\tau')}{\int_{-\infty}^0 \dd{\tau'} g(\tau')^2}\) where \(h(\tau') = D^+(\vb{x}(\tau + \tau'), \vb{x}(\tau)) - D_{\beta\ind{H}}\upd{M}(\tau')\)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Determining the temperature}
+\todo{image}
+\begin{itemize}
+	\item Expect thermal spectrum + non thermal spectrum
+	\item Fit thermal spectrum
+	\item Minimize \(\int_{-\infty}^0 \dd{\tau'} \qty(D^+(\vb{x}(\tau + \tau'), \vb{x}(\tau)) - D_\beta\upd{M}(\tau'))^2\)
+	\item Expect small shift: \(D_\beta\upd{M}(\tau') \approx D_{\beta\ind{H}}\upd{M}(\tau') + \alpha g(\tau')\) where \(\alpha = \frac{\Delta\beta}{\beta\ind{H}} = - \frac{\Delta T}{T\ind{H}}\)
+	\item \(\alpha = \frac{\int_{-\infty}^0 \dd{\tau'} h(\tau')\cdot g(\tau')}{\int_{-\infty}^0 \dd{\tau'} g(\tau')^2}\) where \(h(\tau') = D^+(\vb{x}(\tau + \tau'), \vb{x}(\tau)) - D_{\beta\ind{H}}\upd{M}(\tau')\)
+\end{itemize}
+\end{frame}
+
+
 
 \begin{frame}{Quellen}
 \begin{itemize}
