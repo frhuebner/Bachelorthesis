@@ -12,6 +12,7 @@
 \usepackage{lmodern}
 %\usepackage{marvosym}
 \usepackage{enumerate}
+\usepackage{pgfplots}
 \usepackage{textcomp}
 \usepackage{fancyhdr}
 \usepackage{amsthm}
@@ -21,6 +22,7 @@
 \usepackage{braket}
 \usepackage{mathabx}
 \usepackage{physics}
+\usepackage{subfigure}
 \renewcommand{\va}[1]{\vec{#1}}
 \usepackage{todonotes}
 \let\todox\todo
@@ -48,7 +50,27 @@
 \beamertemplatenavigationsymbolsempty
 \titlepage
 
-\frame{\tableofcontents}
+\begin{frame}{Introduction}
+\begin{itemize}
+	\item Consider star collapsing to black hole
+	\item[]
+	\item Hawking\cite{hawking}: black hole radiates at \(\beta\ind{H} = 8\pi M\)
+	\item[]
+	\item Minkowski space:
+		\begin{itemize}
+			\item Inertial observer: no particles
+			\item Accelerating observer: heat bath (Unruh effect)
+		\end{itemize}		 
+	\item[]
+	\item Observers around the black hole:
+		\begin{itemize}
+			\item Freely falling: no particles?
+			\item Static observer: heat bath?
+		\end{itemize}
+\end{itemize}
+\end{frame}
+
+\frame{\setcounter{tocdepth}{1}\hspace{1cm}\tableofcontents}
 
 \section{QFT in curved spacetime}
 \subsection{Scalar field}
@@ -81,6 +103,7 @@
  		\item \(i D(\vb{x},\vb{x}') := [\phi(\vb{x}),\phi(\vb{x}')] = 2i\,\mathrm{Im}\,D^+(\vb{x},\vb{x}')\)
 		\item \(D^{(1)}(\vb{x},\vb{x}') := \bra*{0}\{\phi(\vb{x}),\phi(\vb{x}')\}\ket*{0}= 2\,\mathrm{Re}\,D^+(\vb{x},\vb{x}')\)
 	\end{itemize}
+	\item[]
 	\item Thermal:
 	\begin{itemize}
 		\item replace \(\bra*{0}\dots\ket*{0}\) by \(\frac{1}{Z} \mathrm{Tr}\,e^{-\beta H} \dots\)
@@ -92,10 +115,15 @@
 \subsection{Unruh detector}
 \begin{frame}{Unruh detector}
 \begin{itemize}
-	\item Detector model: \(c\cdot m(\tau) \phi(\vb{x}(\tau))\),\, \(c \ll 1\)
-	\item Transition amplitude: \(Q_{\ket*{0,0}\to\ket*{E,\psi}}(\tau) \sim \int_{-\infty}^\tau e^{i E \tau'} \bra*{\psi}\phi(\vb{x}(\tau'))\ket*{0}\dd{\tau'}\)
-	\item Transition rate: \(\dv{F_E}{\tau} = 2 \mathrm{Re}\,\int_{-\infty}^0 \dd{\tau'} e^{-i E \tau'} D^+(\vb{x}(\tau + \tau'), \vb{x}(\tau))\)
-	\item For constant rate: \(\dv{F_E}{\tau} = \int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} D^+(\vb{x}(\tau), \vb{x}(0))\)
+	\item Detector model: \(\mathcal{H}\ind{detector} = c \cdot m(\tau)\cdot \phi(\vb{x}(\tau))\),\, \(c \ll 1\)
+\end{itemize}
+\begin{block}{Transition rate}
+\(\dv{F_E}{\tau} = 2 \mathrm{Re}\,\int_{-\infty}^0 \dd{\tau'} e^{-i E \tau'} D^+(\vb{x}(\tau + \tau'), \vb{x}(\tau))\)
+\end{block}
+\begin{block}{Constant rate}
+\(\dv{F_E}{\tau} = \int_{-\infty}^\infty \dd{\tau} e^{-i E \tau} D^+(\vb{x}(\tau), \vb{x}(0))\)
+\end{block}
+\begin{itemize}
 	\item Interpretation: \(F_E\) is particle population for observer 
 \end{itemize}
 \end{frame}
@@ -110,7 +138,22 @@
 	\end{itemize}
 	\item[]\(\to\) Inertial observer: vacuum contains no particles
 \end{itemize}
-\todo{image}
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=0.5]
+  \clip (-7,2) rectangle (7,-1.5);
+  \draw[->] (-6,0) -- (6,0);
+  \draw[->] (0,-5.5) -- (0,2);
+  \draw[line width=2] (-5,0) -- (5,0);
+  \draw[line width=2,->] (-5,0) -- (2,0);
+  \draw[line width=2] (5,0) arc (0:-180:5);
+  \draw[line width=2,->] (5,0) arc (0:-135:5);
+  \draw[fill=black] (0,1) circle (0.2);
+  \draw[thick,<->] (0.5,0.1) -- (0.5,0.9);
+  \node at (0.9,0.5) {$\varepsilon$};
+\end{tikzpicture}
+\caption{Pole structure}
+\end{figure}
 \end{frame}
 
 \begin{frame}{Unruh effect}
@@ -128,7 +171,7 @@
 \end{itemize}
 \end{frame}
 
-\section{Static spacetime}
+\section{Unruh detector in static spacetimes}
 \begin{frame}{Static spactimes}
 \begin{itemize}
 	\item Metric: \(\dd{s^2} = -\beta(\va{x}) \dd{t^2} + g_{ij}(\va{x}) \dd{x^i} \dd{x^j}\)
@@ -152,26 +195,67 @@
 	\item Only poles in the lower half contribute 
 	\item[] \(\to\) drop pole at \(\tau = 0\)
 \end{itemize}
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=0.3]
+  \clip (-7,2) rectangle (7,-1.5);
+  \draw[->] (-6,0) -- (6,0);
+  \draw[->] (0,-5.5) -- (0,2);
+  \draw[line width=2] (-5,0) -- (5,0);
+  \draw[line width=2,->] (-5,0) -- (2,0);
+  \draw[line width=2] (5,0) arc (0:-180:5);
+  \draw[line width=2,->] (5,0) arc (0:-135:5);
+  \draw[fill=black] (-0.8,1) circle (0.2);
+  \draw[fill=black] (0.8,1) circle (0.2);
+  %\draw[thick,<->] (0.5,0.1) -- (0.5,0.9);
+  %\node at (0.9,0.5) {$\varepsilon$};
+\end{tikzpicture}
+\caption{Pole shift}
+\end{figure}
 \end{frame}
 
 \begin{frame}{Other singularities of \(D^+\)}
 \begin{itemize}
 	\item \(D^+(\vb{x},\vb{x}') = \bra*{0}\phi(\vb{x})\phi(\vb{x}')\ket*{0}\) satisfies \(\nabla_\mu\nabla^\mu D^+(\vb{x},\vb{x}') = 0\)
+	\item[]
 	\item Define \(A = 1/D^+ \Rightarrow A \nabla_\mu\nabla^\mu A = 2 \nabla_\mu A \nabla^\mu A\)
-	\item \(D^+ = \infty \Rightarrow A = 0 \Rightarrow \nabla_\mu A \nabla^\mu A = 0\)
+	\item[]	
+	\item \(D^+ = \infty \Rightarrow A = 0 \Rightarrow \nabla_\mu A\,\nabla^\mu A = 0\)
 	\item[] \(\to D^+ = \infty\) is a lightlike hypersurface
-	\item \(D^+\) is singular on the lightcone
-	\item Assume no more singularities \todo{image} 
+	\item[]	
+	\item \(D^+\) is singular on lightcone
+\end{itemize}
+\end{frame}
+\begin{frame}
+\begin{itemize}
+	\item Other singularities appear at \(t = \mathrm{const}\) 
 	\item[] \(\to\) no singularities on timelike trajectories 
 	\item \(D = [\phi(\vb{x}),\phi(\vb{x}')]\) is only non zero on lightcone
 	\item[] \(\to\) \(D^+\) is real for all trajectories 
 \end{itemize}
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=0.5]
+  %\clip (-7,2) rectangle (7,-1.5);
+  \draw[->] (-6,0) -- (6,0);
+  \node at (6.5,0) {$x$};
+  \draw[->] (0,-1) -- (0,6);
+  \node at (0,6.5) {$t$};
+  \draw[thick] (0,0) -- (5,5);
+  \draw[thick] (-5,5) -- (0,0);
+  \draw[thick,dotted] (-1,6) -- (6,-1);
+  \draw[thick,red] plot [smooth] coordinates {(0,0) (0.5,1) (1.5,2) (2,5) (2.5,6)};
+\end{tikzpicture}
+\caption{Singularities on trajectories}
+\end{figure}
 \end{frame}
 
 \subsection{Observers}
 \subsubsection{Static observer}
 \begin{frame}{Static observers}
-Lemma: \todo{box} In a static spacetime a static observer does not observe any particles
+\begin{block}{Lemma 1}
+In a static spacetime a static observer does not observe any particles
+\end{block}
 \begin{itemize}
 	\item \(t(\tau) = \frac{\tau}{\sqrt{a}}\)
 	\item \(u_i~=~\frac{1}{\sqrt{2\omega_i}}e^{-i\omega_i t} A_i(\va{x})\)
@@ -185,18 +269,34 @@ Lemma: \todo{box} In a static spacetime a static observer does not observe any p
 
 \subsubsection{Observers along Killing vectors}
 \begin{frame}{Observers along Killing vectors}
-Lemma: \todo{box} An observer moving along a Killing vector will see excitations if and only if there exists at least one solution \(u\): \(\frac{A}{|B|} < \frac{|m|}{\omega_m}\)
+\begin{block}{Lemma 2}
+An observer moving along a Killing vector \(\vb{k}\) will see excitations if and only if there exists at least one solution \(u\): \(\frac{A}{|B|} < \frac{|m|}{\omega_m}\)
 \begin{itemize}
 	\item \(\dot{\vb{x}} = A\partial_t + B\vb{k}\)
-	\item \(\vb{k} u = i m u\)
+	\item \(\vb{k} u = i m\,u\)
 \end{itemize}
+\end{block} 
 \begin{itemize}
 	\item \(u_{m, i} = \tilde{A}_i(y_1, y_2) e^{-i\omega_{m,i} t} e^{i m \xi}\)
 	\item Schwarzschild/Minkowski circular orbit: \(\vb{k} = \partial_\phi\), \(\frac{|m|}{\omega_m}\) unbound
-	\item Minkowski inertial: \(\vb{k} = \partial_x\), \(\frac{A}{|B|} > 1 = \frac{|m|}{\omega}\) 
+	\item Geodesic observers see particles!
 \end{itemize}
-Lemma: \todo{box} An observer moving along a Killing vector will see excitations if and only if there exists at least one solution \(u\): \(\frac{g_{\xi\xi}(\vb{x})}{|g_{tt}(\vb{x})|} < \frac{m^2}{\omega_m^2}\)
 \end{frame}
+
+
+\begin{frame}{Observers along Killing vectors}
+\begin{block}{Lemma 3}
+An observer moving along a Killing vector \(\vb{k}\) will see excitations if and only if there exists at least one solution \(u\): \(\frac{g_{\xi\xi}(\vb{x})}{|g_{tt}(\vb{x})|} < \frac{m^2}{\omega_m^2}\)
+\end{block} 
+\begin{itemize}
+	\item Minkowski inertial: \(\vb{k} = \partial_x\), \(\frac{A}{|B|} > 1 = \frac{|m|}{\omega}\) 
+	\item[\(\to\)] Flat space: All inertial observers not encounter particles.
+	\item[]
+	\item Global effect: equivalence principle does not apply
+	\item Depends on whole history of observer 
+\end{itemize}
+\end{frame}
+
 
 \subsubsection{General observer}
 \begin{frame}{General observers}
@@ -204,19 +304,20 @@ Lemma: \todo{box} An observer moving along a Killing vector will see excitations
 	\item Transition rate not constant: \(\dv{F_E}{\tau} = 2 \mathrm{Re}\,\int_{-\infty}^0 \dd{\tau'} e^{-i E \tau'} D^+(\vb{x}(\tau + \tau'), \vb{x}(\tau))\)
 	\item[]\(\to\) can not use residuum theorem
 	\item How to handle pole at \(\tau' = 0\)?
+	\item[]
 	\item Expansion: \(D^+(\vb{x}(\tau'), 0) = - \frac{1}{4\pi^2\tau'^2} + W(\tau')\)
 	\item \(\frac{1}{\tau'^2}\) term does not contribute
-	\item \(W(\tau')\) is non singular
+	\item \(W(\tau')\) is non-singular
 \end{itemize}
 \end{frame}
 
-\section{Hawking radiation}
-\begin{frame}{Hawking radiation}
+\section{Black holes}
+\begin{frame}{Black holes}
 \begin{itemize}
-	\item Consider star collapsing to black hole
+	\item Consider star
 	\item \(\dd s^2 = -f(r)\dd{t^2} + \frac{1}{f(r)}\dd{r^2} + r^2 \dd{\Omega}\) where \(f(r) = 1 - 2M/r\)
-	\item Before collapse:  vacuum state
-	\item After collapse: Hawking \todo{cite} -- thermal state with temperature \(\beta\ind{H} = 8\pi M\)
+	\item QFT in vacuum state
+	\item Collapse to black hole: thermal state with temperature \(\beta\ind{H} = 8\pi M\)
 	\item What spectrum will observers see before and after the collapse?
 \end{itemize}
 \end{frame}
@@ -225,28 +326,40 @@ Lemma: \todo{box} An observer moving along a Killing vector will see excitations
 \begin{frame}{Solutions of Klein-Gordon equation}
 \begin{itemize}
 	\item \(u_{\omega l m} = A e^{-i\omega t} \frac{R_{\omega l}}{r}Y_l^m (\theta, \varphi)\)
+	\item[]
 	\item \(\dv[2]{R_{\omega l}}{r_*} + \omega^2 R_{\omega l} -\qty(\frac{l(l+1)}{r^2} + \frac{f'(r)}{r})f(r) R_{\omega l} = 0\)
-	\item Asymptotic modes: \(u_{\omega l m} = \frac{1}{\sqrt{\pi\omega}} e^{-i\omega t} \frac{\sin(\omega r_* - l\frac{\pi}{2})}{r} Y_l^m (\theta, \varphi)\) 
+	\item[]
+	\item Asymptotic: \(R_{\omega l} = e^{\pm i\omega r_*}\)
+	\item[]	
+	\item \(u_{\omega l m} \approx \frac{1}{\sqrt{\pi\omega}} e^{-i\omega t} \frac{\sin(\omega r_* - l\frac{\pi}{2})}{r} Y_l^m (\theta, \varphi)\) 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Wightman function}
+\begin{itemize}
 	\item Wightman function: \(D^+(\vb{x}, \vb{x}') = \int_0^\infty \frac{\dd{\omega}}{\pi\omega} \sum_{l,m} e^{-i\omega(t-t')} \frac{\sin(\omega r_* - l\frac{\pi}{2})}{r} \frac{\sin(\omega r_*' - l\frac{\pi}{2})}{r'} Y_l^m(\theta,\varphi) Y_l^{m*}(\theta',\varphi')\)
+	\item[]
 	\item Problems:
 		\begin{itemize}
 			\item IR divergence: \(\int_0^\infty \frac{\dd{\omega}}{\pi\omega} e^{i\omega\dots}\)
+			\item[]
 			\item Angular dependence: \(\sum_{l,m} Y_l^m(\theta,\varphi) Y_l^{m*}(\theta',\varphi') \sim \delta(\theta-\theta')\delta(\varphi-\varphi')\)
 		\end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Intermezzo: Minkowski space spherical modes}
-\todo{image}
 \begin{itemize}
 	\item \(u_{\omega,l,m}\upd{M} = \frac{\sqrt{\omega}}{\sqrt{\pi}} e^{- i \omega t} j_l(\omega r) Y_l^m(\theta,\varphi)\)
 	\item Asymptotic: \(u_{\omega,l,m}\upd{M} \to \frac{1}{\sqrt{\pi\omega}} e^{- i \omega t} \frac{\sin(\omega r - l\frac{\pi}{2})}{r} Y_l^m(\theta,\varphi)\)
 	\item Wightman function: \(D^+(\vb{x},\vb{x}')\)
-%\end{itemize}
-	\(= \int_0^\infty \frac{\omega \dd{\omega}}{\pi} \sum_{l,m} e^{-i\omega(t-t')} j_l(\omega r) j_l(\omega r')  Y_l^m(\theta,\varphi) Y_l^{m*}(\theta',\varphi')\)\\
 	\(\to \int_0^\infty \frac{\dd{\omega}}{\pi\omega} \sum_{l,m} e^{-i\omega(t-t')} \frac{\sin(\omega r - l\frac{\pi}{2})}{r} \frac{\sin(\omega r' - l\frac{\pi}{2})}{r'} Y_l^m(\theta,\varphi) Y_l^{m*}(\theta',\varphi')\)
-%\begin{itemize}
 \end{itemize}
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{plot/sphericalbessel.png}
+\caption{Spherical Bessels: \(x\cdot j_l(x)\)}
+\end{figure}
 \end{frame}
 
 \begin{frame}
@@ -282,22 +395,32 @@ Lemma: \todo{box} An observer moving along a Killing vector will see excitations
 \end{frame}
 
 \subsection{After collapse}
-\begin{frame}{Hawking radiation}
+\begin{frame}{After collapse}
 \begin{itemize}
-	\item 
+	\item[1.] Find thermal Wightman function
+	\item[]
+	\item[2.] How to determine observed temperature?
+	\item[]
+	\item[3.] Apply on different observers:
+	\begin{itemize}
+		\item static
+		\item circular geodesic
+		\item infalling geodesic (\(E = 1\))
+	\end{itemize}
 \end{itemize}
 \end{frame}
+
 
 \begin{frame}{Thermal Wightman function}
 
 \begin{itemize}
 	\item Thermal Wightman function:
 	\begin{align*}
-		D_\beta^+(t(\tau'),\va{x}(\tau');0) &= \sum_{n=-\infty}^\infty D^+(t(\tau') - i \beta n,\va{x}(\tau');0)\\
-			&= \sum_{n=-\infty}^\infty -\frac{1}{4\pi^2 (\tau' - i\beta \sqrt{a} n)^2} + \sum_{n=-\infty}^\infty W(\tau'(t - i\beta n))\\
+		D_\beta^+(t(\tau')) &= \sum_{n=-\infty}^\infty D^+(t(\tau') - i \beta n)\\
+			&= \sum_{n=-\infty}^\infty -\frac{1}{4\pi^2 (\tau' - i\beta \sqrt{a} n)^2} + W(\tau'(t - i\beta n))\\
 			&= -\frac{1}{4\beta^2 a} \frac{1}{\sinh[2](\frac{\pi}{\beta \sqrt{a}} \tau')} + W_\beta(\tau')
 	\end{align*}
-	\item Static observers: \(T = \frac{T_0}{\sqrt{a}}\) (Tolman effect)
+	\item Static observers: \(T = \frac{T_0}{\sqrt{a}}\) (Tolman relation)
 	\item General: Corrections from \(W_\beta(\tau')\)
 	\begin{itemize}
 		\item temperature shift?
@@ -307,43 +430,99 @@ Lemma: \todo{box} An observer moving along a Killing vector will see excitations
 \end{frame}
 
 \begin{frame}{Determining the temperature}
-\todo{image}
 \begin{itemize}
 	\item Expect thermal spectrum + non thermal spectrum
-	\item Fit thermal spectrum
-	\item Minimize \(\int_{-\infty}^0 \dd{\tau'} \qty(D^+(\vb{x}(\tau + \tau'), \vb{x}(\tau)) - D_\beta\upd{M}(\tau'))^2\)
-	\item Expect small shift: \(D_\beta\upd{M}(\tau') \approx D_{\beta\ind{H}}\upd{M}(\tau') + \alpha g(\tau')\) where \(\alpha = \frac{\Delta\beta}{\beta\ind{H}} = - \frac{\Delta T}{T\ind{H}}\)
-	\item \(\alpha = \frac{\int_{-\infty}^0 \dd{\tau'} h(\tau')\cdot g(\tau')}{\int_{-\infty}^0 \dd{\tau'} g(\tau')^2}\) where \(h(\tau') = D^+(\vb{x}(\tau + \tau'), \vb{x}(\tau)) - D_{\beta\ind{H}}\upd{M}(\tau')\)
+	\item Fit temperature: Minimize \(\int_0^\infty \dd{E} \qty|\dv{F_E}{\tau} - \qty(\dv{F_{E}}{\tau})_\beta|^2\)
 \end{itemize}
+\begin{figure}
+\centering
+\includegraphics[scale=0.15]{plot/thermal_fit.png}
+\caption{Observed and thermal spectrum}
+\end{figure}
 \end{frame}
 
 \begin{frame}{Determining the temperature}
-\todo{image}
 \begin{itemize}
-	\item Expect thermal spectrum + non thermal spectrum
-	\item Fit thermal spectrum
-	\item Minimize \(\int_{-\infty}^0 \dd{\tau'} \qty(D^+(\vb{x}(\tau + \tau'), \vb{x}(\tau)) - D_\beta\upd{M}(\tau'))^2\)
-	\item Expect small shift: \(D_\beta\upd{M}(\tau') \approx D_{\beta\ind{H}}\upd{M}(\tau') + \alpha g(\tau')\) where \(\alpha = \frac{\Delta\beta}{\beta\ind{H}} = - \frac{\Delta T}{T\ind{H}}\)
-	\item \(\alpha = \frac{\int_{-\infty}^0 \dd{\tau'} h(\tau')\cdot g(\tau')}{\int_{-\infty}^0 \dd{\tau'} g(\tau')^2}\) where \(h(\tau') = D^+(\vb{x}(\tau + \tau'), \vb{x}(\tau)) - D_{\beta\ind{H}}\upd{M}(\tau')\)
+	\item Minimize instead \(\int_{-\infty}^0 \dd{\tau'} \qty|D^+(\vb{x}(\tau + \tau'), \vb{x}(\tau)) - D_\beta\upd{M}(\tau')|^2\)
+	\item Expect small shift: 
+	\item[] \(D_\beta\upd{M}(\tau') \approx D_{\beta\ind{H}}\upd{M}(\tau') + \alpha g(\tau')\) where \(\alpha = \frac{\Delta\beta}{\beta\ind{H}} = - \frac{\Delta T}{T\ind{H}}\)
+	\item Minimize \(\int_{-\infty}^0 \dd{\tau'} \qty|h(\tau') - \alpha g(\tau')|^2\)\\
+	where \(h(\tau') = D^+(\vb{x}(\tau + \tau'), \vb{x}(\tau)) - D_{\beta\ind{H}}\upd{M}(\tau')\)
+	\item[]
 \end{itemize}
+\[\alpha = \frac{\int_{-\infty}^0 \dd{\tau'} h(\tau')\cdot g(\tau')}{\int_{-\infty}^0 \dd{\tau'} g(\tau')^2}\] 
 \end{frame}
 
+\subsection{Result}
+\begin{frame}{Static observer}
+\begin{figure}
+	\centering
+    \includegraphics[width=9cm]{../cpp/final/stat.png}
+    \caption{Relative temperature shift}
+\end{figure}
+\end{frame}
 
+\begin{frame}{Static observer}
+\begin{figure}
+	\centering
+    \includegraphics[width=9cm]{../cpp/final/stat_tolman.png}
+    \caption{Difference to Tolman relation}
+\end{figure}
+\end{frame}
 
-\begin{frame}{Quellen}
+\begin{frame}{Circular observer}
+\begin{figure}
+	\centering
+    \includegraphics[width=9cm]{../cpp/final/circ.png}
+    \caption{Relative temperature shift}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Circular observer}
+\begin{figure}
+	\centering
+    \includegraphics[width=9cm]{../cpp/final/circ_tolman.png}
+    \caption{Difference to Tolman relation}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Infalling radial observer}
+\begin{figure}
+	\centering
+    \includegraphics[width=9cm]{../cpp/final/rad.png}
+    \caption{Relative temperature shift}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Infalling radial observer}
+\begin{figure}
+	\centering
+    \includegraphics[width=9cm]{../cpp/final/rad_tolman_error.png}
+    \caption{Difference to Tolman relation}
+\end{figure}
+\end{frame}
+
+\section{Conclusion}
+\begin{frame}{Conclusion}
 \begin{itemize}
-	\item C. S. Wu u. a. 'Experimental Test of Parity Conservation in Beta
-Decay'. In: Phys. Rev. 105 (4 1957), S. 1413-1415. doi:10.1103/PhysRev.105.1413. url:https://link.aps.org/doi/10.1103/PhysRev.105.1413.
-	\item ccreweb.org/documents/parity/parity.html
-	\item www.spektrum.de/lexikon/physik/paritaet/10923
-	\item www.physi.uni-heidelberg.de/$\sim$menzemer/ KeyexperimentsWS1415/lamparth.pdf
-	\item www.weltderphysik.de/gebiet/teilchen/news/2012/verletzung-der-zeitsymmetrie-beobachtet/
+	\item Equivalence principle not applicable
+	\item Approximated \(D^+\) for \(r > 200M\)
+	\item Determined the temperature out of a spectrum
+	\item For all observers temperature follows Tolman relation
+	\item Deviations not significant enough
 \end{itemize}
-%\printbibliography
 \end{frame}
 
 \begin{frame}
 \maketitle
 \end{frame}
+
+\begin{frame}{Sources}
+\printbibliography
+\end{frame}
+
+\begin{frame}
+\end{frame}
+
 
 \end{document}

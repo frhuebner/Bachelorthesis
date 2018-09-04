@@ -1,0 +1,49 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{hawking}{article}{}
+    \name{author}{1}{}{%
+      {{hash=HSW}{%
+         family={Hawking},
+         familyi={H\bibinitperiod},
+         given={S.\bibnamedelima W.},
+         giveni={S\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HSW1}
+    \strng{fullhash}{HSW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/BF02345020
+    \endverb
+    \field{issn}{1432-0916}
+    \field{number}{3}
+    \field{pages}{199\bibrangedash 220}
+    \field{title}{Particle creation by black holes}
+    \verb{url}
+    \verb https://doi.org/10.1007/BF02345020
+    \endverb
+    \field{volume}{43}
+    \field{journaltitle}{Communications in Mathematical Physics}
+    \field{year}{1975}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+\enddatalist
+\endinput
