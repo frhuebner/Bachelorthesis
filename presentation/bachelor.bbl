@@ -45,5 +45,25 @@
     \field{year}{1975}
     \warn{\item Invalid format of field 'month'}
   \endentry
+
+  \entry{davies}{book}{}
+    \name{author}{1}{}{%
+      {{hash=BD}{%
+         family={Birrell},
+         familyi={B\bibinitperiod},
+         given={Davies},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Camebridge University Press}%
+    }
+    \strng{namehash}{BD1}
+    \strng{fullhash}{BD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Quantum fields in curved space}
+    \field{year}{1982}
+  \endentry
 \enddatalist
 \endinput

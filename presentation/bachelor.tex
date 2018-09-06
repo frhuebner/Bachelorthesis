@@ -54,7 +54,7 @@
 \begin{itemize}
 	\item Consider star collapsing to black hole
 	\item[]
-	\item Hawking\cite{hawking}: black hole radiates at \(\beta\ind{H} = 8\pi M\)
+	\item Hawking 1974 \cite{hawking}: black hole radiate at \(T\ind{H} = \frac{1}{8\pi M}\)
 	\item[]
 	\item Minkowski space:
 		\begin{itemize}
@@ -64,7 +64,7 @@
 	\item[]
 	\item Observers around the black hole:
 		\begin{itemize}
-			\item Freely falling: no particles?
+			\item Freely falling (e.g. orbiting): no particles?
 			\item Static observer: heat bath?
 		\end{itemize}
 \end{itemize}
@@ -95,11 +95,11 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Greens functions}
+\begin{frame}{Greens functions\cite{davies}}
 \begin{itemize}
 	\item Vacuum:
 	\begin{itemize}
-		\item Wightman function \(D^+(\vb{x},\vb{x}') := \bra*{0}\phi(\vb{x})\phi(\vb{x}')\ket*{0}\)
+		\item Wightman function \(D^+(\vb{x},\vb{x}') := \bra*{0}\phi(\vb{x})\phi(\vb{x}')\ket*{0} = \sum_i u_i(\vb{x}) u_i^*(\vb{x}')\)
  		\item \(i D(\vb{x},\vb{x}') := [\phi(\vb{x}),\phi(\vb{x}')] = 2i\,\mathrm{Im}\,D^+(\vb{x},\vb{x}')\)
 		\item \(D^{(1)}(\vb{x},\vb{x}') := \bra*{0}\{\phi(\vb{x}),\phi(\vb{x}')\}\ket*{0}= 2\,\mathrm{Re}\,D^+(\vb{x},\vb{x}')\)
 	\end{itemize}
@@ -112,7 +112,8 @@
 	\end{itemize}
 \end{itemize}
 \end{frame}
-\subsection{Unruh detector}
+
+\subsection{Unruh detector\cite{davies}}
 \begin{frame}{Unruh detector}
 \begin{itemize}
 	\item Detector model: \(\mathcal{H}\ind{detector} = c \cdot m(\tau)\cdot \phi(\vb{x}(\tau))\),\, \(c \ll 1\)
@@ -171,6 +172,8 @@
 \end{itemize}
 \end{frame}
 
+\frame{\setcounter{tocdepth}{1}\hspace{1cm}\tableofcontents}
+
 \section{Unruh detector in static spacetimes}
 \begin{frame}{Static spactimes}
 \begin{itemize}
@@ -182,7 +185,7 @@
 \end{frame}
 
 \subsection{Properties of the Wightman function}
-\begin{frame}{Pole at \(\vb{x} = \vb{x}'\)}
+\begin{frame}{Pole at \(\vb{x} = 0\)}
 \begin{itemize}
 	\item Consider trajectory \(\vb{x}(\tau)\), \(\vb{x}(0) = 0\)
 	\item \(D^+\) has second order pole at \(\tau = 0\): \(\frac{1}{a(t(\tau)-i\varepsilon)^2 - |\va{x}(\tau)|^2}\)
@@ -286,11 +289,11 @@ An observer moving along a Killing vector \(\vb{k}\) will see excitations if and
 
 \begin{frame}{Observers along Killing vectors}
 \begin{block}{Lemma 3}
-An observer moving along a Killing vector \(\vb{k}\) will see excitations if and only if there exists at least one solution \(u\): \(\frac{g_{\xi\xi}(\vb{x})}{|g_{tt}(\vb{x})|} < \frac{m^2}{\omega_m^2}\)
+There is an observer moving along a Killing vector \(\vb{k}\) who will see excitations if and only if there exists at least one solution \(u\): \(\frac{g_{\xi\xi}(\vb{x})}{|g_{tt}(\vb{x})|} < \frac{m^2}{\omega_m^2}\)
 \end{block} 
 \begin{itemize}
-	\item Minkowski inertial: \(\vb{k} = \partial_x\), \(\frac{A}{|B|} > 1 = \frac{|m|}{\omega}\) 
-	\item[\(\to\)] Flat space: All inertial observers not encounter particles.
+	\item Minkowski inertial: \(\vb{k} = \partial_x\), \(\frac{g_{xx}}{|g_{tt}|} = 1 \geq \frac{|m|}{\omega}\) 
+	\item[\(\to\)] Minkowski space: All inertial observers do not encounter particles.
 	\item[]
 	\item Global effect: equivalence principle does not apply
 	\item Depends on whole history of observer 
@@ -311,6 +314,8 @@ An observer moving along a Killing vector \(\vb{k}\) will see excitations if and
 \end{itemize}
 \end{frame}
 
+\frame{\setcounter{tocdepth}{1}\hspace{1cm}\tableofcontents}
+
 \section{Black holes}
 \begin{frame}{Black holes}
 \begin{itemize}
@@ -320,64 +325,11 @@ An observer moving along a Killing vector \(\vb{k}\) will see excitations if and
 	\item Collapse to black hole: thermal state with temperature \(\beta\ind{H} = 8\pi M\)
 	\item What spectrum will observers see before and after the collapse?
 \end{itemize}
-\end{frame}
-
-\subsection{Wightman function}
-\begin{frame}{Solutions of Klein-Gordon equation}
-\begin{itemize}
-	\item \(u_{\omega l m} = A e^{-i\omega t} \frac{R_{\omega l}}{r}Y_l^m (\theta, \varphi)\)
-	\item[]
-	\item \(\dv[2]{R_{\omega l}}{r_*} + \omega^2 R_{\omega l} -\qty(\frac{l(l+1)}{r^2} + \frac{f'(r)}{r})f(r) R_{\omega l} = 0\)
-	\item[]
-	\item Asymptotic: \(R_{\omega l} = e^{\pm i\omega r_*}\)
-	\item[]	
-	\item \(u_{\omega l m} \approx \frac{1}{\sqrt{\pi\omega}} e^{-i\omega t} \frac{\sin(\omega r_* - l\frac{\pi}{2})}{r} Y_l^m (\theta, \varphi)\) 
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Wightman function}
-\begin{itemize}
-	\item Wightman function: \(D^+(\vb{x}, \vb{x}') = \int_0^\infty \frac{\dd{\omega}}{\pi\omega} \sum_{l,m} e^{-i\omega(t-t')} \frac{\sin(\omega r_* - l\frac{\pi}{2})}{r} \frac{\sin(\omega r_*' - l\frac{\pi}{2})}{r'} Y_l^m(\theta,\varphi) Y_l^{m*}(\theta',\varphi')\)
-	\item[]
-	\item Problems:
-		\begin{itemize}
-			\item IR divergence: \(\int_0^\infty \frac{\dd{\omega}}{\pi\omega} e^{i\omega\dots}\)
-			\item[]
-			\item Angular dependence: \(\sum_{l,m} Y_l^m(\theta,\varphi) Y_l^{m*}(\theta',\varphi') \sim \delta(\theta-\theta')\delta(\varphi-\varphi')\)
-		\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Intermezzo: Minkowski space spherical modes}
-\begin{itemize}
-	\item \(u_{\omega,l,m}\upd{M} = \frac{\sqrt{\omega}}{\sqrt{\pi}} e^{- i \omega t} j_l(\omega r) Y_l^m(\theta,\varphi)\)
-	\item Asymptotic: \(u_{\omega,l,m}\upd{M} \to \frac{1}{\sqrt{\pi\omega}} e^{- i \omega t} \frac{\sin(\omega r - l\frac{\pi}{2})}{r} Y_l^m(\theta,\varphi)\)
-	\item Wightman function: \(D^+(\vb{x},\vb{x}')\)
-	\(\to \int_0^\infty \frac{\dd{\omega}}{\pi\omega} \sum_{l,m} e^{-i\omega(t-t')} \frac{\sin(\omega r - l\frac{\pi}{2})}{r} \frac{\sin(\omega r' - l\frac{\pi}{2})}{r'} Y_l^m(\theta,\varphi) Y_l^{m*}(\theta',\varphi')\)
-\end{itemize}
-\begin{figure}
-\centering
-\includegraphics[scale=0.5]{plot/sphericalbessel.png}
-\caption{Spherical Bessels: \(x\cdot j_l(x)\)}
-\end{figure}
-\end{frame}
-
-\begin{frame}
-\begin{itemize}
-	\item Replace \(\frac{\sin(\omega r_* - l\frac{\pi}{2})}{\omega r} \approx F(r) j_l(\omega r_*)\)
-	\item Fix \(F(r)\) for limit \(\vb{x} \to \vb{x}'\)
-\end{itemize}
 \begin{block}{Wightman function}
 	\(D^+(\vb{x}, \vb{x}') \approx -\frac{1}{4\pi^2 \sqrt{f(r)f(r')}} \frac{1}{(t-t'-i\varepsilon)^2 - r_*^2 - r_*'^2 + 2r_*r_*' \cos{\alpha}}\)
 \end{block}
-\begin{itemize}
-	\item Static observer: \(r = \mathrm{const}, \alpha = 0\)
-	\begin{itemize}
-		\item \(D^+(\vb{x}(\tau), \vb{x}(\tau')) =  -\frac{1}{4\pi^2} \frac{1}{(\tau-\tau'-i\varepsilon)^2}\)
-		\item[\(\to\)] No particles
-	\end{itemize}
-\end{itemize}
 \end{frame}
+
 
 \subsection{Circular observer}
 
@@ -405,7 +357,7 @@ An observer moving along a Killing vector \(\vb{k}\) will see excitations if and
 	\begin{itemize}
 		\item static
 		\item circular geodesic
-		\item infalling geodesic (\(E = 1\))
+		\item infalling geodesic (\(E = m\))
 	\end{itemize}
 \end{itemize}
 \end{frame}
@@ -497,7 +449,7 @@ An observer moving along a Killing vector \(\vb{k}\) will see excitations if and
 \begin{frame}{Infalling radial observer}
 \begin{figure}
 	\centering
-    \includegraphics[width=9cm]{../cpp/final/rad_tolman_error.png}
+    \includegraphics[width=9cm]{../cpp/final/rad_tolman_error_2.png}
     \caption{Difference to Tolman relation}
 \end{figure}
 \end{frame}
@@ -513,16 +465,68 @@ An observer moving along a Killing vector \(\vb{k}\) will see excitations if and
 \end{itemize}
 \end{frame}
 
-\begin{frame}
-\maketitle
-\end{frame}
-
 \begin{frame}{Sources}
 \printbibliography
 \end{frame}
 
 \begin{frame}
+\maketitle
 \end{frame}
 
+\begin{frame}{Solutions of Klein-Gordon equation \cite{davies}}
+\begin{itemize}
+	\item \(u_{\omega l m} = A e^{-i\omega t} \frac{R_{\omega l}}{r}Y_l^m (\theta, \varphi)\)
+	\item[]
+	\item \(\dv[2]{R_{\omega l}}{r_*} + \omega^2 R_{\omega l} -\qty(\frac{l(l+1)}{r^2} + \frac{f'(r)}{r})f(r) R_{\omega l} = 0\)
+	\item[]
+	\item Asymptotic: \(R_{\omega l} = e^{\pm i\omega r_*}\)\hspace{3cm}\(r_* = r + 2M \ln \frac{r-2M}{2M}\)
+	\item[]	
+	\item \(u_{\omega l m} \approx \frac{1}{\sqrt{\pi\omega}} e^{-i\omega t} \frac{\sin(\omega r_* - l\frac{\pi}{2})}{r} Y_l^m (\theta, \varphi)\) 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Wightman function}
+\begin{itemize}
+	\item Wightman function: \(D^+(\vb{x}, \vb{x}') = \int_0^\infty \frac{\dd{\omega}}{\pi\omega} \sum_{l,m} e^{-i\omega(t-t')} \frac{\sin(\omega r_* - l\frac{\pi}{2})}{r} \frac{\sin(\omega r_*' - l\frac{\pi}{2})}{r'} Y_l^m(\theta,\varphi) Y_l^{m*}(\theta',\varphi')\)
+	\item[]
+	\item Problems:
+		\begin{itemize}
+			\item IR divergence: \(\int_0^\infty \frac{\dd{\omega}}{\pi\omega} e^{i\omega\dots}\)
+			\item[]
+			\item Angular dependence: \(\sum_{l,m} Y_l^m(\theta,\varphi) Y_l^{m*}(\theta',\varphi') \sim \delta(\theta-\theta')\delta(\varphi-\varphi')\)
+		\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Intermezzo: Minkowski space spherical modes}
+\begin{itemize}
+	\item \(u_{\omega,l,m}\upd{M} = \frac{\sqrt{\omega}}{\sqrt{\pi}} e^{- i \omega t} j_l(\omega r) Y_l^m(\theta,\varphi)\)
+	\item Asymptotic: \(u_{\omega,l,m}\upd{M} \to \frac{1}{\sqrt{\pi\omega}} e^{- i \omega t} \frac{\sin(\omega r - l\frac{\pi}{2})}{r} Y_l^m(\theta,\varphi)\)
+	\item Wightman function: \(D^+(\vb{x},\vb{x}')\)
+	\(\to \int_0^\infty \frac{\dd{\omega}}{\pi\omega} \sum_{l,m} e^{-i\omega(t-t')} \frac{\sin(\omega r - l\frac{\pi}{2})}{r} \frac{\sin(\omega r' - l\frac{\pi}{2})}{r'} Y_l^m(\theta,\varphi) Y_l^{m*}(\theta',\varphi')\)
+\end{itemize}
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{plot/sphericalbessel.png}
+\caption{Spherical Bessels: \(x\cdot j_l(x)\)}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+	\item Replace \(\frac{\sin(\omega r_* - l\frac{\pi}{2})}{\omega r} \approx F(r) j_l(\omega r_*)\)
+	\item Fix \(F(r)\) for limit \(\vb{x} \to \vb{x}'\)
+\end{itemize}
+\begin{block}{Wightman function}
+	\(D^+(\vb{x}, \vb{x}') \approx -\frac{1}{4\pi^2 \sqrt{f(r)f(r')}} \frac{1}{(t-t'-i\varepsilon)^2 - r_*^2 - r_*'^2 + 2r_*r_*' \cos{\alpha}}\)
+\end{block}
+\begin{itemize}
+	\item Static observer: \(r = \mathrm{const}, \alpha = 0\)
+	\begin{itemize}
+		\item \(D^+(\vb{x}(\tau), \vb{x}(\tau')) =  -\frac{1}{4\pi^2} \frac{1}{(\tau-\tau'-i\varepsilon)^2}\)
+		\item[\(\to\)] No particles
+	\end{itemize}
+\end{itemize}
+\end{frame}
 
 \end{document}

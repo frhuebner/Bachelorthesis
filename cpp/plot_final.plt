@@ -96,3 +96,11 @@ set output "final/rad_tolman_error.png"
 plot "data_rad_2007.txt" u (radius(($1))):(-($2)-(1/sqrt(1-2/($1))-1)):(abs($3)) w yerrorbars title "Observer" pt 1 lt rgb "black",\
 	0 title "Tolman" lt rgb "black",\
 	((1+2*log(x/2-1)/x)**2*(1-2/x))*(1/sqrt(1-2/(x))-1) title "Approximation" lt rgb "black" dt '-.-'
+	
+set xrange [140:1e5]
+set ytics 2e-3
+set yrange [-0.001:0.008]
+set output "final/rad_tolman_error_2.png"
+plot "data_rad_2007.txt" u (radius(($1))):(-($2)-(1/sqrt(1-2/($1))-1)):(abs($3)) w yerrorbars title "Observer" pt 1 lt rgb "black",\
+	0 title "Tolman" lt rgb "black",\
+	((1+2*log(x/2-1)/x)**2*(1-2/x))*(1/sqrt(1-2/(x))-1) title "Approximation error" lt rgb "black" dt '-.-'
