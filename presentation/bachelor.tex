@@ -7,7 +7,7 @@
 \usecolortheme{dolphin}
 \usecolortheme{orchid}
 \usepackage[utf8]{inputenc}
-\usepackage[ngerman]{babel}
+%\usepackage[ngerman]{babel}
 \usepackage{amsmath}
 \usepackage{lmodern}
 %\usepackage{marvosym}
@@ -54,7 +54,7 @@
 \begin{itemize}
 	\item Consider star collapsing to black hole
 	\item[]
-	\item Hawking 1974 \cite{hawking}: black hole radiate at \(T\ind{H} = \frac{1}{8\pi M}\)
+	\item Hawking 1974 \cite{hawking}: black hole radiates at \(T\ind{H} = \frac{1}{8\pi M}\)
 	\item[]
 	\item Minkowski space:
 		\begin{itemize}
@@ -95,11 +95,12 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Greens functions\cite{davies}}
+\begin{frame}{Wightman function\cite{davies}}
 \begin{itemize}
-	\item Vacuum:
+	\item Vacuum Wightman function: \(D^+(\vb{x},\vb{x}') := \bra*{0}\phi(\vb{x})\phi(\vb{x}')\ket*{0} = \sum_i u_i(\vb{x}) u_i^*(\vb{x}')\)
+	\item \(\nabla_\mu\nabla^\mu D^+(\vb{x},\vb{x}') = 0\)
 	\begin{itemize}
-		\item Wightman function \(D^+(\vb{x},\vb{x}') := \bra*{0}\phi(\vb{x})\phi(\vb{x}')\ket*{0} = \sum_i u_i(\vb{x}) u_i^*(\vb{x}')\)
+		\item  \(D^+(\vb{x},\vb{x}') := \bra*{0}\phi(\vb{x})\phi(\vb{x}')\ket*{0} = \sum_i u_i(\vb{x}) u_i^*(\vb{x}')\)
  		\item \(i D(\vb{x},\vb{x}') := [\phi(\vb{x}),\phi(\vb{x}')] = 2i\,\mathrm{Im}\,D^+(\vb{x},\vb{x}')\)
 		\item \(D^{(1)}(\vb{x},\vb{x}') := \bra*{0}\{\phi(\vb{x}),\phi(\vb{x}')\}\ket*{0}= 2\,\mathrm{Re}\,D^+(\vb{x},\vb{x}')\)
 	\end{itemize}
@@ -113,8 +114,8 @@
 \end{itemize}
 \end{frame}
 
-\subsection{Unruh detector\cite{davies}}
-\begin{frame}{Unruh detector}
+\subsection{Unruh detector}
+\begin{frame}{Unruh detector\cite{davies}}
 \begin{itemize}
 	\item Detector model: \(\mathcal{H}\ind{detector} = c \cdot m(\tau)\cdot \phi(\vb{x}(\tau))\),\, \(c \ll 1\)
 \end{itemize}
@@ -174,7 +175,7 @@
 
 \frame{\setcounter{tocdepth}{1}\hspace{1cm}\tableofcontents}
 
-\section{Unruh detector in static spacetimes}
+\section{Static spacetimes and equivalence principle}
 \begin{frame}{Static spactimes}
 \begin{itemize}
 	\item Metric: \(\dd{s^2} = -\beta(\va{x}) \dd{t^2} + g_{ij}(\va{x}) \dd{x^i} \dd{x^j}\)
@@ -231,7 +232,7 @@
 \end{frame}
 \begin{frame}
 \begin{itemize}
-	\item Other singularities appear at \(t = \mathrm{const}\) 
+	\item Other singularities appear at \(t = 0\) 
 	\item[] \(\to\) no singularities on timelike trajectories 
 	\item \(D = [\phi(\vb{x}),\phi(\vb{x}')]\) is only non zero on lightcone
 	\item[] \(\to\) \(D^+\) is real for all trajectories 
@@ -276,7 +277,7 @@ In a static spacetime a static observer does not observe any particles
 An observer moving along a Killing vector \(\vb{k}\) will see excitations if and only if there exists at least one solution \(u\): \(\frac{A}{|B|} < \frac{|m|}{\omega_m}\)
 \begin{itemize}
 	\item \(\dot{\vb{x}} = A\partial_t + B\vb{k}\)
-	\item \(\vb{k} u = i m\,u\)
+	\item \(\vb{k} u = i m\,u, \partial_t u = - i \omega_m\,u\)
 \end{itemize}
 \end{block} 
 \begin{itemize}
@@ -288,15 +289,17 @@ An observer moving along a Killing vector \(\vb{k}\) will see excitations if and
 
 
 \begin{frame}{Observers along Killing vectors}
+\begin{itemize}
+	\item Global effect: equivalence principle does not apply
+	\item Depends on whole history of observer 
+	\item[]
+\end{itemize}
 \begin{block}{Lemma 3}
 There is an observer moving along a Killing vector \(\vb{k}\) who will see excitations if and only if there exists at least one solution \(u\): \(\frac{g_{\xi\xi}(\vb{x})}{|g_{tt}(\vb{x})|} < \frac{m^2}{\omega_m^2}\)
 \end{block} 
 \begin{itemize}
-	\item Minkowski inertial: \(\vb{k} = \partial_x\), \(\frac{g_{xx}}{|g_{tt}|} = 1 \geq \frac{|m|}{\omega}\) 
+	\item Minkowski inertial: \(\vb{k} = \partial_x\), \(\frac{g_{xx}}{|g_{tt}|} = 1 \geq \frac{|k_x|}{\omega}\)\hspace{2cm}\(u \sim e^{i \va{k} \va{x}}\) 
 	\item[\(\to\)] Minkowski space: All inertial observers do not encounter particles.
-	\item[]
-	\item Global effect: equivalence principle does not apply
-	\item Depends on whole history of observer 
 \end{itemize}
 \end{frame}
 
@@ -325,9 +328,12 @@ There is an observer moving along a Killing vector \(\vb{k}\) who will see excit
 	\item Collapse to black hole: thermal state with temperature \(\beta\ind{H} = 8\pi M\)
 	\item What spectrum will observers see before and after the collapse?
 \end{itemize}
-\begin{block}{Wightman function}
-	\(D^+(\vb{x}, \vb{x}') \approx -\frac{1}{4\pi^2 \sqrt{f(r)f(r')}} \frac{1}{(t-t'-i\varepsilon)^2 - r_*^2 - r_*'^2 + 2r_*r_*' \cos{\alpha}}\)
+\begin{block}{Vacuum Wightman function}
+	\(D^+(\vb{x}, \vb{x}') \approx -\frac{1}{4\pi^2 \sqrt{f(r)f(r')}} \frac{1}{(t-t'-i\varepsilon)^2 - r_*^2 - r_*'^2 + 2r_*r_*' \cos{\alpha}}\) \hspace{1cm} \(r > 200M\)
 \end{block}
+\begin{itemize}
+	\item Tortoise coordinate: \(r_* = r + 2M \ln \frac{r-2M}{2M}\)
+\end{itemize}
 \end{frame}
 
 
@@ -336,12 +342,9 @@ There is an observer moving along a Killing vector \(\vb{k}\) who will see excit
 \begin{frame}{Circular Observer before collapse}
 \begin{itemize}
 	\item Circular observer: \(r = \mathrm{const}, t = A\tau, \phi = B \tau\)
-	\begin{itemize}
-		\item \(D^+(\vb{x}(\tau), \vb{x}(\tau')) = -\frac{1}{4\pi^2f(r)} \frac{1}{(A(\tau-\tau')-i\varepsilon)^2 - 2r_*^2 (1 - \cos{B(\tau-\tau')})}\)
-		\item Small velocities \(\frac{A}{Br_*} > 1\): \(\dv{F_E}{\tau} \sim e^{-E/B x_0}\)
-		\item High velocities \(\frac{A}{Br_*} < 1\): Poles on real axis \(\to\) not possible
-	\end{itemize}
-	\item Problem: \(D^+_\beta(\vb{x}(\tau),\vb{x}(0)) = -\frac{1}{4\pi^2 \tau^2} \frac{1}{f(r) A^2 - f(r)r_*^2 B^2} + \order*{\tau^0}\neq -\frac{1}{4\pi^2 \tau^2} + \order*{\tau^0}\)
+	\item \(D^+(\vb{x}(\tau), \vb{x}(\tau')) = -\frac{1}{4\pi^2f(r)} \frac{1}{(A(\tau-\tau')-i\varepsilon)^2 - 2r_*^2 (1 - \cos{B(\tau-\tau')})}\)
+	\item \(\dv{F_E}{\tau} \sim e^{-E/B x_0}\)
+	\item Problem at high velocities: Poles on real axis \(\to\) not possible
 	\item Approximation only valid for \(r^2 \approx f(r)r_*^2\)\hspace{1cm}(\(r > 200 M\))
 \end{itemize}
 \end{frame}
@@ -462,6 +465,7 @@ There is an observer moving along a Killing vector \(\vb{k}\) who will see excit
 	\item Determined the temperature out of a spectrum
 	\item For all observers temperature follows Tolman relation
 	\item Deviations not significant enough
+	\item[\(\to\)] need better approximation
 \end{itemize}
 \end{frame}
 
