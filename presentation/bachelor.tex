@@ -52,9 +52,7 @@
 
 \begin{frame}{Introduction}
 \begin{itemize}
-	\item Consider star collapsing to black hole
-	\item[]
-	\item Hawking 1974 \cite{hawking}: black hole radiates at \(T\ind{H} = \frac{1}{8\pi M}\)
+	\item Hawking 1974 \cite{hawking}: black holes radiate at \(T\ind{H} = \frac{1}{8\pi M}\)
 	\item[]
 	\item Minkowski space:
 		\begin{itemize}
@@ -78,7 +76,7 @@
 \begin{itemize}
 	\item Spacetime metric: \(g_{\mu\nu}\)
 	\item Lagrangian: \(\mathcal{L} = -\frac{1}{2}\sqrt{|g|} g^{\mu\nu} \partial_\mu \phi\,\partial_\nu \phi\)
-	\item Klein-Gordon equation: \(\nabla_\mu\nabla^\mu \phi = \frac{1}{\sqrt{|g|}}\partial_\mu \qty(\sqrt{|g|} g^{\mu\nu} \partial_\nu \phi) = 0\)
+	\item Klein-Gordon equation: \(\nabla_\mu\nabla^\mu \phi = 0\)
 	\item Scalar product: \((\phi|\psi) := i \int_{\Sigma}\dd{S^\mu} \phi^*\nabla_\mu \psi - \psi\nabla_\mu \phi^*\)
 	\item Orthonormal basis: \((u_i|u_j) = \delta_{ij},\;(u_i|u_j^*) = 0,\;(u_i^*|u_j^*) = -\delta_{ij}\)
 	\item Quantisation: \(\phi(\vb{x}) = \sum_i u_i a_i + u_i^*a_i^\dagger\)
@@ -237,7 +235,7 @@ In a static spacetime a static observer does not observe any particles.
 \subsubsection{Observers along Killing vectors}
 \begin{frame}{Observers along Killing vectors}
 \begin{block}{Lemma 2}
-An observer moving along a Killing vector \(\vb{k}\) will see excitations if and only if there exists at least one solution \(u\): \(\frac{A}{|B|} < \frac{|m|}{\omega}\).
+An observer moving along a spatial Killing vector \(\vb{k}\) will see excitations if and only if there exists at least one solution \(u\): \(\frac{A}{|B|} < \frac{|m|}{\omega}\).
 \begin{itemize}
 	\item \(\dot{\vb{x}} = A\partial_t + B\vb{k}\)
 	\item \(\vb{k} u = i m\,u, \partial_t u = - i \omega\,u\)
@@ -302,7 +300,7 @@ An observer moving along a Killing vector \(\vb{k}\) will see excitations if and
 	\item Consider star
 	\item \(\dd s^2 = -f(r)\dd{t^2} + \frac{1}{f(r)}\dd{r^2} + r^2 \dd{\Omega}\) where \(f(r) = 1 - 2M/r\)
 	\item QFT in vacuum state
-	\item Collapse to black hole: thermal state with temperature \(\beta\ind{H} = 8\pi M\)\cite{hawking}
+	\item Collapse to black hole: thermal state with \(\beta\ind{H} = 8\pi M\)\cite{hawking}
 	\item What spectrum will observers see before and after the collapse?
 \end{itemize}
 \begin{block}{Vacuum Wightman function}
@@ -352,7 +350,7 @@ An observer moving along a Killing vector \(\vb{k}\) will see excitations if and
 			&= \sum_{n=-\infty}^\infty -\frac{1}{4\pi^2 (\tau' - i\beta \sqrt{a} n)^2} + W(\tau'(t - i\beta n))\\
 			&= -\frac{1}{4\beta^2 a} \frac{1}{\sinh[2](\frac{\pi}{\beta \sqrt{a}} \tau')} + W_\beta(\tau')
 	\end{align*}
-	\item Static observers: \(T = \frac{T_0}{\sqrt{a}}\) (Tolman relation)
+	\item Static observers: \(T = \frac{T\ind{H}}{\sqrt{a}}\) (Tolman relation)
 	\item General: Corrections from \(W_\beta(\tau')\)
 	\begin{itemize}
 		\item Temperature shift?
